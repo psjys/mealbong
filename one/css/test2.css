@@ -99,12 +99,12 @@ div button {
 
 .loginbutton {
     margin-top : 30px;
-    background-color: lightcoral;
+    background-color: purple;
     color : white;
 }
 
 .accountbutton{
     background-color: white;
-    border : 1px solid lightcoral;
-    color : lightcoral;
+    border : 1px solid purple;
+    color : purple;
 }
