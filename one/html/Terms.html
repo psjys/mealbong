@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            width: 600px;
+            height: 800px;
+            /* box-sizing : border-box; */
+            flex-direction: column;
+        }
+
+        img {
+            width: 150px;
+            margin-top: calc((200px - 117px)/2);
+
+        }
+
+        .imgdiv {
+            margin: 0 auto;
+            height: 200px;
+            line-height: 200px;
+        }
+
+        .spanstyle {
+            font-size: 14px;
+            opacity: .4;
+
+        }
+
+        .box1 {
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
+
+        .box2 {
+            text-align : center;
+        }
+
+        .textarea {
+            height: 140px;
+            width: 600px;
+            box-sizing: border-box;
+
+        }
+
+        .button {
+            width: 180px;
+            height: 45px;
+            /* margin-top : 2px; */
+            box-sizing: border-box;
+            text-align: center;
+            background-color: lightsalmon;
+            border: solid 1px lightsalmon;
+            border-radius: 5px;
+            box-shadow: 3px 3px 3px black;
+            transition-duration: 0.3s;
+
+        }
+
+
+        .button2 {
+            width: 180px;
+            height: 45px;
+            margin-right: 20px;
+            box-sizing: border-box;
+            background-color: gray;
+            color: white;
+            /* border: solid 1px lightsalmon; */
+            border-radius: 5px;
+            box-shadow: 3px 3px 3px black;
+            transition-duration: 0.3s;
+
+        }
+
+        .button2 a {
+            text-decoration: none;
+        }
+
+        .button2 a:visited,
+        .button2 a:link {
+            color : black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="imgdiv">
+            <a href="https://www.kurly.com/main"><img src="../image/starbucks.jpg"></a>
+        </div>
+
+
+
+        <form action="./account.html">
+
+            <div class="box1">
+                <div>
+                    <input type="checkbox" id="agree1" required>
+                    <label for="agree1">이용약관 동의 <span class="spanstyle">(필수)</span></label>
+
+                </div>
+
+                <div>
+                    <textarea class="textarea">
+                            Et id tempor eu quis consequat ut. Consectetur aliqua Lorem esse culpa consequat nostrud mollit reprehenderit. Pariatur aliqua est enim labore enim pariatur incididunt commodo velit ut adipisicing. Exercitation qui dolor exercitation consequat quis cillum minim duis labore excepteur ea.
+            
+            Sint veniam et aliquip tempor. Esse aliqua ea nostrud proident pariatur velit do eiusmod cillum pariatur. Proident elit ut sint sint ad. Velit reprehenderit ex mollit pariatur. Commodo do veniam sint qui quis.
+            
+            Mollit deserunt in Lorem excepteur est veniam nulla est. Cupidatat qui elit esse ad laboris incididunt quis cupidatat laborum elit Lorem aliqua. Ad duis commodo magna ex laborum veniam eu quis eu pariatur cupidatat. Nisi est officia deserunt dolore labore nostrud id consectetur in dolor ullamco ipsum reprehenderit nostrud. Dolor cillum cillum dolor officia do officia non. Commodo sit dolore nisi enim minim Lorem reprehenderit ad dolore Lorem cillum.
+            
+            Sunt dolore dolore excepteur qui consequat aliquip dolore sint. Amet dolore commodo incididunt sint magna. Sunt in irure esse et. Eiusmod nostrud qui fugiat dolor nostrud labore minim eiusmod nisi sint pariatur proident consequat. Nisi eiusmod laborum id ex.
+                        </textarea>
+                </div>
+            </div>
+
+            <div class="box1">
+                <div>
+                    <input type="checkbox" id="agree2" required>
+                    <label for="agree2">개인정보 수집 및 이용 동의 <span class="spanstyle">(필수)</span></label>
+
+                </div>
+
+                <div>
+                    <textarea class="textarea">
+                            Et id tempor eu quis consequat ut. Consectetur aliqua Lorem esse culpa consequat nostrud mollit reprehenderit. Pariatur aliqua est enim labore enim pariatur incididunt commodo velit ut adipisicing. Exercitation qui dolor exercitation consequat quis cillum minim duis labore excepteur ea.
+            
+            Sint veniam et aliquip tempor. Esse aliqua ea nostrud proident pariatur velit do eiusmod cillum pariatur. Proident elit ut sint sint ad. Velit reprehenderit ex mollit pariatur. Commodo do veniam sint qui quis.
+            
+            Mollit deserunt in Lorem excepteur est veniam nulla est. Cupidatat qui elit esse ad laboris incididunt quis cupidatat laborum elit Lorem aliqua. Ad duis commodo magna ex laborum veniam eu quis eu pariatur cupidatat. Nisi est officia deserunt dolore labore nostrud id consectetur in dolor ullamco ipsum reprehenderit nostrud. Dolor cillum cillum dolor officia do officia non. Commodo sit dolore nisi enim minim Lorem reprehenderit ad dolore Lorem cillum.
+            
+            Sunt dolore dolore excepteur qui consequat aliquip dolore sint. Amet dolore commodo incididunt sint magna. Sunt in irure esse et. Eiusmod nostrud qui fugiat dolor nostrud labore minim eiusmod nisi sint pariatur proident consequat. Nisi eiusmod laborum id ex.
+                        </textarea>
+                </div>
+            </div>
+
+            <div class="box2">
+
+                <button type="button" class="button2">
+                    <a href="../login.html">취소</a>
+                </button>
+
+                <button class="button">
+                    확인
+
+                </button>
+
+            </div>
+
+        </form>
+
+
+
+        </form>
+
+
+
+    </div>
+
+</body>
+
+</html>

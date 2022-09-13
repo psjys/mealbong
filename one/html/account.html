@@ -79,7 +79,8 @@
         }
 
         .maindiv2 {
-            margin-bottom: 50px;
+            margin-top : 50px;
+            margin-bottom: 55px;
         }
 
         .divstyle1 {
@@ -212,9 +213,32 @@
 
         }
 
+        .button2 {
+            width: 12%;
+            height: 45px;
+            /* margin-top : 2px; */
+            box-sizing: border-box;
+            display: block;
+            text-align: center;
+            background-color: lightsalmon;
+            border: solid 1px lightsalmon;
+            /* border-radius: 5px; */
+            box-shadow: 3px 3px 3px black;
+            transition-duration: 0.3s;
+            font-weight : bold;
+
+        }
+
         .buttonBox {
             display: flex;
             justify-content: center;
+
+        }
+
+        .buttonBox2 {
+            display: flex;
+            justify-content: center;
+            margin-top : 30px;
 
         }
 
@@ -270,8 +294,8 @@
             width: 50%;
             display: flex;
             box-sizing: border-box;
-            border: 1px solid black;
-            flex-grow: 1;
+            justify-content : space-between;
+            /* border: 1px solid black; */
         }
 
         .birthparentbox {
@@ -283,21 +307,17 @@
 
         .birthchild {
             box-sizing: border-box;
-        }
-
-        .birthchild1 {
+            width : 33%;
             border: 1px solid black;
-
         }
-
-        .birthchild1,
-        .birthchild2,
-        .birthchild3 {}
 
         .birthchild2 {
             display: flex;
             align-items: center;
             width: 33%;
+            box-sizing : border-box;
+            margin : 0 20px;
+            border : none;
 
         }
 
@@ -311,7 +331,9 @@
 
         .month {
             width: 100px;
-            height: 30px;
+            height: 44px;
+            box-sizing : border-box;
+            padding-left : 10px;
 
 
         }
@@ -324,9 +346,7 @@
         }
 
         .birthmainbox {
-            display: inline-flex;
-            width: 100%;
-            flex-shrink: 2;
+            display: flex;
 
         }
 
@@ -335,6 +355,7 @@
             height: 44px;
             flex-shrink: 3;
         }
+
 
         /* ==============footer================ */
 
@@ -364,6 +385,7 @@
         <div class="maindiv">
             <div class="maindiv2">
                 <span class="mainspan">회원가입</span>
+                </div>
 
                 <div class="line align">
                     <div class="">
@@ -516,30 +538,30 @@
                                     <div class="birthchild birthchild1">
 
                                         <input type="text" class="inputstyle2" placeholder="YYYY" maxlength="4"
-                                            required>
+                                            >
 
                                     </div>
                                     <div class="birthchild birthchild2">
-                                        <select name="month" id="month" class="month" value="월">
-                                            <option value="12">12월</option>
-                                            <option value="11">11월</option>
-                                            <option value="10">10월</option>
-                                            <option value="9">9월</option>
-                                            <option value="8">8월</option>
-                                            <option value="7">7월</option>
-                                            <option value="6">6월</option>
-                                            <option value="5">5월</option>
-                                            <option value="4">4월</option>
-                                            <option value="3">3월</option>
-                                            <option value="2">2월</option>
-                                            <option value="1">1월</option>
-                                        </select>
+                                       <select name="month" id="month" class="month">
+                                        <option value="1">1월</option>
+                                        <option value="2">2월</option>
+                                        <option value="3">3월</option>
+                                        <option value="4">4월</option>
+                                        <option value="5">5월</option>
+                                        <option value="6">6월</option>
+                                        <option value="7">7월</option>
+                                        <option value="8">8월</option>
+                                        <option value="9">9월</option>
+                                        <option value="10">10월</option>
+                                        <option value="11">11월</option>
+                                        <option value="12">12월</option>
+                                       </select>
 
                                         <!-- <input type="text" class="inputstyle2" placeholder="MM" maxlength="2" required> -->
                                     </div>
                                     <div class="birthchild">
 
-                                        <input type="text" class="inputstyle2" placeholder="DD" maxlength="2" required>
+                                        <input type="text" class="inputstyle2" placeholder="DD" maxlength="2">
                                     </div>
 
                                 </div>
@@ -558,8 +580,8 @@
             </div>
 
             </fieldset>
-            <div class="buttonBox">
-                <button class="button">
+            <div class="buttonBox2">
+                <button class="button2">
                     가입하기
                 </button>
             </div>
