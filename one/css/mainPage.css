@@ -226,7 +226,7 @@ nav ul li:nth-child(1):hover .submenu {
 /* banner ------------*/
 
 .banner {
-    background: url(https://img-cf.kurly.com/cdn-cgi/image/format=auto/banner/main/pc/img/5a5ecfbd-6615-4593-955f-2725c82134d7) 100% no-repeat;
+    background: url(../image/banner2.png) 100% no-repeat;
     background-position: center;
     background-size: cover;
     height: 60vh;
