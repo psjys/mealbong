@@ -39,3 +39,15 @@ img {
 .food_theme a {
     margin-right: 40px;
 }
+
+/* ==================================================== */
+/* 클릭하면 찐하게 표시 */
+
+a:focus {
+    font-weight: bold;
+    color: orange;
+}
+
+.food_ranking a {
+    padding-right:70px;
+}

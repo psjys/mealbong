@@ -9,6 +9,7 @@
     height: 600px;
     width: 1200px;
     margin: auto;
+    margin-bottom:200px;
     display: flex;
     gap: 50px;
 }
