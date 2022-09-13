@@ -57,10 +57,18 @@ img {
 }
 
 .food_ex6 button {
+    font-size: 25px;
     width: 280px;
     height: 80px;
-    font-size: 25px;
     margin-right: 40px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: lightsalmon;
+    border: solid 1px lightsalmon;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px black;
+    transition-duration: 0.3s;
+    color: white;
 }
 
 /* ============================================================ */
