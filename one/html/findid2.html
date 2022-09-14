@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>비밀번호 찾기</title>
-
-    <link rel="stylesheet" href="../css/find.css">
-    
+    <title>아이디 찾기</title>
+   <link rel="stylesheet" href="../css/find.css">
 </head>
 
 <body>
@@ -26,16 +24,16 @@
     
         <main>
             <div class="findframe">
-                <p>비밀번호 찾기</p>
+                <p>아이디 찾기</p>
 
                 <div><span>휴대폰 인증</span></div>
                 
-                    <form action="./findid2.html" class="form">
+                    <form class="form">
                         <div class="formdiv">
-                            <label for="uname" class="namelabel">아이디</label>
+                            <label for="uname" class="namelabel">이름</label>
                             <div class="inputdiv">
 
-                                <input type="text" id="uname" minlength="1" class="findinput" placeholder="아이디를 입력해 주세요">
+                                <input type="text" id="uname" minlength="1" class="findinput" placeholder="이름을 입력해 주세요">
                             </div>
                         </div>
 
@@ -47,14 +45,24 @@
                             </div>
                         </div>
 
+                        <div class="formdiv div3main">
+                            <label for="phone" class="phonelabel">인증번호</label>
+                            <div class="div3">
+                                <div class="div3sub1">
+                                    <input type="tel" id="phone" class="findinput2" placeholder="인증번호 7자리">
+                                </div>
+
+                                <div class="div3sub2">
+                                    <button type="button" class="div3Button">재발송</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+
                         <div>
-                      
-
-                                <button class="button formButton">
-                                    <span class="spanbutton">인증번호 받기</span>
-                                </button>
-
-    
+                            <button type="button" class="button formButton">
+                                <span class="spanbutton">확인</span>
+                            </button>
 
                         </div>
 

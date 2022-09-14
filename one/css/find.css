@@ -1,0 +1,146 @@
+* {
+    margin : 0;
+    padding : 0;
+}
+
+/* =============================class style====================================== */
+
+
+.logostyle {
+    float : left;
+    position : relative;
+    bottom : 35px;
+}
+
+/* =================================header frame===================================== */
+
+header div {
+    text-align : center;
+}
+
+header div div:nth-child(1) {
+    background-color:bisque;
+    height : 100px;
+}
+header div div:nth-child(2) {
+    background-color:coral;
+    height : 56px;
+}
+
+
+/* =====================find frame======================== */
+
+.form {
+    display : flex;
+    flex-direction : column;
+    width : 600px;
+    margin : 0 auto;
+
+}
+
+.findframe {
+    min-width : 1050px;
+    margin-top : 50px;
+    text-align: center;
+}
+
+.formdiv {
+    margin-bottom : 15px;
+    margin-top : 10px;
+    display : flex;
+    flex-direction : column;
+    text-align : left;
+    width : 354px;
+    margin : 0 auto;
+}
+.divspan {
+    margin-top : 30px;
+    margin-bottom : 20px;
+}
+.spanstyle {
+    font-size : 20px;
+    font-weight : bold;
+}
+.findinput {
+width : 330px;
+height : 40px; 
+padding-left :  20px;
+font-weight : 700;
+border-radius: 5px;
+}
+
+.findinput2 {
+height : 40px; 
+font-weight : 700;
+border-radius: 5px;
+width : 100%;
+padding-left : 20px;
+box-sizing : border-box;
+}
+
+.p {
+    font-size : 28px;
+    font-weight : bold;
+}
+
+.div3 {
+    display : flex;
+    width : 354px;
+}
+
+.div3sub1 {
+    flex-grow : 7;
+}
+
+.div3sub2 {
+    flex-grow : 3;
+    display : flex;
+    justify-content : flex-end;
+}
+
+
+/* ======================이름=========================== */
+
+.namelabel {
+
+    font-weight : bold;
+    line-height : 19px;
+}
+/* =======================휴대폰========================= */
+
+
+.phonelabel {
+    font-weight : bold;
+}
+/* ======================인증================= */
+
+.button {
+    width : 355px;
+    line-height : 50px;
+    background-color: gray;
+    border-radius: 5px;
+    
+}
+.spanbutton {
+    font-size : 14px;
+    /* opacity : .5; */
+    color : white;
+}
+
+
+.formButton {
+    margin-top : 30px;
+    opacity : .4;
+}
+
+.div3Button {
+    margin-left : 25px;
+    width : 100%;
+    background-color : white;
+    border-radius: 5px;
+    font-weight : bold;
+}
+
+.div3Button:active {
+    background-color : gray;
+}

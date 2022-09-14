@@ -6,119 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>아이디 찾기</title>
-    <style>
-        * {
-    margin : 0;
-    padding : 0;
-}
-
-/* =============================class style====================================== */
-
-
-.logostyle {
-    float : left;
-    position : relative;
-    bottom : 35px;
-}
-
-/* =================================header frame===================================== */
-
-header div {
-    text-align : center;
-}
-
-header div div:nth-child(1) {
-    background-color:bisque;
-    height : 100px;
-}
-header div div:nth-child(2) {
-    background-color:coral;
-    height : 56px;
-}
-
-
-/* =====================find frame======================== */
-
-.findframe {
-    min-width : 1050px;
-    margin-top : 50px;
-}
-
-main div {
-    margin : 0px auto;
-
-}
-
-main>div {
-    text-align: center;
-    
-}
-form div:nth-child(2) {
-    margin-top : 10px;
-}
-main p+div {
-    margin-top : 30px;
-    margin-bottom : 20px;
-}
-span {
-    font-size : 20px;
-    font-weight : bold;
-}
-.findinput {
-width : 330px;
-height : 40px; 
-padding-left :  20px;
-font-weight : 700;
-border-radius: 5px;
-
-}
-
-p {
-    font-size : 28px;
-    font-weight : bold;
-}
-/* ======================이름=========================== */
-
-.namelabel {
-    position : relative;
-    right : 160px;
-    margin-bottom : 20px;
-    font-weight : bold;
-    line-height : 19px;
-}
-/* =======================휴대폰========================= */
-
-
-.phonelabel {
-    position: relative;
-    right : 135px;
-    font-weight : bold;
-}
-/* ======================인증================= */
-.inputdiv {
-    /* height : 48px; */
-}
-
-.button {
-    width : 355px;
-    line-height : 50px;
-    background-color: gray;
-    border-radius: 5px;
-    
-}
-.spanbutton {
-    font-size : 14px;
-    opacity : .5;
-    color : white;
-}
-
-
-form div:nth-child(3) {
-    margin-top : 30px;
-}
-
-
-    </style>
+    <link rel="stylesheet" href="../css/find.css">
 </head>
 
 <body>
@@ -136,12 +24,12 @@ form div:nth-child(3) {
     
         <main>
             <div class="findframe">
-                <p>아이디 찾기</p>
+                <p class="p">아이디 찾기</p>
 
-                <div><span>휴대폰 인증</span></div>
+                <div class="divspan"><span class="spanstyle">휴대폰 인증</span></div>
                 
-                    <form>
-                        <div class="findname">
+                    <form action="./findid2.html" class="form">
+                        <div class="formdiv">
                             <label for="uname" class="namelabel">이름</label>
                             <div class="inputdiv">
 
@@ -149,7 +37,7 @@ form div:nth-child(3) {
                             </div>
                         </div>
 
-                        <div>
+                        <div class="formdiv">
                             <label for="phone" class="phonelabel">휴대폰 번호</label>
                             <div>
 
@@ -158,9 +46,13 @@ form div:nth-child(3) {
                         </div>
 
                         <div>
-                            <button class="button">
-                                <span class="spanbutton">인증번호 받기</span>
-                            </button>
+                      
+
+                                <button class="button formButton">
+                                    <span class="spanbutton spanstyle">인증번호 받기</span>
+                                </button>
+
+    
 
                         </div>
 
