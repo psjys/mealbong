@@ -20,7 +20,7 @@
     justify-content: space-between;
     align-items: center;
     width: 1200px;
-    height : 100px;
+    height: 100px;
 }
 
 /*header 상단고정---------*/
@@ -33,15 +33,6 @@ header {
     background-color: white;
 }
 
-/* nav {
-    top : 0;
-    height : 35px;
-    min-width: 1200px;
-    position :sticky;
-    background-color : white;
-} */
-
-
 /*header 로고---------*/
 
 .logo {
@@ -49,7 +40,6 @@ header {
     background-repeat: no-repeat;
     background-position: center;
 }
-
 
 .login {
     width: 200px;
@@ -69,8 +59,6 @@ header {
 .login>li {
     width: 60px;
 }
-
-
 
 .l_hover {
     position: relative;
@@ -95,7 +83,6 @@ header {
     color: black;
     font-size: .9em;
 }
-
 
 /*header 검색창---------*/
 
@@ -131,6 +118,7 @@ header {
 }
 
 /* 장바구니 찜한 상품 ---------*/
+
 .cart_heart {
     width: 150px;
     display: flex;
@@ -162,13 +150,11 @@ header {
     background-image: url(../image/heart_coral.png);
 }
 
-
 /* 메뉴 ---------*/
 .menu {
     position: relative;
     display: flex;
     justify-content: space-between;
-
 }
 
 nav {
@@ -208,8 +194,6 @@ nav {
     border: 0.5px solid lightgray;
     border-top: none;
 }
-
-
 
 /* 메뉴 hover ---------*/
 
@@ -292,6 +276,7 @@ nav ul li:nth-child(4):hover .submenu2 {
 }
 
 /* main 카테고리 ----------- */
+
 .main-category {
     margin: 20px auto;
     display: flex;
@@ -314,15 +299,16 @@ nav ul li:nth-child(4):hover .submenu2 {
     font-weight: bold;
 }
 
-/* top button*/
+/* top button ------------ */
+
 .topButton {
     position: fixed;
-    bottom : 10px;
+    bottom: 10px;
     right: 10px;
     object-fit: cover;
 }
 
-/* footer ------------*/
+/* footer ------------ */
 
 footer {
     height: 20vh;
@@ -334,9 +320,10 @@ footer {
     justify-content: flex-start;
     height: 50px;
 }
+
 .footer a {
     text-decoration: none;
-    color : black;
+    color: black;
     font-size: 20px;
 }
 
@@ -344,7 +331,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding : 15px;
+    padding: 15px;
 }
 
 pre {
