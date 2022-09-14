@@ -314,10 +314,17 @@ nav ul li:nth-child(4):hover .submenu2 {
     font-weight: bold;
 }
 
+/* top button*/
+.topButton {
+    position: fixed;
+    bottom : 10px;
+    right: 10px;
+    object-fit: cover;
+}
+
 /* footer ------------*/
 
 footer {
-    /* background-color: lightgray; */
     height: 20vh;
     min-width: 1200px;
 }
