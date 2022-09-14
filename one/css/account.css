@@ -159,7 +159,6 @@ fieldset input {
 .buttonstyle {
     width: 100%;
     height: 34px;
-    /* margin-top : 2px; */
     box-sizing: border-box;
     display: block;
     text-align: center;
@@ -208,13 +207,12 @@ fieldset input {
 .button2 {
     width: 12%;
     height: 45px;
-    /* margin-top : 2px; */
+
     box-sizing: border-box;
     display: block;
     text-align: center;
     background-color: lightsalmon;
     border: solid 1px lightsalmon;
-    /* border-radius: 5px; */
     box-shadow: 3px 3px 3px black;
     transition-duration: 0.3s;
     font-weight : bold;

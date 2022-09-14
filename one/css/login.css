@@ -37,6 +37,7 @@ header div div:nth-child(2) {
 
 .loginframe {
     min-width : 1050px;
+    height : 900px;
     margin-top: 80px;
     margin-bottom : 40px;
 }
@@ -68,23 +69,29 @@ header div div:nth-child(2) {
 
 /* ====================================아이디비번 찾기======================================== */
 
-.find_a a {
-    text-decoration: none;
+.div_a a {
+}
+
+.a_tag:visited {
     color : black;
 }
 
-.find_a a:visited {
-    color : black;
-}
-
-.find_a {
+.div_a {
    margin-top : 20px;
    position : relative;
    left : 190px;
 }
 
-.find_a a {
+
+.a_tag {
     font-size : 13px;
+    text-decoration: none;
+    color : black;
+
+}
+
+.a_tag:hover {
+    text-decoration:underline;
 }
 
 
@@ -96,16 +103,50 @@ header div div:nth-child(2) {
     height : 52px;
     margin-bottom : 10px;
     font-weight : bold;
+    border : 1px solid lightcoral;
 }
 
 .loginbutton {
     margin-top : 30px;
     background-color: lightcoral;
     color : white;
+    font-size : 16px;
 }
 
 .accountbutton {
     background-color: white;
-    border : 1px solid lightcoral;
+}
+
+.button_a {
+    display : flex;
+    justify-content: center;
+    align-items : center;
+    width : 100%;
+    height : 48px;
+    text-decoration: none;
     color : lightcoral;
+    
+    
+}
+
+.img {
+    width : 100%;
+    height : 45px;
+}
+
+.p {
+    font-size : 18px;
+    font-weight : bold;
+}
+
+.SocialLogin {
+    display : flex;
+    width : 355px;
+    justify-content : space-between;
+    align-items : center;
+}
+
+.SocialLogin a:nth-of-type(1) {
+    margin-right : 20px;
+    
 }

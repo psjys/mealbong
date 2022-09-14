@@ -45,13 +45,11 @@ header div div:nth-child(2) {
 }
 
 .formdiv {
-    margin-bottom : 15px;
-    margin-top : 10px;
     display : flex;
     flex-direction : column;
     text-align : left;
     width : 354px;
-    margin : 0 auto;
+    margin : 10px auto 15px;
 }
 .divspan {
     margin-top : 30px;
@@ -101,17 +99,14 @@ box-sizing : border-box;
 
 /* ======================이름=========================== */
 
-.namelabel {
+.label {
 
     font-weight : bold;
-    line-height : 19px;
+    margin-bottom : 10px;
 }
 /* =======================휴대폰========================= */
 
 
-.phonelabel {
-    font-weight : bold;
-}
 /* ======================인증================= */
 
 .button {
