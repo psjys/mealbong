@@ -258,6 +258,7 @@ nav ul li:nth-child(4):hover .submenu2 {
 
 .pop_rec {
     height: 50vh;
+    margin-bottom: 50px;
 }
 
 .pop_pro {
@@ -269,11 +270,15 @@ nav ul li:nth-child(4):hover .submenu2 {
 .product {
     width: 32%;
     height: 100%;
-    background-color: aliceblue;
+    border : 1px solid;
+}
+
+.pro1 {
+    width: 100%;
 }
 
 .rec {
-    background-color: aliceblue;
+    border : 1px solid;
 }
 
 /* main 카테고리 ----------- */
