@@ -6,12 +6,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../css/food_page.css">
     <script src="https://kit.fontawesome.com/219136e9eb.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!-- 헤더 : 로고 / 검색창 /  -->
+    <header>
+        <div class="space">
+            <ul class="login">
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">로그인</a></li>
+                <li class="l_hover"><a href="#">고객센터</a>
+                    <ul class="hoverbox">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">1:1 문의사항</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="flex-box">
+            <a href="#"><img src="../image/logo4.png" alt="logo" class="logo"></a>
+            <form>
+                <div class="search">
+                    <input type="text" placeholder="검색어를 입력 하세요" required>
+                    <button class="button"><img class="button-set" src="../image/search.png"></button>
+                </div>
+            </form>
+            <div class="cart_heart">
+                <a href="#" class="cart"></a>
+                <a href="#" class="heart"></a>
+            </div>
+        </div>
+        <!-- nav / position : fixed -->
+        <nav>
+            <ul class="menu">
+                <li><a href="#">카테고리</a>
+                    <ul class="submenu">
+                        <li><a href="#">한식</a></li>
+                        <li><a href="#">중식</a></li>
+                        <li><a href="#">일식</a></li>
+                        <li><a href="#">양식</a></li>
+                        <li><a href="#">분식</a></li>
+                        <li><a href="#">아시안</a></li>
+                    </ul>
+                </li>
+                <li><a href="#pop">인기상품</a></li>
+                <li><a href="#recommend">오늘의 추천</a></li>
+                <li><a href="#">고객센터</a>
+                    <ul class="submenu2">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">1:1 문의사항</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ============================================================================= -->
+    <!-- food_page -->
+
     <div class="outerbox1">
         <div class="innerbox1">
             <img src="../image/Korean/애호박 된장찌개(2인).jpg" alt="Food main img">
@@ -44,7 +104,7 @@
                 </li>
                 <li id="delivery">
                     <div>
-                        <h2>배송</h2>
+                        <h2>배송비</h2>
                     </div>
                     <div>
                         3,000원
@@ -77,36 +137,33 @@
                     </select>
                 </li>
                 <li id="sale">
-                    <h2><button>구매하기</button><button>장바구니</button></h2>
+                    <h2><button class="foodpage_button">구매하기</button>
+                        <button class="foodpage_button">장바구니</button>
+                    </h2>
                 </li>
             </ul>
         </div>
     </div>
+    <!-- ============================================================================ -->
+    <!-- middle box -->
+
+    <div class="middlebox">
+        <a href="#food_info">상세정보</a>
+        <a href="#food_delivery">배송안내</a>
+        <a href="#food_refund">교환 및 반품안내</a>
+        <a href="">상품후기(0)</a>
+        <a href="">상품문의(0)</a>
+    </div>
+
     <div class="outerbox2">
-        <div class="innerbox2">
-            <img src="../image/Korean/KoreanFood1/food1picture1.jpg" alt="Food detail 1">
-            <p>Dolor velit magna magna sint velit non. Qui sit nulla mollit pariatur. Esse qui do laborum eu magna dolor
-                adipisicing occaecat. Laborum incididunt exercitation consectetur nisi laboris consequat velit ea cillum
-                pariatur excepteur nostrud aliquip sint. Cillum ipsum veniam ad excepteur et aliquip cillum adipisicing
-                ea anim.
-            </p>
-        </div>
-        <div class="innerbox2">
-            <p>Minim amet cupidatat ad ipsum aliquip quis mollit anim id sit anim. Pariatur aliquip labore est quis
-                labore ea est amet consectetur cillum qui consequat. Sint enim cupidatat nostrud laborum et exercitation
-                enim in eiusmod ad adipisicing adipisicing. Velit occaecat qui nulla consequat ullamco ex exercitation
-                sit aute enim commodo nulla elit in. Reprehenderit in elit velit ad sit. Aliquip reprehenderit qui
-                excepteur laborum incididunt irure pariatur ipsum magna sunt velit officia. Eiusmod cupidatat velit
-                veniam in.
-            </p>
-            <img src="../image/Korean/KoreanFood1/food1picture2.jpg" alt="Food detail 2">
-        </div>
-        <div class="innerbox2">
-            <img src="../image/Korean/KoreanFood1/food1picture3.jpg" alt="Food detail 3">
-            <p>Consequat proident culpa quis id aliqua ea consectetur ex. Ea laboris velit occaecat culpa cupidatat
-                magna pariatur eu. Qui in in esse ad non nostrud ad ipsum pariatur fugiat sint cillum laborum.
-            </p>
-        </div>
+        <img src="http://mychef.godohosting.com/godo5/product/doenjang_stew_camping_garnish.jpg" name="food_info"
+            alt="food_detail1">
+        <img src="https://www.mychef.kr/data/editor/policy/220609/about_mychef_01_120136.jpg" name="food_delivery"
+            alt="food_detail2">
+        <img src="	https://www.mychef.kr/data/editor/policy/220609/about_mychef_02_120033.jpg" name="food_refund"
+            alt="food_detail3">
+        <img src="" alt="">
+        <img src="" alt="">
     </div>
 </body>
 

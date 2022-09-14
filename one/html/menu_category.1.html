@@ -6,19 +6,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../css/menu_category1.css">
 </head>
 
 <body>
+    <!-- 헤더 : 로고 / 검색창 /  -->
+    <header>
+        <div class="space">
+            <ul class="login">
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">로그인</a></li>
+                <li class="l_hover"><a href="#">고객센터</a>
+                    <ul class="hoverbox">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">1:1 문의사항</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="flex-box">
+            <a href="#"><img src="../image/logo4.png" alt="logo" class="logo"></a>
+            <form>
+                <div class="search">
+                    <input type="text" placeholder="검색어를 입력 하세요" required>
+                    <button class="button"><img class="button-set" src="../image/search.png"></button>
+                </div>
+            </form>
+            <div class="cart_heart">
+                <a href="#" class="cart"></a>
+                <a href="#" class="heart"></a>
+            </div>
+        </div>
+        <!-- nav / position : fixed -->
+        <nav>
+            <ul class="menu">
+                <li><a href="#">카테고리</a>
+                    <ul class="submenu">
+                        <li><a href="../html/menu_category.1.html">한식</a></li>
+                        <li><a href="#">중식</a></li>
+                        <li><a href="#">일식</a></li>
+                        <li><a href="#">양식</a></li>
+                        <li><a href="#">분식</a></li>
+                        <li><a href="#">아시안</a></li>
+                    </ul>
+                </li>
+                <li><a href="#pop">인기상품</a></li>
+                <li><a href="#recommend">오늘의 추천</a></li>
+                <li><a href="#">고객센터</a>
+                    <ul class="submenu2">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">1:1 문의사항</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+<!-- ======================================================================================= -->
+    <!-- menu_category page -->
+
     <div class="outerbox">
         <div class="innerbox1">
-            <a href="#"><span>전체</span></a>
-            <a href="#"><span>한식</span></a>
-            <a href="#"><span>중식</span></a>
-            <a href="#"><span>양식</span></a>
-            <a href="#"><span>일식</span></a>
-            <a href="#"><span>아시안</span></a>
+            <a href="#"><span>전체</span></a> |
+            <a href="#"><span>한식</span></a> |
+            <a href="#"><span>중식</span></a> |
+            <a href="#"><span>양식</span></a> |
+            <a href="#"><span>일식</span></a> |
+            <a href="#"><span>아시안</span></a> |
             <a href="#"><span>분식/야식</span></a>
         </div>
         <hr>
@@ -32,55 +91,55 @@
 
         <div class="innerbox3">
             <div class="food_box">
-                <a href="#"><img src="../image/Korean/애호박 된장찌개(2인).jpg" alt="된장찌개"></a>
-                <div class="menu_name"><a href="#">애호박 된장찌개 (2인)</a></div>
-                <div class="menu price">10,000원</div>
+                <a href="../html/food_page.html"><img src="../image/Korean/애호박 된장찌개(2인).jpg" alt="된장찌개"></a>
+                <div class="menu_name"><a href="../html/food_page.html">애호박 된장찌개 (2인)</a></div>
+                <div class="menu_price">10,000원</div>
             </div>
             <div class="food_box">
                 <a href="#"><img src="../image/Korean/5분 고기 김치찌개 (2인).PNG" alt="김치찌개"></a>
                 <div class="menu_name"><a href="#">5분 고기 김치찌개 (2인)</a></div>
-                <div class="menu price">10,000원</div>
+                <div class="menu_price">10,000원</div>
             </div>
             <div class="food_box">
                 <a href="#"><img src="../image/Korean/차돌 순두부찌개 밀키트 (2인).PNG" alt="순두부찌개"></a>
                 <div class="menu_name"><a href="#">차돌 순두부찌개 (2인)</a></div>
-                <div class="menu price">10,000원</div>
+                <div class="menu_price">10,000원</div>
             </div>
             <div class="food_box">
                 <a href="#"><img src="../image/Korean/한우 소고기 미역국 (2인).PNG" alt="미역국"></a>
                 <div class="menu_name"><a href="#">한우 소고기 미역국 (2인)</a></div>
-                <div class="menu price">10,000원</div>
+                <div class="menu_price">10,000원</div>
             </div>
             <div class="food_box">
                 <a href="#"><img src="../image/Korean/실속 부대찌개 (3~4인).PNG" alt="부대찌개"></a>
                 <div class="menu_name"><a href="#">실속 부대찌개 (2인)</a></div>
-                <div class="menu price">10,000원</div>
+                <div class="menu_price">10,000원</div>
             </div>
             <div class="food_box">
                 <a href="#"><img src="../image/Korean/마그마 순살 닭볶음탕 (2~3인).PNG" alt="닭볶음탕"></a>
                 <div class=" menu_name"><a href="#">순살 닭볶음탕 (3~4인)</a>
                 </div>
-                <div class="menu price">10,000원</div>
+                <div class="menu_price">10,000원</div>
             </div>
             <div class="food_box">
                 <a href="#"><img src="../image/Korean/안동식 순살 찜닭 (3~4인분).PNG" alt="찜닭"></a>
                 <div class="menu_name"><a href="#">술살 찜닭 (3~4인)</a></div>
-                <div class="menu price">10,000원</div>
+                <div class="menu_price">10,000원</div>
             </div>
             <div class="food_box">
                 <a href="#"><img src="../image/Korean/매콤 쭈꾸미 삼겹살 (2인).PNG" alt="쭈꾸미 삼겹살"></a>
                 <div class="menu_name"><a href="#">쭈꾸미 삼겹살 (2인)</a></div>
-                <div class="menu price">10,000원</div>
+                <div class="menu_price">10,000원</div>
             </div>
             <div class="food_box">
                 <a href="#"><img src="../image/Korean/기사식당 돼지 불고기 (2~3인).PNG" alt="돼지 불고기"></a>
                 <div class="menu_name"><a href="#">돼지 불고기 2인)</a></div>
-                <div class="menu price">10,000원</div>
+                <div class="menu_price">10,000원</div>
             </div>
             <div class="food_box">
                 <a href="#"><img src="../image/Korean/삼색 막국수 (1인).PNG" alt="막국수"></a>
                 <div class="menu_name"><a href="#"> 삼색 막국수 (1인)</a></div>
-                <div class="menu price">10,000원</div>
+                <div class="menu_price">10,000원</div>
             </div>
         </div>
     </div>
