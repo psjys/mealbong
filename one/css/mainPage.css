@@ -198,19 +198,23 @@ nav {
     color: black;
 }
 
-.submenu {
+.submenu,
+.submenu2 {
     display: none;
     width: 100%;
     position: absolute;
 }
 
-.submenu>li {
+.submenu>li,
+.submenu2>li {
     width: 150px;
     box-sizing: border-box;
     line-height: 35px;
     background-color: white;
     border: 0.5px solid lightgray;
 }
+
+
 
 /* 메뉴 hover ---------*/
 
@@ -219,7 +223,8 @@ nav {
     transition-duration: 0.5s;
 }
 
-nav ul li:nth-child(1):hover .submenu {
+nav ul li:nth-child(1):hover .submenu,
+nav ul li:nth-child(4):hover .submenu2 {
     display: block;
 }
 
