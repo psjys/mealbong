@@ -103,7 +103,7 @@ header div div:nth-child(2) {
     height : 52px;
     margin-bottom : 10px;
     font-weight : bold;
-    border : 1px solid lightcoral;
+    border : 1px solid rgb(255, 160, 122);
 }
 
 .loginbutton {
