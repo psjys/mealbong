@@ -234,10 +234,13 @@ nav ul li:nth-child(4):hover .submenu2 {
     text-align: center;
 }
 
+.pop_pro {
+    margin-bottom:200px;
+}
 .pop {
     font-size: 1.5em;
     font-weight: bold;
-    margin-top: 50px;
+    margin: 50px auto;
 }
 
 .pop a {
@@ -293,6 +296,7 @@ nav ul li:nth-child(4):hover .submenu2 {
 
 .main-category {
     margin: 20px auto;
+    margin-bottom:120px;
     display: flex;
     justify-content: space-evenly;
     width: 1200px;
