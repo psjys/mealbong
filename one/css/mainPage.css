@@ -1,5 +1,3 @@
-/* =============================================================================== */
-/* header part */
 * {
     margin: 0;
     padding: 0;
@@ -209,94 +207,286 @@ nav ul li:nth-child(1):hover .submenu,
 nav ul li:nth-child(4):hover .submenu2 {
     display: block;
 }
-/* ======================================================================== */
-/* outerbox */
 
-.outerbox {
+/* banner ------------*/
+
+.banner {
+    min-width: 1200px;
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* main -------------*/
+
+.main-width {
     width: 1200px;
     margin: auto;
-    /* border: 1px solid; */
 }
 
-.innerbox1 a,
-.innerbox2 a {
-    color: black;
-    text-decoration: none;
-}
-
-/* ========================================================================== */
-/* innerbox 3개 */
-
-.innerbox1 {
-    height: 80px;
-    width: 1100px;
-    margin: 10px auto;
-    /* border: 1px solid; */
-}
-
-.innerbox2 {
-    height: 50px;
-    width: 1100px;
-    margin: 10px auto;
-}
-
-.innerbox1 a:focus,
-.innerbox2 a:focus {
-    font-weight: bold;
-    color: orange;
-}
-
-.innerbox3 {
-    height: 1500px;
-    width: 1100px;
-    margin: 10px auto;
-
-    display: grid;
-    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
-}
-/* ============================================================================ */
-/* innerbox1 innerbox2 안에 a태그들 정렬 */
-
-.innerbox1 {
+.main-flex,
+.pop_rec {
     display: flex;
-    justify-content:space-evenly;
-    align-items:center;
-}
-
-.innerbox2 a:nth-child(1) {
-    padding-left:55px;
-}
-
-.innerbox2 a {
-    padding : 10px;
-}
-
-/* ============================================================================ */
-/* innerbox3 안에 food box 나열 */
-
-.innerbox3 .food_box {
-    width: 250px;
-    height: 300px;
-    margin: auto;
-}
-
-.innerbox3 .food_box {
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    margin-top: 10px;
     text-align: center;
 }
-.food_box .menu {
-    display: inline-block;
+
+.pop,
+.recommend {
+    font-size: 1.5em;
+    font-weight: bold;
 }
-.innerbox3 a {
+
+.pop a,
+.recommend a {
     text-decoration: none;
     color: black;
 }
 
+.pop,
+.pop_pro {
+    width: 65%;
+}
 
-/* ============================================================================== */
-/* food_box 안에 img + menu name + menu price */
+.recommend,
+.rec {
+    width: 30%;
+}
 
-.food_box img  {
+.pop_rec {
+    height: 50vh;
+    margin-bottom: 50px;
+}
+
+.pop_pro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product {
+    width: 32%;
+    height: 100%;
+    border : 1px solid;
+}
+
+.pro1 {
     width: 100%;
-    height: 70%;
-    border-radius: 5%;
+}
+
+.rec {
+    border : 1px solid;
+}
+
+/* main 카테고리 ----------- */
+
+.main-category {
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-evenly;
+    width: 1200px;
+}
+
+.main-box {
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    background-color: rgb(255, 178, 148);
+    border-radius: 10px;
+}
+
+.main-box a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* top button ------------ */
+
+.topButton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    object-fit: cover;
+}
+
+/* footer ------------ */
+
+footer {
+    height: 20vh;
+    min-width: 1200px;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    height: 50px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+pre {
+    font-size: .8em;
+}
+
+/* =============================================== */
+/* food_page css */
+/* outerbox1 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.outerbox1 {
+    width: 1200px;
+    height: 500px;
+    margin: 50px auto;
+    margin-bottom: 200px;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.innerbox1>ul {
+    width: 500px;
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.innerbox1>ul>li {
+    border-bottom: 1px solid;
+    padding-bottom:10px;
+}
+
+.innerbox1>ul>li:last-child {
+    border: none;
+}
+
+.innerbox1 img {
+    width: 100%;
+    height: 100%;
+    border-radius:5%;
+}
+
+#menu,
+#delivery,
+#amount {
+    display: flex;
+    justify-content: space-between;
+}
+
+#icons ul,
+#sale {
+    display: flex;
+    justify-content: space-around;
+}
+
+#amount select {
+    width: 100px;
+}
+
+.foodpage_button {
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: lightsalmon;
+    border: solid 1px lightsalmon;
+    border-radius: 5px;
+    transition-duration: 0.3s;
+    margin: 0 20px;
+    font-size: 20px;
+    color: white;
+}
+
+/* =============================================== */
+/* middle box 설정 */
+
+.middlebox {
+    /* border:1px solid; */
+    width: 1200px;
+    height: 150px;
+    margin:auto;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.middlebox a {
+    color: black;
+    text-decoration: none;
+}
+
+/* ================================================ */
+/* outerbox2 설정 */
+
+.outerbox2 {
+    width: 1000px;
+    margin: auto;
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* ================================================ */
+/* 상푸후기 및 상품문의 */
+#food_review,
+#food_inquiry {
+    width: 1000px;
+    height:200px;
+    margin:120px auto;
+}
+
+.last {
+    width: 1000px;
+    height: 100px;
+    /* border: solid 1px; */
+}
+
+.last button {
+    width: 120px;
+    height: 40px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: lightsalmon;
+    border: solid 1px lightsalmon;
+    border-radius: 5px;
+    transition-duration: 0.3s;
+    color: white;
+}
+
+.review1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.review2 {
+    display: flex;
+    justify-content:center;
+    align-items: center;
 }
