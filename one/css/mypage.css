@@ -1,0 +1,586 @@
+main {
+    width: 1200px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.mypage {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.name {
+    line-height: 80px;
+    text-align: center;
+}
+
+.aside {
+    width: 180px;
+}
+
+.aside ul {
+    list-style: none;
+    border: 1px solid;
+    border-bottom: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.aside ul li {
+    line-height: 14px;
+    box-sizing: border-box;
+    border-bottom: 1px solid;
+    font-weight: bold;
+}
+
+.aside ul a {
+    text-decoration: none;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.aside a {
+    color: black;
+}
+
+.aside a span::after {
+    content: "▷";
+}
+
+.aside a:hover {
+    background-color: lightsalmon;
+    transition-duration: 0.5s;
+}
+
+.aside a[href="#"] {
+    background-color: lightsalmon;
+}
+
+.content {
+    width: 950px;
+    box-sizing: border-box;
+}
+
+.content_1 {
+    height: 80px;
+    border-bottom: 1px solid;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.content_1 div h2 {
+    display: inline-block;
+}
+
+.content_1 div span {
+    padding: 10px;
+}
+
+/* 고객센터 - 공지사항 */
+
+.content_notice {
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr 2fr;
+    grid-auto-rows: 60px;
+}
+
+.content_notice div:nth-child(-n + 4) {
+    font-weight: bold;
+    border-bottom: 2px solid;
+    box-sizing: border-box;
+}
+
+.content_notice div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid;
+    box-sizing: border-box;
+}
+
+.content_notice a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 30px;
+    border-bottom: 1px solid;
+    box-sizing: border-box;
+    color: black;
+    text-decoration: none;
+}
+
+.content_notice a:hover {
+    font-weight: bold;
+}
+
+/* 고객센터 - 자주하는 질문 */
+
+.content_faq {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-right: 1px solid;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+}
+
+.content_faq div {
+    display: flex;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    justify-content: center;
+    text-align: center;
+    line-height: 50px;
+    box-sizing: border-box;
+}
+
+.content_faq div a {
+    width: 100%;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.content_faq div a:hover {
+    color: white;
+    background-color: lightsalmon;
+    transition-duration: 0.2s;
+}
+
+.content_faq div a[href="#"] {
+    background-color: lightsalmon;
+    color: white;
+}
+
+.content_faq_answer {
+    display: grid;
+    grid-template-columns: 1.5fr 9fr;
+    grid-auto-rows: 60px;
+
+    border-top: 1px solid;
+    box-sizing: border-box;
+}
+
+.content_faq_answer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid;
+    box-sizing: border-box;
+
+}
+
+.content_faq_answer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    color: black;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.content_faq_answer div:nth-child(-n + 2) {
+    font-weight: bold;
+    border-bottom: 2px solid;
+    box-sizing: border-box;
+}
+
+.content_faq_answer a:hover {
+    color: lightsalmon;
+}
+
+/* 고객센터 - 1:1 문의 */
+
+.content_inquiry_list {
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr;
+    grid-auto-rows: 60px;
+
+}
+
+.content_inquiry_list div:nth-child(-n + 3) {
+    font-weight: bold;
+    border-bottom: 2px solid;
+    box-sizing: border-box;
+}
+
+.content_inquiry_list div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid;
+    box-sizing: border-box;
+}
+
+.content_inquiry_list a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 30px;
+    border-bottom: 1px solid;
+    box-sizing: border-box;
+    color: black;
+    text-decoration: none;
+}
+
+.content_inquiry_list a:hover {
+    font-weight: bold;
+}
+
+.content_inquiry_list_2 {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.inquriy_list_button {
+    width: 130px;
+    height: 40px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    background-color: lightsalmon;
+    border: solid 1px lightsalmon;
+    border-radius: 5px;
+}
+
+.inquriy_list_button a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+}
+
+.content_inquiry_form>form>div {
+    display: flex;
+    padding: 12px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.content_inquiry_form input {
+    width: calc(100% - 140px);
+    height: 40px;
+    box-sizing: border-box;
+    text-align: center;
+
+}
+
+.content_inquiry_form_1,
+.content_inquiry_form_2,
+.content_inquiry_form_3 {
+    width: 140px;
+}
+
+.content_inquiry_form span::before {
+    content: "*";
+    color: red;
+}
+
+.content_inquiry_form .type {
+    height: 40px;
+    width: calc(100% - 140px);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.content_inquiry_form_3 {
+    align-self: flex-start;
+}
+
+.content_inquiry_form_textarea {
+    width: calc(100% - 140px);
+    height: 500px;
+    padding: 30px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.content_inquiry_form_textarea::placeholder {
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+.content_inquiry_form_6 {
+    display: flex;
+    justify-content: center;
+    margin-left: 140px;
+}
+
+/* 마이페이지 - 배송지관리 */
+
+.content_adress {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr 2fr 1fr;
+    grid-auto-rows: 60px;
+}
+
+.content_adress div:nth-child(-n + 5) {
+    font-weight: bold;
+    border-bottom: 2px solid;
+    box-sizing: border-box;
+}
+
+.content_adress div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid;
+    box-sizing: border-box;
+}
+
+.content_adress div:nth-of-type(5n + 10) a {
+    background: url(../image/fix.png) no-repeat center/100%;
+    width: 24px;
+    height: 24px;
+}
+
+/* 마이페이지 - 개인정보 수정 */
+
+.content_info_1 {
+    height: 80px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.content_info_2 {
+    box-sizing: border-box;
+    border-bottom: 1px solid;
+}
+
+.content_info_2 div {
+    font-size: 12px;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.content_info_3 {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 120px;
+    box-sizing: border-box;
+}
+
+.content_info_3_id,
+.content_info_3_pw,
+.content_info_3_pw div,
+.content_info_3_id div {
+    display: flex;
+    justify-content: center;
+}
+
+.content_info_3_pw span::before {
+    content: "*";
+    color: red;
+}
+
+.content_info_3_id div:nth-of-type(1),
+.content_info_3_pw div:nth-of-type(1) {
+    width: 140px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.content_info_3_id input,
+.content_info_3_pw input {
+    width: 300px;
+    height: 40px;
+    padding-left: 20px;
+}
+
+.content_info_3_id {
+    padding-bottom: 20px;
+}
+
+.content_info_4 {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid;
+}
+
+.info_button {
+    width: 130px;
+    height: 40px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    background-color: lightsalmon;
+    border: solid 1px lightsalmon;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+/* 마이페이지 - 개인정보 수정 세부 항목 수정*/
+
+
+.info_correction label {
+    font-weight: bold;
+}
+
+.info_correction_1 .box1 {
+    display: flex;
+    align-items: center;
+}
+
+
+.info_correction {
+    text-align: center;
+}
+
+.info_correction label div span::before {
+    content: "*";
+    color: red;
+}
+
+.info_correction fieldset {
+
+    width: 710px;
+    margin: 20px auto;
+    border: none;
+}
+
+.info_correction_1 .box1 {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+}
+
+.info_correction_1 .box2 {
+    width: 50%;
+}
+
+.info_correction_1 .box3 {
+    width: 20%;
+    box-sizing: border-box;
+    padding-left: 15px;
+}
+
+.info_correction_1 .inner {
+    width: 30%;
+    text-align: left;
+    padding-left: 15px;
+    box-sizing: border-box;
+}
+
+.info_correction_1 .inputstyle {
+    width: 100%;
+    height: 36px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.info_correction_1 .inputstyle2 {
+    height: 40px;
+    width: 50px;
+    box-sizing: border-box;
+    border: none;
+}
+
+.info_correction_1 .genderinput {
+    width: 20px;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+.info_correction_1 input[type="radio"] {
+    accent-color: rgba(228, 13, 13, 0.684);
+}
+
+.info_correction_1 .buttonstyle {
+    width: 100%;
+    height: 34px;
+    border-radius: 5px;
+}
+
+.info_correction_1 .buttonstyle,
+.info_correction_2 .button_correction {
+    cursor: pointer;
+    box-sizing: border-box;
+    display: block;
+    text-align: center;
+    background-color: lightsalmon;
+    border: solid 1px lightsalmon;
+    font-weight: bold;
+    color: white;
+}
+
+.info_correction_2 .button_secession {
+    cursor: pointer;
+    box-sizing: border-box;
+    display: block;
+    text-align: center;
+    border: solid 1px lightsalmon;
+    font-weight: bold;
+    color: lightsalmon;
+}
+
+.info_correction_1 .button_opacity {
+    opacity: .3;
+    font-weight: bold;
+}
+
+.info_correction_2 {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    gap: 20px;
+}
+
+.info_correction_2 .button_correction,
+.info_correction_2 .button_secession {
+    width: 100px;
+    height: 45px;
+    border-radius: 5px;
+}
+
+.info_correction_1 .genderlabel {
+    box-sizing: border-box;
+    padding-top: 4px;
+}
+
+.info_correction_1 .gender {
+    display: flex;
+    align-items: center;
+}
+
+.info_correction_1 .genderlabel2 {
+    margin-right: 45px;
+}
+
+.info_correction_1 .birth {
+    height: 44px;
+    width: 50%;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.info_correction_1 .birthchild {
+    box-sizing: border-box;
+    width: 33%;
+    border: 1px solid rgba(0, 0, 0, 0.55);
+}
+
+.info_correction_1 .birthchild2 {
+    display: flex;
+    align-items: center;
+    width: 33%;
+    box-sizing: border-box;
+    margin: 0 20px;
+    border: none;
+}
+
+.info_correction_1 .month {
+    width: 100px;
+    height: 44px;
+    box-sizing: border-box;
+    padding-left: 10px;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/mypage.css">
+    <link rel="stylesheet" href="../../../css/mainPage.css">
+</head>
+
+<body>
+    <header>
+        <div class="space">
+            <ul class="login">
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">로그인</a></li>
+                <li class="l_hover"><a href="#">고객센터</a>
+                    <ul class="hoverbox">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">1:1 문의사항</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="flex-box">
+            <div class="logo"><a href="#"></a></div>
+            <div class="search">
+                <input type="text" placeholder="검색어를 입력 하세요" required>
+                <button><img class="button" src="../../../image/search.png"></button>
+            </div>
+            <div class="cart_heart">
+                <a href="#" class="cart"></a>
+                <a href="#" class="heart"></a>
+            </div>
+        </div>
+        <!-- nav / position : fixed -->
+        <nav>
+            <ul class="menu">
+                <li><a href="#">카테고리</a>
+                    <ul class="submenu">
+                        <li><a href="#">한식</a></li>
+                        <li><a href="#">중식</a></li>
+                        <li><a href="#">일식</a></li>
+                        <li><a href="#">양식</a></li>
+                        <li><a href="#">분식</a></li>
+                        <li><a href="#">아시안</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">인기상품</a></li>
+                <li><a href="#">오늘의 추천</a></li>
+                <li><a href="#">고객센터</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="mypage">
+            <div class="aside">
+                <div class="name">
+                    <h2>고객센터</h2>
+                </div>
+                <ul>
+                    <li>
+                        <a href="../notice.html" class="notice">공지사항
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../faq/faq.html" class="faq">자주하는 질문
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="inquiry">1:1 문의
+                            <span></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content">
+                <div class="content_1">
+                    <h2>1:1 문의</h2>
+                </div>
+                <div class="content_inquiry_form">
+                    <form>
+                        <div>
+                            <div class="content_inquiry_form_1">유형<span></span></div>
+                            <select name="type" id="type" class="type">
+                                <option value="product">상품</option>
+                                <option value="exchange">교환/환불</option>
+                                <option value="order">주문/결제</option>
+                                <option value="information">회원정보</option>
+                                <option value="site">사이트 이용</option>
+                                <option value="event">이벤트</option>
+                                <option value="unclassified">미분류</option>
+                            </select>
+                        </div>
+                        <div>
+                            <div class="content_inquiry_form_2">제목<span></span></div>
+                            <input type="text" class="inputstyle" placeholder=" 제목을 입력해주세요" required>
+                        </div>
+                        <div>
+                            <div class="content_inquiry_form_3">내용<span></span></div>
+                            <textarea class="content_inquiry_form_textarea" placeholder="내용을 입력해 주세요."></textarea>
+                        </div>
+                        <div class="content_inquiry_form_6">
+                            <button class="inquriy_list_button" type="button">
+                                <a href="#">등록</a>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <h1>footer</h1>
+        </div>
+    </footer>
+</body>
+
+</html>
