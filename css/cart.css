@@ -215,7 +215,7 @@ nav ul li:nth-child(4):hover .submenu2 {
 /* ============================메인상단========================= */
 
 .cart_container {
-    width : 950px;
+    width : 1000px;
     margin : 0 auto;
     text-align: center;
     display : flex;
@@ -233,7 +233,7 @@ nav ul li:nth-child(4):hover .submenu2 {
 
 .div_a {
     margin-top : 20px;
-    padding-bottom : 10px;
+    padding-bottom : 15px;
     border-bottom : 1px solid;
     align-self : flex-start;
     width : 70%;
@@ -241,13 +241,14 @@ nav ul li:nth-child(4):hover .submenu2 {
  }
 
  .a_tag {
-    font-size : 18px;
     text-decoration: none;
     color : black;
 }
 
+.a_tag,
 .label_style {
     font-size : 18px;
+    font-weight : bold;
 }
 
 .a_tag:visited {
@@ -269,9 +270,83 @@ nav ul li:nth-child(4):hover .submenu2 {
     display : flex;
 }
 
+/* ============================메인 본문========================== */
+
 .cart_div1 {
     width : 70%;
-    border : 1px solid;
+    padding : 10px;
+    box-sizing : border-box;
+}
+
+.div1_sub {
+    display : flex;
+    align-items : center;
+    justify-content : space-between;
+    height : 90px;
+    margin : 15px 0;
+}
+
+.div1_line {
+    border-bottom : 1px solid gray;
+    opacity : .1;
+}
+
+.div1_sub_sub {
+    display : flex;
+    align-items : center;
+    height : 90px;
+}
+
+
+.div1_input {
+    width : 20px;
+    height : 20px;
+
+}
+
+.div1_a_img1,
+.div1_a_img2,
+.div1_a_img3 {
+    width : 70px;
+    height : 70px;
+    margin-left : 15px;
+}
+
+.div1_a_img1 {
+    background : url(../image/Asian/불고기\ 분짜\(3~4인\).jpg) no-repeat center/cover;
+}
+
+.div1_a_img2 {
+    background : url(../image/Chinese/얼큰\ 마라탕\(2인\).jpg) no-repeat center/cover;
+}
+
+.div1_a_img3 {
+    background : url(../image/Japanese/나혼자\ 밀푀유\(1인\).jpg) no-repeat center/cover;
+}
+
+/* .div1_a_img4 {
+    background : url(../image/Japanese/나혼자\ 밀푀유\(1인\).jpg) no-repeat center/cover;
+} */
+
+.div1_a2 {
+    font-weight : bold;
+    margin-left : 20px;
+    text-decoration: none;
+    font-size : 20px;
+    color : black;
+}
+
+.div1_a2:visited {
+    color : black;
+}
+
+.div1_span {
+    font-weight : bold;
+    font-size : 18px;
+}
+
+.div1_inputNumber {
+    margin-right : 40px;
 }
 
 .cart_div2 {
@@ -309,13 +384,13 @@ nav ul li:nth-child(4):hover .submenu2 {
 .cart_subdiv2 {
     padding : 20px;
     box-sizing : border-box;
-    flex-grow : 1;
 }
 
 .cart_subdiv2 {
     background-color: gainsboro;
     display : flex;
     flex-direction: column;
+    flex-grow : 1;
 }
 
 .subdiv2_box,
