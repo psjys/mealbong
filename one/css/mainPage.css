@@ -32,6 +32,7 @@ header {
     position: sticky;
     background-color: white;
     box-shadow: 0 4px 4px -4px gray;
+    z-index: 2;
 }
 
 /*header 로고---------*/
@@ -221,54 +222,51 @@ nav ul li:nth-child(4):hover .submenu2 {
 
 .main-width {
     width: 1200px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .main-flex,
-.pop_rec {
+.pop_pro,
+.rec {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-bottom: 30px;
-    margin-top: 30px;
     text-align: center;
 }
 
-.pop,
-.recommend {
+.pop {
     font-size: 1.5em;
     font-weight: bold;
+    margin-top: 50px;
 }
 
-.pop a,
-.recommend a {
+.pop a {
     text-decoration: none;
     color: black;
 }
 
-.pop,
 .pop_pro {
-    width: 65%;
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+    justify-content:center;
 }
 
-.recommend,
 .rec {
-    width: 30%;
+    display: grid;
+    grid-template: repeat(1, 1fr) / repeat(3, 1fr);
+    justify-content:center;
 }
 
-.pop_rec {
-    margin-bottom: 50px;
-}
-
-.pop_pro {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.game {
+    border : 1px solid;
+    width : 1200px;
+    line-height: 300px;
+    text-align: center;
+    margin: 50px auto;
 }
 
 .product {
-    width: 32%;
-    height: 100%;
+    margin: 20px;
     overflow: hidden;
 }
 
@@ -277,6 +275,9 @@ nav ul li:nth-child(4):hover .submenu2 {
     text-decoration: none;
 }
 
+.product img {
+    border-radius: 5%;
+}
 
 .pro1 img {
     width: 100%;
@@ -284,12 +285,9 @@ nav ul li:nth-child(4):hover .submenu2 {
 }
 
 .pro1:hover img {
-    transform: scale(1.03);
+    opacity: .8;
 }
 
-.rec {
-    border : 1px solid;
-}
 
 /* main 카테고리 ----------- */
 
