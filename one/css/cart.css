@@ -5,7 +5,6 @@
     font-family: 'Gowun Dodum', sans-serif;
 }
 
-/* =============================class style====================================== */
 
 
 /* =================================header frame===================================== */
@@ -213,114 +212,106 @@ nav ul li:nth-child(4):hover .submenu2 {
     display: block;
 }
 
-/* =====================find frame======================== */
+/* ============================메인상단========================= */
 
-.form {
-    display : flex;
-    flex-direction : column;
-    width : 600px;
+.cart_container {
+    width : 950px;
+    /* height : 600px; */
+    border: 1px solid;
     margin : 0 auto;
-
-}
-
-.findframe {
-    min-width : 1050px;
-    margin-top : 50px;
     text-align: center;
-}
-
-.formdiv {
     display : flex;
-    flex-direction : column;
-    text-align : left;
-    width : 354px;
-    margin : 10px auto 15px;
-}
-.divspan {
-    margin-top : 30px;
-    margin-bottom : 20px;
-}
-.spanstyle {
-    font-size : 20px;
-    font-weight : bold;
-}
-.findinput {
-width : 330px;
-height : 40px; 
-padding-left :  20px;
-font-weight : 700;
-border-radius: 5px;
+    flex-direction: column;
 }
 
-.findinput2 {
-height : 40px; 
-font-weight : 700;
-border-radius: 5px;
-width : 100%;
-padding-left : 20px;
-box-sizing : border-box;
+.mainspan {
+    font-weight: 600;
+    font-size: 26px;
+    margin : 55px 0 50px;
+    display : block;
+
+
 }
 
-.p {
-    font-size : 28px;
-    font-weight : bold;
-}
-
-.div3 {
+.div_a {
+    margin-top : 20px;
+    padding-bottom : 10px;
+    border-bottom : 1px solid;
+    align-self : flex-start;
+    width : 70%;
     display : flex;
-    width : 354px;
+ }
+
+ .a_tag {
+    font-size : 18px;
+    text-decoration: none;
+    color : black;
+
 }
 
-.div3sub1 {
-    flex-grow : 7;
+.a_tag:visited {
+    color : black;
 }
 
-.div3sub2 {
-    flex-grow : 3;
-    display : flex;
-    justify-content : flex-end;
+.spanmargin {
+    margin : 0 10px;
 }
 
-
-/* ======================이름=========================== */
-
-.label {
-
-    font-weight : bold;
-    margin-bottom : 10px;
-}
-/* =======================휴대폰========================= */
-
-
-/* ======================인증================= */
-
-.buttonstyle {
-    width : 355px;
-    line-height : 50px;
-    background-color: gray;
-    border-radius: 5px;
-    
-}
-.spanbutton {
-    font-size : 14px;
-    /* opacity : .5; */
-    color : white;
+.cartinput {
+    width : 20px;
+    margin-right : 15px;
+    margin-left : 10px;
 }
 
-
-.formButton {
-    margin-top : 30px;
-    opacity : .4;
-}
-
-.div3Button {
-    margin-left : 25px;
+.cart_divbox {
     width : 100%;
-    background-color : white;
-    border-radius: 5px;
-    font-weight : bold;
+    display : flex;
+    border : 2px solid;
 }
 
-.div3Button:active {
-    background-color : gray;
+.cart_div1 {
+    width : 70%;
+    border : 1px solid;
+}
+
+.cart_div2 {
+    width : 30%;
+    height : 800px;
+    padding : 20px;
+    box-sizing : border-box;
+    display : flex;
+    text-align : left;
+    flex-direction : column;
+}
+
+.align_p {
+    margin : 10px 0;
+}
+
+.cart_subdiv2 {
+    width : 100%;
+}
+
+.cart_subdiv2 {
+    background-color: gainsboro;
+}
+
+.subdiv1_button {
+    width : 100%;
+    height : 25px;
+    background-color: lightsalmon;
+    border-radius : 5px;
+    display : flex;
+    margin-top : 15px;
+}
+
+.subdiv1_a {
+    width : 100%;
+    height : 100%;
+    color : black;
+    text-decoration: none;
+}
+
+.subdiv1_a:visited {
+    color : black;
 }

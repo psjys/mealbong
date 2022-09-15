@@ -1,6 +1,8 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin : 0;
+    padding : 0;
+    list-style: none;
+    font-family: 'Gowun Dodum', sans-serif;
 }
 
 body {
@@ -47,20 +49,24 @@ body {
     height: 140px;
     width: 600px;
     box-sizing: border-box;
+    resize : none;
+
+}
+
+.textarea::readOnly {
 
 }
 
 .button {
     width: 180px;
     height: 45px;
-    /* margin-top : 2px; */
     box-sizing: border-box;
     text-align: center;
     background-color: lightsalmon;
-    border: solid 1px lightsalmon;
+    border: none;
     border-radius: 5px;
-    box-shadow: 3px 3px 3px black;
-    transition-duration: 0.3s;
+    color: white;
+
 
 }
 
@@ -71,19 +77,18 @@ body {
     margin-right: 20px;
     box-sizing: border-box;
     background-color: gray;
-    color: white;
     /* border: solid 1px lightsalmon; */
     border-radius: 5px;
-    box-shadow: 3px 3px 3px black;
-    transition-duration: 0.3s;
-
+    border : none;
+    
 }
 
 .button2 a {
     text-decoration: none;
+    color: white;
 }
 
 .button2 a:visited,
 .button2 a:link {
-    color : black;
+    color: white;
 }
