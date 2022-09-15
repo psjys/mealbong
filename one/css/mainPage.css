@@ -317,6 +317,10 @@ nav ul li:nth-child(4):hover .submenu2 {
     font-weight: bold;
 }
 
+.main-box:hover {
+    opacity : .8;
+}
+
 /* top button ------------ */
 
 .topButton {
