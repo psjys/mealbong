@@ -1,3 +1,5 @@
+/* =============================================================================== */
+/* header part */
 * {
     margin: 0;
     padding: 0;
@@ -207,139 +209,94 @@ nav ul li:nth-child(1):hover .submenu,
 nav ul li:nth-child(4):hover .submenu2 {
     display: block;
 }
+/* ======================================================================== */
+/* outerbox */
 
-/* banner ------------*/
-
-.banner {
-    min-width: 1200px;
-    height: 500px;
-    width: 100%;
-    object-fit: cover;
+.outerbox {
+    width: 1200px;
+    margin: auto;
+    /* border: 1px solid; */
 }
 
-/* main -------------*/
+.innerbox1 a,
+.innerbox2 a {
+    color: black;
+    text-decoration: none;
+}
 
-.main-width {
-    width: 1200px;
+/* ========================================================================== */
+/* innerbox 3개 */
+
+.innerbox1 {
+    height: 80px;
+    width: 1100px;
+    margin: 10px auto;
+    /* border: 1px solid; */
+}
+
+.innerbox2 {
+    height: 50px;
+    width: 1100px;
+    margin: 10px auto;
+}
+
+.innerbox1 a:focus,
+.innerbox2 a:focus {
+    font-weight: bold;
+    color: orange;
+}
+
+.innerbox3 {
+    height: 1500px;
+    width: 1100px;
+    margin: 10px auto;
+
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+}
+/* ============================================================================ */
+/* innerbox1 innerbox2 안에 a태그들 정렬 */
+
+.innerbox1 {
+    display: flex;
+    justify-content:space-evenly;
+    align-items:center;
+}
+
+.innerbox2 a:nth-child(1) {
+    padding-left:55px;
+}
+
+.innerbox2 a {
+    padding : 10px;
+}
+
+/* ============================================================================ */
+/* innerbox3 안에 food box 나열 */
+
+.innerbox3 .food_box {
+    width: 250px;
+    height: 300px;
     margin: auto;
 }
 
-.main-flex,
-.pop_rec {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 10px;
-    margin-top: 10px;
+.innerbox3 .food_box {
     text-align: center;
 }
-
-.pop,
-.recommend {
-    font-size: 1.5em;
-    font-weight: bold;
+.food_box .menu {
+    display: inline-block;
 }
-
-.pop a,
-.recommend a {
+.innerbox3 a {
     text-decoration: none;
     color: black;
 }
 
-.pop,
-.pop_pro {
-    width: 65%;
-}
 
-.recommend,
-.rec {
-    width: 30%;
-}
+/* ============================================================================== */
+/* food_box 안에 img + menu name + menu price */
 
-.pop_rec {
-    height: 50vh;
-    margin-bottom: 50px;
-}
-
-.pop_pro {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.product {
-    width: 32%;
-    height: 100%;
-    border : 1px solid;
-}
-
-.pro1 {
+.food_box img  {
     width: 100%;
-}
-
-.rec {
-    border : 1px solid;
-}
-
-/* main 카테고리 ----------- */
-
-.main-category {
-    margin: 20px auto;
-    display: flex;
-    justify-content: space-evenly;
-    width: 1200px;
-}
-
-.main-box {
-    width: 100px;
-    line-height: 100px;
-    text-align: center;
-    background-color: rgb(255, 178, 148);
-    border-radius: 10px;
-}
-
-.main-box a {
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-/* top button ------------ */
-
-.topButton {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    object-fit: cover;
-}
-
-/* footer ------------ */
-
-footer {
-    height: 20vh;
-    min-width: 1200px;
-}
-
-.footer {
-    display: flex;
-    justify-content: flex-start;
-    height: 50px;
-}
-
-.footer a {
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-}
-
-.footer div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-}
-
-pre {
-    font-size: .8em;
+    height: 70%;
+    border-radius: 5%;
 }
