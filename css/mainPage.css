@@ -235,12 +235,12 @@ nav ul li:nth-child(4):hover .submenu2 {
 }
 
 .pop_pro {
-    margin-bottom:200px;
+    margin-bottom:100px;
 }
 .pop {
     font-size: 1.5em;
     font-weight: bold;
-    margin: 50px auto;
+    margin: 30px auto;
 }
 
 .pop a {
@@ -250,13 +250,13 @@ nav ul li:nth-child(4):hover .submenu2 {
 
 .pop_pro {
     display: grid;
-    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+    grid-template: repeat(2, 1fr) / repeat(4, 1fr);
     justify-content:center;
 }
 
 .rec {
     display: grid;
-    grid-template: repeat(1, 1fr) / repeat(3, 1fr);
+    grid-template: repeat(1, 1fr) / repeat(4, 1fr);
     justify-content:center;
 }
 
