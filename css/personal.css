@@ -8,6 +8,7 @@
 body {
     display: flex;
     justify-content: center;
+    height : 800px;
 }
 
 .personal_img img {
@@ -22,7 +23,7 @@ body {
 }
 
 .personal_text {
-    height: 600px;
+    height: 400px;
     width: 600px;
     box-sizing: border-box;
     resize : none;
@@ -31,6 +32,6 @@ body {
 .personal_box {
     display: flex;
     width: 600px;
-    height: 800px;
+    height: 600px;
     flex-direction: column;
 }
