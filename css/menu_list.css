@@ -300,3 +300,35 @@ nav ul li:nth-child(4):hover .submenu2 {
     height: 70%;
     border-radius: 5%;
 }
+
+
+/* footer ------------ */
+
+footer {
+    /* height: 160px; */
+    min-width: 1200px;
+    margin-top: 50px;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    height: 50px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+    font-size: .8em;
+}
+
+.footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+pre {
+    font-size: .8em;
+}
