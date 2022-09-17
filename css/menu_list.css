@@ -294,12 +294,16 @@ nav ul li:nth-child(4):hover .submenu2 {
 
 /* ============================================================================== */
 /* food_box 안에 img + menu name + menu price */
+/* 찜하기 + 장바구니 */
 
 .food_box img  {
     width: 100%;
     height: 70%;
     border-radius: 5%;
 }
+
+
+
 
 
 /* footer ------------ */
@@ -331,4 +335,19 @@ footer {
 
 pre {
     font-size: .8em;
+}
+
+/* ================================================== */
+/* aside : 마스코트 캐릭터 (하찮은 연어) */
+
+#mascot {
+    position:fixed;
+    bottom:0;
+    left:0;
+    z-index:100;
+}
+
+#mascot_btn img {
+    width: 171px;
+    height: 99px;
 }

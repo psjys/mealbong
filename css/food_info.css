@@ -366,3 +366,49 @@ nav ul li:nth-child(4):hover .submenu2 {
     color: black;
     text-decoration: none;
 }
+
+/* footer ------------ */
+
+footer {
+    /* height: 160px; */
+    min-width: 1200px;
+    margin-top: 50px;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    height: 50px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+    font-size: .8em;
+}
+
+.footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+pre {
+    font-size: .8em;
+}
+
+/* ================================================== */
+/* aside : 마스코트 캐릭터 (하찮은 연어) */
+
+#mascot {
+    position:fixed;
+    bottom:0;
+    left:0;
+    z-index:100;
+}
+
+#mascot_btn img {
+    width: 171px;
+    height: 99px;
+}
