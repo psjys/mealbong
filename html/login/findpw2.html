@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인</title>
-    <link rel="stylesheet" href="../../css/login.css">
+    <title>아이디 찾기</title>
+    <link rel="stylesheet" href="../../css/find.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
@@ -67,56 +66,53 @@
         </nav>
     </header>
 
+
     <main>
-        <div class="loginframe">
-            <div class="logintext">로그인</div>
-            <div class="loginform">
-                <form action="../mainpage.html">
-                    <div class="logindiv">
-                        <div class="login-id">
-                            <input type="text" name="id" maxlength="40" placeholder="아이디를 입력해주세요" class="login-input input_border" required>
+        <div class="findframe">
+            <p class="p">비밀번호 찾기</p>
 
-                        </div>
-                        <div class="login-pw">
-                            <input type="password" name="pw" maxlength="40" placeholder="비밀번호를 입력해주세요" class="login-input input_border" required>
+            <div class="divspan"><span class="spanstyle">휴대폰 인증</span></div>
 
-                        </div>
+            <form action="../login/login.html" class="form">
+                <div class="formdiv">
+                    <label for="uname" class="label">아이디</label>
+                    <div class="inputdiv">
+
+                        <input type="text" id="uname" minlength="8" class="findinput" placeholder="mealbong1234" readonly>
                     </div>
+                </div>
 
-                    <div class="div_a">
-                        <a href="./findid.html" class="a_tag">아이디 찾기</a>
-                        <span>&#124;</span>
-                        <a href="./findpw.html" class="a_tag">비밀번호 찾기</a>
+                <div class="formdiv">
+                    <label for="phone" class="label">휴대폰 번호</label>
+                    <div>
+
+                        <input type="tel" id="phone" class="findinput" placeholder="010-1234-5678" minlength="10" readonly>
                     </div>
-                    <button class="loginbutton">
-                          로그인
-                    </button>
-                </form>
+                </div>
 
-                <div class="accountbutton">
-                    <a href="./Terms.html" class="button_a">회원가입</a>
-            </div>
-                <!-- <form action="./Terms.html">
-                    <button class="accountbutton">
-                        회원가입
-                    </button>
+                <div class="formdiv">
+                    <label for="phone" class="label">인증번호</label>
+                    <div class="div3">
+                        <div class="div3sub1">
+                            <input type="tel" id="phone" class="findinput2" placeholder="인증번호 7자리" minlength="7" maxlength="7" required>
+                        </div>
 
-                </form> -->
-
-                <div>
-                    <p class="p">간편 로그인</p>
-                    <div class="SocialLogin">
-                        <a href="https://kauth.kakao.com/oauth/authorize?client_id=e383b53fba9bd1a9729bd3cfeceffd95&redirect_uri=https://fresheasy.co.kr/member/kakaoSyncLogin&response_type=code">
-                            <img src="../../image/kakaoSyncLogin.png" alt="" class="img">
-                        </a>
-                        <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com">
-                            <img src="../../image/naverSocialLogin.png" alt="" class="img">
-                        </a>
+                        <div class="div3sub2">
+                            <a href="../login/findpw2.html" class="div3_a">재발송</a>
+                        </div>
 
                     </div>
                 </div>
 
-            </div>
+                <div>
+                    <button class="buttonstyle formButton">
+                        <span class="spanbutton sapnstyle">확인</span>
+                    </button>
+
+                </div>
+
+            </form>
+
         </div>
 
     </main>
@@ -124,7 +120,6 @@
     <footer>
 
     </footer>
-
 </body>
 
 </html>

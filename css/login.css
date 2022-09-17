@@ -287,6 +287,7 @@ nav ul li:nth-child(4):hover .submenu2 {
     margin-bottom : 10px;
     font-weight : bold;
     border : 1px solid rgb(255, 160, 122);
+    box-sizing : border-box;
 }
 
 .loginbutton {

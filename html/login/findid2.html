@@ -71,14 +71,14 @@
         <div class="findframe">
             <p class="p">아이디 찾기</p>
 
-            <div><span class="spanstyle">휴대폰 인증</span></div>
+            <div class="divspan"><span class="spanstyle">휴대폰 인증</span></div>
 
-            <form class="form">
+            <form action="../login/login.html" class="form">
                 <div class="formdiv">
                     <label for="uname" class="label">이름</label>
                     <div class="inputdiv">
 
-                        <input type="text" id="uname" minlength="1" class="findinput" placeholder="이름을 입력해 주세요">
+                        <input type="text" id="uname" minlength="1" class="findinput" placeholder="test" readonly>
                     </div>
                 </div>
 
@@ -86,7 +86,7 @@
                     <label for="phone" class="label">휴대폰 번호</label>
                     <div>
 
-                        <input type="tel" id="phone" class="findinput" placeholder="휴대폰 번호를 입력해 주세요">
+                        <input type="tel" id="phone" class="findinput" placeholder="010-1234-5678" minlength="10" readonly>
                     </div>
                 </div>
 
@@ -94,18 +94,18 @@
                     <label for="phone" class="label">인증번호</label>
                     <div class="div3">
                         <div class="div3sub1">
-                            <input type="tel" id="phone" class="findinput2" placeholder="인증번호 7자리">
+                            <input type="tel" id="phone" class="findinput2" placeholder="인증번호 7자리" minlength="7" maxlength="7" required>
                         </div>
 
                         <div class="div3sub2">
-                            <button type="button" class="div3Button">재발송</button>
+                            <a href="../login/findid2.html" class="div3_a">재발송</a>
                         </div>
 
                     </div>
                 </div>
 
                 <div>
-                    <button type="button" class="buttonstyle formButton">
+                    <button class="buttonstyle formButton">
                         <span class="spanbutton sapnstyle">확인</span>
                     </button>
 
