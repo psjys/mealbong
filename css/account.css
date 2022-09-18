@@ -310,7 +310,33 @@ input[type="radio"] {
 
 /* ==============footer================ */
 
+/* footer ------------ */
+
 footer {
-    height: 300px;
+    /* height: 160px; */
     min-width: 1200px;
+    margin-top: 50px;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    height: 50px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+    font-size: .8em;
+}
+
+.footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+pre {
+    font-size: .8em;
 }

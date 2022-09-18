@@ -318,18 +318,48 @@ box-sizing : border-box;
 .buttonstyle {
     width : 355px;
     line-height : 50px;
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.317);
     border-radius: 5px;
     
 }
 .spanbutton {
     font-size : 14px;
-    /* opacity : .5; */
     color : white;
 }
 
 
 .formButton {
     margin-top : 30px;
-    opacity : .4;
+    border : none;
+}
+
+/* footer ------------ */
+
+footer {
+    /* height: 160px; */
+    min-width: 1200px;
+    margin-top: 70px;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    height: 50px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+    font-size: .8em;
+}
+
+.footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+pre {
+    font-size: .8em;
 }
