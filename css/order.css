@@ -451,7 +451,7 @@ nav ul li:nth-child(4):hover .submenu2 {
 }
 
 .cart_subdiv12 {
-    height : 23%;
+    height : 24%;
     border : 1px solid;
     display : flex;
     flex-direction : column;
