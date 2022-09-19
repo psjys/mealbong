@@ -270,7 +270,7 @@ nav ul li:nth-child(4):hover .submenu2 {
 }
 
 .foodpage_button {
-    width: 200px;
+    width: 120px;
     height: 50px;
     display: inline-block;
     box-sizing: border-box;
@@ -281,6 +281,9 @@ nav ul li:nth-child(4):hover .submenu2 {
     transition-duration: 0.3s;
     margin: 0 20px;
     font-size: 20px;
+}
+
+#sale .foodpage_button a{
     color: white;
 }
 

@@ -533,3 +533,26 @@ pre {
     width: 171px;
     height: 99px;
 }
+
+.product {
+    position:relative;
+}
+
+header {
+    z-index: 3;
+}
+
+#wish_icon {
+    position: absolute;
+    right: 10px;
+    bottom: 60px;
+    color: white;
+}
+
+.product #wish_icon:hover {
+    color: red;
+}
+
+.product button:focus #wish_icon {
+    color: red;
+}

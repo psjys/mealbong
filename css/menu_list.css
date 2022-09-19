@@ -209,6 +209,7 @@ nav ul li:nth-child(1):hover .submenu,
 nav ul li:nth-child(4):hover .submenu2 {
     display: block;
 }
+
 /* ======================================================================== */
 /* outerbox */
 
@@ -254,21 +255,22 @@ nav ul li:nth-child(4):hover .submenu2 {
     display: grid;
     grid-template: repeat(4, 1fr) / repeat(4, 1fr);
 }
+
 /* ============================================================================ */
 /* innerbox1 innerbox2 안에 a태그들 정렬 */
 
 .innerbox1 {
     display: flex;
-    justify-content:space-evenly;
-    align-items:center;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .innerbox2 a:nth-child(1) {
-    padding-left:55px;
+    padding-left: 55px;
 }
 
 .innerbox2 a {
-    padding : 10px;
+    padding: 10px;
 }
 
 /* ============================================================================ */
@@ -278,14 +280,37 @@ nav ul li:nth-child(4):hover .submenu2 {
     width: 250px;
     height: 300px;
     margin: auto;
+
+    position: relative;
+}
+
+header {
+    z-index: 3;
+}
+
+#wish_icon {
+    position: absolute;
+    right: 10px;
+    bottom: 100px;
+    color: white;
+}
+
+.food_box #wish_icon:hover {
+    color: red;
+}
+
+.food_box button:focus #wish_icon {
+    color: red;
 }
 
 .innerbox3 .food_box {
     text-align: center;
 }
+
 .food_box .menu {
     display: inline-block;
 }
+
 .innerbox3 a {
     text-decoration: none;
     color: black;
@@ -296,7 +321,7 @@ nav ul li:nth-child(4):hover .submenu2 {
 /* food_box 안에 img + menu name + menu price */
 /* 찜하기 + 장바구니 */
 
-.food_box img  {
+.food_box img {
     width: 100%;
     height: 70%;
     border-radius: 5%;
@@ -341,10 +366,10 @@ pre {
 /* aside : 마스코트 캐릭터 (하찮은 연어) */
 
 #mascot {
-    position:fixed;
-    bottom:0;
-    left:0;
-    z-index:100;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
 }
 
 #mascot_btn img {
