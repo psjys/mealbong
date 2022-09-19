@@ -127,17 +127,16 @@ header {
     justify-content: center;
 }
 
-.cart,
-.heart {
+.cart_heart a {
     background-position: center;
     background-size: 100%;
     width: 30px;
     height: 30px;
+    margin-right: 15px;
 }
 
 .cart {
     background-image: url(../image/cart.png);
-    margin-right: 15px;
 }
 
 .cart:hover {
@@ -150,6 +149,14 @@ header {
 
 .heart:hover {
     background-image: url(../image/heart_coral.png);
+}
+
+.mpage {
+    background-image: url(../image/mypage.png);
+}
+
+.mpage:hover {
+    background-image: url(../image/mypage_coral.png);
 }
 
 /* 메뉴 ---------*/
@@ -517,42 +524,4 @@ pre {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* ================================================== */
-/* aside : 마스코트 캐릭터 (하찮은 연어) */
-
-#mascot {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-}
-
-#mascot_btn img {
-    width: 171px;
-    height: 99px;
-}
-
-.product {
-    position:relative;
-}
-
-header {
-    z-index: 3;
-}
-
-#wish_icon {
-    position: absolute;
-    right: 10px;
-    bottom: 60px;
-    color: white;
-}
-
-.product #wish_icon:hover {
-    color: red;
-}
-
-.product button:focus #wish_icon {
-    color: red;
 }
