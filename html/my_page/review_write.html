@@ -22,7 +22,7 @@
                 <li><a href="./login/login.html">로그인</a></li>
                 <li class="l_hover"><a href="#">고객센터</a>
                     <ul class="hoverbox">
-                        <li><a href="#">공지사항</a></li>
+                        <li><a href="../service_page/notice.html">공지사항</a></li>
                         <li><a href="./faq/faq.html">자주하는 질문</a></li>
                         <li><a href="./inquriy/inquiry_list.html">1:1 문의사항</a></li>
                     </ul>
@@ -60,7 +60,7 @@
                 <li><a href="../mainpage.html#recommend">오늘의 추천</a></li>
                 <li><a href="#">고객센터</a>
                     <ul class="submenu2">
-                        <li><a href="#">공지사항</a></li>
+                        <li><a href="../service_page/notice.html">공지사항</a></li>
                         <li><a href="./faq/faq.html">자주하는 질문</a></li>
                         <li><a href="./inquriy/inquiry_list.html">1:1 문의사항</a></li>
                     </ul>
@@ -72,21 +72,31 @@
         <div class="mypage">
             <div class="aside">
                 <div class="name">
-                    <h2>고객센터</h2>
+                    <h2>마이페이지</h2>
                 </div>
                 <ul>
                     <li>
-                        <a href="#" class="notice">공지사항
+                        <a href="#" class="order">주문 내역
                             <span></span>
                         </a>
                     </li>
                     <li>
-                        <a href="./faq/faq.html" class="faq">자주하는 질문
+                        <a href="./review.html" class="review">상품 후기
                             <span></span>
                         </a>
                     </li>
                     <li>
-                        <a href="./inquriy/inquiry_list.html" class="inquiry">1:1 문의
+                        <a href="./wish.html" class="wish">찜한 상품
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./address.html" class="address">배송지 관리
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./info.html" class="info">개인정보 수정
                             <span></span>
                         </a>
                     </li>
@@ -95,34 +105,49 @@
             <div class="content">
                 <div class="content_1">
                     <div>
-                        <h2>공지사항</h2>
+                        <h2>후기 쓰기</h2>
                     </div>
                 </div>
-                <div class="content_notice">
-                    <div>번호</div>
-                    <div>제목</div>
-                    <div>작성자</div>
-                    <div>작성일</div>
-                    <div>1</div>
-                    <a href="#">상호형이 그리드 쓰라고 강요함.</a>
-                    <div>박규민</div>
-                    <div>2022.09.14</div>
-                    <div>2</div>
-                    <a href="#">상호형이 요즘 다 그리드 쓴다고 쓰라고함.</a>
-                    <div>박규민</div>
-                    <div>2022.09.14</div>
-                    <div>3</div>
-                    <a href="#">상호형이 요즘 다 그리드 쓴다고 쓰라고함.</a>
-                    <div>박규민</div>
-                    <div>2022.09.14</div>
-                    <div>4</div>
-                    <a href="#">상호형이 요즘 다 그리드 쓴다고 쓰라고함.</a>
-                    <div>박규민</div>
-                    <div>2022.09.14</div>
-                    <div>5</div>
-                    <a href="#">상호형이 요즘 다 그리드 쓴다고 쓰라고함.</a>
-                    <div>박규민</div>
-                    <div>2022.09.14</div>
+                <div class="content_reivew_write">
+                    <div class="content_reivew_write_item">
+                        <div class="image">
+                            <a href="#">
+                                <img src="../../image/Chinese/마라 탄탄면(2인).jpg" alt="마라 탄탄면(2인)">
+                            </a>
+                        </div>
+                        <div>
+                            <div>
+                                <span>마라 탄탄면</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reivew_write_box">
+                        <form>
+                            <div class="reivew_write_box_1">
+                                <div>제목</div>
+                                <div>
+                                    <input type="text" class="inputstyle" placeholder=" 제목을 입력해주세요" required>
+                                </div>
+                            </div>
+                            <div class="reivew_write_box_2">
+                                <div>후기작성</div>
+                                <div>
+                                    <textarea placeholder="자세한 후기는 다른 고객의 구매에 많은 도움이 됩니다." required></textarea>
+                                </div>
+                            </div>
+                            <div class="reivew_write_box_3">
+                                <div>사진등록</div>
+                                <div>
+                                    <input type="file">
+                                </div>
+                            </div>
+                            <div class="reivew_write_box_4">
+                                <button class="inquriy_list_button" type="button">
+                                    <a href="#">등록</a>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,7 +157,7 @@
         <div class="footer">
             <div><a href="../footer/personal.html"><strong>개인정보처리방침</strong></a></div>
             <div><a href="../footer/using.html">이용약관</a></div>
-            <div><a href="#">공지사항</a></div>
+            <div><a href="../service_page/notice.html">공지사항</a></div>
             <div><a href="/html/service_page/inquriy/inquiry_list.html">1:1 문의</a></div>
         </div>
 

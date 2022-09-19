@@ -584,3 +584,364 @@ main {
     box-sizing: border-box;
     padding-left: 10px;
 }
+
+/* 마이페이지 - 찜한 상품*/
+
+
+.content_wish_box {
+    display: flex;
+    height: 120px;
+    margin: 10px;
+    border-bottom: 1px solid silver;
+}
+
+.content_wish_box .image {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    flex: 1;
+}
+
+.content_wish_box .name_price {
+
+    margin: 10px;
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+}
+
+.content_wish_box div:nth-of-type(3) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 10px;
+    align-items: center;
+    flex: 1;
+}
+
+
+.wish_delet {
+    width: 100px;
+    height: 36px;
+    box-sizing: border-box;
+    border: solid 1px lightsalmon;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.wish_put {
+    width: 100px;
+    height: 36px;
+    box-sizing: border-box;
+    background-color: lightsalmon;
+    border: solid 1px lightsalmon;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.content_wish_box div:nth-of-type(1) img {
+    width: 100%;
+    height: 100%;
+}
+
+.content_wish_box .name_price a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.content_wish_box .name_price div {
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+/* 마이페이지 - 상품 후기*/
+
+
+.content_reivew_1 {
+    border: solid 1px;
+    box-sizing: border-box;
+    border-top: 0px;
+    display: flex;
+    justify-self: center;
+    height: 50px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.content_reivew_1 div {
+    width: 100%;
+    text-align: center;
+}
+
+.content_reivew_1 div:nth-child(1) {
+    border-right: 1px solid;
+    box-sizing: border-box;
+}
+
+.content_reivew_1 div a {
+    display: inline-block;
+    width: 100%;
+    line-height: 50px;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.content_reivew_1 div a:hover {
+    color: lightsalmon;
+}
+
+.content_reivew_1 a[href="#"] {
+    color: lightsalmon;
+}
+
+.content_reivew_box {
+    display: flex;
+    height: 120px;
+    border: 1px solid silver;
+    margin-bottom: 10px;
+}
+
+.content_reivew_box .image {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+.content_reivew_box div:nth-of-type(1) img {
+    width: 100%;
+    height: 100%;
+}
+
+.content_reivew_box .item {
+    margin: 10px;
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+}
+
+.content_reivew_box .item div {
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.content_reivew_box .item a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.content_reivew_box div:nth-of-type(3) {
+    display: flex;
+    align-items: center;
+    flex: 2.5;
+}
+
+.content_reivew_box div:nth-of-type(4) {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    box-sizing: border-box;
+    flex: 1.5;
+}
+
+.write {
+    width: 100px;
+    height: 36px;
+    box-sizing: border-box;
+    background-color: lightsalmon;
+    border: solid 1px lightsalmon;
+    border-radius: 5px;
+}
+
+.write a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    line-height: 36px;
+}
+
+
+/* 마이페이지 - 상품 후기 작성양식*/
+
+
+.content_reivew_write .content_reivew_write_item {
+    display: flex;
+}
+
+.content_reivew_write .image {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+
+.content_reivew_write div:nth-of-type(1) img {
+    width: 100%;
+    height: 100%;
+}
+
+.content_reivew_write_item div {
+    display: flex;
+    align-items: center;
+}
+
+.content_reivew_write_item span {
+    font-weight: bold;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.reivew_write_box div div:nth-child(2) {
+    flex: 8;
+}
+
+.reivew_write_box_1 input {
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.reivew_write_box_2 div:nth-of-type(2) {
+    border: 1px solid;
+    box-sizing: border-box;
+}
+
+.reivew_write_box_2 textarea {
+    height: 500px;
+    width: 100%;
+    border: 0;
+    resize: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.reivew_write_box {
+    border-top: 1px solid;
+    box-sizing: border-box;
+}
+
+
+.reivew_write_box div div:nth-of-type(1) {
+    font-weight: bold;
+    box-sizing: border-box;
+    flex: 1.5;
+}
+
+.reivew_write_box_1,
+.reivew_write_box_2,
+.reivew_write_box_3 {
+    display: flex;
+    border-bottom: 1px solid;
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: space-around;
+}
+
+.reivew_write_box_4 {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+
+/* 마이페이지 - order*/
+
+.content_order_box {
+    display: flex;
+    flex-direction: column;
+}
+
+.content_order_box_1 {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid silver;
+    box-sizing: border-box;
+
+}
+
+.content_order_box_2 {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid;
+    box-sizing: border-box;
+
+}
+
+.content_order_box_2 .image {
+    width: 150px;
+    height: 150px;
+
+}
+
+
+.content_order_box_2 div:nth-of-type(1) img {
+    width: 100%;
+    height: 100%;
+}
+
+.content_order_box_1 span {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+.content_order_box_1 a {
+    margin-right: 20px;
+    box-sizing: border-box;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+.order_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px; 
+    flex: 8;
+    margin-left: 20px;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.order_list div span:nth-of-type(1) {
+    display: inline-block;
+    width: 100px;
+}
+
+
+.order_inquiry_button {
+    width: 130px;
+    height: 40px;
+    margin-top: 20px;
+    box-sizing: border-box;
+    background-color: lightsalmon;
+    border: solid 1px lightsalmon;
+    border-radius: 5px;
+}
+
+.order_inquiry_button a {
+    display: block;
+    color: white;
+    width: 100%;
+    line-height: 40px;
+    text-decoration: none;
+}
+
+.order_inquiry {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    margin-right: 20px;
+}

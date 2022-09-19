@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/mypage.css">
     <link rel="stylesheet" href="../../css/mainPage.css">
+
 </head>
 
 <body>
@@ -22,7 +23,7 @@
                 <li><a href="./login/login.html">로그인</a></li>
                 <li class="l_hover"><a href="#">고객센터</a>
                     <ul class="hoverbox">
-                        <li><a href="#">공지사항</a></li>
+                        <li><a href="../service_page/notice.html">공지사항</a></li>
                         <li><a href="./faq/faq.html">자주하는 질문</a></li>
                         <li><a href="./inquriy/inquiry_list.html">1:1 문의사항</a></li>
                     </ul>
@@ -60,7 +61,7 @@
                 <li><a href="../mainpage.html#recommend">오늘의 추천</a></li>
                 <li><a href="#">고객센터</a>
                     <ul class="submenu2">
-                        <li><a href="#">공지사항</a></li>
+                        <li><a href="../service_page/notice.html">공지사항</a></li>
                         <li><a href="./faq/faq.html">자주하는 질문</a></li>
                         <li><a href="./inquriy/inquiry_list.html">1:1 문의사항</a></li>
                     </ul>
@@ -72,58 +73,66 @@
         <div class="mypage">
             <div class="aside">
                 <div class="name">
-                    <h2>고객센터</h2>
+                    <h2>마이페이지</h2>
                 </div>
                 <ul>
                     <li>
-                        <a href="#" class="notice">공지사항
+                        <a href="./mypage.html" class="order">주문 내역
                             <span></span>
                         </a>
                     </li>
                     <li>
-                        <a href="./faq/faq.html" class="faq">자주하는 질문
+                        <a href="./review.html" class="review">상품 후기
                             <span></span>
                         </a>
                     </li>
                     <li>
-                        <a href="./inquriy/inquiry_list.html" class="inquiry">1:1 문의
+                        <a href="./wish.html" class="wish">찜한 상품
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./address.html" class="address">배송지 관리
+                            <span></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="info">개인정보 수정
                             <span></span>
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="content">
-                <div class="content_1">
-                    <div>
-                        <h2>공지사항</h2>
+                <div class="content_info_1">
+                    <h2>개인정보 수정</h2>
+                </div>
+                <div class="content_info_2">
+                    <h4>비밀번호 재확인</h4>
+                    <div>회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인해주세요.</div>
+                </div>
+                <form action="./info_correction.html">
+                    <div class="content_info_3">
+                        <div class="content_info_3_id">
+                            <div>아이디</div>
+                            <div>
+                                <input type="text" value="아이디 아이디" readonly>
+                            </div>
+                        </div>
+                        <div class="content_info_3_pw">
+                            <div>비밀번호
+                                <span></span>
+                            </div>
+                            <div>
+                                <input type="password" required minlength="8">
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="content_notice">
-                    <div>번호</div>
-                    <div>제목</div>
-                    <div>작성자</div>
-                    <div>작성일</div>
-                    <div>1</div>
-                    <a href="#">상호형이 그리드 쓰라고 강요함.</a>
-                    <div>박규민</div>
-                    <div>2022.09.14</div>
-                    <div>2</div>
-                    <a href="#">상호형이 요즘 다 그리드 쓴다고 쓰라고함.</a>
-                    <div>박규민</div>
-                    <div>2022.09.14</div>
-                    <div>3</div>
-                    <a href="#">상호형이 요즘 다 그리드 쓴다고 쓰라고함.</a>
-                    <div>박규민</div>
-                    <div>2022.09.14</div>
-                    <div>4</div>
-                    <a href="#">상호형이 요즘 다 그리드 쓴다고 쓰라고함.</a>
-                    <div>박규민</div>
-                    <div>2022.09.14</div>
-                    <div>5</div>
-                    <a href="#">상호형이 요즘 다 그리드 쓴다고 쓰라고함.</a>
-                    <div>박규민</div>
-                    <div>2022.09.14</div>
-                </div>
+                    <div class="content_info_4">
+                        <button class="info_button">확인
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </main>
@@ -132,7 +141,7 @@
         <div class="footer">
             <div><a href="../footer/personal.html"><strong>개인정보처리방침</strong></a></div>
             <div><a href="../footer/using.html">이용약관</a></div>
-            <div><a href="#">공지사항</a></div>
+            <div><a href="../service_page/notice.html">공지사항</a></div>
             <div><a href="/html/service_page/inquriy/inquiry_list.html">1:1 문의</a></div>
         </div>
 
