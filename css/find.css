@@ -37,6 +37,7 @@ header {
     position: sticky;
     background-color: white;
     box-shadow: 0 4px 4px -4px gray;
+    z-index: 2;
 }
 
 /*header 로고---------*/
@@ -131,17 +132,16 @@ header {
     justify-content: center;
 }
 
-.cart,
-.heart {
+.cart_heart a {
     background-position: center;
     background-size: 100%;
     width: 30px;
     height: 30px;
+    margin-right: 15px;
 }
 
 .cart {
     background-image: url(../image/cart.png);
-    margin-right: 15px;
 }
 
 .cart:hover {
@@ -154,6 +154,14 @@ header {
 
 .heart:hover {
     background-image: url(../image/heart_coral.png);
+}
+
+.mpage {
+    background-image: url(../image/mypage.png);
+}
+
+.mpage:hover {
+    background-image: url(../image/mypage_coral.png);
 }
 
 /* 메뉴 ---------*/
