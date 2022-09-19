@@ -304,11 +304,15 @@ header {
     z-index: 3;
 }
 
-
-#wish_icon {
+.product button {
     position: absolute;
     right: 10px;
     bottom: 60px;
+    background: none;
+    border: none;
+}
+
+.product #wish_icon {
     color: white;
 }
 

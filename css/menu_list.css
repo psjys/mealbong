@@ -288,10 +288,15 @@ header {
     z-index: 3;
 }
 
-#wish_icon {
+.food_box button {
     position: absolute;
     right: 10px;
     bottom: 100px;
+    background: none;
+    border: none;
+}
+
+.food_box button #wish_icon {
     color: white;
 }
 
