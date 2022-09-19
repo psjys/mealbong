@@ -270,7 +270,7 @@ nav ul li:nth-child(4):hover .submenu2 {
 }
 
 .foodpage_button {
-    width: 120px;
+    width: 160px;
     height: 50px;
     display: inline-block;
     box-sizing: border-box;
@@ -279,7 +279,7 @@ nav ul li:nth-child(4):hover .submenu2 {
     border: solid 1px lightsalmon;
     border-radius: 5px;
     transition-duration: 0.3s;
-    margin: 0 20px;
+
     font-size: 20px;
 }
 
@@ -336,11 +336,10 @@ nav ul li:nth-child(4):hover .submenu2 {
 .last {
     width: 1000px;
     height: 100px;
-    /* border: solid 1px; */
 }
 
 .last button {
-    width: 120px;
+    width: 100px;
     height: 40px;
     box-sizing: border-box;
     text-align: center;
@@ -405,10 +404,10 @@ pre {
 /* aside : 마스코트 캐릭터 (하찮은 연어) */
 
 #mascot {
-    position:fixed;
-    bottom:0;
-    left:0;
-    z-index:100;
+    position: fixed;
+    bottom: 200px;
+    left: 0;
+    z-index: 100;
 }
 
 #mascot_btn img {

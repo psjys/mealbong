@@ -362,17 +362,3 @@ pre {
     font-size: .8em;
 }
 
-/* ================================================== */
-/* aside : 마스코트 캐릭터 (하찮은 연어) */
-
-#mascot {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-}
-
-#mascot_btn img {
-    width: 171px;
-    height: 99px;
-}

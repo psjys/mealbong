@@ -279,6 +279,7 @@ nav ul li:nth-child(4):hover .submenu2 {
 .product {
     margin: 20px;
     overflow: hidden;
+    position: relative;
 }
 
 .product a {
@@ -299,7 +300,23 @@ nav ul li:nth-child(4):hover .submenu2 {
     opacity: .8;
 }
 
+header {
+    z-index: 3;
+}
 
+
+#wish_icon {
+    position: absolute;
+    right: 10px;
+    bottom: 60px;
+    color: white;
+}
+
+.product button:hover #wish_icon,
+.product button:focus #wish_icon 
+{
+    color: red;
+}
 /* main 카테고리 ----------- */
 
 .main-category {
@@ -322,7 +339,7 @@ nav ul li:nth-child(4):hover .submenu2 {
     color: white;
     font-size: 20px;
     font-weight: bold;
-    padding : 20px;
+    padding: 20px;
     display: block;
     text-align: center;
 }
