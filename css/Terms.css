@@ -5,17 +5,12 @@
     font-family: 'Gowun Dodum', sans-serif;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-}
-
 .container {
     display: flex;
     width: 600px;
     height: 800px;
-    /* box-sizing : border-box; */
     flex-direction: column;
+    margin : 0 auto;
 }
 
 .imgdiv img {
@@ -53,10 +48,6 @@ body {
 
 }
 
-.textarea::readOnly {
-
-}
-
 .button {
     width: 180px;
     height: 45px;
@@ -91,4 +82,35 @@ body {
 .button2 a:visited,
 .button2 a:link {
     color: white;
+}
+
+/* footer ------------ */
+
+footer {
+    /* height: 160px; */
+    min-width: 1200px;
+    margin-top: 50px;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    height: 50px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+    font-size: .8em;
+}
+
+.footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+pre {
+    font-size: .8em;
 }
