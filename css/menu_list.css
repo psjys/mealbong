@@ -291,6 +291,11 @@ nav ul li:nth-child(4):hover .submenu2 {
     position: relative;
 }
 
+.innerbox3 .food_box:hover {
+    opacity: 0.8;
+    transition: all 0.2s linear;
+}
+
 header {
     z-index: 3;
 }
