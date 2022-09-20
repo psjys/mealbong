@@ -85,7 +85,6 @@ header {
 .hoverbox a {
     color: black;
     font-size: .9em;
-    display: block;
 }
 
 /*header 검색창---------*/
@@ -187,7 +186,6 @@ nav {
 .menu>li a {
     text-decoration: none;
     color: black;
-    display: block;
 }
 
 .submenu,
