@@ -462,12 +462,18 @@ pre {
     flex-direction: column;
 }
 
-.loginid_submit {
+.loginid_submit,
+.loginid_submit2 {
     display : flex;
     flex-direction : column;
     align-items : center;
     justify-content : center;
+    margin-top : 40px;
 
+}
+
+.loginid_submit2 {
+    margin-top : 80px;
 }
 
 .accountbutton_submit {
