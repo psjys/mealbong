@@ -48,7 +48,7 @@
 
 }
 
-.button {
+.button_Terms {
     width: 180px;
     height: 45px;
     box-sizing: border-box;
@@ -62,7 +62,7 @@
 }
 
 
-.button2 {
+.button2_Terms {
     width: 180px;
     height: 45px;
     margin-right: 20px;
@@ -74,43 +74,13 @@
     
 }
 
-.button2 a {
+.button2_Terms a {
     text-decoration: none;
     color: white;
 }
 
-.button2 a:visited,
-.button2 a:link {
+.button2_Terms a:visited,
+.button2_Terms a:link {
     color: white;
 }
 
-/* footer ------------ */
-
-footer {
-    /* height: 160px; */
-    min-width: 1200px;
-    margin-top: 50px;
-}
-
-.footer {
-    display: flex;
-    justify-content: flex-start;
-    height: 50px;
-}
-
-.footer a {
-    text-decoration: none;
-    color: black;
-    font-size: .8em;
-}
-
-.footer div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-}
-
-pre {
-    font-size: .8em;
-}

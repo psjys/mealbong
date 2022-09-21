@@ -9,15 +9,15 @@
 
 /* =================================header frame===================================== */
 
-.space {
+/* .space {
     min-width: 1200px;
     height: 25px;
     background-color: lightsalmon;
     position: relative;
-}
+} */
 
 /*header 로고 / 검색창 / 로그인 정렬---------*/
-.flex-box {
+/* .flex-box {
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -25,11 +25,11 @@
     align-items: center;
     width: 1200px;
     height: 100px;
-}
+} */
 
 /*header 상단고정---------*/
 
-header {
+/* header {
     top: 0;
     height: 160px;
     min-width: 1200px;
@@ -37,11 +37,11 @@ header {
     background-color: white;
     box-shadow: 0 4px 4px -4px gray;
     z-index: 2;
-}
+} */
 
 /*header 로고---------*/
 
-.logo {
+/* .logo {
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -89,11 +89,11 @@ header {
     color: black;
     font-size: .9em;
     display: block;
-}
+} */
 
 /*header 검색창---------*/
 
-.search {
+/* .search {
     width: 350px;
     height: 40px;
     border: 2px solid lightsalmon;
@@ -122,11 +122,11 @@ header {
     width: 30px;
     line-height: 30px;
     margin-right: 8px;
-}
+} */
 
 /* 장바구니 찜한 상품 ---------*/
 
-.cart_heart {
+/* .cart_heart {
     width: 150px;
     display: flex;
     justify-content: center;
@@ -162,10 +162,10 @@ header {
 
 .mpage:hover {
     background-image: url(../image/mypage_coral.png);
-}
+} */
 
 /* 메뉴 ---------*/
-.menu {
+/* .menu {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -208,11 +208,11 @@ nav {
     background-color: white;
     border: 0.5px solid lightgray;
     border-top: none;
-}
+} */
 
 /* 메뉴 hover ---------*/
 
-.menu li:hover {
+/* .menu li:hover {
     background-color: rgb(255, 196, 172);
     transition-duration: 0.5s;
 }
@@ -220,7 +220,7 @@ nav {
 nav ul li:nth-child(1):hover .submenu,
 nav ul li:nth-child(4):hover .submenu2 {
     display: block;
-}
+} */
 
 /* =============================main 아이디 비번 입력============================= */
 
@@ -361,8 +361,7 @@ nav ul li:nth-child(4):hover .submenu2 {
 
 /* footer ------------ */
 
-footer {
-    /* height: 160px; */
+/* footer {
     min-width: 1200px;
     margin-top: 50px;
 }
@@ -388,7 +387,7 @@ footer {
 
 pre {
     font-size: .8em;
-}
+} */
 
 
 
@@ -467,7 +466,6 @@ pre {
     display : flex;
     flex-direction : column;
     align-items : center;
-    justify-content : center;
     margin-top : 40px;
 
 }
