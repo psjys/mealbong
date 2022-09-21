@@ -3,14 +3,9 @@
     padding: 0;
     list-style: none;
     font-family: 'Gowun Dodum', sans-serif;
+    outline: none;
 }
 
-.space {
-    min-width: 1200px;
-    height: 25px;
-    background-color: lightsalmon;
-    position: relative;
-}
 
 /*header 로고 / 검색창 / 로그인 정렬---------*/
 .flex-box {
@@ -43,24 +38,34 @@ header {
     background-position: center;
 }
 
+.space {
+    min-width: 1200px;
+    height: 25px;
+    position: relative;
+    background-color: lightsalmon;
+    margin: auto;
+}
+
 .login {
     width: 200px;
     position: absolute;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     right: 0;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     text-align: center;
 }
 
 .login a {
     text-decoration: none;
-    color: white;
+    /* color: black; */
+    color : white;
 }
 
 .login>li {
     width: 60px;
 }
+
 
 .l_hover {
     position: relative;
@@ -105,10 +110,6 @@ header {
     border: 0;
 }
 
-.search input:focus {
-    outline: none;
-}
-
 .button {
     border: none;
     background: none;
@@ -133,7 +134,7 @@ header {
     background-size: 100%;
     width: 30px;
     height: 30px;
-    margin-right: 15px;
+    margin-left: 15px;
 }
 
 .cart {
@@ -165,6 +166,7 @@ header {
     position: relative;
     display: flex;
     justify-content: space-between;
+    width : 
 }
 
 nav {
@@ -181,13 +183,14 @@ nav {
     text-align: center;
     width: 150px;
     line-height: 35px;
+    margin : 0 40px;
 }
 
 .menu>li>a {
     text-decoration: none;
     color: black;
     display: block;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .submenu,
