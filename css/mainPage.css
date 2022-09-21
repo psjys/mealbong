@@ -80,6 +80,7 @@ header {
     background-color: white;
     right: 0;
     top: 25px;
+    padding: 8px;
 }
 
 .login li:nth-of-type(3):hover .hoverbox {
@@ -90,7 +91,9 @@ header {
     color: black;
     font-size: .9em;
     display: block;
+    margin : 3px 0px;
 }
+
 
 /*header 검색창---------*/
 
