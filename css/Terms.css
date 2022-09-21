@@ -38,6 +38,8 @@
 
 .box2 {
     text-align : center;
+    display : flex;
+    justify-content : center;
 }
 
 .textarea {
@@ -84,3 +86,12 @@
     color: white;
 }
 
+
+
+.box2 a {
+    display : flex;
+    align-items : center;
+    justify-content : center;
+   
+   height : 45px;
+}
