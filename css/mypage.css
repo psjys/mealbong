@@ -508,7 +508,6 @@ main {
     text-align: center;
     background-color: lightsalmon;
     border: solid 1px lightsalmon;
-    font-weight: bold;
     color: white;
 }
 
@@ -518,20 +517,20 @@ main {
     display: block;
     text-align: center;
     border: solid 1px lightsalmon;
-    font-weight: bold;
+    background-color: white;
+
     color: lightsalmon;
 }
 
 .info_correction_1 .button_opacity {
-    opacity: .3;
-    font-weight: bold;
+    opacity: .4;
 }
 
 .info_correction_2 {
     display: flex;
     justify-content: center;
     padding-top: 40px;
-    gap: 20px;
+    gap: 30px;
 }
 
 .info_correction_2 .button_correction,
@@ -590,33 +589,45 @@ main {
 
 .content_wish_box {
     display: flex;
-    height: 120px;
-    margin: 10px;
+    height: 140px;
+    box-sizing: border-box;
+
     border-bottom: 1px solid silver;
+    align-items: center;
 }
+
+
 
 .content_wish_box .image {
     width: 100px;
     height: 100px;
     margin: 10px;
-    flex: 1;
+    box-sizing: border-box;
+}
+
+
+
+.content_wish_box div:nth-of-type(1) img {
+    width: 100%;
+    height: 100%;
 }
 
 .content_wish_box .name_price {
 
     margin: 10px;
-    flex: 5;
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
 
 .content_wish_box div:nth-of-type(3) {
     display: flex;
+    height: 100%;
     flex-direction: column;
-    justify-content: space-around;
-    margin: 10px;
+    justify-content: center;
+    margin-right: 20px;
+    gap: 10px;
     align-items: center;
-    flex: 1;
 }
 
 
@@ -626,6 +637,7 @@ main {
     box-sizing: border-box;
     border: solid 1px lightsalmon;
     border-radius: 5px;
+    background: white;
     cursor: pointer;
 }
 
@@ -640,10 +652,7 @@ main {
     cursor: pointer;
 }
 
-.content_wish_box div:nth-of-type(1) img {
-    width: 100%;
-    height: 100%;
-}
+
 
 .content_wish_box .name_price a {
     text-decoration: none;
@@ -658,9 +667,17 @@ main {
 
 /* 마이페이지 - 상품 후기*/
 
+.content_reivew {
+    height: 80px;
+    border-bottom: solid 1px silver;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
 
 .content_reivew_1 {
-    border: solid 1px;
+    border: solid 1px silver;
     box-sizing: border-box;
     border-top: 0px;
     display: flex;
@@ -676,7 +693,7 @@ main {
 }
 
 .content_reivew_1 div:nth-child(1) {
-    border-right: 1px solid;
+    border-right: 1px solid silver;
     box-sizing: border-box;
 }
 
@@ -717,9 +734,10 @@ main {
 
 .content_reivew_box .item {
     margin: 10px;
-    flex: 5;
+    flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .content_reivew_box .item div {
@@ -735,16 +753,15 @@ main {
 
 .content_reivew_box div:nth-of-type(3) {
     display: flex;
+    margin-right: 50px;
     align-items: center;
-    flex: 2.5;
 }
 
 .content_reivew_box div:nth-of-type(4) {
     display: flex;
     align-items: center;
-    margin: 10px;
+    margin: 20px;
     box-sizing: border-box;
-    flex: 1.5;
 }
 
 .write {
@@ -767,6 +784,9 @@ main {
 
 /* 마이페이지 - 상품 후기 작성양식*/
 
+.aside .color {
+    background-color: lightsalmon;
+}
 
 .content_reivew_write .content_reivew_write_item {
     display: flex;
@@ -908,7 +928,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 5px; 
+    gap: 5px;
     flex: 8;
     margin-left: 20px;
     box-sizing: border-box;
