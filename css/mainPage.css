@@ -41,46 +41,42 @@ header {
 .space {
     min-width: 1200px;
     height: 25px;
-    position: relative;
     background-color: lightsalmon;
     margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
 }
 
 .login {
-    width: 200px;
-    position: absolute;
+    /* width: 220px; */
     display: flex;
-    justify-content: space-between;
+    gap: 15px;
     right: 0;
-    /* margin-right: 10px; */
     text-align: center;
 }
 
 .login a {
     text-decoration: none;
-    /* color: black; */
-    color : white;
+    color: white;
 }
 
 .login>li {
     width: 60px;
 }
 
-
-.l_hover {
-    position: relative;
+.login>li:nth-of-type(3) {
+    margin-right: 18px;
 }
 
 .hoverbox {
     width: 90px;
     border: 1px solid gray;
     display: none;
-    text-align: center;
     position: absolute;
     background-color: white;
     right: 0;
-    top: 25px;
-    padding: 8px;
+    top: 100%;
 }
 
 .login li:nth-of-type(3):hover .hoverbox {
@@ -91,7 +87,6 @@ header {
     color: black;
     font-size: .9em;
     display: block;
-    margin : 3px 0px;
 }
 
 
@@ -169,7 +164,6 @@ header {
     position: relative;
     display: flex;
     justify-content: space-between;
-    width : 
 }
 
 nav {
@@ -177,16 +171,15 @@ nav {
     height: 35px;
     display: flex;
     justify-content: space-around;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 160px;
+    /* position: sticky; */
+    top: 0px;
 }
 
 .menu>li {
     text-align: center;
     width: 150px;
     line-height: 35px;
-    margin : 0 40px;
+    margin: 0 40px;
 }
 
 .menu>li>a {
@@ -199,9 +192,9 @@ nav {
 .submenu,
 .submenu2 {
     display: none;
-    width: 100%;
     position: absolute;
 }
+
 .submenu a,
 .submenu2 a {
     text-decoration: none;
@@ -333,10 +326,10 @@ header {
 }
 
 .product button:hover #wish_icon,
-.product button:focus #wish_icon 
-{
+.product button:focus #wish_icon {
     color: red;
 }
+
 /* main 카테고리 ----------- */
 
 .main-category {
@@ -345,7 +338,7 @@ header {
     display: flex;
     justify-content: space-evenly;
     width: 1200px;
-    
+
 }
 
 
@@ -409,4 +402,155 @@ footer {
 
 pre {
     font-size: .8em;
+}
+
+
+
+
+
+/* =============================================== */
+/* food_page css */
+/* outerbox1 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.outerbox1 {
+    width: 1200px;
+    height: 500px;
+    margin: 50px auto;
+    margin-bottom: 200px;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.innerbox1>ul {
+    width: 500px;
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.innerbox1>ul>li {
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+}
+
+.innerbox1>ul>li:last-child {
+    border: none;
+}
+
+.innerbox1 img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5%;
+}
+
+#menu,
+#delivery,
+#amount {
+    display: flex;
+    justify-content: space-between;
+}
+
+#icons ul,
+#sale {
+    display: flex;
+    justify-content: space-around;
+}
+
+#amount select {
+    width: 100px;
+}
+
+.foodpage_button {
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: lightsalmon;
+    border: solid 1px lightsalmon;
+    border-radius: 5px;
+    transition-duration: 0.3s;
+    margin: 0 20px;
+    font-size: 20px;
+    color: white;
+}
+
+/* =============================================== */
+/* middle box 설정 */
+
+.middlebox {
+    /* border:1px solid; */
+    width: 1200px;
+    height: 150px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.middlebox a {
+    color: black;
+    text-decoration: none;
+}
+
+/* ================================================ */
+/* outerbox2 설정 */
+
+.outerbox2 {
+    width: 1000px;
+    margin: auto;
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* ================================================ */
+/* 상품후기 및 상품문의 */
+#food_review,
+#food_inquiry {
+    width: 1000px;
+    height: 200px;
+    margin: 120px auto;
+}
+
+.last {
+    width: 1000px;
+    height: 100px;
+    /* border: solid 1px; */
+}
+
+.last button {
+    width: 120px;
+    height: 40px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: lightsalmon;
+    border: solid 1px lightsalmon;
+    border-radius: 5px;
+    transition-duration: 0.3s;
+    color: white;
+}
+
+.review1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.review2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
