@@ -183,7 +183,24 @@ input[type="radio"] {
     border: solid 1px lightsalmon;
     color: white;
     font-weight: bold;
-    /* transition-duration: 0.3s; */
+}
+
+.buttonstyle2 {
+    box-sizing: border-box;
+    display: block;
+    text-align: center;
+    background-color: lightsalmon;
+    border: solid 1px lightsalmon;
+    color: white;
+    width : 100%;
+    height : 34px;
+    border-radius: 5px;
+    
+}
+
+.buttonstyle:active,
+.addressbutton:active {
+    opacity : .4;
 }
 
 .buttonstyle,
@@ -191,7 +208,7 @@ input[type="radio"] {
     width: 100%;
     height: 34px;
     border-radius: 5px;
-
+    
 }
 
 
@@ -199,6 +216,7 @@ input[type="radio"] {
 .buttonstyle,
 .addressbutton {
     box-sizing: border-box;
+    cursor : pointer;
     display: block;
     text-align: center;
     background-color: lightsalmon;

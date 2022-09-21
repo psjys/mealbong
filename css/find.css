@@ -116,6 +116,7 @@ box-sizing : border-box;
     line-height : 50px;
     background-color: rgba(128, 128, 128, 0.317);
     border-radius: 5px;
+    cursor : pointer;
     
 }
 .spanbutton {

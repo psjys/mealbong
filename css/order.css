@@ -11,7 +11,7 @@
 
 .cart_container {
     width: 1000px;
-    height: 1700px;
+    height: 1600px;
     margin: 0 auto;
     text-align: center;
     display: flex;
@@ -73,6 +73,7 @@
 
 .diva3_sub_sub2 {
     display : flex;
+    gap : 10px;
 
 }
 
@@ -109,6 +110,7 @@
     height : 40px;
     border : 1px solid gainsboro;
     box-sizing: border-box;
+    cursor : pointer;
 }
 
 .diva3_button:focus {
@@ -135,7 +137,8 @@
 
 }
 
-.div_a {
+.div_a,
+.div_a2 {
     margin-bottom : 10px;
 
 }
@@ -228,7 +231,7 @@
 
 .divBox2 {
     height : 50px;
-    padding : 45px 0;
+    margin-bottom : 10px;
     box-sizing : border-box;
 
 }
@@ -289,6 +292,7 @@
     background-color: lightsalmon;
     border : none;
     border-radius : 5px;
+    cursor : pointer;
 }
 
 .subdiv3_button {
@@ -326,6 +330,11 @@
 
 .checkBox_label {
     margin-left : 10px;
+    cursor : pointer;
+}
+
+.order_input {
+    cursor : pointer;
 }
 
 

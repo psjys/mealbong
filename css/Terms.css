@@ -59,8 +59,17 @@
     border: none;
     border-radius: 5px;
     color: white;
+    cursor : pointer;
 
 
+}
+
+.Terms_label {
+    cursor :pointer;
+}
+
+.Terms_input {
+    cursor : pointer;
 }
 
 
@@ -70,7 +79,6 @@
     margin-right: 20px;
     box-sizing: border-box;
     background-color: gray;
-    /* border: solid 1px lightsalmon; */
     border-radius: 5px;
     border : none;
     
