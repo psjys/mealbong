@@ -89,20 +89,38 @@
     text-decoration: none;
     color: black;
 }
+
 /* =============================================== */
-/* level_box 설정 */
+/* 총 금액 설정 */
 
 .total_amount {
     width: 1200px;
-    height: 180px;
+    height: 250px;
     margin: 20px auto;
     text-align: right;
 }
 
 .total_amount div,
 .total_amount h2 {
-    margin-right:25px;
+    margin-right: 25px;
     box-sizing: border-box;
+}
+
+.total_amount .amount {
+    font-size: 32px;
+}
+
+.total_amount .won,
+.total_amount .plus {
+    font-size: 30px;
+}
+
+.total_amount .delivery_price {
+    margin-bottom: 15px;
+}
+
+.total_amount .total_price {
+    margin-top: 15px;
 }
 
 /* =============================================== */
