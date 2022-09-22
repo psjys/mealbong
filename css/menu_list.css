@@ -29,7 +29,7 @@
     margin: 10px auto;
 }
 
-.innerbox1 a:focus,
+.innerbox1 a:hover,
 .innerbox2 a:focus {
     font-weight: bold;
     color: orange;
@@ -110,6 +110,7 @@ header {
 
 .food_box #wish_icon:hover {
     color: red;
+    cursor: pointer;
 }
 
 .food_box button:focus #wish_icon {

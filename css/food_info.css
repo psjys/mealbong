@@ -10,8 +10,7 @@
 .outerbox1 {
     width: 1200px;
     height: 500px;
-    margin: 50px auto;
-    margin-bottom: 200px;
+    margin: 50px auto 0;
 
     display: flex;
     justify-content: space-around;
@@ -59,6 +58,10 @@
     justify-content: space-around;
 }
 
+.foodpage_button a {
+    display: block;
+}
+
 #amount select {
     width: 100px;
 }
@@ -86,23 +89,48 @@
     text-decoration: none;
     color: black;
 }
+/* =============================================== */
+/* level_box 설정 */
+
+.total_amount {
+    width: 1200px;
+    height: 180px;
+    margin: 20px auto;
+    text-align: right;
+}
+
+.total_amount div,
+.total_amount h2 {
+    margin-right:25px;
+    box-sizing: border-box;
+}
 
 /* =============================================== */
 /* middle box 설정 */
 
-.middlebox {
-    /* border:1px solid; */
+.tab_box {
     width: 1200px;
-    height: 150px;
     margin: auto;
-
-    display: flex;
-    justify-content: space-around;
 }
 
-.middlebox a {
+.tab_middlebox {
+    margin: 0 20px 100px 20px;
+    gap: 50px;
+    display: flex;
+}
+
+.tab_middlebox a {
     color: black;
     text-decoration: none;
+    flex: 1;
+    text-align: center;
+    line-height: 60px;
+    border-bottom: 1px silver solid;
+    box-sizing: border-box;
+}
+
+.tab_middlebox a:hover {
+    font-weight: bold;
 }
 
 /* ================================================ */
