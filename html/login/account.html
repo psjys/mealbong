@@ -45,7 +45,7 @@
                                         </label>
                                     </div>
                                     <div class="box2">
-                                        <input type="text" class="inputstyle" placeholder="아이디를 입력해주세요" minlength="8"
+                                        <input type="text" name="user-id" class="inputstyle" placeholder="아이디를 입력해주세요" minlength="8"
                                             required>
                                     </div>
                                     <div class="box3">
@@ -66,7 +66,7 @@
                                     </label>
                                 </div>
                                 <div class="box2">
-                                    <input type="password" class="inputstyle" placeholder="비밀번호를 입력해주세요" minlength="10"
+                                    <input type="password" name="user-pw" class="inputstyle" placeholder="비밀번호를 입력해주세요" minlength="10"
                                         required>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                                     </label>
                                 </div>
                                 <div class="box2">
-                                    <input type="password" class="inputstyle" placeholder="비밀번호를 한번 더 입력해주세요"
+                                    <input type="password" name="user-pw2" class="inputstyle" placeholder="비밀번호를 한번 더 입력해주세요"
                                         minlength="10" required>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                                     </label>
                                 </div>
                                 <div class="box2">
-                                    <input type="text" class="inputstyle" placeholder="이름을 입력해주세요" required>
+                                    <input type="text" name="user-name" class="inputstyle" placeholder="이름을 입력해주세요" required>
                                 </div>
                             </div>
 
@@ -101,7 +101,7 @@
                                     </label>
                                 </div>
                                 <div class="box2">
-                                    <input type="email" class="inputstyle" placeholder="예: mealbong@meal.com" required>
+                                    <input type="email" name="user-email" class="inputstyle" placeholder="예: mealbong@meal.com" required>
                                 </div>
 
                                 <div class="box3">
@@ -118,7 +118,7 @@
                                     </label>
                                 </div>
                                 <div class="box2">
-                                    <input type="tel" class="inputstyle" placeholder="숫자만 입력해주세요." required>
+                                    <input type="tel" name="user-phone" class="inputstyle" placeholder="숫자만 입력해주세요." required>
                                 </div>
 
                                 <div class="box3">
@@ -168,12 +168,12 @@
                                 <div class="birth">
                                     <div class="birthchild birthchild1">
 
-                                        <input type="text" class="inputstyle2" placeholder="YYYY" maxlength="4"
+                                        <input type="text" name="birth-years" class="inputstyle2" placeholder="YYYY" maxlength="4"
                                             >
 
                                     </div>
                                     <div class="birthchild birthchild2">
-                                       <select name="month" id="month" class="month">
+                                       <select name="birth-month" id="month" class="month">
                                         <option value="1">1월</option>
                                         <option value="2">2월</option>
                                         <option value="3">3월</option>
@@ -191,7 +191,7 @@
                                     </div>
                                     <div class="birthchild">
 
-                                        <input type="text" class="inputstyle2" placeholder="DD" maxlength="2">
+                                        <input type="text" name="birth-day" class="inputstyle2" placeholder="DD" maxlength="2">
                                     </div>
 
                                 </div>
