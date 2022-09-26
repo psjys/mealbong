@@ -362,6 +362,7 @@
     display : flex;
     align-items : center;
     justify-content : center;
+    border-radius: 5px;
 
     width : 250px;
     height : 45px;
