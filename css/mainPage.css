@@ -6,8 +6,7 @@
     outline: none;
 }
 
-
-/*header 로고 / 검색창 / 로그인 정렬---------*/
+/* header 로고 / 검색창 / 로그인 정렬---------*/
 .flex-box {
     margin: auto;
     display: flex;
@@ -15,22 +14,19 @@
     justify-content: space-between;
     align-items: center;
     width: 1200px;
-    height: 100px;
+    /* height: 100px; */
 }
 
-/*header 상단고정---------*/
+/* header 상단고정---------*/
 
 header {
     top: 0;
-    height: 160px;
+    /* height: 160px; */
     min-width: 1200px;
-    position: sticky;
     background-color: white;
-    box-shadow: 0 4px 4px -4px gray;
-    z-index: 2;
 }
 
-/*header 로고---------*/
+/* header 로고---------*/
 
 .logo {
     background-size: 100%;
@@ -41,7 +37,7 @@ header {
 .space {
     min-width: 1200px;
     height: 25px;
-    background-color: lightsalmon;
+    /* background-color: lightsalmon; */
     margin: auto;
     display: flex;
     justify-content: flex-end;
@@ -58,7 +54,11 @@ header {
 
 .login a {
     text-decoration: none;
-    color: white;
+    color: black;
+}
+
+.login li:hover a {
+    text-decoration: underline;
 }
 
 .login>li {
@@ -79,16 +79,15 @@ header {
     top: 100%;
 }
 
-.login li:nth-of-type(3):hover .hoverbox {
+/* .login li:nth-of-type(3):hover .hoverbox {
     display: block;
-}
+} */
 
 .hoverbox a {
     color: black;
     font-size: .9em;
     display: block;
 }
-
 
 /*header 검색창---------*/
 
@@ -119,7 +118,7 @@ header {
     margin-right: 8px;
 }
 
-/* 장바구니 찜한 상품 ---------*/
+/* 장바구니 찜한 상품 --------- */
 
 .cart_heart {
     width: 150px;
@@ -168,18 +167,22 @@ header {
 
 nav {
     min-width: 1200px;
-    height: 35px;
+    line-height: 50px;
     display: flex;
     justify-content: space-around;
-    /* position: sticky; */
+    position: sticky;
     top: 0px;
+    box-shadow: 0 4px 4px -4px gray;
+    background-color: white;
+    z-index: 1;
 }
 
 .menu>li {
     text-align: center;
     width: 150px;
-    line-height: 35px;
+    line-height: 40px;
     margin: 0 40px;
+    box-sizing: border-box;
 }
 
 .menu>li>a {
@@ -202,7 +205,6 @@ nav {
     display: block;
 }
 
-
 .submenu>li,
 .submenu2>li {
     width: 150px;
@@ -210,14 +212,21 @@ nav {
     line-height: 35px;
     background-color: white;
     border: 0.5px solid lightgray;
-    border-top: none;
 }
 
 /* 메뉴 hover ---------*/
 
 .menu li:hover {
-    background-color: rgb(255, 196, 172);
-    transition-duration: 0.5s;
+    text-decoration: underline;
+}
+
+/* .menu:hover .submenu
+.menu:hover .submenu2 {
+    transition-duration: all 0.5s;
+}  */
+
+.menu>li:hover>a {
+    color: lightsalmon;
 }
 
 nav ul li:nth-child(1):hover .submenu,
@@ -226,38 +235,140 @@ nav ul li:nth-child(4):hover .submenu2 {
 }
 
 /* banner ------------*/
+.bannerContainer {
+    position: relative;
+    width: 100%;
+    /* display: flex; */
+}
+
+.btn_left,
+.btn_right {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    top: calc(500px / 2 - 50px);
+    transform: translateY(50%);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.btn_left img,
+.btn_right img {
+    width: 50px;
+    height: 50px;
+    opacity: .5;
+}
+
+.btn_left {
+    left: 20px;
+}
+
+.btn_right {
+    right: 20px;
+}
+
+.btn_left:hover img,
+.btn_right:hover img {
+    opacity: 1;
+    transition: all .5s;
+}
 
 .banner {
-    min-width: 1200px;
+    object-fit: cover;
+    background-position: center;
+    background-size: 100%;
     height: 500px;
     width: 100%;
-    object-fit: cover;
 }
+
+.main-banner {
+    white-space: nowrap;
+    height: 500px;
+    min-width: 1200px;
+    width : 100%;
+    transition: all 1s;
+}
+
+.main-banner li {
+    display: inline-block;
+}
+
+.slide-container {
+    position: relative;
+    overflow : hidden;
+}
+
+
+
 
 /* main -------------*/
 
 .main-width {
-    width: 1200px;
+    /* width: 1000px; */
     margin: 0 auto;
 }
 
-.main-flex,
-.pop_pro,
-.rec {
+.main-top {
+    width: 1200px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: 400px;
+    position: relative;
 }
 
 .pop_pro {
     margin-bottom: 100px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    width: 1100px;
+    margin: 0;
+    position: absolute;
+}
+
+.btn_forward,
+.btn_back {
+    background: none;
+    border: none;
+    opacity: .3;
+    width: 50px;
+    height: 50px;
+    /* margin: 0 auto; */
+}
+
+.btn_forward:hover,
+.btn_back:hover {
+    opacity: 1;
+    transition: all .5s;
+}
+
+/* .main-top>a:nth-of-type(1) {
+    visibility: hidden;
+} */
+
+.btn_forward img,
+.btn_back img {
+    width: 50px;
+    height: 50px;
+}
+
+.menuContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .pop {
     font-size: 1.5em;
     font-weight: bold;
     margin: 30px auto;
+    text-align: center;
 }
 
 .pop a {
@@ -265,9 +376,9 @@ nav ul li:nth-child(4):hover .submenu2 {
     color: black;
 }
 
-.pop_pro {
+/* .pop_pro {
     display: grid;
-    grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+    grid-template: repeat(1, 1fr) / repeat(4, 1fr);
     justify-content: center;
 }
 
@@ -275,7 +386,7 @@ nav ul li:nth-child(4):hover .submenu2 {
     display: grid;
     grid-template: repeat(1, 1fr) / repeat(4, 1fr);
     justify-content: center;
-}
+} */
 
 .game {
     border: 1px solid;
@@ -286,9 +397,12 @@ nav ul li:nth-child(4):hover .submenu2 {
 }
 
 .product {
-    margin: 20px;
-    overflow: hidden;
+    margin: 10px;
+    /* overflow: hidden; */
     position: relative;
+    width: 270px;
+    height: 300px;
+    transition: all .5s;
 }
 
 .product a {
@@ -340,7 +454,6 @@ header {
     width: 1200px;
 }
 
-
 .main-category a {
     width: 110px;
     height: 110px;
@@ -368,6 +481,23 @@ header {
     bottom: 10px;
     right: 10px;
     object-fit: cover;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.btnScroll {
+    opacity: .5;
+    visibility: visible;
+}
+
+.btnHover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.nonVisible {
+    visibility:hidden;
 }
 
 /* footer ------------ */
@@ -400,10 +530,6 @@ footer {
 pre {
     font-size: .8em;
 }
-
-
-
-
 
 /* =============================================== */
 /* food_page css */
