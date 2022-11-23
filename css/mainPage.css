@@ -275,37 +275,56 @@ nav ul li:nth-child(4):hover .submenu2 {
     transition: all .5s;
 }
 
-.banner {
+.main-banner {
     object-fit: cover;
     background-position: center;
+    white-space: nowrap;
+    height: 500px;
+    min-width: 1200px;
+    width: 100%;
+    position: absolute;
+    transition: left 0.5s ease-out;
+    /* display: flex; */
+    /* flex-wrap: nowrap; */
+}
+
+.main-banner li {
+    transition: all .5s;
+    width: 100%;
+    float: left;
+}
+
+.main-banner img {
+    display: block;
+    object-fit: cover;
     background-size: 100%;
     height: 500px;
     width: 100%;
 }
 
-.main-banner {
-    white-space: nowrap;
-    height: 500px;
-    min-width: 1200px;
-    width : 100%;
-}
-
-.main-banner li {
-    transition: all .5s;
-    position: absolute;
-    display: inline-block;
-}
-
 .slide-container {
     position: relative;
-    overflow : hidden;
+    overflow: hidden;
+    height: 500px;
+}
+
+.main-banner .animated {
+    transition: 0.5s ease-out;
 }
 
 /* main -------------*/
 
 .main-width {
-    /* width: 1000px; */
+    width: 1000px;
     margin: 0 auto;
+}
+
+.menuContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* width: 1200px; */
 }
 
 .main-top {
@@ -318,15 +337,23 @@ nav ul li:nth-child(4):hover .submenu2 {
     position: relative;
 }
 
-.pop_pro {
-    margin-bottom: 100px;
+.mainMenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1200px;
+    /* overflow: hidden; */
     display: flex;
+}
+
+.pop_pro {
+    display: flex;
+    margin-bottom: 100px;
     align-content: center;
     justify-content: center;
     text-align: center;
     width: 1100px;
     margin: 0;
-    position: absolute;
 }
 
 .btn_forward,
@@ -345,22 +372,13 @@ nav ul li:nth-child(4):hover .submenu2 {
     transition: all .5s;
 }
 
-/* .main-top>a:nth-of-type(1) {
-    visibility: hidden;
-} */
-
 .btn_forward img,
 .btn_back img {
     width: 50px;
     height: 50px;
 }
 
-.menuContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
+
 
 .pop {
     font-size: 1.5em;
@@ -373,18 +391,6 @@ nav ul li:nth-child(4):hover .submenu2 {
     text-decoration: none;
     color: black;
 }
-
-/* .pop_pro {
-    display: grid;
-    grid-template: repeat(1, 1fr) / repeat(4, 1fr);
-    justify-content: center;
-}
-
-.rec {
-    display: grid;
-    grid-template: repeat(1, 1fr) / repeat(4, 1fr);
-    justify-content: center;
-} */
 
 .game {
     border: 1px solid;
@@ -495,7 +501,7 @@ header {
 }
 
 .nonVisible {
-    visibility:hidden;
+    visibility: hidden;
 }
 
 /* footer ------------ */
