@@ -1,46 +1,25 @@
 'use strict';
 
-let mainBanner = document.querySelector('.main-banner'),
-    slide_list_li = mainBanner.querySelectorAll('li'),
-    button = mainBanner.querySelectorAll('.mainButton');
+let slides = document.querySelector('.main-banner'),
+    slide = document.querySelectorAll('.main-banner li'),
+    currentIdx = 0,
+    slideCount = slide.length,
+    container = document.querySelector('.slide-container')
+    prevBtn = container.querySelector('.btn_left'),
+    nextBtn = container.querySelector('.btn_right');
 
-// 메인 배너
-let imgArr = [
-    'image/banner3.png',
-    'image/banner1.jpg',
-    'image/banner2.jpg',
-    'image/banner4.jpg',
-];
+function moveSlide(num) {
+    slides.style.left = -num * 100 +'%';
+    currentIdx = num;
+} 
 
-for (let i = 0; i < imgArr.length; i++) {
-    mainBanner.innerHTML += `<li><img src="${imgArr[i]}" alt="banner" class="banner"></li>`;
-}
-
-let beforeIdx = 0,
-    i = 0;
-
-function slideImg() {
-    // 이미지 슬라이드
-    slide_list_li[i].style.left = `0`;
-    if (beforeIdx > i) {
-        slide_list_li[beforeIdx].style.left = '100%';
+container.addEventListener('click', function (e) {
+    // e.preventDefault();
+    console.log(e.target);
+    if (currentIdx < slideCount - 1) {
+        moveSlide(currentIdx + 1);
+        console.log(currentIdx);
     }
-    else if (beforeIdx < i) {
-        slide_list_li[beforeIdx].style.left = '-100%';
-    }
-
-    // slide_list_li[i].classList.remove('nonVisible');
-    // slide_list_li[beforeIdx].classList.add('nonVisible');
-    slide_list_li[(i + 1) % slide_list_li.length].style.left = '100%';
-}
-
-// 자동 슬라이드 
-let slide = setInterval(function () {
-    i = ++i % slide_list_li.length;
-    slideImg();
-}, 1500);
-
-mainBanner.addEventListener('mouseenter', function () {
-    clearInterval(slide);
 });
 
+console.log(document.querySelector('.btn_left'));
