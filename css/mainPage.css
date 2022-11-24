@@ -480,18 +480,11 @@ nav ul li:nth-child(4):hover .submenu2 {
     text-decoration: none;
 }
 
-.product img {
-    border-radius: 5%;
-}
-
 .pro1 img {
     width: 100%;
     transition: all 0.2s linear;
 }
 
-.pro1:hover img {
-    opacity: .8;
-}
 
 header {
     z-index: 3;
@@ -646,7 +639,6 @@ pre {
 .innerbox1 img {
     width: 100%;
     height: 100%;
-    border-radius: 5%;
 }
 
 #menu,
@@ -751,4 +743,28 @@ pre {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.product button {
+    background-image: url(../image/basket.png);
+    background-position: center;
+    background-size: 65%;
+    background-repeat: no-repeat;
+
+    box-sizing: border-box;
+    width: 45px;
+    height: 45px;
+
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+
+    background-color: lightsalmon;
+    opacity: 0.8;
+    border-radius: 50%;
+    border: none;
+}
+
+.product button:hover {
+    cursor: pointer;
 }

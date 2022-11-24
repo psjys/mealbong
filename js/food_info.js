@@ -58,7 +58,8 @@ bg.addEventListener('click', close);
 const share = innerbox2.querySelector('#share'),
     SNS = document.querySelector('.SNS_container'),
     SNS_Box = SNS.querySelector('.SNS_Box'),
-    SNS_closeBtn = SNS_Box.querySelector('.SNS_closeBtn');
+    SNS_closeBtn = SNS_Box.querySelector('.SNS_closeBtn'),
+    nav = document.querySelector('nav');
 
 share.addEventListener('click', () => {
 
@@ -74,12 +75,14 @@ const SNS_open = () => {
     SNS.classList.remove('hidden');
     body.classList.add('scroll_none');
     header.style.position = 'static';
+    nav.style.zIndex = '0';
 }
 
 const SNS_close = () => {
     SNS.classList.add('hidden');
     body.classList.remove('scroll_none');
     header.style.position = 'sticky';
+    nav.style.zIndex = '2';
 }
 
 function modal_s(str) {
