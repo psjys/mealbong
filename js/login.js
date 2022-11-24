@@ -7,7 +7,8 @@ loginPw = document.getElementById('pw'),
 login = document.querySelector('.login'),
 login_li = login.getElementsByTagName('li'),
 inputTag = main.getElementsByClassName('login-input'),
-loginDiv = main.querySelector('.logindiv');
+loginDiv = main.querySelector('.logindiv'),
+nav = document.querySelector('nav');
 
 // ======모달참조
 const modal = main.querySelector('.modal_container'),
@@ -24,12 +25,14 @@ const open = () => {
     modal.classList.remove('hidden');
     body.classList.add('scroll_none');
     header.style.position = 'static';
+    nav.style.zIndex = '0';
 }
 
 const close = () => {
     modal.classList.add('hidden');
     body.classList.remove('scroll_none');
     header.style.position = 'sticky';
+    nav.style.zIndex = '2';
 }
 
 loginBtn.addEventListener('click', () => {

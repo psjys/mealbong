@@ -140,7 +140,7 @@ function nmph_input(zz,iff) {
 }
 
 checkBtn3.addEventListener('click', () => {
-    modal_f("인증번호가 발송되었습니다. 3분 안에 인증번호를 입력해 주세요.");
+    modal_f("인증번호가 발송되었습니다. 인증번호를 입력해 주세요.");
     Btn4_box.style.display = "flex";
 });
 
@@ -182,7 +182,7 @@ button_submit.addEventListener('click', () => {
 
 // =======주소검색
 
-const adress_add_button = document.querySelector(".adress_add_button");
+// const addressbutton = document.querySelector(".addressbutton");
 
 
 addressbutton.addEventListener('click', function () {

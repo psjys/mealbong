@@ -210,6 +210,8 @@ cart_div1.addEventListener('click', (e) => {
                 
                 // select_flag = false;
 
+            } else {
+                cart_submitBtn.setAttribute('type', 'submit');
             }
 
             if(select_value1.textContent != select_value2.textContent) {
@@ -322,16 +324,20 @@ address_btn.addEventListener('click', function () {
 
 // ============================modal
 
+const nav = document.querySelector('nav');
+
 const open = () => {
     modal.classList.remove('hidden');
     body.classList.add('scroll_none');
     header.style.position = 'static';
+    nav.style.zIndex = '0';
 }
 
 const close = () => {
     modal.classList.add('hidden');
     body.classList.remove('scroll_none');
     header.style.position = 'sticky';
+    nav.style.zIndex = '2';
 }
 
 function modal_f(str) {

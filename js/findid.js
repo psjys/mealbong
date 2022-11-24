@@ -34,7 +34,7 @@ function findBtn_confirm() {
     phone_input.style.color = "gray";
     phone_input.value = phone_input.value.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
     phone_input.setAttribute('readonly', '');
-    modal_f("인증번호가 발송되었습니다. 3분 안에 인증번호를 입력해 주세요.");
+    modal_f("인증번호가 발송되었습니다. 인증번호를 입력해 주세요.");
 
     span_btn.textContent = "확인";
     findBtn.setAttribute('disabled', '');
@@ -134,22 +134,26 @@ retryBtn.addEventListener('click', () => {
     findBtn.style.cursor = "default";
     findBtn.setAttribute('disabled', '');
   findNum_input.value = '';
-  modal_f("인증번호가 발송되었습니다. 3분 안에 인증번호를 입력해 주세요.");
+  modal_f("인증번호가 발송되었습니다. 인증번호를 입력해 주세요.");
 
 })
 
 // ============================modal
 
+const nav = document.querySelector('nav');
+
 const open = () => {
   modal.classList.remove('hidden');
   body.classList.add('scroll_none');
   header.style.position = 'static';
+  nav.style.zIndex = '0';
 }
 
 const close = () => {
   modal.classList.add('hidden');
   body.classList.remove('scroll_none');
   header.style.position = 'sticky';
+  nav.style.zIndex = '2';
 }
 
 function modal_f(str) {
