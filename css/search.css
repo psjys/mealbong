@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Gowun Dodum', sans-serif;
+    outline: none;
+}
+
+/* header 로고 / 검색창 / 로그인 정렬---------*/
+.flex-box {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+    /* height: 100px; */
+}
+
+/* header 상단고정---------*/
+
+header {
+    top: 0;
+    min-width: 1200px;
+    background-color: white;
+}
+
+/* header 로고---------*/
+
+.logo {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.space {
+    min-width: 1200px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: rgba(255, 160, 122, 0.708);
+    transition: .1s;
+}
+
+.space a {
+    color: white;
+    text-decoration: none;
+}
+
+.space-close {
+    position: absolute;
+    border: none;
+    right: 20px;
+    transition: .1s;
+    margin-top: calc((30px - 20px)/2);
+}
+
+.space-close img {
+    width: 20px;
+    height: 20px;
+    opacity: .4;
+    cursor: pointer;
+}
+
+.login {
+    justify-content: flex-end;
+    display: flex;
+    gap: 15px;
+    right: 0;
+    text-align: center;
+}
+
+.login a {
+    text-decoration: none;
+    color: black;
+}
+
+.login li:hover a {
+    text-decoration: underline;
+}
+
+.login>li {
+    width: 60px;
+}
+
+.login>li:nth-of-type(3) {
+    margin-right: 18px;
+}
+
+.hoverbox {
+    width: 90px;
+    border: 1px solid gray;
+    display: none;
+    position: absolute;
+    background-color: white;
+    right: 0;
+    top: 100%;
+}
+
+.hoverbox a {
+    color: black;
+    font-size: .9em;
+    display: block;
+}
+
+/*header 검색창---------*/
+
+.search {
+    width: 350px;
+    height: 40px;
+    border: 2px solid lightsalmon;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search input {
+    width: 300px;
+    font-size: 16px;
+    border: 0;
+}
+
+.button {
+    border: none;
+    background: none;
+}
+
+.button-set {
+    width: 30px;
+    line-height: 30px;
+    margin-right: 8px;
+}
+
+/* 장바구니 찜한 상품 --------- */
+
+.cart_heart {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.cart_heart a {
+    background-position: center;
+    background-size: 100%;
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+}
+
+.cart {
+    background-image: url(../image/cart.png);
+}
+
+.cart:hover {
+    background-image: url(../image/cart_coral.png);
+}
+
+.heart {
+    background-image: url(../image/heart.png);
+}
+
+.heart:hover {
+    background-image: url(../image/heart_coral.png);
+}
+
+.mpage {
+    background-image: url(../image/mypage.png);
+}
+
+.mpage:hover {
+    background-image: url(../image/mypage_coral.png);
+}
+
+/* 메뉴 ---------*/
+.menu {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav {
+    min-width: 1300px;
+    line-height: 50px;
+    display: flex;
+    justify-content: space-around;
+    position: sticky;
+    top: 0px;
+    box-shadow: 0 4px 4px -4px gray;
+    background-color: white;
+    z-index: 2;
+}
+
+.menu>li {
+    text-align: center;
+    width: 150px;
+    line-height: 40px;
+    margin: 0 40px;
+    box-sizing: border-box;
+}
+
+.menu>li>a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    font-size: 19px;
+}
+
+.submenu,
+.submenu2 {
+    display: none;
+    position: absolute;
+}
+
+.submenu a,
+.submenu2 a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.submenu>li,
+.submenu2>li {
+    width: 150px;
+    box-sizing: border-box;
+    line-height: 35px;
+    background-color: white;
+    border: 0.5px solid lightgray;
+    border-top: none;
+}
+
+.submenu>li:first-of-type,
+.submenu2>li:first-of-type {
+    border-top: 0.5px solid lightgray;
+}
+
+/* 메뉴 hover ---------*/
+
+.menu li:hover {
+    text-decoration: underline;
+}
+
+.menu>li:hover>a {
+    color: lightsalmon;
+}
+
+nav ul li:nth-child(1):hover .submenu,
+nav ul li:nth-child(4):hover .submenu2 {
+    display: block;
+}
+
+/* search */
+
+.searchResult {
+    height : 
+}
+
+.searchResult h1 {
+    text-align : center;
+    margin-top : 50px;
+}
+
+
+/* footer ------------ */
+
+footer {
+    /* height: 160px; */
+    min-width: 1200px;
+    margin-top: 50px;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    height: 50px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+    font-size: .8em;
+}
+
+.footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+pre {
+    font-size: .8em;
+}

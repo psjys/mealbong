@@ -21,7 +21,6 @@
 
 header {
     top: 0;
-    /* height: 160px; */
     min-width: 1200px;
     background-color: white;
 }
@@ -36,16 +35,38 @@ header {
 
 .space {
     min-width: 1200px;
-    height: 25px;
-    /* background-color: lightsalmon; */
-    margin: auto;
+    height: 30px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
     position: relative;
+    background-color: rgba(255, 160, 122, 0.708);
+    transition: .4s ease-in-out;
+}
+
+.space a {
+    color: white;
+    text-decoration: none;
+    transition: .4s;
+}
+
+.space-close {
+    position: absolute;
+    border: none;
+    right: 20px;
+    margin-top: calc((30px - 20px)/2);
+}
+
+.space-close img {
+    width: 20px;
+    height: 20px;
+    opacity: .8;
+    cursor: pointer;
+    transition: .1s;
 }
 
 .login {
-    /* width: 220px; */
+    justify-content: flex-end;
     display: flex;
     gap: 15px;
     right: 0;
@@ -78,10 +99,6 @@ header {
     right: 0;
     top: 100%;
 }
-
-/* .login li:nth-of-type(3):hover .hoverbox {
-    display: block;
-} */
 
 .hoverbox a {
     color: black;
@@ -212,6 +229,12 @@ nav {
     line-height: 35px;
     background-color: white;
     border: 0.5px solid lightgray;
+    border-top: none;
+}
+
+.submenu>li:first-of-type,
+.submenu2>li:first-of-type {
+    border-top: 0.5px solid lightgray;
 }
 
 /* 메뉴 hover ---------*/
@@ -219,11 +242,6 @@ nav {
 .menu li:hover {
     text-decoration: underline;
 }
-
-/* .menu:hover .submenu
-.menu:hover .submenu2 {
-    transition-duration: all 0.5s;
-}  */
 
 .menu>li:hover>a {
     color: lightsalmon;
@@ -238,7 +256,6 @@ nav ul li:nth-child(4):hover .submenu2 {
 .bannerContainer {
     position: relative;
     width: 100%;
-    /* display: flex; */
 }
 
 .btn_left,
@@ -280,32 +297,32 @@ nav ul li:nth-child(4):hover .submenu2 {
     background-position: center;
     white-space: nowrap;
     height: 500px;
-    min-width: 1200px;
-    width: 100%;
+    width: 400%;
+    /* min-width: 4800px; */
     position: absolute;
-    transition: left 0.5s ease-out;
-    /* display: flex; */
-    /* flex-wrap: nowrap; */
+    transition: 0.5s ease-out;
+    left: 0;
 }
 
 .main-banner li {
     transition: all .5s;
-    width: 100%;
+    width: 25%;
     float: left;
 }
 
 .main-banner img {
-    display: block;
     object-fit: cover;
     background-size: 100%;
     height: 500px;
     width: 100%;
+    min-width: 1200px;
 }
 
 .slide-container {
     position: relative;
     overflow: hidden;
     height: 500px;
+    min-width: 1200px;
 }
 
 .main-banner .animated {
@@ -319,66 +336,112 @@ nav ul li:nth-child(4):hover .submenu2 {
     margin: 0 auto;
 }
 
-.menuContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.menuContainer,
+.menuContainer2,
+.menuContainer3,
+.menuContainer4 {
     position: relative;
-    /* width: 1200px; */
-}
-
-.main-top {
-    width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    width: 1000px;
     height: 400px;
+    margin: 0 auto;
+}
+
+.mainFrame,
+.mainFrame2,
+.mainFrame3,
+.mainFrame4 {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
     position: relative;
 }
 
-.mainMenu {
+.main-top,
+.main-top2,
+.main-top3,
+.main-top4 {
+    width: 400%;
+    height: 100%;
     position: absolute;
-    top: 0;
     left: 0;
-    width: 1200px;
-    /* overflow: hidden; */
     display: flex;
+    transition: all .5s;
 }
+
+.mainMenu,
+.mainMenu2,
+.mainMenu3,
+.mainMenu4 {
+    height: 100%;
+}
+
+/* .mainMenu:last-of-type {
+    left:100%;
+} */
 
 .pop_pro {
     display: flex;
     margin-bottom: 100px;
     align-content: center;
-    justify-content: center;
     text-align: center;
-    width: 1100px;
-    margin: 0;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .btn_forward,
-.btn_back {
+.btn_back,
+.btn_forward2,
+.btn_back2,
+.btn_forward3,
+.btn_back3,
+.btn_forward4,
+.btn_back4 {
+    position: absolute;
     background: none;
     border: none;
     opacity: .3;
     width: 50px;
     height: 50px;
-    /* margin: 0 auto; */
+    top: 25%;
+}
+
+.btn_back,
+.btn_back2,
+.btn_back3,
+.btn_back4 {
+    right: 100%;
+}
+
+.btn_forward,
+.btn_forward2,
+.btn_forward3,
+.btn_forward4 {
+    left: 100%
 }
 
 .btn_forward:hover,
-.btn_back:hover {
+.btn_back:hover,
+.btn_forward2:hover,
+.btn_back2:hover,
+.btn_forward3:hover,
+.btn_back3:hover,
+.btn_forward4:hover,
+.btn_back4:hover {
     opacity: 1;
     transition: all .5s;
 }
 
 .btn_forward img,
-.btn_back img {
+.btn_back img,
+.btn_forward2 img,
+.btn_back2 img,
+.btn_forward3 img,
+.btn_back3 img,
+.btn_forward4 img,
+.btn_back4 img {
     width: 50px;
     height: 50px;
 }
-
-
 
 .pop {
     font-size: 1.5em;
@@ -390,6 +453,9 @@ nav ul li:nth-child(4):hover .submenu2 {
 .pop a {
     text-decoration: none;
     color: black;
+}
+.pop h2 {
+    padding-top : 50px;
 }
 
 .game {
@@ -404,7 +470,7 @@ nav ul li:nth-child(4):hover .submenu2 {
     margin: 10px;
     /* overflow: hidden; */
     position: relative;
-    width: 270px;
+    width: 100%;
     height: 300px;
     transition: all .5s;
 }
@@ -487,7 +553,12 @@ header {
     object-fit: cover;
     visibility: hidden;
     opacity: 0;
-    transition: all .5s;
+    /* transition: all .5s; */
+}
+
+.topButton img {
+    width: 50px;
+    height: 50px;
 }
 
 .btnScroll {
