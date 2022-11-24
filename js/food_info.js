@@ -4,24 +4,29 @@
 const modal = document.querySelector('.modal_container'),
     bg = document.querySelector('.bg'),
     body = document.querySelector('body'),
-    header = document.querySelector('header'),
+    header = document.querySelector('nav'),
     modalBox = modal.querySelector('.modalBox'),
     modal_p = modal.querySelector('p'),
     closeBtn = document.querySelector('.closeBtn'),
     innerbox2 = document.querySelector('.innerbox2'),
     basket = innerbox2.querySelector('.basket'),
-    wish = innerbox2.querySelector('.wish');
+    wish = innerbox2.querySelector('.wish'),
+    outerbox2 = document.querySelector('.outerbox2'),
+    product_review = outerbox2.querySelector('.product_review'),
+    product_inquiry = outerbox2.querySelector('.product_inquiry');
 
 const open = () => {
     modal.classList.remove('hidden');
     body.classList.add('scroll_none');
     header.style.position = 'static';
+    nav.style.zIndex = '0';
 }
 
 const close = () => {
     modal.classList.add('hidden');
     body.classList.remove('scroll_none');
     header.style.position = 'sticky';
+    nav.style.zIndex = '2';
 }
 
 wish.addEventListener('click', () => {
@@ -34,13 +39,26 @@ basket.addEventListener('click', () => {
     modal_f("로그인 하셔야 본 서비스를 이용하실 수 있습니다.");
 });
 
+product_review.addEventListener('click', () => {
+
+    modal_f("로그인 하셔야 본 서비스를 이용하실 수 있습니다.");
+});
+
+product_inquiry.addEventListener('click', () => {
+
+    modal_f("로그인 하셔야 본 서비스를 이용하실 수 있습니다.");
+});
+
 function modal_f(str) {
     open();
     modal_p.textContent = str;
 }
 
 closeBtn.addEventListener('click', close);
-bg.addEventListener('click', close);
+bg.addEventListener('click',() => {
+    close();
+    SNS_close();
+});
 
 
 
@@ -63,12 +81,7 @@ const share = innerbox2.querySelector('#share'),
 
 share.addEventListener('click', () => {
 
-    modal_s(
-        ` <a class="facebook" href="https://m.facebook.com/login/?locale=ko_KR/">페이스북<img src="../../../image/facebook_png_640.jpg" alt=""></a>
-    <a class="kakaotalk" href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fcs.kakao.com%2Fhelps%3Fservice%3D8%26locale%3Dko%26category%3D25">카카오톡</a>
-    <a class="instagram" href="https://www.instagram.com/">인스타그램</a>`
-    );
-    console.log('adsf')
+    modal_s();
 });
 
 const SNS_open = () => {
@@ -85,9 +98,8 @@ const SNS_close = () => {
     nav.style.zIndex = '2';
 }
 
-function modal_s(str) {
+function modal_s() {
     SNS_open();
-    SNS_Box.innerHTML += str;
 }
 
 SNS.addEventListener('click', function (e) {
