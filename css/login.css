@@ -308,7 +308,6 @@ nav ul li:nth-child(4):hover .submenu2 {
     font-weight: bold;
     border: 1px solid rgb(255, 160, 122);
     box-sizing: border-box;
-    border-radius: 5px;
 }
 
 .loginbutton {
@@ -408,6 +407,7 @@ nav ul li:nth-child(4):hover .submenu2 {
 
 }
 
+
 /* ===============order_submit============== */
 
 .order_div {
@@ -429,7 +429,7 @@ nav ul li:nth-child(4):hover .submenu2 {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
-
+    
 }
 
 /* =================findid_submit================= */
@@ -446,7 +446,7 @@ nav ul li:nth-child(4):hover .submenu2 {
     flex-direction: column;
     align-items: center;
     margin-top: 40px;
-
+    
 }
 
 .loginid_submit2 {
@@ -480,13 +480,13 @@ nav ul li:nth-child(4):hover .submenu2 {
 }
 
 .submit_loginframe2 {
-
+    
     width : 100vw;
     display : flex;
     flex-direction: column;
     justify-content : center;
     align-items : center;
-
+    
 }
 
 .loginform2 {
@@ -509,5 +509,8 @@ nav ul li:nth-child(4):hover .submenu2 {
     display : flex;
     flex-direction: column;
     justify-content : center;
-
+    
 }
+
+
+
