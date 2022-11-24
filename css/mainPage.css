@@ -6,6 +6,34 @@
     outline: none;
 }
 
+.post,
+.food_hint {
+    font-size: 0.8em;
+    color: gray;
+}
+
+.innerbox3 .food_box .post {
+    margin-bottom: 0;
+}
+
+.only,
+.limited {
+    background-color: rgb(244, 244, 244);
+    color: salmon;
+    font-size: 0.8em;
+    border-radius: 3px;
+    padding: 2px 10px;
+}
+
+.only {
+    box-sizing: border-box;
+    margin-right: 20px;
+}
+
+.limited {
+    width: 90px;
+}
+
 /* header 로고 / 검색창 / 로그인 정렬---------*/
 .flex-box {
     margin: auto;
@@ -342,7 +370,7 @@ nav ul li:nth-child(4):hover .submenu2 {
 .menuContainer4 {
     position: relative;
     width: 1000px;
-    height: 400px;
+    height: 450px;
     margin: 0 auto;
 }
 
@@ -375,15 +403,11 @@ nav ul li:nth-child(4):hover .submenu2 {
     height: 100%;
 }
 
-/* .mainMenu:last-of-type {
-    left:100%;
-} */
-
 .pop_pro {
     display: flex;
     margin-bottom: 100px;
     align-content: center;
-    text-align: center;
+    /* text-align: center; */
     width: 50%;
     margin: 0 auto;
 }
