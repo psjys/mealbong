@@ -219,7 +219,7 @@ nav {
     display: flex;
     justify-content: space-around;
     position: sticky;
-    top: -1px;
+    top: 0px;
     box-shadow: 0 4px 4px -4px gray;
     background-color: white;
     z-index: 2;
@@ -362,10 +362,10 @@ nav ul li:nth-child(4):hover .submenu2 {
 
 /* main -------------*/
 
-.main-width {
+/* .main-width {
     width: 1000px;
     margin: 0 auto;
-}
+} */
 
 .menuContainer,
 .menuContainer2,
@@ -429,7 +429,7 @@ nav ul li:nth-child(4):hover .submenu2 {
     opacity: .3;
     width: 50px;
     height: 50px;
-    top: 25%;
+    top: 30%;
 }
 
 .btn_back,
@@ -475,6 +475,7 @@ nav ul li:nth-child(4):hover .submenu2 {
     font-weight: bold;
     margin: 30px auto;
     text-align: center;
+    width : 250px;
 }
 
 .pop a {
@@ -482,7 +483,8 @@ nav ul li:nth-child(4):hover .submenu2 {
     color: black;
 }
 .pop h2 {
-    padding-top : 50px;
+    margin-top : 80px;
+    text-align: center;
 }
 
 .game {
@@ -794,4 +796,66 @@ pre {
 
 .product button:hover {
     cursor: pointer;
+}
+
+.img_container {
+    overflow: hidden;
+}
+
+.modal_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.601);
+}
+
+.modalBox {
+    position: absolute;
+    background-color: #fff;
+    top : 35%;
+    width : 300px;
+    height : 180px;
+    text-align : center;
+    border-radius: 10px;
+    display : flex;
+    flex-direction: column;
+    justify-content : space-between
+}
+
+.modalBox p {
+    padding : 30px;
+    font-weight : 600;
+    color :rgba(0, 0, 0, 0.73)
+}
+
+
+.modalBox button {
+    box-sizing : border-box;
+    color: lightsalmon;
+    font-weight : bold;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    height : 50px;
+    width : 100%;
+    margin : 0 auto;
+    cursor : pointer;
+    border : none;
+    background-color: white;
+    border-top : 1px solid gainsboro;
+    border-radius : 0 0 10px 10px;
+}
+
+.hidden  {
+    display : none;
 }
