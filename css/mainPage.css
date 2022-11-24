@@ -69,13 +69,13 @@ header {
     align-items: center;
     position: relative;
     background-color: rgba(255, 160, 122, 0.708);
-    transition: .4s ease-in-out;
+    /* transition: .4s ease-in-out; */
 }
 
 .space a {
     color: white;
     text-decoration: none;
-    transition: .4s;
+    /* transition: .4s; */
 }
 
 .space-close {
@@ -90,7 +90,6 @@ header {
     height: 20px;
     opacity: .8;
     cursor: pointer;
-    transition: .1s;
 }
 
 .login {
@@ -211,6 +210,11 @@ header {
     position: relative;
     display: flex;
     justify-content: space-between;
+}
+
+.menu_price {
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 nav {
