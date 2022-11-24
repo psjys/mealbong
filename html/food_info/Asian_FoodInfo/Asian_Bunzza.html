@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="../../../css/mainPage.css">
     <link rel="stylesheet" href="../../../css/food_info.css">
+    <script defer type="module" src="../../../js/food_info.js"></script>
     <script src="https://kit.fontawesome.com/219136e9eb.js" crossorigin="anonymous"></script>
 </head>
 
@@ -76,99 +77,91 @@
 
     <div class="outerbox1">
         <div class="innerbox1">
-            <img src="../../../image/Asian/불고기 분짜(3~4인).jpg" alt="Food main img">
+            <img src="../../../image/Food_img.PNG" alt="Food main img">
         </div>
-        <div class="innerbox1">
-            <ul>
-                <li id="menu">
+        <div class="innerbox2">
+
+            <div>샛별배송</div>
+
+            <div>
+                <h2>나시고랭 (2인)</h2>
+                <button id="share"><i class="fa fa-share-alt fa-2x"></i></button>
+            </div>
+
+            <div>취향대로 끓여서 완성하는</div>
+
+            <div>
+                <h1>10,000 원</h1>
+            </div>
+
+            <div>
+                <dl>배송</dl>
+                <dt>샛별배송(23시 전 주문시 내일 아침 7시 전 도착)</dt>
+            </div>
+
+            <div>
+                <dl>판매자</dl>
+                <dt>밀봉</dt>
+            </div>
+
+            <div>
+                <dl>포장타입</dl>
+                <dt>냉장 (스티로품포장)</dt>
+            </div>
+            <div>
+                <dl>인분</dl>
+                <dt>2인분</dt>
+            </div>
+            <div>
+                <dl>난이도</dl>
+                <dt>2 (쉬움)</dt>
+            </div>
+            <div>
+                <dl>원산지</dl>
+                <dt>상세페이지 별도 표기</dt>
+            </div>
+            <div>
+                <dl>알레르기 정보</dl>
+                <dt>
+                    <p class="allergy">
+                        - 난류, 쇠고기, 돼지고기, 닭고기, 조개규(굴, 바지락, 모시조개), 우유, 대두, 밀 함유 <br />
+                        - 이 제품은 새우, 게, 오징어, 고등어, 땅콩, 호두, 잣, 복숭아, 토마토, 메밀, 이황산류를 사용한 제품과 같은 제조시설에서 제조하고 있습니다.
+                    </p>
+                </dt>
+            </div>
+            <div>
+                <dl>유통기한(또는 수비기한)정보</dl>
+                <dt>수령일 포함 최소 2일 이상 남은 제품을 보내드립니다.</dt>
+            </div>
+            <div>
+                <dl>상품선택</dl>
+                <dt>
                     <div>
-                        <h1>불고기 분짜</h1>
+                        <div>나시고랭 (2인) 키트</div>
+                        <div>
+                            <div><input type="number" name="quantity" min="0" max="100" value="0"
+                                    class="div1_inputNumber"></div>
+                            <div>
+                                <h3> 10,000 원</h3>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h2>15,000원</h2>
-                    </div>
-                </li>
-                <li id="icons">
-                    <ul>
-                        <li>
-                            <div><i class="fa-regular fa-clock fa-2x"></i> 조리 10분</div>
-                        </li>
-                        <li>
-                            <div><i class="fa-solid fa-user-group fa-2x"></i> 3~4인분</div>
-                        </li>
-                        <li>
-                            <div><i class="fa-solid fa-bars-staggered fa-2x"></i> 난이도 3</div>
-                        </li>
-                        <li>
-                            <div><i class="fa-regular fa-hard-drive fa-2x"></i> 냉장보관</div>
-                        </li>
-                    </ul>
-                </li>
-                <li id="delivery">
-                    <div>
-                        <h2>배송비</h2>
-                    </div>
-                    <div>
-                        3,000원
-                    </div>
-                </li>
-                <li id="amount">
-                    <h2>수량</h2>
-                    <!-- <input type="number" name="foodamount" min="0"> -->
-                    <select name="foodamount">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </li>
-                <li id="sale">
-                    <h2><button class="foodpage_button"><a href="">구매하기</a></button>
-                        <button class="foodpage_button"><a href="">장바구니</a></button>
-                        <button class="foodpage_button"><a href="">찜하기</a></button>
-                    </h2>
-                </li>
-            </ul>
+                </dt>
+            </div>
+            <div>
+                <div id="total_amount">
+                    <span>총 상품금액 : </span>
+                    <span></span>
+                    <span>원</span>
+                </div>
+                <div id=btn_box>
+                    <button class="wish"></button>
+                    <button class="basket">장바구니 담기</button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="total_amount">
-        <div class="product_price">
-            <span class="expenditure">상품 금액 : </span>
-            <span class="amount">30,000</span>
-            <span class="won">원</span>
-        </div>
-        <div class="plus">
-            <span>+</span>
-        </div>
-        <div class="delivery_price">
-            <span class="expenditure">배송비 : </span>
-            <span class="amount">3,000</span>
-            <span class="won">원</span>
-        </div>
-        <hr>
-        <div class="total_price">
-            <span class="expenditure">총 합계금액 : </span>
-            <span class="amount">33,000</span>
-            <span class="won">원</span>
-        </div>
-    </div>
     <!-- ============================================================================ -->
     <!-- middle box -->
 
@@ -227,6 +220,29 @@
 
     <div class="topButton">
         <a href="#"><img src="../../../image/topbutton.png" title="위로 가기"></a>
+    </div>
+
+    <!-- ===========장바구니 및 좋아요 모달창 (로그인 하기 전)=========== -->
+
+    <div class="modal_container hidden">
+        <div class="bg"></div>
+        <div class="modalBox">
+            <p></p>
+            <div class="closeBtn_div">
+                <form action="../../login/login.html">
+                    <button class="closeBtn">확인</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========== SNS Share =========== -->
+
+    <div class="SNS_container hidden">
+        <div class="bg"></div>
+        <div class="SNS_Box">
+            <button class="SNS_closeBtn">확인</button>
+        </div>
     </div>
 
     <!-- footer : 법적 필수 항목 -->

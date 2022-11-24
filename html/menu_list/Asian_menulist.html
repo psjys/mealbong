@@ -13,6 +13,7 @@
     <script src="https://kit.fontawesome.com/219136e9eb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../css/menu_list.css">
     <link rel="stylesheet" href="../../css/mainPage.css">
+    <script defer type="module" src="../../js/menulist.js"></script>
 </head>
 
 <body>
@@ -85,10 +86,10 @@
         <hr>
 
         <div class="innerbox2">
-            <a href="#"><span>추천순</span></a>
-            <a href="#"><span>인기순</span></a>
-            <a href="#"><span>낮은 가격순</span></a>
-            <a href="#"><span>높은 가격순</span></a>
+            <a href="#" class="selected" data-direction=0><span>추천순</span></a>
+            <a href="#" data-direction=1><span>인기순</span></a>
+            <a href="#" data-direction=2><span>낮은 가격순</span></a>
+            <a href="#" data-direction=3><span>높은 가격순</span></a>
         </div>
 
         <div class="innerbox23">
@@ -96,90 +97,175 @@
         </div>
 
         <div class="innerbox3">
+
             <div class="food_box">
-                <a href="#">
-                    <img src="../../image/Asian/나시고랭(2인).jpg" alt="나시고랭"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
+                <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html">
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
                 <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
-                <div class="menu_price">10,000원</div>
-            </div>
-            <div class="food_box">
-                <a href="#">
-                    <img src="../../image/Asian/뜨끈한 쌀국수(1인).jpg" alt="뜨끈한 쌀국수"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">뜨끈한 쌀국수(1인)</a></div>
-                <div class="menu_price">10,000원</div>
-            </div>
-            <div class="food_box">
-                <a href="#">
-                    <img src="../../image/Asian/매콤 소고기 쌀국수(1인).jpg" alt="매콤 소고기 쌀국수"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">매콤 소고기 쌀국수(1인)</a></div>
-                <div class="menu_price">10,000원</div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
+                </div>
             </div>
             <div class="food_box">
                 <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html">
-                    <img src="../../image/Asian/불고기 분짜(3~4인).jpg" alt="불고기 분짜"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html">불고기 분짜(3~4인)</a></div>
-                <div class="menu_price">10,000원</div>
-            </div>
-            <div class="food_box">
-                <a href="#">
-                    <img src="../../image/Asian/새우 팟타이(2인).jpg" alt="새우 팟타이"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">새우 팟타이(2인)</a></div>
-                <div class="menu_price">10,000원</div>
-            </div>
-            <div class="food_box">
-                <a href="#">
-                    <img src="../../image/Asian/월남쌈(2~3인).jpg" alt="월남쌈"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class=" menu_name"><a href="#">월남쌈(2~3인)</a>
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
                 </div>
-                <div class="menu_price">10,000원</div>
             </div>
             <div class="food_box">
-                <a href="#">
-                    <img src="../../image/Asian/쿵 팟 퐁커리(2인).jpg" alt="쿵 팟 퐁커리"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">쿵 팟 퐁커리(2인)</a></div>
-                <div class="menu_price">10,000원</div>
+                <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html">
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
+                </div>
             </div>
             <div class="food_box">
-                <a href="#">
-                    <img src="../../image/Asian/크림카레(2인분).jpg" alt="크림카레"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">크림카레(2인분)</a></div>
-                <div class="menu_price">10,000원</div>
+                <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html">
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
+                </div>
             </div>
             <div class="food_box">
-                <a href="#">
-                    <img src="../../image/Asian/타이식 똠양꿍(1인).jpg" alt="타이식 똠양꿍"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">타이식 똠양꿍(1인)</a></div>
-                <div class="menu_price">10,000원</div>
+                <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html">
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
+                </div>
             </div>
             <div class="food_box">
-                <a href="#">
-                    <img src="../../image/Asian/태국 소고기 쌀국수(1인).jpg" alt="태국 소고기 쌀국수(1인)"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">태국 소고기 쌀국수(1인)</a></div>
-                <div class="menu_price">10,000원</div>
+                <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html">
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
+                </div>
+            </div>
+            <div class="food_box">
+                <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html">
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
+                </div>
+            </div>
+            <div class="food_box">
+                <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html">
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
+                </div>
+            </div>
+            <div class="food_box">
+                <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html">
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
+                </div>
+            </div>
+            <div class="food_box">
+                <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html">
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
+                </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        <hr>
-        <div class="footer">
-            <div><a href="../footer/personal.html"><strong>개인정보처리방침</strong></a></div>
-            <div><a href="../footer/using.html">이용약관</a></div>
-            <div><a href="../service_page/notice.html">공지사항</a></div>
-            <div><a href="../service_page/inquriy/inquiry_list.html">1:1 문의</a></div>
-        </div>
+    <!-- ===========장바구니 및 좋아요 모달창 (로그인 하기 전)=========== -->
 
-        <pre>
+    <div class="modal_container hidden">
+        <div class="bg"></div>
+        <div class="modalBox">
+            <p></p>
+            <div class="closeBtn_div">
+                <form action="../login/login.html">
+                    <button class="closeBtn">확인</button>
+                </form>
+            </div>
+        </div>
+    </div>
+            <!-- ============================================= -->
+
+            <footer>
+                <hr>
+                <div class="footer">
+                    <div><a href="../footer/personal.html"><strong>개인정보처리방침</strong></a></div>
+                    <div><a href="../footer/using.html">이용약관</a></div>
+                    <div><a href="../service_page/notice.html">공지사항</a></div>
+                    <div><a href="../service_page/inquriy/inquiry_list.html">1:1 문의</a></div>
+                </div>
+
+                <pre>
     회사명 : MealBong
     사업자 번호 : 123-45-678910
     대표자 : 박규민
@@ -188,7 +274,7 @@
     E-mail : abcedfg@gmail.com
     Copyright © 2022 MealBong. All rights reserved.
         </pre>
-    </footer>
+            </footer>
 </body>
 
 </html>

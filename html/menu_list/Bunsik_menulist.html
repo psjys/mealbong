@@ -13,6 +13,7 @@
     <script src="https://kit.fontawesome.com/219136e9eb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../css/menu_list.css">
     <link rel="stylesheet" href="../../css/mainPage.css">
+    <script defer type="module" src="../../js/menulist.js"></script>
 </head>
 
 <body>
@@ -85,10 +86,10 @@
         <hr>
 
         <div class="innerbox2">
-            <a href="#"><span>추천순</span></a>
-            <a href="#"><span>인기순</span></a>
-            <a href="#"><span>낮은 가격순</span></a>
-            <a href="#"><span>높은 가격순</span></a>
+            <a href="#" class="selected" data-direction=0><span>추천순</span></a>
+            <a href="#" data-direction=1><span>인기순</span></a>
+            <a href="#" data-direction=2><span>낮은 가격순</span></a>
+            <a href="#" data-direction=3><span>높은 가격순</span></a>
         </div>
 
         <div class="innerbox23">
@@ -98,77 +99,150 @@
         <div class="innerbox3">
             <div class="food_box">
                 <a href="#">
-                    <img src="../../image/Bunsik/국물 떡볶이(2인).jpg" alt="국물 떡볶이"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">국물 떡볶이(2인)</a></div>
-                <div class="menu_price">10,000원</div>
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span></div>
             </div>
             <div class="food_box">
                 <a href="#">
-                    <img src="../../image/Bunsik/매콤 닭 떡볶이(2인).jpg" alt="매콤 닭 떡볶이"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">매콤 닭 떡볶이(2인)</a></div>
-                <div class="menu_price">10,000원</div>
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span></div>
             </div>
             <div class="food_box">
                 <a href="#">
-                    <img src="../../image/Bunsik/매콤 양념 순대볶음(2인).jpg" alt="매콤 양념 순대볶음"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">매콤 양념 순대볶음(2인)</a></div>
-                <div class="menu_price">10,000원</div>
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span></div>
             </div>
             <div class="food_box">
                 <a href="#">
-                    <img src="../../image/Bunsik/백순대볶음(2인).jpg" alt="백순대볶음"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">백순대볶음(2인)</a></div>
-                <div class="menu_price">10,000원</div>
-            </div>
-            <div class="food_box">
-                <a href="../food_info/Bunsik_FoodInfo/Bunsik_ChickenFoot.html">
-                    <img src="../../image/Bunsik/볼케이노 국물닭발(2인).jpg" alt="볼케이노 국물닭발"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">볼케이노 국물닭발 (2인)</a></div>
-                <div class="menu_price">10,000원</div>
-            </div>
-            <div class="food_box">
-                <a href="#">
-                    <img src="../../image/Bunsik/야채곱창 (2~3인분).jpg" alt="야채곱창"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class=" menu_name"><a href="#">야채곱창 (2~3인)</a>
-                </div>
-                <div class="menu_price">10,000원</div>
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span></div>
             </div>
             <div class="food_box">
                 <a href="#">
-                    <img src="../../image/Bunsik/양념 순살 치킨(2인).jpg" alt="양념 순살 치킨"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">양념 순살 치킨(2인)</a></div>
-                <div class="menu_price">10,000원</div>
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span></div>
             </div>
             <div class="food_box">
                 <a href="#">
-                    <img src="../../image/Bunsik/짜장떡볶이(2인).png" alt="짜장떡볶이"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">짜장떡볶이(2인)</a></div>
-                <div class="menu_price">10,000원</div>
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span></div>
             </div>
             <div class="food_box">
                 <a href="#">
-                    <img src="../../image/Bunsik/쫄깃 족발(2~3인).jpeg" alt="쫄깃 족발(2~3인)"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">쫄깃 족발(2~3인)</a></div>
-                <div class="menu_price">10,000원</div>
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span></div>
             </div>
             <div class="food_box">
                 <a href="#">
-                    <img src="../../image/Bunsik/콘치즈 바비큐 치킨(2인).jpg" alt="콘치즈 바비큐 치킨"></a>
-                <button><i id="wish_icon" class="fa-solid fa-heart fa-2x"></i></button>
-                <div class="menu_name"><a href="#">콘치즈 바비큐 치킨(2인)</a></div>
-                <div class="menu_price">10,000원</div>
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span></div>
+            </div>
+            <div class="food_box">
+                <a href="#">
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span></div>
+            </div>
+            <div class="food_box">
+                <a href="#">
+                    <div class="img_container">
+                        <img src="../../image/Food_img.PNG" alt="나시고랭">
+                    </div>
+                </a>
+                <button class="basket"></button>
+                <div class="post">샛별배송</div>
+                <div class="menu_name"><a href="#">나시고랭(2인)</a></div>
+                <div class="menu_price">10,000 원</div>
+                <div class="food_hint">취향대로 끓여서 완성하는</div>
+                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span></div>
             </div>
         </div>
     </div>
+        <!-- ===========장바구니 및 좋아요 모달창 (로그인 하기 전)=========== -->
+
+        <div class="modal_container hidden">
+            <div class="bg"></div>
+            <div class="modalBox">
+                <p></p>
+                <div class="closeBtn_div">
+                    <form action="../login/login.html">
+                        <button class="closeBtn">확인</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+                <!-- ============================================= -->
 
     <footer>
         <hr>
