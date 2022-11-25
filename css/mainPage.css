@@ -804,6 +804,7 @@ pre {
 
 .img_container {
     overflow: hidden;
+    height: 295px;
 }
 
 .modal_container {
