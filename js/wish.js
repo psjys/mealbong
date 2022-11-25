@@ -24,10 +24,12 @@ const main = document.querySelector('main'),
 // 취소 모달창
 
 let delet_target;
+const nav = document.querySelector('nav');
 
 const open = () => {
     body.classList.add('scroll_none');
     header.style.position = 'static';
+    nav.style.zIndex = '0';
 }
 
 const close = () => {
@@ -35,6 +37,7 @@ const close = () => {
     put_modal_content.classList.add('hidden');
     body.classList.remove('scroll_none');
     header.style.position = 'sticky';
+    nav.style.zIndex = '2';
 }
 
 delet_Btn[0].addEventListener('click', function () {
