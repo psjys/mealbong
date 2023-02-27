@@ -9,8 +9,6 @@ let outerbox = document.querySelector('.outerbox'),
 
 
 for (let i = 0; i < img_container.length; i++) {
-
-
     food_img[i].addEventListener('mouseenter', function (event) {
         event.target.style.transform = "scale(1.1)"
         event.target.style.transition = "all 0.5s"

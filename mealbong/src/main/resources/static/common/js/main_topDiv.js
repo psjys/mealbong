@@ -14,15 +14,34 @@ spaceBtn.addEventListener('click', function () {
 // 버튼 클릭 시 검색 페이지 넘어가기 / alert 팝업 뜨기 
 
 let searchDiv = document.querySelector('.search'),
+    mainModal = document.querySelector('.mainModal'),
+    body = document.querySelector('body'),
+    header = document.querySelector('header'),
+    nav = document.querySelector('nav'),
     button = searchDiv.querySelector('.button'),
+    closeBtn = mainModal.querySelector('.closeBtn'),
+    bg = mainModal.querySelector('.bg'),
     buttonInput = document.getElementById('search_input');
 
-function search(e) {
-    let searchInput = buttonInput.value;
+const open = () => {
+    mainModal.classList.remove('hidden');
+    body.classList.add('scroll_none');
+    nav.style.position = 'static';
+    nav.style.zIndex = '0';
+}
 
+const close = () => {
+    mainModal.classList.add('hidden');
+    body.classList.remove('scroll_none');
+    nav.style.position = 'sticky';
+    nav.style.zIndex = '2';
+}
+
+function modal(e) {
+    let searchInput = buttonInput.value;
     if (searchInput == "") {
         e.preventDefault();
-        alert("검색어를 입력해 주세요");
+        open();
     }
 }
 
@@ -34,6 +53,8 @@ buttonInput.addEventListener('keydown', function (e) {
 });
 
 button.addEventListener('click', function (e) {
-    search(e);
+    modal(e);
 });
 
+closeBtn.addEventListener('click', close);
+bg.addEventListener('click', close);
