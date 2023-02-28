@@ -40,7 +40,7 @@
                     <tr style="text-align: center" th:each="qnaList : ${qnaList}">
                     <td th:text="${qnaList.getQna_num()}"></td>
                     <td th:text="${qnaList.getQna_title()}"></td>
-                    <td th:text="${#temporals.format(qnaList.getQna_date(), '')}"></td>
+                    <td th:text="${qnaList.getQna_date()}"></td>
                         <td></td>
                     </tr>
                  </table>
