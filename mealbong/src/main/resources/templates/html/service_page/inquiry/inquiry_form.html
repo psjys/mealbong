@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/mypage.css">
-    <link rel="stylesheet" href="../../../css/mainPage.css">
+    <link rel="stylesheet" href="../../../../common/css/mainPage.css">
+    <link rel="stylesheet" href="../../../../user/css/mypage.css">
     <script defer src="../../../js/main_topDiv.js"></script>
 
 </head>
@@ -20,28 +20,7 @@
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
     <main>
         <div class="mypage">
-            <div class="aside">
-                <div class="name">
-                    <h2>고객센터</h2>
-                </div>
-                <ul>
-                    <li>
-                        <a href="../notice.html" class="notice">공지사항
-                            <span></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../faq.html" class="faq">자주하는 질문
-                            <span></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="inquiry">1:1 문의
-                            <span></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <th:block th:replace="fragments/inquiry_aside :: inquiryFragement"></th:block>
             <div class="content">
                 <div class="content_1">
                     <h2>1:1 문의</h2>
@@ -62,7 +41,7 @@
                         </div>
                         <div>
                             <div class="content_inquiry_form_2">제목<span></span></div>
-                            <input name="qna_title" type="text" name="qna_title" class="inputstyle" placeholder=" 제목을 입력해주세요" required>
+                            <input name="qna_title" type="text" class="inputstyle" placeholder=" 제목을 입력해주세요" required>
                         </div>
                         <div>
                             <div class="content_inquiry_form_3">내용<span></span></div>
@@ -72,7 +51,7 @@
                             <div></div>
                         </div>
                         <div class="content_inquiry_form_6">
-                            <button class="inquriy_list_button">등록</button>
+                            <button type="submit" class="inquriy_list_button">등록</button>
                         </div>
                     </form>
                 </div>

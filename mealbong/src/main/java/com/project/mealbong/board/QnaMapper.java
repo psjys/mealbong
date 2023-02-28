@@ -9,7 +9,6 @@ import java.util.List;
 @Mapper
 public interface QnaMapper {
     List<QnaDTO> qnaList() throws Exception;
-
     int insert (QnaDTO dto);
 
 

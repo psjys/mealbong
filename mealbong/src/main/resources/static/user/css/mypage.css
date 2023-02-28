@@ -278,7 +278,7 @@ main {
 }
 
 .content_inquiry {
-    display: flex;
+    width: 100%;
     padding: 20px 0;
     border-bottom: 2px solid;
     font-weight: bold;

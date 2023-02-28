@@ -23,39 +23,27 @@
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
     <main>
         <div class="mypage">
-            <div class="aside">
-                <div class="name">
-                    <h2>고객센터</h2>
-                </div>
-                <ul>
-                    <li>
-                        <a href="../notice.html" class="notice">공지사항
-                            <span></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../faq.html" class="faq">자주하는 질문
-                            <span></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="inquiry">1:1 문의
-                            <span></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <th:block th:replace="fragments/inquiry_aside :: inquiryFragement"></th:block>
             <div class="content">
                 <div class="content_1">
                     <div>
                         <h2>1:1 문의</h2>
                     </div>
                 </div>
-                <div th:each ="qnaList : ${qnaList}">
-                    <span th:text="${qnaList.getQna_num()}"></span>
-                    <span th:text="${qnaList.getQna_title()}"></span>
-                    <span th:text="${qnaList.getQna_date()}"></span>
-                </div>
+                 <table class="content_inquiry">
+                     <tr>
+                     <th>번호</th>
+                     <th>제목</th>
+                     <th>작성일</th>
+                     <th>답변상태</th>
+                     </tr>
+                    <tr style="text-align: center" th:each="qnaList : ${qnaList}">
+                    <td th:text="${qnaList.getQna_num()}"></td>
+                    <td th:text="${qnaList.getQna_title()}"></td>
+                    <td th:text="${#temporals.format(qnaList.getQna_date(), '')}"></td>
+                        <td></td>
+                    </tr>
+                 </table>
 <!--                <div class="inquiry_box">-->
 <!--                    <div class="content_inquiry">-->
 <!--                        <div>번호</div>-->
@@ -323,8 +311,8 @@
 <!--                    </div>-->
 <!--                </div>-->
 <!--                <div class="content_inquiry_list_2">-->
-                    <button class="inquriy_form_button" type="button">
-                        <a href="./inquiry_form.html">문의 하기</a>
+                    <button class="inquriy_form_button">
+                        <a href="/qna/qnaform">문의 하기</a>
                     </button>
                 </div>
             </div>

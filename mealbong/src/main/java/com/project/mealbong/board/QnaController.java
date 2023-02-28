@@ -25,7 +25,7 @@ public class QnaController {
         return "html/service_page/inquiry/inquiry_list";
     }
 
-    @GetMapping("/qnaform")
+    @GetMapping("/qnaform") // 문의글 작성 폼
     public String inquiry_form (Model model) {
 
         return "html/service_page/inquiry/inquiry_form";
