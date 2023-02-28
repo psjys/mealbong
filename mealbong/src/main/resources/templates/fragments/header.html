@@ -18,10 +18,11 @@
     </ul>
     <div class="flex-box">
         <a href="/"><img src="../../image/logo4.png" alt="logo" class="logo"></a>
-        <form th:action="/search/searchlist" method="GET">
+        <form action="/search/searchlist" method="GET">
             <div class="search">
                 <input name="keyword" type="text" placeholder="검색어를 입력 하세요" id="search_input">
-                <input type="submit" class="button"><img class="button-set" src="../../image/search.png"></input>
+                <input type="submit" class="button" id="searchBtn" value="" width="1" height="1">
+                <label for="searchBtn"><img class="button-set" src="../../image/search.png"></label>
             </div>
         </form>
 

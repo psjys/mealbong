@@ -22,4 +22,8 @@ public class QnaService {
 
         return qnaList;
     }
+    public int insert (QnaDTO dto) {
+
+        return mapper.insert(dto);
+    }
 }
