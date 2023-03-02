@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/account.css">
-    <script defer src="../../js/account.js"></script>
+    <script defer src="../user/js/account.js"></script>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
                 </div>
 
 
-                <form action="./account_submit.html" name="Create-Account">
+                <form action="/user1/save" name="Create-Account" method="post">
                     <fieldset>
                         <div class="container">
                             <div class="mainbox">
@@ -47,7 +47,7 @@
                                         </label>
                                     </div>
                                     <div class="box2">
-                                        <input type="text" id="uid" class="inputstyle" placeholder="영문/숫자 조합 6자 이상" minlength="8"
+                                        <input type="text" id="uid" name="user_id" class="inputstyle" placeholder="영문/숫자 조합 6자 이상" minlength="8"
                                             >
                                     </div>
                                     <div class="box3">
@@ -68,7 +68,7 @@
                                     </label>
                                 </div>
                                 <div class="box2">
-                                    <input type="password" id="upw" class="inputstyle" placeholder="영문/숫자/특수문자 조합 10자 이상" maxlength="20"
+                                    <input type="password" id="upw" name="user_password" class="inputstyle" placeholder="영문/숫자/특수문자 조합 10자 이상" maxlength="20"
                                     >
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                     </label>
                                 </div>
                                 <div class="box2">
-                                    <input type="password" id="upw2" class="inputstyle" placeholder="비밀번호를 한번 더 입력해주세요"
+                                    <input type="password" id="upw2" name="user_password2" class="inputstyle" placeholder="비밀번호를 한번 더 입력해주세요"
                                         maxlength="20" >
                                 </div>
                             </div>
@@ -95,7 +95,7 @@
                                     </label>
                                 </div>
                                 <div class="box2">
-                                    <input type="text" class="inputstyle" placeholder="이름을 입력해주세요" id="uname">
+                                    <input type="text" name="user_name" class="inputstyle" placeholder="이름을 입력해주세요" id="uname">
                                 </div>
                             </div>
 
@@ -106,7 +106,7 @@
                                     </label>
                                 </div>
                                 <div class="box2">
-                                    <input type="email" class="inputstyle" id ="umail" placeholder="예: mealbong@meal.com">
+                                    <input type="email" name="user_email" class="inputstyle" id ="umail" placeholder="예: mealbong@meal.com">
                                 </div>
 
                                 <div class="box3">
@@ -123,7 +123,7 @@
                                     </label>
                                 </div>
                                 <div class="box2">
-                                    <input type="tel" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" id="phone"
+                                    <input type="tel" name="user_phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" id="phone"
                                         class="inputstyle findinput" placeholder="휴대폰 번호를 입력해 주세요" maxlength="11">
                                 </div>
 
@@ -142,7 +142,7 @@
                     
                                 </div>
                                 <div class="box2">
-                                    <input type="tel" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" id="phone_num"
+                                    <input type="tel" name="pass_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" id="phone_num"
                                         class="inputstyle findinput" maxlength="7">
                                 </div>
 
@@ -170,10 +170,11 @@
                                 <div class="box1">
                                     <div class="inner">
                                       
-                                
+                                <input type="hidden" name="user_zip" class="userZip" value="35605">
+                                <input type="hidden" name="user_address1" value="경기도 성남시 분당구">
                                     </div>
                                     <div class="box2">
-                                        <input type="text" 
+                                        <input type="text" name="user_address2"
                                             id="address_input" class="inputstyle">
                                     </div>
                                 
@@ -189,11 +190,11 @@
                                     </label>
                                 </div>
                                 <div class="box2 gender">
-                                    <input type="radio" class="genderinput" name="gender" id="man">
+                                    <input type="radio" class="genderinput" name="user_gender" id="man" value="male">
                                     <label for="man" name="gender" class="genderlabel2">남자</label>
-                                    <input type="radio" class="genderinput" name="gender" id="woman">
+                                    <input type="radio" class="genderinput" name="user_gender" id="woman" value="female">
                                     <label for="woman" name="gender" class="genderlabel2">여자</label>
-                                    <input type="radio" class="genderinput" name="gender" id="none" checked>
+                                    <input type="radio" class="genderinput" name="user_gender" id="none" value="unselected" checked>
                                     <label for="none" name="gender">선택안함</label>
                                 </div>
 
@@ -205,35 +206,7 @@
                                         생년월일
                                     </label>
                                 </div>
-                                <div class="birth">
-                                    <div class="birthchild birthchild1">
 
-                                        <input type="text" class="inputstyle2" placeholder="YYYY" maxlength="4">
-
-                                    </div>
-                                    <div class="birthchild birthchild2">
-                                        <select name="month" id="month" class="month">
-                                            <option value="1">1월</option>
-                                            <option value="2">2월</option>
-                                            <option value="3">3월</option>
-                                            <option value="4">4월</option>
-                                            <option value="5">5월</option>
-                                            <option value="6">6월</option>
-                                            <option value="7">7월</option>
-                                            <option value="8">8월</option>
-                                            <option value="9">9월</option>
-                                            <option value="10">10월</option>
-                                            <option value="11">11월</option>
-                                            <option value="12">12월</option>
-                                        </select>
-
-                                    </div>
-                                    <div class="birthchild">
-
-                                        <input type="text" class="inputstyle2" placeholder="DD" maxlength="2">
-                                    </div>
-
-                                </div>
 
 
                             </div>

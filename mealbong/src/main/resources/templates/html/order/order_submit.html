@@ -6,13 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 밀키트 쇼핑몰 :: Meal Bong </title>
-    <link rel="stylesheet" href="../../css/modal.css">
     <link rel="stylesheet" href="../../css/login.css">
     <link rel="stylesheet" href="../../css/mainPage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-    <script defer src="../../js/login.js"></script>
     <script defer src="../../js/main_topDiv.js"></script>
 
 </head>
@@ -21,7 +19,7 @@
 <header>
     <div class="space">
 
-        <a href="./account.html">
+        <a href="../login/account.html">
             지금 가입하고 적립금 <b>10,000원</b> 받아가세요!
         </a>
         <a class="space-close">
@@ -30,8 +28,8 @@
 
     </div>
     <ul class="login">
-        <li><a href="./account.html">회원가입</a></li>
-        <li><a href="./login.html">로그인</a></li>
+        <li><a href="../login/account.html">회원가입</a></li>
+        <li><a href="../login/login.html">로그인</a></li>
     </ul>
     <div class="flex-box">
         <a href="#"><img src="../../image/logo4.png" alt="logo" class="logo"></a>
@@ -43,7 +41,7 @@
         </form>
         <div class="cart_heart">
             <a href="../my_page/mypage.html" class="mpage" alt="마이페이지"></a>
-            <a href="./cart.html" class="cart" alt="장바구니"></a>
+            <a href="cart.html" class="cart" alt="장바구니"></a>
             <a href="../my_page/wish.html" class="heart" alt="찜한 상품"></a>
         </div>
     </div>
@@ -75,64 +73,41 @@
 
     <main>
         <div class="loginframe">
-            <div class="logintext">로그인</div>
+            <div class="logintext">결제 완료</div>
             <div class="loginform">
-                <form action="../../index.html" class="userjoin">
-                    <div class="logindiv">
-                        <div class="login-id">
-                            <input type="text" name="id" id="uid" minlength="4" placeholder="아이디를 입력해주세요" class="login-input input_border" value>
+                <form action="order_details.html">
+                    <div class="order_div">
+                        <div class="login-id_order">
+                           송강현님의 주문이 완료 되었습니다.
 
                         </div>
-                        <div class="login-pw">
-                            <input type="password" name="pw" id="pw" minlength="4" placeholder="비밀번호를 입력해주세요" class="login-input input_border">
-
+                        <p>불고기 분짜 x1</p>
+                        <p>얼큰 마라탕 x1</p>
+                        <p>나혼자 밀푀유 샤브전골 x1</p>
+                        <p>애호박 된장 찌개 x1</p>
+                        <div class="login-pw_order">
+                            <span>결제금액</span>
+                            <span>52,000원</span>
                         </div>
                     </div>
 
-                    <div class="div_a">
-                        <a href="./findid.html" class="a_tag">아이디 찾기</a>
-                        <span class="findspan">&#124;</span>
-                        <a href="./findpw.html" class="a_tag">비밀번호 찾기</a>
-                    </div>
-                    <button class="loginbutton" type="button">
-                          로그인
+                    <button class="loginbutton">
+                          주문 상세보기
                     </button>
                 </form>
 
                 <div class="accountbutton">
-                    <a href="./Terms.html" class="button_a">회원가입</a>
-            </div>
-
-                <div>
-                    <p class="p">간편 로그인</p>
-                    <div class="SocialLogin">
-                        <a href="https://kauth.kakao.com/oauth/authorize?client_id=e383b53fba9bd1a9729bd3cfeceffd95&redirect_uri=https://fresheasy.co.kr/member/kakaoSyncLogin&response_type=code">
-                            <img src="../../image/kakaoSyncLogin.png" alt="" class="img">
-                        </a>
-                        <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com">
-                            <img src="../../image/naverSocialLogin.png" alt="" class="img">
-                        </a>
-
+                    <a href="../mainpage.html" class="button_a">쇼핑 계속하기</a>
                     </div>
-                </div>
+            </div>
 
             </div>
         </div>
 
-        
-        <div class="modal_container hidden">
-            <div class="bg"></div>
-            <div class="modalBox">
-                <p>아이디를 입력해주세요.</p>
-                <div class="closeBtn_div">
-                    <button class="closeBtn">확인</button>
-                </div>
-            </div>
-        </div>
     </main>
 
-<!-- footer : 법적 필수 항목 -->
-<footer>
+   <!-- footer : 법적 필수 항목 -->
+   <footer>
     <hr>
     <div class="footer">
         <div><a href="../footer/personal.html"><strong>개인정보처리방침</strong></a></div>

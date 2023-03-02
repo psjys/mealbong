@@ -13,8 +13,22 @@
 
     </div>
     <ul class="login">
-        <li><a href="../html/login/Terms.html">회원가입</a></li>
-        <li><a href="../html/login/login.html">로그인</a></li>
+        <th:block th:if="${session['user_id'] == null}">
+            <li><a href="/user1/terms">회원가입</a></li>
+            <li><a href="/user1/login">로그인</a></li>
+        </th:block>
+
+        <th:block th:if="${session['user_id'] != null}">
+            <li>
+                <a th:href="@{|/user1/${session['user_id']}|}">
+                    <span th:text="${session['user_name']}"></span>님
+                </a>
+            </li>
+            <li>
+                <a href="/user1/logout">로그아웃</a>
+            </li>
+
+        </th:block>
     </ul>
     <div class="flex-box">
         <a href="/"><img src="../../image/logo4.png" alt="logo" class="logo"></a>

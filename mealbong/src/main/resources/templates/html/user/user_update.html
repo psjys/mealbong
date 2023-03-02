@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 밀키트 쇼핑몰 :: Meal Bong </title>
+  <link rel="stylesheet" href="../../css/modal.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/account.css">
+  <script defer src="../user/js/account.js"></script>
+</head>
+
+<body>
+
+<main>
+  <div class="account_container">
+    <div class="imgdiv">
+      <a href="../../index.html"><img src="../../image/logo4.png"></a>
+    </div>
+
+    <div class="maindiv">
+      <div class="maindiv2">
+        <span class="mainspan">회원가입</span>
+      </div>
+
+      <div class="divline align">
+        <div>
+          <label class="font1">
+            <span class="spanstyle">*</span>필수입력사항
+          </label>
+        </div>
+      </div>
+
+
+      <form action="/user1/save" name="Create-Account" method="post">
+        <fieldset>
+          <div class="container">
+            <div class="mainbox">
+              <div class="box1">
+                <div class="inner">
+                  <label class="font">
+                    <span>아이디</span><span class="spanstyle">*</span>
+                  </label>
+                </div>
+                <div class="box2">
+                  <input type="text" th:value="${user_detail.user_id}" readonly id="uid" name="user_id" class="inputstyle" placeholder="영문/숫자 조합 6자 이상" minlength="8"
+                  >
+                </div>
+                <div class="box3">
+                  <button type="button" class="buttonstyle checkBtn1">
+                    중복확인
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="box1">
+              <div class="inner">
+                <label class="font">
+                  현재 비밀번호<span class="spanstyle">*</span>
+                </label>
+              </div>
+              <div class="box2">
+                <input type="password" id="upw3" name="user_password3" class="inputstyle" placeholder="영문/숫자/특수문자 조합 10자 이상" maxlength="20"
+                >
+              </div>
+            </div>     <div class="box1">
+            <div class="inner">
+              <label class="font">
+                새 비밀번호<span class="spanstyle">*</span>
+              </label>
+            </div>
+            <div class="box2">
+              <input type="password" id="upw" name="user_password" class="inputstyle" placeholder="영문/숫자/특수문자 조합 10자 이상" maxlength="20"
+              >
+            </div>
+          </div>
+            <p class="account_p account_hidden">영문/숫자/특수문자 조합 10자 이상 20자 이하</p>
+
+            <div class="box1">
+              <div class="inner">
+                <label class="font">
+                  새 비밀번호확인<span class="spanstyle">*</span>
+                </label>
+              </div>
+              <div class="box2">
+                <input type="password" id="upw2" name="user_password2" class="inputstyle" placeholder="비밀번호를 한번 더 입력해주세요"
+                       maxlength="20" >
+              </div>
+            </div>
+
+            <p class="account_p2 account_hidden">동일한 비밀번호를 입력</p>
+
+            <div class="box1">
+              <div class="inner">
+                <label class="font">
+                  이름<span class="spanstyle">*</span>
+                </label>
+              </div>
+              <div class="box2">
+                <input type="text" th:value="${user_detail.user_name}" name="user_name" class="inputstyle" placeholder="이름을 입력해주세요" id="uname">
+              </div>
+            </div>
+
+            <div class="box1">
+              <div class="inner">
+                <label class="font">
+                  이메일<span class="spanstyle">*</span>
+                </label>
+              </div>
+              <div class="box2">
+                <input type="email" th:value="${user_detail.user_email}" name="user_email" class="inputstyle" id ="umail" placeholder="예: mealbong@meal.com">
+              </div>
+
+              <div class="box3">
+                <button type="button" class="buttonstyle checkBtn2">
+                  중복확인
+                </button>
+              </div>
+            </div>
+
+            <div class="box1">
+              <div class="inner">
+                <label class="font">
+                  휴대폰<span class="spanstyle">*</span>
+                </label>
+              </div>
+              <div class="box2">
+                <input type="tel" th:value="${user_detail.user_phone}" name="user_phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" id="phone"
+                       class="inputstyle findinput" placeholder="휴대폰 번호를 입력해 주세요" maxlength="11">
+              </div>
+
+              <div class="box3">
+                <button type="button" class="buttonstyle2 button_opacity checkBtn3" disabled>
+                  인증번호 받기
+                </button>
+              </div>
+            </div>
+
+            <div class="box1 Btn4_box">
+              <div class="inner">
+                <label class="font">
+                  인증번호
+                </label>
+
+              </div>
+              <div class="box2">
+                <input type="tel" name="pass_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" id="phone_num"
+                       class="inputstyle findinput" maxlength="7">
+              </div>
+
+              <div class="box3">
+                <button type="button" class="buttonstyle2 button_opacity checkBtn4" disabled>
+                  인증번호 확인
+                </button>
+              </div>
+            </div>
+
+
+
+            <div class="box1">
+              <div class="inner">
+
+                <input type="hidden" name="user_zip" class="userZip" value="35605">
+                <input type="hidden" name="user_address1" value="경기도 성남시 분당구">
+              </div>
+
+              <div class="box3">
+
+              </div>
+            </div>
+
+            <div class="box1">
+              <div class="inner genderlabel">
+                <label class="font">
+                  성별
+                </label>
+              </div>
+              <div class="box2 gender">
+                <input type="radio" class="genderinput" name="user_gender" id="man" value="male">
+                <label for="man" name="gender" class="genderlabel2">남자</label>
+                <input type="radio" class="genderinput" name="user_gender" id="woman" value="female">
+                <label for="woman" name="gender" class="genderlabel2">여자</label>
+                <input type="radio" class="genderinput" name="user_gender" id="none" value="unselected" checked>
+                <label for="none" name="gender">선택안함</label>
+              </div>
+
+            </div>
+
+            <div class="box1 birthmainbox">
+              <div class="inner">
+                <label class="font birthlabel">
+                  생년월일
+                </label>
+              </div>
+
+
+
+            </div>
+
+
+          </div>
+
+    </div>
+
+    </fieldset>
+    <div class="buttonBox">
+      <a href="/user1/delete">탈퇴하기</a>
+      <button type="button" class="button_submit">
+        회원정보수정
+      </button>
+    </div>
+
+    </form>
+  </div>
+
+  <div class="modal_container hidden">
+    <div class="bg"></div>
+    <div class="modalBox">
+      <p class="modal_p"></p>
+      <div class="closeBtn_div">
+        <button class="closeBtn">확인</button>
+      </div>
+    </div>
+  </div>
+
+  </div>
+</main>
+
+<!-- footer : 법적 필수 항목 -->
+<footer>
+  <hr>
+  <div class="footer">
+    <div><a href="../footer/personal.html"><strong>개인정보처리방침</strong></a></div>
+    <div><a href="../footer/using.html">이용약관</a></div>
+    <div><a href="../service_page/notice.html">공지사항</a></div>
+    <div><a href="../service_page/inquiry/inquiry_list.html">1:1 문의</a></div>
+  </div>
+
+  <pre>
+    회사명 : MealBong
+    사업자 번호 : 123-45-678910
+    대표자 : 박규민
+    주소 : 경기도 성남시 분당구 돌마로 46
+    연락처 : 031 - 789 - 1234
+    E-mail : abcedfg@gmail.com
+    Copyright © 2022 MealBong. All rights reserved.
+        </pre>
+</footer>
+
+
+</body>
+
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+</html>
