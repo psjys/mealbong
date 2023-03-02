@@ -11,5 +11,10 @@ public interface QnaMapper {
     List<QnaDTO> qnaList() throws Exception;
     int insert (QnaDTO dto);
 
+    QnaDTO detail(QnaDTO dto);
+
+    int update(QnaDTO dto);
+
+    void delete(QnaDTO dto);
 
 }

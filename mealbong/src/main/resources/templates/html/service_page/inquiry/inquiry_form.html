@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">료
 
 <head>
     <meta charset="UTF-8">
@@ -26,7 +26,7 @@
                     <h2>1:1 문의</h2>
                 </div>
                 <div class="content_inquiry_form">
-                    <form>
+                    <form action="/qna/qnaform" method="post">
                         <div>
                             <div class="content_inquiry_form_1">유형<span></span></div>
                             <select name="type" id="type" class="type">
@@ -41,17 +41,14 @@
                         </div>
                         <div>
                             <div class="content_inquiry_form_2">제목<span></span></div>
-                            <input name="qna_title" type="text" class="inputstyle" placeholder=" 제목을 입력해주세요" required>
+                            <input name="qna_title" type="text" class="inputstyle" placeholder=" 제목을 입력해 주세요." required>
                         </div>
                         <div>
                             <div class="content_inquiry_form_3">내용<span></span></div>
-                            <textarea name="qna_content" class="content_inquiry_form_textarea" placeholder="내용을 입력해 주세요."></textarea>
-                        </div>
-                        <div>
-                            <div></div>
+                            <textarea name="qna_content" class="content_inquiry_form_textarea" placeholder=" 내용을 입력해 주세요." required></textarea>
                         </div>
                         <div class="content_inquiry_form_6">
-                            <button type="submit" class="inquriy_list_button">등록</button>
+                            <input type="submit" class="inquriy_list_button" value="등록">
                         </div>
                     </form>
                 </div>

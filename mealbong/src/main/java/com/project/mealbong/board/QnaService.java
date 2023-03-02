@@ -11,7 +11,7 @@ public class QnaService {
     @Autowired
     private QnaMapper mapper;
 
-    public List<QnaDTO> qnaList(){
+    public List<QnaDTO> qnaList() {
         List<QnaDTO> qnaList = new ArrayList<QnaDTO>();
 
         try {
@@ -22,8 +22,19 @@ public class QnaService {
 
         return qnaList;
     }
-    public int insert (QnaDTO dto) {
-
+    public QnaDTO detail(QnaDTO dto) {
+       return mapper.detail(dto);
+    }
+    public int insert(QnaDTO dto) {
         return mapper.insert(dto);
     }
+
+    public int update(QnaDTO dto) {
+        return mapper.update(dto);
+    }
+
+    public void delete(QnaDTO dto) {
+        mapper.delete(dto);
+    }
+
 }

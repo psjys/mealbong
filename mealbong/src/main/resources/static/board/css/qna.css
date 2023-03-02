@@ -1,0 +1,35 @@
+.inquiry {
+    background-color: lightsalmon;
+}
+
+.content_inquiry li ul li {
+    width: 15%;
+}
+.content_inquiry li ul li:first-child {
+    width: 70%;
+}
+
+.content_inquiry > li:nth-child(2) ul li:last-child {
+    width: 100%;
+}
+
+.content_inquiry ul {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.content_inquiry {
+    display: flex;
+    flex-direction: column;
+}
+
+.ans {
+    background-color: #F6F6F6;
+}
+
+.ans a {
+    color: #AEAEAE;
+    font-size: 0.8em;
+    text-decoration: none;
+}

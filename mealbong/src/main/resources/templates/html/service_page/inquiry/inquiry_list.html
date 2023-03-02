@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -10,314 +10,58 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-<!--    <link rel="stylesheet" href="../../../css/mainPage.css">-->
     <link rel="stylesheet" href="../../../../common/css/mainPage.css">
     <link rel="stylesheet" href="../../../../user/css/mypage.css">
+    <link rel="stylesheet" href="../../../../board/css/qna.css">
     <script defer src="../../../../user/js/inquiry.js"></script>
     <script defer src="../../../../common/js/main_topDiv.js"></script>
-
-
 </head>
 
 <body>
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
-    <main>
-        <div class="mypage">
-            <th:block th:replace="fragments/inquiry_aside :: inquiryFragement"></th:block>
-            <div class="content">
-                <div class="content_1">
-                    <div>
-                        <h2>1:1 문의</h2>
-                    </div>
-                </div>
-                 <table class="content_inquiry">
-                     <tr>
-                     <th>번호</th>
-                     <th>제목</th>
-                     <th>작성일</th>
-                     <th>답변상태</th>
-                     </tr>
-                    <tr style="text-align: center" th:each="qnaList : ${qnaList}">
-                    <td th:text="${qnaList.getQna_num()}"></td>
-                    <td th:text="${qnaList.getQna_title()}"></td>
-                    <td th:text="${qnaList.getQna_date()}"></td>
-                        <td></td>
-                    </tr>
-                 </table>
-<!--                <div class="inquiry_box">-->
-<!--                    <div class="content_inquiry">-->
-<!--                        <div>번호</div>-->
-<!--                        <div>제목</div>-->
-<!--                        <div>작성일</div>-->
-<!--                        <div>답변상태</div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>15</div>-->
-<!--                            <div>개인정보를 수정하고 싶어요.</div>-->
-<!--                            <div>2022.11.25</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    로그인 후 마이페이지 화면에서 개인정보를 수정할 수 있습니다.<br>-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>14</div>-->
-<!--                            <div>재고가 없는 상품은 언제쯤 구입할 수 있을까요.</div>-->
-<!--                            <div>2022.11.23</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    품절 상품 재입고 여부 및 일정은 정확한 확인이 가능하지 않습니다.<br>-->
-
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>13</div>-->
-<!--                            <div>1:1문의 테스트 1.</div>-->
-<!--                            <div>2022.11.22</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    해당 문의 내용으로는 고객님의 문의가 파악이 되지 않아 올바른 답변을 드리기가 어렵습니다.<br>-->
-<!--                                    답변을 드리지 못하는 점 사과드립니다.-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>12</div>-->
-<!--                            <div>1:1문의 테스트 2.</div>-->
-<!--                            <div>2022.11.21</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    해당 문의 내용으로는 고객님의 문의가 파악이 되지 않아 올바른 답변을 드리기가 어렵습니다.<br>-->
-<!--                                    답변을 드리지 못하는 점 사과드립니다.-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>11</div>-->
-<!--                            <div>1:1문의 테스트 3.</div>-->
-<!--                            <div>2022.11.20</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    해당 문의 내용으로는 고객님의 문의가 파악이 되지 않아 올바른 답변을 드리기가 어렵습니다.<br>-->
-<!--                                    답변을 드리지 못하는 점 사과드립니다.-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>10</div>-->
-<!--                            <div>1:1문의 테스트 4.</div>-->
-<!--                            <div>2022.11.19</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    해당 문의 내용으로는 고객님의 문의가 파악이 되지 않아 올바른 답변을 드리기가 어렵습니다.<br>-->
-<!--                                    답변을 드리지 못하는 점 사과드립니다.-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>9</div>-->
-<!--                            <div>1:1문의 테스트 5.</div>-->
-<!--                            <div>2022.11.18</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    해당 문의 내용으로는 고객님의 문의가 파악이 되지 않아 올바른 답변을 드리기가 어렵습니다.<br>-->
-<!--                                    답변을 드리지 못하는 점 사과드립니다.-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>8</div>-->
-<!--                            <div>1:1문의 테스트 6.</div>-->
-<!--                            <div>2022.11.17</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    해당 문의 내용으로는 고객님의 문의가 파악이 되지 않아 올바른 답변을 드리기가 어렵습니다.<br>-->
-<!--                                    답변을 드리지 못하는 점 사과드립니다.-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>7</div>-->
-<!--                            <div>1:1문의 테스트 7.</div>-->
-<!--                            <div>2022.11.16</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    해당 문의 내용으로는 고객님의 문의가 파악이 되지 않아 올바른 답변을 드리기가 어렵습니다.<br>-->
-<!--                                    답변을 드리지 못하는 점 사과드립니다.-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>6</div>-->
-<!--                            <div>1:1문의 테스트 8.</div>-->
-<!--                            <div>2022.11.15</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    해당 문의 내용으로는 고객님의 문의가 파악이 되지 않아 올바른 답변을 드리기가 어렵습니다.<br>-->
-<!--                                    답변을 드리지 못하는 점 사과드립니다.-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box hidden">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>5</div>-->
-<!--                            <div>1:1문의 테스트 9.</div>-->
-<!--                            <div>2022.11.14</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    해당 문의 내용으로는 고객님의 문의가 파악이 되지 않아 올바른 답변을 드리기가 어렵습니다.<br>-->
-<!--                                    답변을 드리지 못하는 점 사과드립니다.-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box hidden">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>4</div>-->
-<!--                            <div>1:1문의 테스트 10.</div>-->
-<!--                            <div>2022.11.13</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    해당 문의 내용으로는 고객님의 문의가 파악이 되지 않아 올바른 답변을 드리기가 어렵습니다.<br>-->
-<!--                                    답변을 드리지 못하는 점 사과드립니다.-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box hidden">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>3</div>-->
-<!--                            <div>1:1문의 테스트 11.</div>-->
-<!--                            <div>2022.11.12</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    해당 문의 내용으로는 고객님의 문의가 파악이 되지 않아 올바른 답변을 드리기가 어렵습니다.<br>-->
-<!--                                    답변을 드리지 못하는 점 사과드립니다.-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box hidden">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>2</div>-->
-<!--                            <div>1:1문의 테스트 12.</div>-->
-<!--                            <div>2022.11.11</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    해당 문의 내용으로는 고객님의 문의가 파악이 되지 않아 올바른 답변을 드리기가 어렵습니다.<br>-->
-<!--                                    답변을 드리지 못하는 점 사과드립니다.-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_Box hidden">-->
-<!--                        <div class="inquiry_list">-->
-<!--                            <div>1</div>-->
-<!--                            <div>1:1문의 테스트 1.</div>-->
-<!--                            <div>2022.11.10</div>-->
-<!--                            <div>답변완료</div>-->
-<!--                        </div>-->
-<!--                        <div class="inquiry_list_content hidden">-->
-<!--                            <div>답변</div>-->
-<!--                            <div>-->
-<!--                                <p>-->
-<!--                                    해당 문의 내용으로는 고객님의 문의가 파악이 되지 않아 올바른 답변을 드리기가 어렵습니다.<br>-->
-<!--                                    답변을 드리지 못하는 점 사과드립니다.-->
-<!--                                </p>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="inquiry_list_btn">-->
-<!--                        <button>1</button>-->
-<!--                        <button>2</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="content_inquiry_list_2">-->
-                    <button class="inquriy_form_button">
-                        <a href="/qna/qnaform">문의 하기</a>
-                    </button>
+<main>
+    <div class="mypage">
+        <th:block th:replace="fragments/inquiry_aside :: inquiryFragement"></th:block>
+        <div class="content">
+            <div class="content_1">
+                <div>
+                    <h2>1:1 문의</h2>
                 </div>
             </div>
+            <ul class="content_inquiry">
+                <li>
+                    <ul>
+                        <!--<th>번호</th>-->
+                        <li>제목</li>
+                        <li>작성일</li>
+                        <li>답변상태</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul th:each="qnaList:${qnaList}">
+                        <li th:text="${qnaList.getQna_title()}"></li>
+                        <li th:text="${#temporals.format(qnaList.getQna_date(), 'yyyy.MM.dd')}"></li>
+                        <!--                        조건문 답변 상태 : 밑에 답변 내용 null이면 답변대기 아니면 답변완료-->
+                        <li></li>
+                        <!--                    답변 : 관리자일 경우에만 밑에거 보이게 -->
+                        <li class="ans">
+                            <div th:text="${qnaList.getQna_content()}">
+                            </div>
+                            <a th:href="@{/qna/qnadelete(qna_num=${qnaList.getQna_num()})}">삭제</a>
+                                <a th:href="@{/qna/qnaupdate(qna_num=${qnaList.getQna_num()})}">수정</a>
+                            <textarea cols="100" rows="10" placeholder="답변 내용을 입력해 주세요."></textarea>
+                            <!--                        답변 내용 -->
+                            <div th:text="${qnaList.getAns_content()}"></div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <button class="inquriy_form_button">
+                <a href="/qna/qnaform">문의 하기</a>
+            </button>
         </div>
-    </main>
+    </div>
+</main>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </body>
 

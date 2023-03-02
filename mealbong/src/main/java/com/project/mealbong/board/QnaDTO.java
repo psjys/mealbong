@@ -1,7 +1,8 @@
 package com.project.mealbong.board;
 
 import lombok.Data;
-import org.springframework.web.multipart.MultipartFile;
+
+import java.time.LocalDate;
 
 @Data
 public class QnaDTO {
@@ -9,10 +10,10 @@ public class QnaDTO {
     private String user_id;
     private String qna_title;
     private String qna_content;
-    private String qna_date;
+    private LocalDate qna_date;
     private String qna_file;
     private String ans_content;
-    private String ans_date;
+    private LocalDate ans_date;
 
 //    private MultipartFile uploadfilef;
 }

@@ -1,21 +1,24 @@
 package com.project.mealbong.board;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Integer.parseInt;
+
 @Controller
 @RequestMapping("/qna")
+@AllArgsConstructor
 public class QnaController {
-    @Autowired
     private QnaService qnaService;
 
     @GetMapping("/qnalist") // 문의글 리스트
@@ -26,13 +29,52 @@ public class QnaController {
     }
 
     @GetMapping("/qnaform") // 문의글 작성 폼
-    public String inquiry_form (Model model) {
-
+    public String inquiry_getForm () {
         return "html/service_page/inquiry/inquiry_form";
     }
-//    @PostMapping("/qnaform") // 글 등록 처리
-//    public String create (String title, String contents, HttpSession session) {
-//
-//    }
+
+    @PostMapping("/qnaform") // 글 등록 처리
+    public String inquiry_postForm (QnaDTO dto) {
+        String uri = "redirect:/qna/qnalist";
+
+        // 글등록 실패 시
+        if (qnaService.insert(dto)  < 0 ) {
+            uri = "html/service_page/inquiry/inquiry_form";
+        }
+        return uri;
+    }
+
+    @GetMapping("/qnaupdate")
+    public String inquiry_getUpdate (QnaDTO dto, Model model) {
+        QnaDTO detail = qnaService.detail(dto);
+        model.addAttribute("qnaList", detail);
+        return "html/service_page/inquiry/inquiry_update";
+    }
+
+    @PostMapping("/qnaupdate")
+    public String inquiry_postUpdate (QnaDTO dto, Model model, RedirectAttributes rttr) {
+        String uri = "redirect:/qna/qnalist";
+        System.out.println("dto =>" + dto);
+        int update = qnaService.update(dto);
+        rttr.addAttribute("qna_num", dto.getQna_num());
+
+        model.addAttribute("qnaList", dto);
+
+        System.out.println(dto);
+        System.out.println(uri);
+        // 글 수정 실패 시
+        if (update < 0) {
+            uri="html/service_page/inquiry/inquiry_update/{qna_num}";
+        }
+
+        return uri;
+    }
+
+    @GetMapping("/qnadelete")
+    public String inquiry_delete (QnaDTO dto) {
+        qnaService.delete(dto);
+        return "redirect:/qna/qnalist";
+    }
 
 }
+
