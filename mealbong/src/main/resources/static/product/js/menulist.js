@@ -53,24 +53,24 @@ innerbox2.addEventListener('click', function (e) {
 /* =====================장바구니 modal box==================== */
 /* 로그인 하기 전 */
 
-const modal = document.querySelector('.modal_container'),
-    bg = document.querySelector('.bg'),
-    body = document.querySelector('body'),
-    header = document.querySelector('header'),
-    modal_p = modal.querySelector('p'),
-    closeBtn = document.querySelector('.closeBtn'),
+const modall = document.querySelector('.modal_container'),
+    bgg = document.querySelector('.bg'),
+    bodyy = document.querySelector('body'),
+    headerr = document.querySelector('header'),
+    modal_p = modall.querySelector('p'),
+    closeBtnn = document.querySelector('.closeBtn'),
     basket = innerbox3.querySelectorAll('.basket');
 
-const open = () => {
-    modal.classList.remove('hidden');
-    body.classList.add('scroll_none');
-    header.style.position = 'static';
+const openn = () => {
+    modall.classList.remove('hidden');
+    bodyy.classList.add('scroll_none');
+    headerr.style.position = 'static';
 }
 
-const close = () => {
-    modal.classList.add('hidden');
-    body.classList.remove('scroll_none');
-    header.style.position = 'sticky';
+const closee = () => {
+    modall.classList.add('hidden');
+    bodyy.classList.remove('scroll_none');
+    headerr.style.position = 'sticky';
 }
 
 for (let i = 0; i < basket.length; i++) {
@@ -83,12 +83,12 @@ for (let i = 0; i < basket.length; i++) {
 
 
 function modal_f(str) {
-    open();
+    openn();
     modal_p.textContent = str;
 }
 
-closeBtn.addEventListener('click', close);
-bg.addEventListener('click', close);
+closeBtnn.addEventListener('click', closee);
+bgg.addEventListener('click', closee);
 
 /* =====================장바구니 modal box==================== */
 /* 로그인 하고 나서 */
