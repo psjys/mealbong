@@ -7,29 +7,50 @@
 <!-- Mapper를 사용하는 Repository의 전체 경로를 적어줘야함. -->
 <mapper namespace="com.project.mealbong.board.QnaMapper">
     <select id="qnaList" resultType="com.project.mealbong.board.QnaDTO">
-        select qna_num, qna_title, qna_content, qna_date, qna_file, ans_content, ans_date from qna
+        select *
+        from qna
+        <if test="user_id!='admin'">
+            where user_id = #{user_id}
+        </if>
         order by qna_num desc;
     </select>
 
     <select id="detail" resultType="com.project.mealbong.board.QnaDTO">
-        select * from qna
+        select *
+        from qna
         where qna_num = #{qna_num}
     </select>
 
     <insert id="insert">
-        insert into qna(user_id, qna_title, qna_content, qna_file) values (
-                "hsy", #{qna_title}, #{qna_content}, #{qna_file}
-        )
+        insert into qna(user_id, qna_title, qna_content, qna_file, qna_type)
+        values (#{user_id}, #{qna_title}, #{qna_content}, #{qna_file}, #{qna_type})
     </insert>
 
     <update id="update">
-        update qna set qna_title=#{qna_title}, qna_content=#{qna_content}, qna_date=now(), qna_file=#{qna_file}
-        where qna_num=#{qna_num}
+        update qna
+        set qna_title=#{qna_title},
+            qna_content=#{qna_content},
+            qna_date=now(),
+            qna_file=#{qna_file},
+            qna_type=#{qna_type}
+        where qna_num = #{qna_num}
     </update>
 
     <delete id="delete">
-        delete from qna
-        where qna_num=#{qna_num}
+        delete
+        from qna
+        where qna_num = #{qna_num}
     </delete>
 
+    <update id="ainsert">
+        update qna
+        set ans_content=#{ans_content}
+        where qna_num = #{qna_num}
+    </update>
+
+    <update id="adelete">
+        update qna
+        set ans_content=null
+        where qna_num = #{qna_num}
+    </update>
 </mapper>

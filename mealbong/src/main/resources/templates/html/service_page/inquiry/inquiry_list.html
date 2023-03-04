@@ -31,29 +31,42 @@
             <ul class="content_inquiry">
                 <li>
                     <ul>
-                        <!--<th>번호</th>-->
                         <li>제목</li>
                         <li>작성일</li>
                         <li>답변상태</li>
                     </ul>
                 </li>
-                <li>
+                <li th:if="${qnaList != null}">
                     <ul th:each="qnaList:${qnaList}">
                         <li th:text="${qnaList.getQna_title()}"></li>
                         <li th:text="${#temporals.format(qnaList.getQna_date(), 'yyyy.MM.dd')}"></li>
-                        <!--                        조건문 답변 상태 : 밑에 답변 내용 null이면 답변대기 아니면 답변완료-->
-                        <li></li>
-                        <!--                    답변 : 관리자일 경우에만 밑에거 보이게 -->
+                        <!-- 조건문 답변 상태 : 밑에 답변 내용 null이면 답변대기 아니면 답변완료-->
+                        <li th:if="${qnaList.ans_content != null}">답변완료</li>
+                        <li th:if="${qnaList.ans_content == null}">답변대기</li>
                         <li class="ans">
+                            <div th:text="${qnaList.getQna_type()}"></div>
                             <div th:text="${qnaList.getQna_content()}">
                             </div>
-                            <a th:href="@{/qna/qnadelete(qna_num=${qnaList.getQna_num()})}">삭제</a>
+                            <div th:if="${qnaList.ans_content == null}">
+                                <a th:href="@{/qna/qnadelete(qna_num=${qnaList.getQna_num()})}">삭제</a>
                                 <a th:href="@{/qna/qnaupdate(qna_num=${qnaList.getQna_num()})}">수정</a>
-                            <textarea cols="100" rows="10" placeholder="답변 내용을 입력해 주세요."></textarea>
-                            <!--                        답변 내용 -->
-                            <div th:text="${qnaList.getAns_content()}"></div>
+                            </div>
+                            <!-- 답변 내용 -->
+                            <div th:text="${qnaList.getAns_content()}">
+                                <a th:href="@{/qna/ansdelete(qna_num=${qnaList.getQna_num()})}">답변 삭제</a>
+                                <a th:href="@{/qna/ansform(qna_num=${qnaList.getQna_num()})}">답변 수정</a>
+                            </div>
+                            <div th:if="${session['user_id'] == 'admin'}">
+                                <button class="inquriy_form_button" value="답변 등록">
+                                    <a th:href="@{/qna/ansform(qna_num=${qnaList.getQna_num()})}">답변 등록
+                                    </a>
+                                </button>
+                            </div>
                         </li>
                     </ul>
+                </li>
+                <li th:if="${qnaList == null}">
+                    게시글이 없습니다.
                 </li>
             </ul>
             <button class="inquriy_form_button">

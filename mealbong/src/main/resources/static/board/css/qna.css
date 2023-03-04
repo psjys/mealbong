@@ -33,3 +33,8 @@
     font-size: 0.8em;
     text-decoration: none;
 }
+
+.ans>div {
+    font-size: 0.8em;
+    color: #AEAEAE;
+}

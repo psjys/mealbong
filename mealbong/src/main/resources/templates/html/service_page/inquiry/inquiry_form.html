@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">료
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -12,8 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../../common/css/mainPage.css">
     <link rel="stylesheet" href="../../../../user/css/mypage.css">
-    <script defer src="../../../js/main_topDiv.js"></script>
-
+    <script defer src="../../../../common/js/main_topDiv.js"></script>
 </head>
 
 <body>
@@ -29,14 +28,14 @@
                     <form action="/qna/qnaform" method="post">
                         <div>
                             <div class="content_inquiry_form_1">유형<span></span></div>
-                            <select name="type" id="type" class="type">
-                                <option value="product">상품</option>
-                                <option value="exchange">교환/환불</option>
-                                <option value="order">주문/결제</option>
-                                <option value="information">회원정보</option>
-                                <option value="site">사이트 이용</option>
-                                <option value="event">이벤트</option>
-                                <option value="unclassified">기타</option>
+                            <select name="qna_type" id="type" class="type">
+                                <option aria-disabled="true" selected>문의유형을 선택해주세요</option>
+                                <option value="상품">상품</option>
+                                <option value="교환/환불">교환/환불</option>
+                                <option value="주문/결제">주문/결제</option>
+                                <option value="회원정보">회원정보</option>
+                                <option value="사이트 이용">사이트 이용</option>
+                                <option value="기타">기타</option>
                             </select>
                         </div>
                         <div>
@@ -47,6 +46,11 @@
                             <div class="content_inquiry_form_3">내용<span></span></div>
                             <textarea name="qna_content" class="content_inquiry_form_textarea" placeholder=" 내용을 입력해 주세요." required></textarea>
                         </div>
+                        <div>
+                            <div>파일</div>
+                            <input name="qna_file" type="file">
+                        </div>
+
                         <div class="content_inquiry_form_6">
                             <input type="submit" class="inquriy_list_button" value="등록">
                         </div>
