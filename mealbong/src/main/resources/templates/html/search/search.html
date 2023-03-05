@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<th:block th:replace="fragments/head :: headFragment"></th:block>
+<head th:replace="fragments/head :: headFragment"></head>
 
 <body>
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
     <div class="searchResult">
-        <h1><span th:text="${data}"></h1>
+        <h1><span th:text="${keyword}"></span>검색결과</h1>
     </div>
 
 
 
     <!-- footer : 법적 필수 항목 -->
-    <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+    <footer th:replace="fragments/footer :: footerFragment"></footer>
 </body>
 
 </html>

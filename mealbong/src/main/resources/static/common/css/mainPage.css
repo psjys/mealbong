@@ -186,27 +186,27 @@ header {
 }
 
 .cart {
-    background-image: url(../image/cart.png);
+    background-image: url(../../image/cart.png);
 }
 
 .cart:hover {
-    background-image: url(../image/cart_coral.png);
+    background-image: url(../../image/cart_coral.png);
 }
 
 .heart {
-    background-image: url(../image/heart.png);
+    background-image: url(../../image/heart.png);
 }
 
 .heart:hover {
-    background-image: url(../image/heart_coral.png);
+    background-image: url(../../image/heart_coral.png);
 }
 
 .mpage {
-    background-image: url(../image/mypage.png);
+    background-image: url(../../image/mypage.png);
 }
 
 .mpage:hover {
-    background-image: url(../image/mypage_coral.png);
+    background-image: url(../../image/mypage_coral.png);
 }
 
 /* 메뉴 ---------*/

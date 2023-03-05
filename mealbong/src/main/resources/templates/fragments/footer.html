@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <!-- footer : 법적 필수 항목 -->
-<th:block th:fragment="footerFragment">
-<footer>
+<footer th:fragment="footerFragment">
     <hr>
     <div class="footer">
         <div><a href="../html/footer/personal.html"><strong>개인정보처리방침</strong></a></div>
         <div><a href="../html/footer/using.html">이용약관</a></div>
         <div><a href="../html/service_page/notice.html">공지사항</a></div>
-        <div><a href="../html/service_page/inquiry/inquiry_list.html">1:1 문의</a></div>
+        <div><a href="/qna/qnaupdate">1:1 문의</a></div>
     </div>
 
     <pre>
@@ -21,5 +20,4 @@
     Copyright © 2022 MealBong. All rights reserved.
     </pre>
 </footer>
-</th:block>
 </html>

@@ -1,18 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 밀키트 쇼핑몰 :: Meal Bong </title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../../common/css/mainPage.css">
-    <link rel="stylesheet" href="../../../../user/css/mypage.css">
-    <script defer src="../../../../common/js/main_topDiv.js"></script>
+<head th:replace="fragments/head :: headFragment(~{::link})">
+    <link rel="stylesheet" href="../../../../board/css/qna.css">
+    <script defer src="../../../../user/js/inquiry.js"></script>
+    <script defer src="../../../../board/js/qna.js"></script>
 </head>
 
 <body>
@@ -28,8 +20,8 @@
                     <form action="/qna/qnaform" method="post">
                         <div>
                             <div class="content_inquiry_form_1">유형<span></span></div>
-                            <select name="qna_type" id="type" class="type">
-                                <option aria-disabled="true" selected>문의유형을 선택해주세요</option>
+                            <select name="qna_type" id="type" class="type" required>
+<!--                                <option selected disabled>문의유형을 선택해주세요</option>-->
                                 <option value="상품">상품</option>
                                 <option value="교환/환불">교환/환불</option>
                                 <option value="주문/결제">주문/결제</option>
@@ -44,22 +36,25 @@
                         </div>
                         <div>
                             <div class="content_inquiry_form_3">내용<span></span></div>
-                            <textarea name="qna_content" class="content_inquiry_form_textarea" placeholder=" 내용을 입력해 주세요." required></textarea>
+                            <textarea name="qna_content" class="content_inquiry_form_textarea" placeholder=" 내용을 입력해 주세요." required
+                            onkeyup="check_lth(this);"></textarea>
+<!--                            <span id="counter"> 0 / 500 자</span>-->
                         </div>
                         <div>
                             <div>파일</div>
                             <input name="qna_file" type="file">
                         </div>
 
-                        <div class="content_inquiry_form_6">
-                            <input type="submit" class="inquriy_list_button" value="등록">
+                        <div class="submit_div">
+                            <input type="submit" value="등록">
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </main>
-<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<footer th:replace="fragments/footer :: footerFragment"></footer>
+
 </body>
 
 </html>

@@ -1,19 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> 밀키트 쇼핑몰 :: Meal Bong </title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../../common/css/mainPage.css">
-  <link rel="stylesheet" href="../../../../user/css/mypage.css">
-  <script defer src="../../../../common/js/main_topDiv.js"></script>
-
+<head th:replace="fragments/head :: headFragment(~{::link})">
+  <link rel="stylesheet" href="../../../../board/css/qna.css">
+  <script defer src="../../../../user/js/inquiry.js"></script>
+  <script defer src="../../../../board/js/qna.js"></script>
 </head>
 
 <body>
@@ -33,7 +24,7 @@
             <textarea name="ans_content" class="content_inquiry_form_textarea"
                       placeholder=" 답변 내용을 입력해 주세요."
                       th:text="${qnaList.ans_content}"
-                      required></textarea>
+                      required onkeyup="check_lth(this);"></textarea>
           </div>
           <div class="content_inquiry_form_6">
             <input type="submit" class="inquriy_list_button" value="답변 등록">
@@ -43,7 +34,7 @@
     </div>
   </div>
 </main>
-<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<footer th:replace="fragments/footer :: footerFragment"></footer>
 </body>
 
 </html>

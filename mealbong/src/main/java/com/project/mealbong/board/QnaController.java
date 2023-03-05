@@ -1,20 +1,15 @@
 package com.project.mealbong.board;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Integer.parseInt;
-import static java.lang.Integer.remainderUnsigned;
+
 
 @Controller
 @RequestMapping("/qna")
@@ -63,7 +58,7 @@ public class QnaController {
 
         rttr.addAttribute("qna_num", dto.getQna_num());
         model.addAttribute("qnaList", dto);
-
+        System.out.println(dto);
         // 글 수정 실패 시
         if (update < 0) {
             uri = "html/service_page/inquiry/inquiry_update/{qna_num}";

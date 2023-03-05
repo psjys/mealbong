@@ -1,0 +1,56 @@
+main {
+    width: 1200px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+
+.admin_name {
+    line-height: 80px;
+    text-align: center;
+}
+
+.admin_aside {
+    width: 180px;
+}
+
+.admin_aside ul {
+    list-style: none;
+    border-bottom: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.admin_aside ul li {
+    line-height: 14px;
+    box-sizing: border-box;
+    border-top: 1px solid gainsboro;
+    border-right: 1px solid gainsboro;
+    border-left: 1px solid gainsboro;
+    font-weight: bold;
+}
+
+.admin_aside ul li:last-child {
+    border-bottom: 1px solid gainsboro;
+}
+
+.aadmin_aside ul a {
+    text-decoration: none;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin_aside a {
+    color: black;
+}
+
+.admin_aside a span::after {
+    content: "▷";
+}
+
+.aadmin_aside a:hover {
+    background-color: lightsalmon;
+    transition-duration: 0.5s;
+}

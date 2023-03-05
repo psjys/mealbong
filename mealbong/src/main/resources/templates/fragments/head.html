@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<th:block th:fragment="headFragment">
-<head>
+<head th:fragment="headFragment(links)">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +15,7 @@
     <script defer src="../common/js/main_menu.js"></script>
     <script defer src="../common/js/main_topDiv.js"></script>
     <script defer src="../common/js/main_hover.js"></script>
+    <th:block th:replace="${links}"/>
     <title> 밀키트 쇼핑몰 :: Meal Bong </title>
 </head>
-</th:block>
 </html>

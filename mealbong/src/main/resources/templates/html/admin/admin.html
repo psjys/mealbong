@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: headFragment(~{::link})">
+    <link rel="stylesheet" href="../../../../common/css/admin.css">
+</head>
+<body>
+<th:block th:replace="fragments/header :: headerFragement"></th:block>
+<main>
+    <div class="admin_aside">
+        <div class="admin_name">
+            <h2>관리자 페이지</h2>
+        </div>
+        <ul>
+            <li><a href="/">회원관리</a></li>
+            <li><a href="/">주문관리</a></li>
+            <li><a href="/">상품관리</a></li>
+            <li><a href="/admin/qnaadmin">게시판관리</a></li>
+        </ul>
+    </div>
+    <div class="admin_content">
+
+    </div>
+</main>
+
+<footer th:replace="fragments/footer :: footerFragment"></footer>
+</body>
+</html>
