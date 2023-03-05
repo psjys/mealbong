@@ -224,46 +224,46 @@ nav ul li:nth-child(4):hover .submenu2 {
 
 /* =============================main 아이디 비번 입력============================= */
 
-.logintext {
+.login_text {
     font-weight: 800;
     font-size: 20px;
     line-height: 20px;
     text-align: center;
 }
 
-.loginframe {
+.login_frame {
     min-width: 1050px;
     height: 500px;
     margin-top: 80px;
     margin-bottom: 40px;
 }
 
-.loginform {
+.loginForm {
     width: 355px;
     height: 350px;
     margin: 0px auto;
 }
 
-.login-id {
+.login_id {
     display: flex;
     justify-content: center;
     height: 48px;
     margin-bottom: 20px;
 }
 
-.login-pw {
+.login_pw {
     justify-content: center;
     height: 48px;
     display: flex;
 }
 
-.login-input {
+.login_input {
     width: 330px;
     height: 54px;
     padding-left: 20px;
 }
 
-.logindiv {
+.login_div {
     margin-top: 40px;
 }
 
@@ -293,15 +293,15 @@ nav ul li:nth-child(4):hover .submenu2 {
     text-decoration: underline;
 }
 
-.findspan {
+.find_span {
     margin: 0 5px;
 }
 
 
 /* ============================로그인 회원가입========================== */
 
-.loginbutton,
-.accountbutton {
+.login_button,
+.account_button {
     width: 355px;
     height: 52px;
     margin-bottom: 10px;
@@ -310,7 +310,7 @@ nav ul li:nth-child(4):hover .submenu2 {
     box-sizing: border-box;
 }
 
-.loginbutton {
+.login_button {
     margin-top: 30px;
     background-color: lightsalmon;
     color: white;
@@ -318,12 +318,12 @@ nav ul li:nth-child(4):hover .submenu2 {
     cursor : pointer;
 }
 
-.loginbutton:active {
+.login_button:active {
     opacity: .4;
     transition: .2s;
 }
 
-.accountbutton {
+.account_button {
     background-color: white;
 }
 
@@ -512,5 +512,9 @@ nav ul li:nth-child(4):hover .submenu2 {
     
 }
 
+/*=============================*/
 
+.login_submit {
+    display: none;
+}
 

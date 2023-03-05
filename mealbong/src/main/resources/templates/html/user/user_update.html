@@ -6,12 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> 밀키트 쇼핑몰 :: Meal Bong </title>
-  <link rel="stylesheet" href="../../css/modal.css">
+  <link rel="stylesheet" href="../common/css/modal.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../css/account.css">
-  <script defer src="../user/js/account.js"></script>
+  <link rel="stylesheet" href="../user/css/account.css">
+  <script src="../common/js/jquery-3.2.1.min.js"></script>
+  <script defer src="../user/js/user_update.js"></script>
 </head>
 
 <body>
@@ -24,7 +25,7 @@
 
     <div class="maindiv">
       <div class="maindiv2">
-        <span class="mainspan">회원가입</span>
+        <span class="mainspan">개인 정보 수정</span>
       </div>
 
       <div class="divline align">
@@ -36,7 +37,7 @@
       </div>
 
 
-      <form action="/user1/save" name="Create-Account" method="post">
+      <form action="/user1/update" name="Create-Account" method="post">
         <fieldset>
           <div class="container">
             <div class="mainbox">
@@ -47,13 +48,8 @@
                   </label>
                 </div>
                 <div class="box2">
-                  <input type="text" th:value="${user_detail.user_id}" readonly id="uid" name="user_id" class="inputstyle" placeholder="영문/숫자 조합 6자 이상" minlength="8"
+                  <input name="user_id" type="text" th:value="${user_detail.user_id}" readonly id="uid" class="inputstyle" placeholder="영문/숫자 조합 6자 이상" minlength="8"
                   >
-                </div>
-                <div class="box3">
-                  <button type="button" class="buttonstyle checkBtn1">
-                    중복확인
-                  </button>
                 </div>
               </div>
             </div>
@@ -64,7 +60,7 @@
                 </label>
               </div>
               <div class="box2">
-                <input type="password" id="upw3" name="user_password3" class="inputstyle" placeholder="영문/숫자/특수문자 조합 10자 이상" maxlength="20"
+                <input type="password" id="user_password3" name="user_password3" class="inputstyle" placeholder="영문/숫자/특수문자 조합 10자 이상" maxlength="20"
                 >
               </div>
             </div>     <div class="box1">
@@ -208,12 +204,16 @@
 
     </fieldset>
     <div class="buttonBox">
-      <a href="/user1/delete">탈퇴하기</a>
-      <button type="button" class="button_submit">
+      <button class="update_submit">테스트</button>
+      <button type="button" class="button_submit update_btn">
         회원정보수정
       </button>
     </div>
 
+    </form>
+    <form action="/user1/delete" method="post">
+      <button class="delete_submit">테스트</button>
+      <button class="delete_btn" type="button"> 탈퇴하기</button>
     </form>
   </div>
 

@@ -1,14 +1,8 @@
 'use strict';
 
 const main = document.querySelector('main'),
-    user_id = document.getElementById('user_id'),
-    idCheck = main.querySelector('.idCheck'),
-    emailCheck = main.querySelector('.emailCheck'),
     upw = document.getElementById('upw'),
     upw2 = document.getElementById('upw2'),
-    user_email = document.getElementById('user_email'),
-    phoneCheck = main.querySelector('.phoneCheck'),
-    user_phone = document.getElementById('user_phone'),
     phone_num = document.getElementById('phone_num'),
     checkBtn4 = main.querySelector('.checkBtn4'),
     Btn4_box = main.querySelector('.Btn4_box'),
@@ -18,8 +12,11 @@ const main = document.querySelector('main'),
     account_p = main.querySelector('.account_p'),
     account_p2 = main.querySelector('.account_p2'),
     address_input = document.getElementById('address_input'),
-    pwCheck = main.querySelector('.pwCheck'),
-    user_password3 = document.getElementById('user_password3');
+    delete_btn = main.querySelector('.delete_btn'),
+    update_btn = main.querySelector('.update_btn'),
+    user_password3 = document.getElementById('user_password3'),
+    delete_submit = document.querySelector('.delete_submit'),
+    update_submit = document.querySelector('.update_submit');
 
    let userZip = main.querySelector('.userZip');
 
@@ -175,24 +172,24 @@ let clr1,clr2,clr3;
 //
 // // =====전송버튼
 //
-button_submit.addEventListener('click', () => {
-   // const clrCheck = clr1 ==true && clr2 == true && clr3 == true;
-
-    userZip = +userZip;
-    //if(clrCheck && upw.value == upw2.value && uname.value != "" && address_input.value != "") {
-
-    // if(clrCheck && upw.value == upw2.value && uname.value != "" && address_input.value != "") {
-    //    button_submit.setAttribute('type','submit');
-    // } else {
-    //     modal_f("양식을 확인해주세요");
-    // }
-
-     if(idCheck.getAttribute("value") == "Y" && emailCheck.getAttribute("value") == "Y" && phoneCheck.getAttribute("value") == "Y") {
-         button_submit.setAttribute('type','submit');
-     } else {
-         modal_f("중복확인 해주세요");
-     }
-});
+// button_submit.addEventListener('click', () => {
+//    // const clrCheck = clr1 ==true && clr2 == true && clr3 == true;
+//
+//     userZip = +userZip;
+//     //if(clrCheck && upw.value == upw2.value && uname.value != "" && address_input.value != "") {
+//
+//     // if(clrCheck && upw.value == upw2.value && uname.value != "" && address_input.value != "") {
+//     //    button_submit.setAttribute('type','submit');
+//     // } else {
+//     //     modal_f("양식을 확인해주세요");
+//     // }
+//
+//      if(idCheck.getAttribute("value") == "Y" && emailCheck.getAttribute("value") == "Y" && phoneCheck.getAttribute("value") == "Y") {
+//          button_submit.setAttribute('type','submit');
+//      } else {
+//          modal_f("중복확인 해주세요");
+//      }
+// });
 
 // // =======주소검색
 //
@@ -234,26 +231,6 @@ bg.addEventListener('click', close);
 
 
 //=================추가
-function id_check() {
-    $.ajax({
-        url: "/user1/id_check",
-        type: "POST",
-        dataType : "JSON",
-        data : {"user_id" : $(user_id).val()},
-        success : function (data) {
-            if(data == 1) {
-                modal_f("중복된 아이디 입니다.");
-            } else if (data == 0) {
-                modal_f("사용 가능한 아이디 입니다.");
-                idCheck.classList.add('button_opacity');
-                idCheck.style.cursor = "default";
-                idCheck.setAttribute('disabled', '');
-                user_id.setAttribute('readonly','');
-                $(idCheck).attr("value","Y");
-            }
-        }
-    });
-}
 
 function email_check() {
     $.ajax({
@@ -277,82 +254,64 @@ function email_check() {
     });
 }
 
-function pw_check() {
+function pw_check(type) {
     $.ajax({
-        url: "/user1/delete",
+        url: "/user1/pw_check",
         type: "POST",
         dataType : "JSON",
         data : {"user_password" : $(user_password3).val()},
         success : function (data) {
-            console.log(data);
-                modal_f("현재 비밀번호가 틀렸습니다.");
-        }
-    });
-}
 
-function phone_check() {
-    $.ajax({
-        url: "/user1/phone_check",
-        type: "POST",
-        dataType : "JSON",
-        data : {"user_phone" : $(user_phone).val()},
-        success : function (data) {
-            console.log(data);
-            if(data > 0) {
-                modal_f("중복된 휴대폰 번호 입니다.");
-            } else if (data == 0) {
-                modal_f("사용 가능한 휴대폰 번호 입니다.");
-                phoneCheck.classList.add('button_opacity');
-                phoneCheck.style.cursor = "default";
-                phoneCheck.setAttribute('disabled', '');
-                user_phone.setAttribute('readonly','');
-                $(phoneCheck).attr("value","Y");
+            console.log(upw.value.length >5 && upw.value == upw2.value);
+            if(data>0) {
+                modal_f("현재 비밀번호가 틀렸습니다.");
+            } else {
+                if(type == "delete") {
+                delete_submit.click();
+                } else if(type == "update") {
+                    console.log("왓")
+                    if(upw.value == "" && upw2.value == "") {
+                        update_submit.click();
+
+                    } else {
+                        if(upw.value.length >5 && upw.value == upw2.value) {
+                            update_submit.click();
+                        } else {
+                            if(upw.value != upw2.value) {
+                                modal_f("동일한 비밀번호를 입력해 주세요");
+                            } else if (upw.value.length <= 5) {
+                                modal_f("6자 이상 입력해 주세요");
+                            }
+                        }
+                    }
+
+                }
+                console.log("들어옴??");
             }
         }
     });
 }
-pwCheck.addEventListener('click',() =>{
 
+delete_btn.addEventListener('click',() =>{
+console.log("들어왓음")
+     if (user_password3.value == "") {
+         modal_f("비밀번호를 입력해 주세요");
+     }
+    else {
+         pw_check("delete");
+    }
+});
+
+update_btn.addEventListener('click',() =>{
+console.log("들어왓음2")
      if (user_password3.value == "") {
          modal_f("비밀번호를 입력해 주세요")
      }
     else {
-         pw_check();
+         pw_check("update");
     }
 });
 
-idCheck.addEventListener('click',() =>{
-        const result = regex.test(user_id.value);
-
-    if (result) {
-        id_check();
-    }
-    else {
-        modal_f("6자 이상 16자 이하의 영문 혹은 영문과 숫자를 조합");
-    }
-    console.log(idCheck.getAttribute("value") == "Y");
-});
-
-emailCheck.addEventListener('click',() =>{
-    const result = regMail.test(user_email.value);
-
-    if (result) {
-        email_check();
-    } else if (user_email.value == "") {
-        modal_f("이메일을 입력해 주세요")
-    }
-    else {
-        modal_f("이메일 형식으로 입력해 주세요");
-    }
-});
-
-phoneCheck.addEventListener('click',() =>{
-    if(user_phone.value.length>=11) {
-    phone_check();
-    } else {
-        modal_f("휴대폰 번호를 확인해 주세요");
-    }
-});
 
 
 

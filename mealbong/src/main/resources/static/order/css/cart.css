@@ -94,29 +94,10 @@
 
 }
 
-.div1_a_img1,
-.div1_a_img2,
-.div1_a_img3,
-.div1_a_img4 {
+.div1_a_img1 {
     width : 70px;
     height : 70px;
     margin-left : 15px;
-}
-
-.div1_a_img1 {
-    background : url(../image/Food_img.PNG) no-repeat center/cover;
-}
-
-.div1_a_img2 {
-    background : url(../image/Food_img.PNG) no-repeat center/cover;
-}
-
-.div1_a_img3 {
-    background : url(../image/Food_img.PNG) no-repeat center/cover;
-}
-
-.div1_a_img4 {
-    background : url(../image/Food_img.PNG) no-repeat center/cover;
 }
 
 .div1_a2 {
@@ -321,7 +302,8 @@
 }
 
 .label_style {
-    transform : translateX(20%)
+    transform : translateX(20%);
+    cursor : default;
 }
 
 .All_div {

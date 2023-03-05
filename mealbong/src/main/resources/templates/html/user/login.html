@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 밀키트 쇼핑몰 :: Meal Bong </title>
-    <link rel="stylesheet" href="../common/css/mainPage.css">
     <link rel="stylesheet" href="../common/css/modal.css">
+    <link rel="stylesheet" href="../common/css/mainPage.css">
     <link rel="stylesheet" href="../user/css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,32 +38,33 @@
                 </div>
             </div>
 
-        <div class="loginframe">
-            <div class="logintext">로그인</div>
-            <div class="loginform">
-                <form action="/user1/login" class="userjoin" method="post">
-                    <div class="logindiv">
-                        <div class="login-id">
-                            <input type="text" name="user_id" id="user_id" minlength="4" placeholder="아이디를 입력해주세요" class="login-input input_border" value>
+        <div class="login_frame">
+            <div class="login_text">로그인</div>
+            <div class="loginForm">
+                <form action="/user1/login" class="user_join" method="post" id="login_form" onsubmit="return false">
+                    <div class="login_div">
+                        <div class="login_id">
+                            <input type="text" name="user_id" id="user_id" minlength="4" placeholder="아이디를 입력해주세요" class="login_input input_border" value>
 
                         </div>
-                        <div class="login-pw">
-                            <input type="password" name="user_password" id="user_password" minlength="4" placeholder="비밀번호를 입력해주세요" class="login-input input_border">
+                        <div class="login_pw">
+                            <input type="password" name="user_password" id="user_password" minlength="4" placeholder="비밀번호를 입력해주세요" class="login_input input_border">
 
                         </div>
                     </div>
 
                     <div class="div_a">
                         <a href="findid.html" class="a_tag">아이디 찾기</a>
-                        <span class="findspan">&#124;</span>
+                        <span class="find_span">&#124;</span>
                         <a href="findpw.html" class="a_tag">비밀번호 찾기</a>
                     </div>
-                    <button class="loginbutton" type="button">
+                    <button class="login_submit"></button>
+                </form>
+                    <button class="login_button" type="button">
                           로그인
                     </button>
-                </form>
 
-                <div class="accountbutton">
+                <div class="account_button">
                     <a href="/user1/terms" class="button_a">회원가입</a>
             </div>
 

@@ -1,15 +1,17 @@
 'use strict';
 
 const main = document.querySelector('main'),
-loginBtn = main.querySelector('.loginbutton'),
+loginBtn = main.querySelector('.login_button'),
 loginId = document.getElementById('user_id'),
 loginPw = document.getElementById('user_password'),
 login = document.querySelector('.login'),
 login_li = login.getElementsByTagName('li'),
-inputTag = main.getElementsByClassName('login-input'),
-loginDiv = main.querySelector('.logindiv'),
+inputTag = main.getElementsByClassName('login_input'),
+loginDiv = main.querySelector('.login_div'),
 nav = document.querySelector('nav'),
-    failed_flag = document.querySelector('.failed_flag');
+    failed_flag = document.querySelector('.failed_flag'),
+    login_submit = document.querySelector('.login_submit'),
+    login_form = document.getElementById('login_form');
 
 // ======모달참조
 const modal = main.querySelector('.modal_container'),
@@ -68,23 +70,6 @@ const close = () => {
     // console.log(failed_flag.value);
 }
 
-loginBtn.addEventListener('click', () => {
-  //  failed_flag.value = "";
-    if(loginId.value == ""){
-        modal_f("아이디를 입력해 주세요");
-    } else if(loginPw.value == "") {
-        modal_f("비밀번호를 입력해 주세요");
-    } else {
-        loginBtn.setAttribute('type', 'submit');
-    }
-
-
-
-    console.log(+failed_flag.value.length);
-    console.log(+failed_flag.value.length>0);
-
-
-});
 
 loginDiv.addEventListener('keydown', (e) => {
     if(e.key === 'Enter') {
@@ -101,3 +86,44 @@ function modal_f (str) {
 closeBtn.addEventListener('click', close);
 bg.addEventListener('click', close);
 
+
+//=============================
+
+
+function login_check() {
+    $.ajax({
+        url: "/user1/login_check",
+        type: "POST",
+        dataType : "JSON",
+        data : {"user_password" : $(loginPw).val(),
+                "user_id" : $(loginId).val()},
+        success : function (data) {
+
+            switch (data) {
+                case 1:
+                    login_form.submit();
+                   // login_submit.click();
+                    break;
+                    case 2:
+                        modal_f("비밀번호를 확인해 주세요");
+                    break;
+                    case 3:
+                    modal_f("존재하지 않는 아이디 입니다.");
+                    break;
+            }
+        }
+    });
+}
+
+loginBtn.addEventListener('click', () => {
+    //  failed_flag.value = "";
+    if(loginId.value == ""){
+        modal_f("아이디를 입력해 주세요");
+    } else if(loginPw.value == "") {
+        modal_f("비밀번호를 입력해 주세요");
+    } else {
+        login_check();
+    }
+
+
+});

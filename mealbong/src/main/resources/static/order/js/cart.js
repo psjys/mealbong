@@ -46,7 +46,7 @@ All_div.addEventListener('click', () => {
         select_value1.textContent = select_value2.textContent;
         total_price.textContent = sum + 3000;
         total_price2.textContent = sum;
-        del_fee.textContent = "3000원";
+        del_fee.textContent = "3000";
         cart_submitBtn.style.background = "lightSalmon";
         cart_submitBtn.style.cursor = "pointer";
         cart_submitBtn.setAttribute('type', 'submit');
@@ -56,7 +56,7 @@ All_div.addEventListener('click', () => {
             select_box[i].style.backgroundImage = "url(../../image/check2.png)";
             select_box[i].dataset.flag = 0;
         }
-        del_fee.textContent = "0원";
+        del_fee.textContent = "0";
         total_price.textContent = "0";
         total_price2.textContent = "0";
         select_value1.textContent = "0";
@@ -243,6 +243,8 @@ cart_div1.addEventListener('click', (e) => {
 
             if (select_value1.textContent == select_value2.textContent) {
                 selectAll_box.style.backgroundImage = "url(../../image/check.png)";
+            } else {
+                selectAll_box.style.backgroundImage = "url(../../image/check2.png)";
             }
 
 

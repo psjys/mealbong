@@ -1,77 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 밀키트 쇼핑몰 :: Meal Bong </title>
-    <link rel="stylesheet" href="../../css/modal.css">
-    <link rel="stylesheet" href="../../css/cart.css">
-    <link rel="stylesheet" href="../../css/mainPage.css">
+    <link rel="stylesheet" href="../common/css/modal.css">
+    <link rel="stylesheet" href="../common/css/mainPage.css">
+    <link rel="stylesheet" href="../order/css/cart.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-    <script defer src="../../js/cart.js"></script>
-    <script defer src="../../js/main_topDiv.js"></script>
+    <script defer src="../order/js/cart.js"></script>
+    <script defer src="../common/js/main_topDiv.js"></script>
 </head>
 
 <body>
-    <header>
-        <div class="space">
-    
-            <a href="../login/account.html">
-                지금 가입하고 적립금 <b>10,000원</b> 받아가세요!
-            </a>
-            <a class="space-close">
-                <img src="../../image/closeBtn.png">
-            </a>
-    
-        </div>
-        <ul class="login">
-            <li><a href="../login/account.html">회원가입</a></li>
-            <li><a href="../login/login.html">로그인</a></li>
-        </ul>
-        <div class="flex-box">
-            <a href="#"><img src="../../image/logo4.png" alt="logo" class="logo"></a>
-            <form>
-                <div class="search">
-                    <input type="text" placeholder="검색어를 입력 하세요" id="search_input">
-                    <a href="../search/search.html" class="button"><img class="button-set" src="../../image/search.png"></a>
-                </div>
-            </form>
-            <div class="cart_heart">
-                <a href="../my_page/mypage.html" class="mpage" alt="마이페이지"></a>
-                <a href="./cart.html" class="cart" alt="장바구니"></a>
-                <a href="../my_page/wish.html" class="heart" alt="찜한 상품"></a>
-            </div>
-        </div>
-        <!-- nav / position : sticky -->
-    </header>
-    <nav>
-        <ul class="menu">
-            <li><a href="../menu_list/Korean_menulist.html">카테고리</a>
-                <ul class="submenu">
-                    <li><a href="../menu_list/Korean_menulist.html">한식</a></li>
-                    <li><a href="../menu_list/Chinese_menulist.html">중식</a></li>
-                    <li><a href="../menu_list/Japanese_menulist.html">일식</a></li>
-                    <li><a href="../menu_list/Western_menulist.html">양식</a></li>
-                    <li><a href="../menu_list/Bunsik_menulist.html">분식/야식</a></li>
-                    <li><a href="../menu_list/Asian_menulist.html">아시안</a></li>
-                </ul>
-            </li>
-            <li><a href="#pop">인기상품</a></li>
-            <li><a href="#recommend">오늘의 추천</a></li>
-            <li><a href="../service_page/notice.html">고객센터</a>
-                <ul class="submenu2">
-                    <li><a href="../service_page/notice.html">공지사항</a></li>
-                    <li><a href="../service_page/faq.html">자주하는 질문</a></li>
-                    <li><a href="../service_page/inquiry/inquiry_list.html">1:1 문의</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
+<th:block th:replace="fragments/header :: headerFragement"></th:block>
     <main>
         <div class="cart_container">
             <span class="mainspan">장바구니</span>
@@ -79,121 +25,49 @@
             <div class="div_a">
                 <div class="All_div">
                     <button type="button" class="selectAll_box"></button>
-                    <label for="label34" class="label_style">전체선택(<span class="select_value1">4</span>/<span class="select_value2">4</span>)</label>
+                    <span class="label_style">전체선택(<span th:text="${count}" class="select_value1">4</span>/<span th:text="${count}" class="select_value2">4</span>)</span>
                 </div>
             </div>
 
             <div class="cart_divbox">
                 <div class="cart_div1">
+                    <th:block th:each="cart_list : ${cart_list}">
                     <div class="div1_sub">
                         <div class="div1_sub_sub">
                             <span class="select_box"></span>
-                            <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html" class="div1_a_img1"></a>
-                            <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html" class="div1_a2">나시고랭 (2인)</a>
+                            <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html" >
+                                <img th:src="${cart_list.image_file}" class="div1_a_img1" alt="상품 이미지">
+                            </a>
+                            <a th:text="${cart_list.product_name}" href="../food_info/Asian_FoodInfo/Asian_Bunzza.html" class="div1_a2"></a>
 
                         </div>
 
                         <div class="btn_addBox">
                             <button type="button" class="btn_minus btn_add" disabled></button>
-                            <span class="btn_addSpan">1</span>
-                            <button type="button" class="btn_plus btn_add"></button>
-                        </div>
-                        
-                        <div class="div1_priceBox">
-                        
-                            <span class="div1_span">10000</span><span class="div1_span2">원</span>
-                            <span class="cart_hidden price_value">10000</span>
-                            <span class="close_btn"></span>
-                        
-                        </div>
-
-                    </div>
-
-                    <div class="div1_sub">
-                        <div class="div1_sub_sub">
-                            <span class="select_box"></span>
-                            <a href="../food_info/Chinese_FoodInfo/Chinese_MaraSoup.html" class="div1_a_img2"></a>
-                            <a href="../food_info/Chinese_FoodInfo/Chinese_MaraSoup.html" class="div1_a2">(중식) 얼큰
-                                나시고랭 (2인) </a>
-
-                        </div>
-
-
-                         <div class ="btn_addBox">
-                            <button type="button" class="btn_minus btn_add" disabled></button>
-                            <span class="btn_addSpan">1</span>
+                            <span th:text="${cart_list.product_count}" class="btn_addSpan">1</span>
                             <button type="button" class="btn_plus btn_add"></button>
                         </div>
 
                         <div class="div1_priceBox">
 
-                            <span class="div1_span">10000</span><span class="div1_span2">원</span>
-                            <span class="cart_hidden price_value">10000</span>
+                            <span th:text="${cart_list.price_total}" class="div1_span">10000</span><span class="div1_span2">원</span>
+                            <span th:text="${cart_list.product_price}" class="cart_hidden price_value">10000</span>
                             <span class="close_btn"></span>
 
                         </div>
 
-
-
                     </div>
+<!--                        <span th:text="${cart_list.cart_number}"></span>-->
+<!--                        <span th:text="${cart_list.user_id}"></span>-->
+<!--                        <span th:text="${cart_list.product_number}"></span>-->
+<!--                        <span th:text="${cart_list.product_count}"></span>-->
+<!--                        <span th:text="${cart_list.product_price}"></span>-->
+<!--                        <span th:text="${cart_list.product_name}"></span>-->
+<!--                        <span th:text="${cart_list.price_total}"></span>-->
+<!--                        <img th:src="${cart_list.image_file}" alt="상품 이미지">-->
 
 
-                    <div class="div1_sub">
-                        <div class="div1_sub_sub">
-                            <span class="select_box"></span>
-                            <a href="../food_info/Japanese_FoodInfo/Japanese_millefeuille.html" class="div1_a_img3"></a>
-                            <a href="../food_info/Japanese_FoodInfo/Japanese_millefeuille.html" class="div1_a2">(일식)
-                                나시고랭 (2인)</a>
-
-                        </div>
-                        <div class ="btn_addBox">
-                            <button type="button" class="btn_minus btn_add" disabled></button>
-                            <span class="btn_addSpan">1</span>
-                            <button type="button" class="btn_plus btn_add"></button>
-                        </div>
-
-                        <div class="div1_priceBox">
-
-                            <span class="div1_span">10000</span><span class="div1_span2">원</span>
-                            <span class="cart_hidden price_value">10000</span>
-                            <span class="close_btn"></span>
-
-                        </div>
-
-
-
-
-                    </div>
-
-
-                    <div class="div1_sub">
-                        <div class="div1_sub_sub">
-                            <span class="select_box"></span>
-                            <a href="../food_info/Korean_FoodInfo/Korean_SoybeanSoup.html" class="div1_a_img4"></a>
-                            <a href="../food_info/Korean_FoodInfo/Korean_SoybeanSoup.html" class="div1_a2">(한식)
-                                나시고랭 (2인) </a>
-
-                        </div>
-
-                        <div class="btn_addBox">
-                            <button type="button" class="btn_minus btn_add" disabled></button>
-                            <span class="btn_addSpan">1</span>
-                            <button type="button" class="btn_plus btn_add"></button>
-                        </div>
-                        
-                        <div class="div1_priceBox">
-                        
-                            <span class="div1_span">10000</span><span class="div1_span2">원</span>
-                            <span class="cart_hidden price_value">10000</span>
-                            <span class="close_btn"></span>
-                        
-                        </div>
-
-
-
-                    </div>
-                    
-
+                    </th:block>
                 </div>
                 <div class="cart_div2">
 
@@ -211,13 +85,15 @@
                             <div class="subdiv2_box">
                                 <span>상품금액</span>
                                 <div>    
-                                    <span class="total_price2">40000</span><span>원</span>
+                                    <span th:text="${total}" class="total_price2">40000</span><span>원</span>
                                 </div>
                             </div>
 
                             <div class="subdiv2_box2">
                                 <span>배송비</span>
-                                <span class="del_fee">3000원</span>
+                                <div>
+                                <span th:text="${fee}" class="del_fee">3000</span><span>원</span>
+                                </div>
                             </div>
 
                             <div class="subdiv2_line"></div>
@@ -225,7 +101,7 @@
                             <div class="subdiv2_box3">
                                 <span>결제예정금액</span>
                                 <div>
-                                    <span class="total_price">43000</span><span>원</span>
+                                    <span th:text="${total2 + fee}" class="total_price">43000</span><span>원</span>
                                 </div>
                             </div>
 
@@ -261,28 +137,9 @@
 
     </main>
 
-    <!-- footer : 법적 필수 항목 -->
-    <footer>
-        <hr>
-        <div class="footer">
-            <div><a href="../footer/personal.html"><strong>개인정보처리방침</strong></a></div>
-            <div><a href="../footer/using.html">이용약관</a></div>
-            <div><a href="../service_page/notice.html">공지사항</a></div>
-            <div><a href="../service_page/inquiry/inquiry_list.html">1:1 문의</a></div>
-        </div>
-
-        <pre>
-    회사명 : MealBong
-    사업자 번호 : 123-45-678910
-    대표자 : 박규민
-    주소 : 경기도 성남시 분당구 돌마로 46
-    연락처 : 031 - 789 - 1234
-    E-mail : abcedfg@gmail.com
-    Copyright © 2022 MealBong. All rights reserved.
-        </pre>
-    </footer>
+<!-- footer : 법적 필수 항목 -->
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </body>
 
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 </html>

@@ -252,7 +252,8 @@ input[type="radio"] {
 
 }
 
-.checkBtn4 {
+.button_opacity {
+    opacity: .4;
 
 }
 
@@ -387,4 +388,11 @@ footer {
 
 pre {
     font-size: .8em;
+}
+
+/* ==================== 추가 =================== */
+
+.delete_submit,
+.update_submit {
+    display : none;
 }
