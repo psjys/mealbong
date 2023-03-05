@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: headFragment"></head>
+<head th:replace="fragments/head :: headFragment(~{::link})">
+    <script defer src="../common/js/main_hover.js"/>
+    <script defer src="../common/js/main_menu.js"/>
+    <link rel="stylesheet" href="../common/css/modal.css">
+</head>
 <body>
     <!-- 헤더 : 로고 / 검색창 /  -->
     <th:block th:replace="fragments/header :: headerFragement"></th:block>
