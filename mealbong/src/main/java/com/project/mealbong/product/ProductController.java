@@ -23,6 +23,13 @@ public class ProductController {
         return "html/menu_list/product_list";
     }
 
+    @GetMapping("{product_number}")   // 상품 상세 페이지
+    public String product_detail(Model model, ProductDTO productDTO){
+        ProductDTO productDetail = productService.productDetail(productDTO.getProduct_number());
+        model.addAttribute("productDetail", productDetail);
+        return "html/menu_list/product_detail";
+    }
+
     @GetMapping("/productForm")  // 상품 작성 폼
     public String product_getForm(){
         return "html/menu_list/product_form";
@@ -40,14 +47,14 @@ public class ProductController {
         return uri;
     }
 
-    @GetMapping("productUpdate")
+    @GetMapping("productUpdate")    // 상품 수정
     public String product_getUpdate (ProductDTO dto, Model model){
         ProductDTO detail = productService.detail(dto);
         model.addAttribute("productList", detail);
         return "html/menu_list/product_update";
     }
 
-    @PostMapping("/productUpdate")
+    @PostMapping("/productUpdate")  // 상품 수정 처리
     public String product_postUpdate (ProductDTO dto, Model model, RedirectAttributes rttr){
         String uri = "redirect:/product/productList";
 
@@ -63,7 +70,7 @@ public class ProductController {
         return uri;
     }
 
-    @GetMapping("/productDelete")
+    @GetMapping("/productDelete")   // 상품 삭제
     public String product_delete(ProductDTO dto) {
         System.out.println("무야호");
         productService.delete(dto);
