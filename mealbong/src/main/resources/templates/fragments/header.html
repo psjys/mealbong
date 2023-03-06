@@ -20,9 +20,17 @@
 
             <th:block th:if="${session['user_id'] != null}">
                 <li>
-                    <a th:href="@{|/user1/${session['user_id']}|}">
-                        <span th:text="${session['user_name']}"></span>&nbsp;님
-                    </a>
+                    <th:block th:if="${session['user_id']=='admin'}">
+                        <a href="/admin/adminlist">
+                            <span th:text="${session['user_name']}"></span>&nbsp;님
+                        </a>
+                    </th:block>
+                    <th:block th:unless="${session['user_id']=='admin'}">
+                        <a th:href="@{|/user1/${session['user_id']}|}">
+                            <span th:text="${session['user_name']}"></span>&nbsp;님
+                        </a>
+                    </th:block>
+
                 </li>
                 <li>
                     <a href="/user1/logout">로그아웃</a>

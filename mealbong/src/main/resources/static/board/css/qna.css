@@ -312,7 +312,9 @@ main {
 .ans {
     background-color: #F6F6F6;
     padding: 20px;
-    margin : 0 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .content_inquiry>li>ul {
@@ -350,7 +352,6 @@ main {
 }
 
 .ans_btn {
-    margin: 5px;
     width: 100%;
     position: relative;
     height: 40px;
@@ -359,7 +360,7 @@ main {
 .ans_btn button {
     position: absolute;
     bottom: 0;
-    right: 5px;
+    right: 0;
 }
 
 .inq_div {
@@ -390,4 +391,9 @@ main {
 .up_btn,
 .submit_div {
     position: relative;
+}
+
+.cri_div {
+    text-align: center;
+    line-height: 60px;
 }

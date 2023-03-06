@@ -1,5 +1,7 @@
 package com.project.mealbong.board;
 
+import com.project.mealbong.critest.Criteria;
+import com.project.mealbong.critest.SearchCriteria;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -21,5 +23,11 @@ public interface QnaMapper {
     int ainsert(QnaDTO dto);
 
     int adelete(QnaDTO dto);
+
+    List<QnaDTO> criList(Criteria cri);
+    int criTotalCount(Criteria cri);
+
+//    List<QnaDTO> searchList(SearchCriteria cri);
+//    int searchTotalCount(SearchCriteria cri);
 
 }

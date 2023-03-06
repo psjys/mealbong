@@ -2,6 +2,8 @@ main {
     width: 1200px;
     margin: auto;
     margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
 }
 
 
@@ -34,7 +36,7 @@ main {
     border-bottom: 1px solid gainsboro;
 }
 
-.aadmin_aside ul a {
+.admin_aside ul a {
     text-decoration: none;
     box-sizing: border-box;
     padding: 20px;
@@ -50,7 +52,11 @@ main {
     content: "▷";
 }
 
-.aadmin_aside a:hover {
+.admin_aside a:hover {
     background-color: lightsalmon;
     transition-duration: 0.5s;
+}
+
+.resultArea {
+    width: 950px;
 }

@@ -53,4 +53,25 @@
         set ans_content=null
         where qna_num = #{qna_num}
     </update>
+
+    <!-- ** Criteria PageList
+       => MySql : limit a , b ( a개 제외하고 a+1 부터 b개 )  적용 -->
+    <select id="criList" resultType="com.project.mealbong.board.QnaDTO">
+        select *
+        from qna
+
+        <if test="keyword!='admin'">
+            where
+            user_id=#{keyword}
+        </if>
+        order by qna_num desc
+            limit #{sno}, #{rowsPerPage}
+    </select>
+    <select id="criTotalCount" resultType="int" >
+        select count(*) from qna
+        <if test="keyword!='admin'">
+            where
+            user_id=#{keyword}
+        </if>
+    </select>
 </mapper>

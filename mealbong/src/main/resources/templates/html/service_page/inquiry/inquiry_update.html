@@ -27,12 +27,12 @@
                         <div class="content_inquiry_form_1">유형<span></span></div>
                         <select th:value="${qnaList.qna_type}" name="qna_type" id="type" class="type">
 <!--                            <option disabled selected>문의유형을 선택해주세요</option>-->
-                            <option value="상품">상품</option>
-                            <option value="교환/환불">교환/환불</option>
-                            <option value="주문/결제">주문/결제</option>
-                            <option value="회원정보">회원정보</option>
-                            <option value="사이트 이용">사이트 이용</option>
-                            <option value="기타">기타</option>
+                            <option th:selected="${qnaList.qna_type}=='상품'" value="상품">상품</option>
+                            <option th:selected="${qnaList.qna_type}=='교환/환불'" value="교환/환불">교환/환불</option>
+                            <option th:selected="${qnaList.qna_type}=='주문/결제'" value="주문/결제">주문/결제</option>
+                            <option th:selected="${qnaList.qna_type}=='회원정보'" value="회원정보">회원정보</option>
+                            <option th:selected="${qnaList.qna_type}=='사이트 이용'" value="사이트 이용">사이트 이용</option>
+                            <option th:selected="${qnaList.qna_type}=='기타'" value="기타">기타</option>
                         </select>
                     </div>
                     <div>

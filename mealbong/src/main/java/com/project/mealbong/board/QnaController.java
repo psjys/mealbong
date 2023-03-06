@@ -1,14 +1,17 @@
 package com.project.mealbong.board;
 
+import com.project.mealbong.critest.PageMaker;
+import com.project.mealbong.critest.SearchCriteria;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
-
 
 
 @Controller
@@ -18,13 +21,26 @@ public class QnaController {
     private QnaService qnaService;
 
     @GetMapping("/qnalist") // 문의글 리스트
-    public String inquiry_list(Model model, QnaDTO dto, HttpSession session) {
-        dto.setUser_id((String) session.getAttribute("user_id"));
+    public ModelAndView inquiry_list(ModelAndView mv, SearchCriteria cri, QnaDTO dto, PageMaker pageMaker, HttpSession session) {
 
-        List<QnaDTO> qnaList = qnaService.qnaList(dto);
-        model.addAttribute("qnaList", qnaList);
+        // 1) Criteria 처리
+        // => rowsPerPage, currPage 값은 Parameter 를 전달 : 자동으로 set
+        // => 그러므로 currPage 를 이용해서 setSnoEno 만 하면 됨
+        cri.setSnoEno();
 
-        return "html/service_page/inquiry/inquiry_list";
+        // 2) Service 처리
+        cri.setKeyword((String) session.getAttribute("user_id"));
+        mv.addObject("qnaList", qnaService.criList(cri)); // ver01
+
+        // 3) View 처리 => PageMaker
+        // => cri, totalRowsCount (DB에서 읽어온다)
+        pageMaker.setCriteria(cri);
+        pageMaker.setTotalRowsCount(qnaService.criTotalCount(cri)); // ver01 : 전체 Rows 갯수
+        mv.addObject("pageMaker", pageMaker);
+
+        mv.setViewName("html/service_page/inquiry/inquiry_list");
+
+        return mv;
     }
 
     @GetMapping("/qnaform") // 문의글 작성 폼
@@ -33,7 +49,12 @@ public class QnaController {
     }
 
     @PostMapping("/qnaform") // 글 등록 처리
-    public String inquiry_postForm(QnaDTO dto, HttpSession session) {
+    public String inquiry_postForm(QnaDTO dto, HttpSession session, HttpServletRequest request) {
+        // 파일 업로드
+        String realPath = request.getRealPath("/");
+        System.out.println("** realpath => " + realPath);
+        // ** realpath => /private/var/folders/tg/c8xkq7j505sc6p81px34jnsm0000gn/T/tomcat-docbase.8090.1067151245692605209/
+
 
         String uri = "redirect:/qna/qnalist";
         dto.setUser_id((String) session.getAttribute("user_id"));
@@ -58,7 +79,6 @@ public class QnaController {
 
         rttr.addAttribute("qna_num", dto.getQna_num());
         model.addAttribute("qnaList", dto);
-        System.out.println(dto);
         // 글 수정 실패 시
         if (update < 0) {
             uri = "html/service_page/inquiry/inquiry_update/{qna_num}";
@@ -74,14 +94,14 @@ public class QnaController {
 
     // 답변
     @GetMapping("/ansform")
-    public String ans_getForm (QnaDTO dto, Model model) {
+    public String ans_getForm(QnaDTO dto, Model model) {
         QnaDTO detail = qnaService.detail(dto);
         model.addAttribute("qnaList", detail);
         return "html/service_page/inquiry/ans_form";
     }
 
     @PostMapping("/ansform")
-    public String ans_postForm (QnaDTO dto, Model model, RedirectAttributes rttr) {
+    public String ans_postForm(QnaDTO dto, Model model, RedirectAttributes rttr) {
         String uri = "redirect:/qna/qnalist";
         int ainsert = qnaService.ainsert(dto);
 
@@ -94,8 +114,9 @@ public class QnaController {
         }
         return uri;
     }
+
     @GetMapping("/ansdelete")
-    public String ans_delete (QnaDTO dto) {
+    public String ans_delete(QnaDTO dto) {
         qnaService.adelete(dto);
         return "redirect:/qna/qnalist";
     }
