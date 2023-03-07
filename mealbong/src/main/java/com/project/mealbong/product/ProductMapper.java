@@ -17,4 +17,7 @@ public interface ProductMapper {
     int update(ProductDTO dto);
 
     void delete(ProductDTO dto);
+
+    List<ProductDTO> productAdmin() throws Exception;
+
 }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: headFragment(~{::link})">
+    <link rel="stylesheet" href="../../../../admin/css/admin.css">
+</head>
+<body>
+<th:block th:replace="fragments/header :: headerFragement"></th:block>
+<main>
+    <th:block th:replace="fragments/admin_aside :: adminFragment"></th:block>
+    <div class="content">
+        <div class="content_admin">
+            <div>
+                <h2>상품 관리</h2>
+            </div>
+        </div>
+        <table class="content_inquiry" style="width: 100%">
+            <thead>
+            <tr>
+                <th>상품명</th>
+                <th>상품가격</th>
+                <th>카테고리</th>
+                <th>포장타입</th>
+                <th>인분</th>
+                <th>난이도</th>
+                <th>이미지</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- 스프링 프레임워크에 <c:forEach items="${mList}" var="m"> 와 같은 역할 -->
+            <tr th:each="productAdmin:${productAdmin}">
+                <div th:value="${productAdmin.getProduct_number()}" style="display: none"></div>
+                <td th:text="${productAdmin.product_name}">상품명</td>
+                <td th:text="${productAdmin.product_price}">상품가격</td>
+                <td th:text="${productAdmin.category_code}">카테고리</td>
+                <td th:text="${productAdmin.package_code}">포장타입</td>
+                <td th:text="${productAdmin.product_serving}">인분</td>
+                <td th:text="${productAdmin.level_code}">난이도</td>
+                <td><img th:src="${productAdmin.image_file}" alt="상품 이미지" width="100px" height="100px"></td>
+                <td><a th:href="@{/product/productUpdate(product_number=${productAdmin.product_number})}">수정</a></td>
+                <td><a th:href="@{/product/productDelete(product_number=${productAdmin.product_number})}">삭제</a></td>
+            </tr>
+            </tbody>
+<!--            <div th:if="${session['user_id'] == 'admin'}">-->
+<!--                <button class = "product_update_button" value="수정하기">-->
+<!--                    <a th:href="@{/product/productUpdate(product_number=${productList.getProduct_number()})}">수정</a>-->
+<!--                </button>-->
+<!--                <button class = "product_delete_button" value="삭제하기">-->
+<!--                    <a th:href="@{/product/productDelete(product_number=${productList.getProduct_number()})}">삭제</a>-->
+<!--                </button>-->
+<!--            </div>-->
+        </table>
+    </div>
+</main>
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+</body>
+</html>

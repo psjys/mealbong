@@ -8,7 +8,7 @@ main {
 
 
 .admin_name {
-    line-height: 80px;
+    height: 60px;
     text-align: center;
 }
 
@@ -26,14 +26,14 @@ main {
 .admin_aside ul li {
     line-height: 14px;
     box-sizing: border-box;
-    border-top: 1px solid gainsboro;
-    border-right: 1px solid gainsboro;
-    border-left: 1px solid gainsboro;
+    border-top: 1px solid #AEAEAE;
+    border-right: 1px solid #AEAEAE;
+    border-left: 1px solid #AEAEAE;
     font-weight: bold;
 }
 
 .admin_aside ul li:last-child {
-    border-bottom: 1px solid gainsboro;
+    border-bottom: 1px solid #AEAEAE;
 }
 
 .admin_aside ul a {
@@ -52,11 +52,90 @@ main {
     content: "▷";
 }
 
-.admin_aside a:hover {
-    background-color: lightsalmon;
-    transition-duration: 0.5s;
-}
+/*.admin_aside a:hover {*/
+/*    background-color: lightsalmon;*/
+/*    transition-duration: 0.5s;*/
+/*}*/
 
 .resultArea {
     width: 950px;
+}
+
+.content_inquiry td,
+.content_inquiry th {
+    border: 1px solid #AEAEAE;
+
+}
+.content_inquiry {
+    border-collapse: collapse;
+}
+
+.content {
+    width: 950px;
+}
+.content {
+    width: 950px;
+    box-sizing: border-box;
+}
+
+.content_1 {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.content_1 div h2 {
+    display: inline-block;
+}
+
+.content_1 div span {
+    padding: 10px;
+}
+
+.ans_form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.ans_form_div {
+    width: 100%;
+    display: flex;
+    margin: 15px 0;
+}
+
+.board_header {
+    display: flex;
+    width: 500px;
+    line-height: 45px;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.board_header li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #AEAEAE;
+    border-top: 1px solid #AEAEAE;
+    border-left: 1px solid #AEAEAE;
+}
+
+.board_header li:last-child {
+    border-right: 1px solid #AEAEAE;
+}
+
+.clickable {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.clickable:hover {
+    transition-duration: 0.5s;
+    background-color: lightsalmon;
+}
+
+.content_admin {
+    display: flex;
+    margin-bottom: 24px;
 }

@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="adminFragment">
+    <div class="admin_aside">
+        <div class="admin_name">
+            <h2>관리자 페이지</h2>
+        </div>
+        <ul>
+            <li><a href="/admin/useradmin" class="clickable">회원관리</a></li>
+            <li><a href="/" class="clickable">주문관리</a></li>
+            <li><a href="/admin/productadmin" class="clickable">상품관리</a></li>
+            <li><a href="/admin/qnaadmin" class="clickable">게시판관리</a></li>
+        </ul>
+    </div>
+</th:block>
 </html>

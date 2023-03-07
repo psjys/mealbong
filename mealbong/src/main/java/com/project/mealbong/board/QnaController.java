@@ -21,7 +21,7 @@ public class QnaController {
     private QnaService qnaService;
 
     @GetMapping("/qnalist") // 문의글 리스트
-    public ModelAndView inquiry_list(ModelAndView mv, SearchCriteria cri, QnaDTO dto, PageMaker pageMaker, HttpSession session) {
+    public ModelAndView inquiry_list(ModelAndView mv, SearchCriteria cri, PageMaker pageMaker, HttpSession session) {
 
         // 1) Criteria 처리
         // => rowsPerPage, currPage 값은 Parameter 를 전달 : 자동으로 set
@@ -92,33 +92,6 @@ public class QnaController {
         return "redirect:/qna/qnalist";
     }
 
-    // 답변
-    @GetMapping("/ansform")
-    public String ans_getForm(QnaDTO dto, Model model) {
-        QnaDTO detail = qnaService.detail(dto);
-        model.addAttribute("qnaList", detail);
-        return "html/service_page/inquiry/ans_form";
-    }
 
-    @PostMapping("/ansform")
-    public String ans_postForm(QnaDTO dto, Model model, RedirectAttributes rttr) {
-        String uri = "redirect:/qna/qnalist";
-        int ainsert = qnaService.ainsert(dto);
-
-        rttr.addFlashAttribute("qna_num", dto.getQna_num());
-        model.addAttribute("qnaList", dto);
-
-        // 글 수정 실패 시
-        if (ainsert < 0) {
-            uri = "html/service_page/inquiry/ans_form/{qna_num}";
-        }
-        return uri;
-    }
-
-    @GetMapping("/ansdelete")
-    public String ans_delete(QnaDTO dto) {
-        qnaService.adelete(dto);
-        return "redirect:/qna/qnalist";
-    }
 }
 

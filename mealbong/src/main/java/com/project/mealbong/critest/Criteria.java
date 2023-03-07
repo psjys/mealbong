@@ -34,7 +34,7 @@ public class Criteria {
 
 	// 1) 필요한 초기값 생성자로 초기화 (Default 생성자)
 	public Criteria() {
-		this.rowsPerPage = 5;
+		this.rowsPerPage = 10;
 		this.currPage = 1;
 	}
 
@@ -51,10 +51,10 @@ public class Criteria {
 	// => 제한조건 점검 ( 50개 까지만 허용)
 	// => 당장은 사용하지 않지만 사용가능하도록 작성
 	public void setRowPerPage() {
-		if (5 < rowsPerPage && rowsPerPage <= 50)
+		if (10 < rowsPerPage && rowsPerPage <= 50)
 			this.rowsPerPage = rowsPerPage;
 		else
-			this.rowsPerPage = 5;
+			this.rowsPerPage = 10;
 	}
 	// 4) setSnoEno : sno, eno 계산 
 	// => currPage, rowsPerPage 를 이용해 계산

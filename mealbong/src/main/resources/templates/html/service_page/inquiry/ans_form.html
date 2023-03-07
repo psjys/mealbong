@@ -3,6 +3,7 @@
 
 <head th:replace="fragments/head :: headFragment(~{::link})">
   <link rel="stylesheet" href="../../../../board/css/qna.css">
+  <link rel="stylesheet" href="../../../../admin/css/admin.css">
   <script defer src="../../../../user/js/inquiry.js"></script>
   <script defer src="../../../../board/js/qna.js"></script>
 </head>
@@ -11,24 +12,31 @@
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
 <main>
   <div class="mypage">
-    <th:block th:replace="fragments/inquiry_aside :: inquiryFragement"></th:block>
+    <th:block th:replace="fragments/admin_aside :: adminFragment"></th:block>
     <div class="content">
       <div class="content_1">
         <h2>1:1 문의 답변</h2>
       </div>
       <div class="content_inquiry_form">
-        <form action="/qna/ansform" method="post">
-          <div>
-            <input name="qna_num" th:value="${qnaList.getQna_num()}" style="display: none">
-            <div class="content_inquiry_form_3">답변 내용<span></span></div>
-            <textarea name="ans_content" class="content_inquiry_form_textarea"
-                      placeholder=" 답변 내용을 입력해 주세요."
-                      th:text="${qnaList.ans_content}"
-                      required onkeyup="check_lth(this);"></textarea>
+        <form action="/admin/ansform" method="post">
+          <div class="ans_form">
+            <div class="ans_form_div">
+              <input name="qna_num" th:value="${qnaList.getQna_num()}" style="display: none">
+              <div class="content_inquiry_form_3">문의 내용</div>
+              <div style="width: 100%; margin-left: 20px;" name="qna_content" th:text="${qnaList.qna_content}"></div>
+            </div>
+            <div class="ans_form_div">
+              <div class="content_inquiry_form_3">답변 내용</div>
+              <textarea name="ans_content" class="content_inquiry_form_textarea"
+                        placeholder=" 답변 내용을 입력해 주세요."
+                        th:text="${qnaList.ans_content}"
+                        required onkeyup="check_lth(this);"></textarea>
+            </div>
           </div>
           <div class="submit_div">
             <input type="submit" value="답변 등록">
           </div>
+
         </form>
       </div>
     </div>

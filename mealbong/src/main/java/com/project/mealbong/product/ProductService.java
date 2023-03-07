@@ -34,6 +34,17 @@ public class ProductService {
     public int update(ProductDTO dto) { return mapper.update(dto);}
 
     public void delete(ProductDTO dto) { mapper.delete(dto);}
+
+    // admin page
+    public List<ProductDTO> productAdmin () {
+        List<ProductDTO> productAdmin = new ArrayList<ProductDTO>();
+        try{
+            productAdmin = mapper.productAdmin();
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        return productAdmin;
+    }
 }
 
 

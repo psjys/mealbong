@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="boardFragment">
+    <div class="content_admin">
+        <div>
+            <h2>게시판 관리</h2>
+        </div>
+        <ul class="board_header">
+            <li class="clickable" onclick="location.href='/admin/useradmin'">
+                공지사항
+            </li>
+            <li class="clickable" onclick="location.href='/admin/useradmin'">
+                FAQ
+            </li>
+            <li class="clickable" onclick="location.href='/admin/qnaadmin'">
+                1:1 문의
+            </li>
+        </ul>
+    </div>
+</th:block>
+</html>

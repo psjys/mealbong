@@ -40,4 +40,12 @@
         where product_number = #{product_number}
     </delete>
 
+<!--    admin page -->
+    <select id="productAdmin" resultType="com.project.mealbong.product.ProductDTO">
+        select p.product_number, p.product_name, p.product_price, p.category_code,p.package_code,
+               p.product_serving, p.level_code, i.image_file
+        from product p, image i
+        where p.product_number = i.product_number;
+    </select>
+
 </mapper>

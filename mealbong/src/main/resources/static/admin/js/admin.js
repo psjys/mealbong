@@ -1,16 +1,16 @@
 'use strict';
 
-// 게시판 관리 - 1대1 문의
-function qna() {
-    $.ajax({
-        type: 'Get',
-        url: "/admin/qnaadmin",
-        success: function (resultPage) {
-            document.getElementById('resultArea').innerHTML = resultPage;
-        },
-        error: function () {
-            document.getElementById('resultArea').innerHTML = 'error 발생';
-        }
-    });
-};
+// document.querySelectorAll('.clickable').forEach((button, i, buttons) => {
+//     button.addEventListener('click', e => {
+//         buttons.forEach(btn => btn.classList.remove('clicked'));
+//         e.target.classList.add('clicked');
+//     });
+// });
 
+// $('.clickable').click(function(){
+//
+//     $('.clickable').not(this).removeClass('active');
+//
+//     $(this).toggleClass('active');
+//
+// });

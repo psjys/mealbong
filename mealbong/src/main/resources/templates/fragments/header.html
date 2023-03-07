@@ -21,7 +21,7 @@
             <th:block th:if="${session['user_id'] != null}">
                 <li>
                     <th:block th:if="${session['user_id']=='admin'}">
-                        <a href="/admin/adminlist">
+                        <a href="/admin/useradmin">
                             <span th:text="${session['user_name']}"></span>&nbsp;님
                         </a>
                     </th:block>

@@ -57,13 +57,13 @@
                                       style="text-align: left; line-height: 25px;"></span>
                             </div>
                             <div th:if="${session['user_id'] == 'admin' && qnaList.ans_content != null}" class="updelete">
-                                <a th:href="@{/qna/ansform(qna_num=${qnaList.getQna_num()})}">답변수정</a>
-                                <a th:href="@{/qna/ansdelete(qna_num=${qnaList.getQna_num()})}">답변삭제</a>
+                                <a th:href="@{/admin/ansform(qna_num=${qnaList.getQna_num()})}">답변수정</a>
+                                <a th:href="@{/admin/ansdelete(qna_num=${qnaList.getQna_num()})}">답변삭제</a>
                             </div>
                             <div th:if="${session['user_id'] == 'admin' && qnaList.ans_content == null}"
                                  class="ans_btn">
                                 <button class="inquiry_form_button" value="답변 등록">
-                                    <a th:href="@{/qna/ansform(qna_num=${qnaList.getQna_num()})}"
+                                    <a th:href="@{/admin/ansform(qna_num=${qnaList.getQna_num()})}"
                                        style="font-size: 1em; color:white;">답변 등록</a>
                                 </button>
                             </div>
@@ -80,8 +80,8 @@
                    1) FirstPage, Prev -->
                 <th:block th:if="${pageMaker.prev && pageMaker.spageNo>1}">
                     <!-- OLD_version -->
-                    <a th:href="@{/qna/qnalist(currPage=1,rowsPerPage=5)}">FP</a>&nbsp;
-                    <a th:href="@{/qna/qnalist(currPage=${pageMaker.spageNo-1}, rowsPerPage=5)}">&lt;</a>
+                    <a th:href="@{/qna/qnalist(currPage=1,rowsPerPage=10)}">FP</a>&nbsp;
+                    <a th:href="@{/qna/qnalist(currPage=${pageMaker.spageNo-1}, rowsPerPage=10)}">&lt;</a>
                 </th:block>
                 <th:block th:unless="${pageMaker.prev && pageMaker.spageNo>1}">
                     <font color="Gray">FP&nbsp;&lt;&nbsp;&nbsp;</font>
@@ -92,14 +92,14 @@
                         <font size="5" color="#ffa07a" th:text="${i}"></font>
                     </th:block>
                     <th:block th:unless="${i==pageMaker.cri.currPage}">
-                        <a th:href="@{/qna/qnalist(currPage=${i}, rowsPerPage=5)}" th:text="${i}"></a>
+                        <a th:href="@{/qna/qnalist(currPage=${i}, rowsPerPage=10)}" th:text="${i}"></a>
                     </th:block>
                 </th:block>
 
                 <!-- 3) Next, LastPage -->
                 <th:block th:if="${pageMaker.next && pageMaker.epageNo > 0}">
-                    <a th:href="@{/qna/qnalist(currPage=${pageMaker.epageNo+1}, rowsPerPage=5)}"> ></a>
-                    <a th:href="@{/qna/qnalist(currPage=${pageMaker.lastPageNo}, rowsPerPage=5)}"> LP</a>
+                    <a th:href="@{/qna/qnalist(currPage=${pageMaker.epageNo+1}, rowsPerPage=10)}"> ></a>
+                    <a th:href="@{/qna/qnalist(currPage=${pageMaker.lastPageNo}, rowsPerPage=10)}"> LP</a>
                 </th:block>
                 <th:block th:unless="${pageMaker.next && pageMaker.epageNo > 0}">
                     <font color="Gray"> > LP</font>
