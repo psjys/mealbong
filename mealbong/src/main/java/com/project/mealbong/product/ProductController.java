@@ -24,9 +24,11 @@ public class ProductController {
     }
 
     @GetMapping("{product_number}")   // 상품 상세 페이지
-    public String product_detail(Model model, ProductDTO productDTO){
+    public String product_detail(Model model, ProductDTO productDTO, ImageDTO imageDTO){
         ProductDTO productDetail = productService.productDetail(productDTO.getProduct_number());
         model.addAttribute("productDetail", productDetail);
+
+        ImageDTO imageD
         return "html/menu_list/product_detail";
     }
 
@@ -47,7 +49,7 @@ public class ProductController {
         return uri;
     }
 
-    @GetMapping("productUpdate")    // 상품 수정
+    @GetMapping("/productUpdate")    // 상품 수정
     public String product_getUpdate (ProductDTO dto, Model model){
         ProductDTO detail = productService.detail(dto);
         model.addAttribute("productList", detail);

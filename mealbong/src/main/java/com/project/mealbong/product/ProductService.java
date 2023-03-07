@@ -23,17 +23,6 @@ public class ProductService {
     return productList;
     }
 
-    // 상품 상세
-//    public List<ProductDTO> productDetail(){
-//        List<ProductDTO> productDetail = new ArrayList<ProductDTO>();
-//
-//    try{
-//        productDetail = mapper.productDetail(int product_number);
-//    } catch(Exception e){
-//        e.printStackTrace();
-//    }
-//    return productDetail;
-//    }
     public ProductDTO productDetail(int product_number){
      //   List<ProductDTO> productDetail = new ArrayList<ProductDTO>();
 
