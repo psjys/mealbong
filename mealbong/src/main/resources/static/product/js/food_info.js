@@ -1,13 +1,13 @@
 /* =====================좋아요 및 장바구니 modal box==================== */
 /* 로그인 하기 전 */
 
-const modal = document.querySelector('.modal_container'),
-    bg = document.querySelector('.bg'),
-    body = document.querySelector('body'),
-    header = document.querySelector('nav'),
-    modalBox = modal.querySelector('.modalBox'),
-    modal_p = modal.querySelector('p'),
-    closeBtn = document.querySelector('.closeBtn'),
+const modall = document.querySelector('.modal_container'),
+    bgg = document.querySelector('.bg'),
+    bodyy = document.querySelector('body'),
+    headerr = document.querySelector('nav'),
+    modalBox = modall.querySelector('.modalBox'),
+    modal_p = modall.querySelector('p'),
+    closeBtnn = document.querySelector('.closeBtn'),
     innerbox2 = document.querySelector('.innerbox2'),
     basket = innerbox2.querySelector('.basket'),
     wish = innerbox2.querySelector('.wish'),
@@ -15,18 +15,18 @@ const modal = document.querySelector('.modal_container'),
     product_review = outerbox2.querySelector('.product_review'),
     product_inquiry = outerbox2.querySelector('.product_inquiry');
 
-const open = () => {
-    modal.classList.remove('hidden');
-    body.classList.add('scroll_none');
-    header.style.position = 'static';
-    nav.style.zIndex = '0';
+const openn = () => {
+    modall.classList.remove('hidden');
+    bodyy.classList.add('scroll_none');
+    headerr.style.position = 'static';
+    navv.style.zIndex = '0';
 }
 
-const close = () => {
-    modal.classList.add('hidden');
-    body.classList.remove('scroll_none');
-    header.style.position = 'sticky';
-    nav.style.zIndex = '2';
+const closee = () => {
+    modall.classList.add('hidden');
+    bodyy.classList.remove('scroll_none');
+    headerr.style.position = 'sticky';
+    navv.style.zIndex = '2';
 }
 
 wish.addEventListener('click', () => {
@@ -50,13 +50,13 @@ product_inquiry.addEventListener('click', () => {
 });
 
 function modal_f(str) {
-    open();
+    openn();
     modal_p.textContent = str;
 }
 
-closeBtn.addEventListener('click', close);
-bg.addEventListener('click',() => {
-    close();
+closeBtnn.addEventListener('click', closee);
+bgg.addEventListener('click',() => {
+    closee();
     SNS_close();
 });
 
@@ -77,7 +77,7 @@ const share = innerbox2.querySelector('#share'),
     SNS = document.querySelector('.SNS_container'),
     SNS_Box = SNS.querySelector('.SNS_Box'),
     SNS_closeBtn = SNS_Box.querySelector('.SNS_closeBtn'),
-    nav = document.querySelector('nav');
+    navv = document.querySelector('nav');
 
 share.addEventListener('click', () => {
 
@@ -86,16 +86,16 @@ share.addEventListener('click', () => {
 
 const SNS_open = () => {
     SNS.classList.remove('hidden');
-    body.classList.add('scroll_none');
-    header.style.position = 'static';
-    nav.style.zIndex = '0';
+    bodyy.classList.add('scroll_none');
+    headerr.style.position = 'static';
+    navv.style.zIndex = '0';
 }
 
 const SNS_close = () => {
     SNS.classList.add('hidden');
-    body.classList.remove('scroll_none');
-    header.style.position = 'sticky';
-    nav.style.zIndex = '2';
+    bodyy.classList.remove('scroll_none');
+    headerr.style.position = 'sticky';
+    navv.style.zIndex = '2';
 }
 
 function modal_s() {

@@ -8,14 +8,20 @@ import java.util.List;
 @Repository
 @Mapper
 public interface ProductMapper {
+    // 상품 리스트
     List<ProductDTO> productList() throws Exception;
 
-    int insert(ProductDTO dto);
-
+    // 상품 상세
+    ProductDTO productDetail(int product_number);
     ProductDTO detail(ProductDTO dto);
 
+    // 상품 등록
+    int insert(ProductDTO dto);
+
+    // 상품 수정
     int update(ProductDTO dto);
 
+    // 상품 삭제
     void delete(ProductDTO dto);
 
     List<ProductDTO> productAdmin() throws Exception;
