@@ -11,8 +11,12 @@
     <select id="productList" resultType="com.project.mealbong.product.ProductDTO">
         select p.product_number, p.product_name, p.product_price, i.image_file
         from product p left outer join image i
-        on p.product_number = i.product_number;
-<!--        order by p.product_price asc;-->
+        on p.product_number = i.product_number and i.image_main = "Y"
+    </select>
+
+    <select id="imageList" resultType="com.project.mealbong.product.ImageDTO">
+        select * from image
+        where product_number = #{product_number}
     </select>
 
     <!-- 상품 상세 -->
@@ -21,7 +25,7 @@
         (select code_desc from code c where p.package_code = c.code_number)package_code,
         (select code_desc from code c where p.level_code = c.code_number)level_code
         from product p
-        where product_number = #{product_number};
+        where product_number = #{product_number}
     </select>
 
     <!-- 상품 상세 -->
@@ -29,13 +33,13 @@
         insert into product (category_code, product_name, product_price, level_code
         , product_serving, package_code )
         values (#{category_code}, #{product_name}, #{product_price}, #{level_code}
-        , #{product_serving}, #{package_code});
+        , #{product_serving}, #{package_code})
     </insert>
     <!-- 상품 수정 위한 detail -->
     <select id="detail" resultType="com.project.mealbong.product.ProductDTO">
         select *
         from product
-        where product_number = #{product_number};
+        where product_number = #{product_number}
     </select>
 
     <!-- 상품 수정 -->
@@ -43,13 +47,13 @@
         update product set product_name=#{product_name}, product_price=#{product_price},
         category_code=#{category_code}, package_code=#{package_code}, product_serving=#{product_serving},
         level_code=#{level_code}
-        where product_number = #{product_number};
+        where product_number = #{product_number}
     </update>
 
     <!-- 상품 삭제 -->
     <delete id="delete">
         delete from product
-        where product_number = #{product_number};
+        where product_number = #{product_number}
     </delete>
 
 <!--    admin page -->
@@ -57,7 +61,7 @@
         select p.product_number, p.product_name, p.product_price, p.category_code,p.package_code,
                p.product_serving, p.level_code, i.image_file
         from product p, image i
-        where p.product_number = i.product_number;
+        where p.product_number = i.product_number
     </select>
 
 </mapper>

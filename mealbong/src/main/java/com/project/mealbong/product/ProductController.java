@@ -15,11 +15,13 @@ import java.util.List;
 @AllArgsConstructor
 public class ProductController {
     private ProductService productService;
+    private ImageService imageService;
 
     @GetMapping("/productList") // 상품 리스트
     public String product_list(Model model){
         List<ProductDTO> productList = productService.productList();
         model.addAttribute("productList", productList);
+
         return "html/menu_list/product_list";
     }
 
@@ -28,7 +30,9 @@ public class ProductController {
         ProductDTO productDetail = productService.productDetail(productDTO.getProduct_number());
         model.addAttribute("productDetail", productDetail);
 
-        ImageDTO imageD
+        List<ImageDTO> imageList = imageService.imageList(productDTO.getProduct_number());
+        model.addAttribute("imageList", imageList);
+        System.out.println(imageList);
         return "html/menu_list/product_detail";
     }
 

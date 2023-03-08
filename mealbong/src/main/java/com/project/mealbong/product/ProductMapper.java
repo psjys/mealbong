@@ -10,7 +10,8 @@ import java.util.List;
 public interface ProductMapper {
     // 상품 리스트
     List<ProductDTO> productList() throws Exception;
-
+    // 상품 이미지 리스트로 불러오기
+    List<ImageDTO> imageList(int product_number) throws Exception;
     // 상품 상세
     ProductDTO productDetail(int product_number);
     ProductDTO detail(ProductDTO dto);

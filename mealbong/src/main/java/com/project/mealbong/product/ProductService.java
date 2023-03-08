@@ -17,6 +17,7 @@ public class ProductService {
 
     try{
         productList = mapper.productList();
+        System.out.println(productList);
     } catch(Exception e){
         e.printStackTrace();
     }
@@ -26,10 +27,7 @@ public class ProductService {
     public ProductDTO productDetail(int product_number){
      //   List<ProductDTO> productDetail = new ArrayList<ProductDTO>();
 
-
         return mapper.productDetail(product_number);
-
-
     }
 
     public ProductDTO detail(ProductDTO dto){

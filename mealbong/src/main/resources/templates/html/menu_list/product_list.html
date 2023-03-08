@@ -42,6 +42,9 @@
     </div>
 
     <div class="innerbox3">
+        <div th:each="imageList:${imageList}">
+            <span th:text="${imageList.image_main}"></span>
+        </div>
         <div class="food_box" th:each="productList:${productList}">
 <!--            일반 회원으로 login 했을 때-->
             <a th:if="${session['user_id'] != 'admin'}">
