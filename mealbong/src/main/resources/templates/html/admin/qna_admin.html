@@ -7,6 +7,20 @@
 <body>
 <script defer src="../../../../board/js/qna.js"></script>
 <script defer src="../../../../admin/js/admin.js"></script>
+<script th:inline="javascript">
+    $(function(){
+        $('#searchType').change(function(){
+            if ( $(this).val()=='n' ) $('#keyword').val('');
+        }); //change
+
+        $('#qna_search').click(function(){
+            self.location='/admin/qnaadmin'
+            + '?currPage=1&rowsPerPage=10'
+            + '&searchType='+$('#searchType').val()
+            + '&keyword='+$('#keyword').val();
+        }); //click
+    }); // ready
+</script>
 
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
 <main>
@@ -16,11 +30,28 @@
         <div>
             <div>
                 <h2>1:1 문의</h2>
+                <hr>
             </div>
         </div>
+        <div id="searchBar">
+            <select name="searchType" id="searchType">
+                <option value="n" th:selected="${pageMaker.cri.searchType == null}">전체</option>
+                <option value="상품" th:selected="${pageMaker.cri.searchType == '상품'}">상품</option>
+                <option value="교환/환불" th:selected="${pageMaker.cri.searchType == '교환/환불'}">교환/환불</option>
+                <option value="주문/결제" th:selected="${pageMaker.cri.searchType == '주문/결제'}">주문/결제</option>
+                <option value="회원정보" th:selected="${pageMaker.cri.searchType == '회원정보'}">회원정보</option>
+                <option value="사이트 이용" th:selected="${pageMaker.cri.searchType == '사이트 이용'}">사이트 이용</option>
+                <option value="기타" th:selected="${pageMaker.cri.searchType == '기타'}">기타</option>
+            </select>
+            <input type="text" name="keyword" id="keyword" th:value="${pageMaker.cri.getKeyword()}">
+            <button id="qna_search">Search</button>
+        </div>
+        <br>
         <ul class="content_inquiry">
             <li>
                 <ul>
+                    <li>작성자(아이디)</li>
+                    <li>카테고리</li>
                     <li>제목</li>
                     <li>작성일</li>
                     <li>답변상태</li>
@@ -32,6 +63,8 @@
             <li th:unless="${qnaList.isEmpty()}">
                 <ul th:each="qnaList:${qnaList}" class="qna_list">
                     <div class="inq_div">
+                        <li th:text="${qnaList.getUser_id()}"></li>
+                        <li th:text="${qnaList.getQna_type()}"></li>
                         <li th:text="${qnaList.getQna_title()}"></li>
                         <li th:text="${#temporals.format(qnaList.getQna_date(), 'yyyy.MM.dd')}"></li>
                         <li th:if="${qnaList.ans_content != null}">답변완료</li>
@@ -78,6 +111,17 @@
                1) FirstPage, Prev -->
             <th:block th:if="${pageMaker.prev && pageMaker.spageNo>1}">
                 <!-- OLD_version -->
+<!--            <a href="bcrilist${pageMaker.searchQuery(1)}">FP</a>&nbsp;&ndash;&gt;-->
+<!--            <a href="bcrilist${pageMaker.searchQuery(pageMaker.spageNo-1)}">&lt;</a>-->
+                <!-- OLD_version
+         <a href="bcrilist?currPage=1&rowsPerPage=5">FP</a>&nbsp;
+         <a href="bcrilist?currPage=${pageMaker.spageNo-1}&rowsPerPage=5">&lt;</a>
+
+         self.location='/admin/qnaadmin'
+            + '?currPage=1&rowsPerPage=10'
+            + '&searchType='+$('#searchType').val()
+            + '&keyword='+$('#keyword').val();
+      -->
                 <a th:href="@{/admin/qnaadmin(currPage=1,rowsPerPage=10)}">FP</a>&nbsp;
                 <a th:href="@{/admin/qnaadmin(currPage=${pageMaker.spageNo-1}, rowsPerPage=10)}">&lt;</a>
             </th:block>
@@ -93,7 +137,6 @@
                     <a th:href="@{/admin/qnaadmin(currPage=${i}, rowsPerPage=10)}" th:text="${i}"></a>
                 </th:block>
             </th:block>
-
             <!-- 3) Next, LastPage -->
             <th:block th:if="${pageMaker.next && pageMaker.epageNo > 0}">
                 <a th:href="@{/admin/qnaadmin(currPage=${pageMaker.epageNo+1}, rowsPerPage=10)}"> ></a>

@@ -27,7 +27,11 @@
                         <li>답변상태</li>
                     </ul>
                 </li>
-                <li th:if="${qnaList.isEmpty()}">
+                <li th:if="${qnaList.isEmpty() && session['user_id']== 'admin'}" onclick="location.href='/admin/qnaadmin'">
+                    <h3 style="text-align: center; padding: 100px; border-top: 1px solid silver; cursor:pointer;"
+                        onclick="location.href='/admin/qnaadmin?searchType=n'">관리자 페이지로 이동하기</h3>
+                </li>
+                <li th:if="${qnaList.isEmpty() && session['user_id']!= 'admin'}">
                     <h3 style="text-align: center; padding: 100px; border-top: 1px solid silver">게시글이 없습니다.</h3>
                 </li>
                 <li th:unless="${qnaList.isEmpty()}">
@@ -75,7 +79,7 @@
             <div th:if="${session['user_id'] != 'admin'}" class="form_btn">
                 <button onclick="location.href='/qna/qnaform'" value="문의하기">문의하기</button>
             </div>
-            <div class="cri_div">
+            <div th:if="${session['user_id'] != 'admin'}" class="cri_div">
                 <!-- ** Cri_Paging **
                    1) FirstPage, Prev -->
                 <th:block th:if="${pageMaker.prev && pageMaker.spageNo>1}">

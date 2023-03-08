@@ -9,9 +9,7 @@
     <select id="qnaList" resultType="com.project.mealbong.board.QnaDTO">
         select *
         from qna
-        <if test="user_id!='admin'">
-            where user_id = #{user_id}
-        </if>
+        where user_id = #{user_id}
         order by qna_num desc;
     </select>
 
@@ -59,19 +57,70 @@
     <select id="criList" resultType="com.project.mealbong.board.QnaDTO">
         select *
         from qna
-
-        <if test="keyword!='admin'">
-            where
-            user_id=#{keyword}
-        </if>
+        where
+        user_id=#{keyword}
         order by qna_num desc
-            limit #{sno}, #{rowsPerPage}
+        limit #{sno}, #{rowsPerPage}
     </select>
-    <select id="criTotalCount" resultType="int" >
-        select count(*) from qna
+
+    <select id="criTotalCount" resultType="int">
+        select count(*)
+        from qna
         <if test="keyword!='admin'">
-            where
-            user_id=#{keyword}
+        where user_id = #{keyword}
         </if>
+    </select>
+
+    <select id="searchList" resultType="com.project.mealbong.board.QnaDTO">
+        select *
+        from qna
+        <if test="searchType != 'n'.toString()">
+            where qna_type = #{searchType}
+            <if test="keyword!=null">
+                <bind name="keyVal" value="'%'+keyword+'%'"/>
+                and (
+                qna_title like #{keyVal}
+                or qna_content like #{keyVal}
+                or user_id like #{keyVal})
+            </if>
+        </if>
+        <choose>
+            <when test="searchType == 'n'.toString()">
+                <if test="keyword!=null">
+                    <bind name="keyVal" value="'%'+keyword+'%'"/>
+                    where (
+                    qna_title like #{keyVal}
+                    or qna_content like #{keyVal}
+                    or user_id like #{keyVal} )
+                </if>
+            </when>
+        </choose>
+        order by qna_num desc
+        limit #{sno}, #{rowsPerPage}
+    </select>
+
+    <select id="searchTotalCount" resultType="int">
+        select count(*) from qna
+        <if test="searchType != 'n'.toString()">
+            where qna_type = #{searchType}
+            <if test="keyword!=null">
+                <bind name="keyVal" value="'%'+keyword+'%'"/>
+                and (
+                qna_title like #{keyVal}
+                or qna_content like #{keyVal}
+                or user_id like #{keyVal})
+            </if>
+        </if>
+        <choose>
+            <when test="searchType == 'n'.toString()">
+                <if test="keyword!=null">
+                    <bind name="keyVal" value="'%'+keyword+'%'"/>
+                    where (
+                    qna_title like #{keyVal}
+                    or qna_content like #{keyVal}
+                    or user_id like #{keyVal} )
+                </if>
+            </when>
+        </choose>
     </select>
 </mapper>

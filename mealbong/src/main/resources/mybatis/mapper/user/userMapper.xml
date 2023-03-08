@@ -54,4 +54,65 @@
 <!--    <select id="pw_check" resultType="com.project.mealbong.user.User1MapperDTO">-->
 <!--        select user_password from user where user_id = '${user_id}'-->
 <!--    </select>-->
+    <!--    admin page -->
+    <!-- Criteria PageList -->
+    <select id="criList" resultType="com.project.mealbong.user.User1MapperDTO">
+        select *
+        from user
+        order by user_date desc
+            limit #{sno}, #{rowsPerPage}
+    </select>
+
+    <select id="criTotalCount" resultType="int" >
+        select count(*) from user
+    </select>
+
+    <!-- SearchCriteria PageList -->
+    <sql id="search">
+        <if test="keyword!=null">
+            <bind name="keyVal" value="'%'+keyword+'%'"/>
+        </if>
+        <choose>
+            <when test="searchType=='n'.toString()">
+                and user_id like #{keyVal}
+                or user_name like #{keyVal}
+                or user_email like #{keyVal}
+                or user_phone like #{keyVal}
+                or user_gender like #{keyVal}
+                or user_birth like #{keyVal} )
+            </when>
+            <when test="searchType=='p'.toString()">
+                and user_id like #{keyVal} )
+            </when>
+            <when test="searchType=='e'.toString()">
+                and user_name like #{keyVal} )
+            </when>
+            <when test="searchType=='o'.toString()">
+                and user_email like #{keyVal} )
+            </when>
+            <when test="searchType=='u'.toString()">
+                and user_phone like #{keyVal} )
+            </when>
+            <when test="searchType=='s'.toString()">
+                and user_gender like #{keyVal} )
+            </when>
+            <when test="searchType=='etc'.toString()">
+                and user_birth like #{keyVal} )
+            </when>
+            <otherwise> )</otherwise>
+        </choose>
+    </sql>
+
+    <select id="searchList" resultType="com.project.mealbong.user.User1MapperDTO">
+        select *
+        from user
+        where ( user_id is not null <include refid="search"></include>
+        order by user_date desc
+        limit #{sno}, #{rowsPerPage}
+    </select>
+
+    <select id="searchTotalCount" resultType="int">
+        select count(*) from user
+        where ( user_id is not null <include refid="search"></include>
+    </select>
 </mapper>

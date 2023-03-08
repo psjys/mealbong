@@ -1,5 +1,6 @@
 package com.project.mealbong.product;
 
+import com.project.mealbong.critest.SearchCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,6 +55,25 @@ public class ProductService {
             e.printStackTrace();
         }
         return productAdmin;
+    }
+    public List<ProductDTO> searchList(SearchCriteria cri) {
+        return mapper.searchList(cri);
+    }
+    public int searchTotalCount(SearchCriteria cri) {
+        return mapper.searchTotalCount(cri);
+    }
+
+    // search page
+    public List<ProductDTO> searchPage(String keyword) {
+        List<ProductDTO> productList = new ArrayList<ProductDTO>();
+
+        try {
+            productList = mapper.searchPage(keyword);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return productList;
     }
 }
 

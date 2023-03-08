@@ -64,4 +64,73 @@
         where p.product_number = i.product_number
     </select>
 
+    <!-- Criteria PageList -->
+    <select id="criList" resultType="com.project.mealbong.product.ProductDTO">
+        select *
+        from product
+        order by product_number desc
+            limit #{sno}, #{rowsPerPage}
+    </select>
+
+    <select id="criTotalCount" resultType="int">
+        select count(*) from product
+    </select>
+
+    <!-- SearchCriteria PageList -->
+    <sql id="search">
+        <if test="keyword!=null">
+            <bind name="keyVal" value="'%'+keyword+'%'"/>
+        </if>
+        <choose>
+            <when test="searchType=='n'.toString()">
+                and product_name like #{keyVal}
+                or product_price like #{keyVal}
+                or category_code like #{keyVal}
+                or package_code like #{keyVal}
+                or product_serving like #{keyVal}
+                or level_code like #{keyVal} )
+            </when>
+            <when test="searchType=='p'.toString()">
+                and product_name like #{keyVal} )
+            </when>
+            <when test="searchType=='e'.toString()">
+                and product_price like #{keyVal} )
+            </when>
+            <when test="searchType=='o'.toString()">
+                and category_code like #{keyVal} )
+            </when>
+            <when test="searchType=='u'.toString()">
+                and package_code like #{keyVal} )
+            </when>
+            <when test="searchType=='s'.toString()">
+                and product_serving like #{keyVal} )
+            </when>
+            <when test="searchType=='etc'.toString()">
+                and level_code like #{keyVal} )
+            </when>
+            <otherwise> )</otherwise>
+        </choose>
+    </sql>
+
+    <select id="searchList" resultType="com.project.mealbong.product.ProductDTO">
+        select *
+        from product
+        where ( product_number>0 <include refid="search"></include>
+        order by product_number desc
+        limit #{sno}, #{rowsPerPage}
+    </select>
+
+    <select id="searchTotalCount" resultType="int">
+        select count(*) from product
+        where ( product_number>0 <include refid="search"></include>
+    </select>
+
+    <!--    search page -->
+    <select id="searchPage" resultType="com.project.mealbong.product.ProductDTO">
+        select p.product_number, p.product_name, p.product_price, i.image_file
+        from product p left outer join image i
+                                       on p.product_number = i.product_number
+        where p.product_name like '%' #{keyword} '%';
+    </select>
+
 </mapper>

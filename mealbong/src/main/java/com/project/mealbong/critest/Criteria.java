@@ -30,7 +30,6 @@ public class Criteria {
 	private int rowsPerPage; // 1Page에 출력할 Row 갯수
 	private int currPage; // 현재 출력 Page
 	private int sno; // start Row 순서번호 : 계산필요
-	private int eno; // end RowNo (oracle만 필요함)
 
 	// 1) 필요한 초기값 생성자로 초기화 (Default 생성자)
 	public Criteria() {

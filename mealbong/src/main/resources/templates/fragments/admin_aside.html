@@ -9,7 +9,7 @@
             <li><a href="/admin/useradmin" class="clickable">회원관리</a></li>
             <li><a href="/" class="clickable">주문관리</a></li>
             <li><a href="/admin/productadmin" class="clickable">상품관리</a></li>
-            <li><a href="/admin/qnaadmin" class="clickable">게시판관리</a></li>
+            <li><a th:href="@{/admin/qnaadmin(searchType='n')}" class="clickable">게시판관리</a></li>
         </ul>
     </div>
 </th:block>

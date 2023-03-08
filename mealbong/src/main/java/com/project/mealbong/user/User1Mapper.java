@@ -1,5 +1,6 @@
 package com.project.mealbong.user;
 
+import com.project.mealbong.critest.SearchCriteria;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -41,5 +42,9 @@ public interface User1Mapper {
     int phone_check(String user_phone);
 
     User1MapperDTO pw_check(User1MapperDTO user1MapperDTO);
+
+    // admin page
+    List<User1MapperDTO> searchList(SearchCriteria cri);
+    int searchTotalCount(SearchCriteria cri);
 
 }

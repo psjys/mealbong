@@ -1,5 +1,6 @@
 package com.project.mealbong.user;
 
+import com.project.mealbong.critest.SearchCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,4 +58,15 @@ public class User1ServiceImpl implements User1Service{
     public User1MapperDTO find_id(String user_id) {
         return user1Mapper.find_id(user_id);
     }
+
+    @Override
+    public List<User1MapperDTO> searchList(SearchCriteria cri) {
+        return user1Mapper.searchList(cri);
+    }
+
+    @Override
+    public int searchTotalCount(SearchCriteria cri) {
+        return user1Mapper.searchTotalCount(cri);
+    }
+
 }

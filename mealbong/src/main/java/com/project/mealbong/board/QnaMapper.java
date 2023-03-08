@@ -27,7 +27,7 @@ public interface QnaMapper {
     List<QnaDTO> criList(Criteria cri);
     int criTotalCount(Criteria cri);
 
-//    List<QnaDTO> searchList(SearchCriteria cri);
-//    int searchTotalCount(SearchCriteria cri);
+    List<QnaDTO> searchList(SearchCriteria cri);
+    int searchTotalCount(SearchCriteria cri);
 
 }

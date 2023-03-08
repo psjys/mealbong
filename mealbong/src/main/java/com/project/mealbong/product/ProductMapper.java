@@ -1,5 +1,6 @@
 package com.project.mealbong.product;
 
+import com.project.mealbong.critest.SearchCriteria;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -25,6 +26,10 @@ public interface ProductMapper {
     // 상품 삭제
     void delete(ProductDTO dto);
 
+    // admin page
     List<ProductDTO> productAdmin() throws Exception;
+    List<ProductDTO> searchList(SearchCriteria cri);
+    int searchTotalCount(SearchCriteria cri);
+    List<ProductDTO> searchPage(String keyword) throws Exception;
 
 }

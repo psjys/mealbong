@@ -24,19 +24,26 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/admin")
 public class AdminController {
-    QnaService qnaService;
-    ProductService productService;
-    User1Service userService;
+    private QnaService qnaService;
+    private ProductService productService;
+    private User1Service userService;
 
 
     // 회원관리 (관리자 페이지 메인)
     @GetMapping("/useradmin")
-    public ModelAndView user_admin() {
-        ModelAndView mav = new ModelAndView();
-        List<User1MapperDTO> userList = userService.user_list();
-        mav.addObject("userList",userList);
-        mav.setViewName("html/admin/user_admin");
-        return mav;
+    public ModelAndView user_admin(ModelAndView mv, SearchCriteria cri, PageMaker pageMaker) {
+
+        cri.setSnoEno();
+
+        mv.addObject("userList", userService.searchList(cri));
+
+        pageMaker.setCriteria(cri);
+        pageMaker.setTotalRowsCount(userService.searchTotalCount(cri));
+        mv.addObject("pageMaker", pageMaker);
+
+        mv.setViewName("html/admin/user_admin");
+
+        return mv;
     }
 
     // 주문관리
@@ -44,24 +51,29 @@ public class AdminController {
 
     // 상품관리
     @GetMapping("/productadmin") // 상품 리스트
-    public String product_admin(Model model){
-        List<ProductDTO> productAdmin = productService.productAdmin();
-        model.addAttribute("productAdmin", productAdmin);
-        System.out.println(productAdmin);
-        return "html/admin/product_admin";
+    public ModelAndView product_admin(ModelAndView mv, SearchCriteria cri, PageMaker pageMaker){
+        cri.setSnoEno();
+        mv.addObject("productAdmin", productService.searchList(cri));
+
+        pageMaker.setCriteria(cri);
+        pageMaker.setTotalRowsCount(productService.searchTotalCount(cri));
+        mv.addObject("pageMaker", pageMaker);
+
+        mv.setViewName("html/admin/product_admin");
+
+        return mv;
+
     }
 
     // 게시판 관리 - 1대1 문의
     @GetMapping("/qnaadmin")
-    public ModelAndView qna_admin(ModelAndView mv, SearchCriteria cri, PageMaker pageMaker, HttpSession session) {
+    public ModelAndView qna_admin(ModelAndView mv, SearchCriteria cri, PageMaker pageMaker) {
 
         cri.setSnoEno();
-
-        cri.setKeyword((String) session.getAttribute("user_id"));
-        mv.addObject("qnaList", qnaService.criList(cri)); // ver01
+        mv.addObject("qnaList", qnaService.searchList(cri));
 
         pageMaker.setCriteria(cri);
-        pageMaker.setTotalRowsCount(qnaService.criTotalCount(cri)); // ver01 : 전체 Rows 갯수
+        pageMaker.setTotalRowsCount(qnaService.searchTotalCount(cri));
         mv.addObject("pageMaker", pageMaker);
 
         mv.setViewName("html/admin/qna_admin");

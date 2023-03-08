@@ -139,3 +139,34 @@ main {
     display: flex;
     margin-bottom: 24px;
 }
+
+.cri_div {
+    text-align: center;
+    line-height: 60px;
+}
+
+.prodAdminBtn_div {
+    position: relative;
+}
+
+.prodAdminBtn {
+    width: 130px;
+    height: 40px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    background-color: lightsalmon;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    color: white;
+}
+
+.prodAdminBtn a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+}

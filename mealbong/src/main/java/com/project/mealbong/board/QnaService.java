@@ -31,19 +31,15 @@ public class QnaService {
     public int insert(QnaDTO dto) {
         return mapper.insert(dto);
     }
-
     public int update(QnaDTO dto) {
         return mapper.update(dto);
     }
-
     public void delete(QnaDTO dto) {
         mapper.delete(dto);
     }
-
     public int ainsert (QnaDTO dto) {
         return mapper.ainsert(dto);
     }
-
     public int adelete (QnaDTO dto) {
         return mapper.adelete(dto);
     }
@@ -54,13 +50,13 @@ public class QnaService {
     public int criTotalCount(Criteria cri) {
         return mapper.criTotalCount(cri);
     }
-    // ** SearchCriteria PageList
-//    public List<QnaDTO> searchList(SearchCriteria cri) {
-//        return mapper.searchList(cri);
-//    }
-//    public int searchTotalCount(SearchCriteria cri) {
-//        return mapper.searchTotalCount(cri);
-//    }
 
+    // ** SearchCriteria PageList
+    public List<QnaDTO> searchList(SearchCriteria cri) {
+        return mapper.searchList(cri);
+    }
+    public int searchTotalCount(SearchCriteria cri) {
+        return mapper.searchTotalCount(cri);
+    }
 
 }

@@ -4,15 +4,44 @@
     <link rel="stylesheet" href="../../../../admin/css/admin.css">
 </head>
 <body>
+<script th:inline="javascript">
+    $(function () {
+        $('#searchType').change(function () {
+            if ($(this).val() == 'n') $('#keyword').val('');
+        }); //change
+
+        $('#product_search').click(function () {
+            self.location = '/admin/productadmin'
+                + '?currPage=1&rowsPerPage=10'
+                + '&searchType=' + $('#searchType').val()
+                + '&keyword=' + $('#keyword').val();
+        });
+    });
+</script>
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
 <main>
     <th:block th:replace="fragments/admin_aside :: adminFragment"></th:block>
     <div class="content">
         <div class="content_admin">
             <div>
-                <h2>상품 관리</h2>
+                <h2>상품 관리</h2><hr>
             </div>
         </div>
+        <div id="searchBar">
+            <select name="searchType" id="searchType">
+                <option value="n" th:selected="${pageMaker.cri.searchType == null}">전체</option>
+                <option value="p" th:selected="${pageMaker.cri.searchType == 'p'}">상품명</option>
+                <option value="e" th:selected="${pageMaker.cri.searchType == 'e'}">상품가격</option>
+                <option value="o" th:selected="${pageMaker.cri.searchType == 'o'}">카테고리</option>
+                <option value="u" th:selected="${pageMaker.cri.searchType == 'u'}">포장타입</option>
+                <option value="s" th:selected="${pageMaker.cri.searchType == 's'}">인분</option>
+                <option value="etc" th:selected="${pageMaker.cri.searchType == 'etc'}">난이도</option>
+            </select>
+            <input type="text" name="keyword" id="keyword" th:value="${pageMaker.cri.getKeyword()}">
+            <button id="product_search">Search</button>
+        </div>
+        <br>
+
         <table class="content_inquiry" style="width: 100%">
             <thead>
             <tr>
@@ -41,16 +70,42 @@
                 <td><a th:href="@{/product/productUpdate(product_number=${productAdmin.product_number})}">수정</a></td>
                 <td><a th:href="@{/product/productDelete(product_number=${productAdmin.product_number})}">삭제</a></td>
             </tr>
+
             </tbody>
-<!--            <div th:if="${session['user_id'] == 'admin'}">-->
-<!--                <button class = "product_update_button" value="수정하기">-->
-<!--                    <a th:href="@{/product/productUpdate(product_number=${productList.getProduct_number()})}">수정</a>-->
-<!--                </button>-->
-<!--                <button class = "product_delete_button" value="삭제하기">-->
-<!--                    <a th:href="@{/product/productDelete(product_number=${productList.getProduct_number()})}">삭제</a>-->
-<!--                </button>-->
-<!--            </div>-->
         </table>
+            <div class="prodAdminBtn_div">
+                <button class="prodAdminBtn">
+                    <a href="/product/productForm">상품등록</a>
+                </button>
+            </div>
+            <div class="cri_div">
+                <!-- ** Cri_Paging **
+                   1) FirstPage, Prev -->
+                <th:block th:if="${pageMaker.prev && pageMaker.spageNo>1}">
+                    <a th:href="@{/admin/productadmin(currPage=1,rowsPerPage=10)}">FP</a>&nbsp;
+                    <a th:href="@{/admin/productadmin(currPage=${pageMaker.spageNo-1}, rowsPerPage=10)}">&lt;</a>
+                </th:block>
+                <th:block th:unless="${pageMaker.prev && pageMaker.spageNo>1}">
+                    <font color="Gray">FP&nbsp;&lt;&nbsp;&nbsp;</font>
+                </th:block>
+                <!-- 2) Display PageNo  -->
+                <th:block th:each="i: ${#numbers.sequence(pageMaker.spageNo, pageMaker.epageNo)}">
+                    <th:block th:if="${i==pageMaker.cri.currPage}">
+                        <font size="5" color="#ffa07a" th:text="${i}"></font>
+                    </th:block>
+                    <th:block th:unless="${i==pageMaker.cri.currPage}">
+                        <a th:href="@{/admin/productadmin(currPage=${i}, rowsPerPage=10)}" th:text="${i}"></a>
+                    </th:block>
+                </th:block>
+                <!-- 3) Next, LastPage -->
+                <th:block th:if="${pageMaker.next && pageMaker.epageNo > 0}">
+                    <a th:href="@{/admin/productadmin(currPage=${pageMaker.epageNo+1}, rowsPerPage=10)}"> ></a>
+                    <a th:href="@{/admin/productadmin(currPage=${pageMaker.lastPageNo}, rowsPerPage=10)}"> LP</a>
+                </th:block>
+                <th:block th:unless="${pageMaker.next && pageMaker.epageNo > 0}">
+                    <font color="Gray"> > LP</font>
+                </th:block>
+            </div>
     </div>
 </main>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
