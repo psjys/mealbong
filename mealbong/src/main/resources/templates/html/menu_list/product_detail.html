@@ -101,9 +101,10 @@
 </div>
 
 <div class="outerbox2">
-    <div id="food_info">
-        <img src="https://cobacomarket.com/web/upload/NNEditor/20211228/5045c20e0d0ab57933406392fa17ef1e.jpg"
-             alt="food_detail1">
+    <div id="food_info" th:each="imageList:${imageList}">
+        <th:block th:if="${imageList.image_main} == 'N'">
+            <img th:src="${imageList.image_file}" alt="food_detail1">
+        </th:block>
     </div>
     <div id="food_delivery">
         <img src="https://www.mychef.kr/data/editor/policy/220609/about_mychef_01_120136.jpg" name="food_delivery"

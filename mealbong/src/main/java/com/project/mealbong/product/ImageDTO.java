@@ -1,5 +1,8 @@
 package com.project.mealbong.product;
 
+import lombok.Data;
+
+@Data
 public class ImageDTO {
     private int image_number;
     private int product_number;

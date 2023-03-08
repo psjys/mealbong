@@ -1,6 +1,7 @@
 package com.project.mealbong.product;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,10 @@ import java.util.List;
 @RequestMapping("/product")
 @AllArgsConstructor
 public class ProductController {
+
+    @Autowired
     private ProductService productService;
+    @Autowired
     private ImageService imageService;
 
     @GetMapping("/productList") // 상품 리스트
@@ -32,7 +36,6 @@ public class ProductController {
 
         List<ImageDTO> imageList = imageService.imageList(productDTO.getProduct_number());
         model.addAttribute("imageList", imageList);
-        System.out.println(imageList);
         return "html/menu_list/product_detail";
     }
 

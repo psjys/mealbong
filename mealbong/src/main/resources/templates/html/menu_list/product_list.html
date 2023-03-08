@@ -90,9 +90,10 @@
         </div>
     </div>
 </div>
-<!-- =========== admin 으로 들어갔을 때, CRUD 버튼 =========== -->
-<!-- =========== 장바구니 및 좋아요 모달창 (로그인 하기 전) =========== -->
 
+<!-- =========== 장바구니 모달창 (로그인 하기 전) =========== -->
+
+<th:block th:if="${session['user_id'] == null}">
 <div class="modal_container hidden">
     <div class="bg"></div>
     <div class="modalBox">
@@ -104,6 +105,22 @@
         </div>
     </div>
 </div>
+</th:block>
+<!-- =========== 장바구니 모달창 (로그인 하기 전) =========== -->
+
+<th:block th:if="${session['user_id'] != null}">\
+    <div class="modal_container hidden">
+        <div class="bg"></div>
+        <div class="modalBox">
+            <p></p>
+            <div class="closeBtn_div">
+                <form action="../login/login.html">
+                    <button class="closeBtn">Test</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</th:block>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </body>
 
