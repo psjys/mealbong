@@ -50,11 +50,6 @@ public class QnaController {
 
     @PostMapping("/qnaform") // 글 등록 처리
     public String inquiry_postForm(QnaDTO dto, HttpSession session, HttpServletRequest request) {
-        // 파일 업로드
-        String realPath = request.getRealPath("/");
-        System.out.println("** realpath => " + realPath);
-        // ** realpath => /private/var/folders/tg/c8xkq7j505sc6p81px34jnsm0000gn/T/tomcat-docbase.8090.1067151245692605209/
-
 
         String uri = "redirect:/qna/qnalist";
         dto.setUser_id((String) session.getAttribute("user_id"));
@@ -91,7 +86,6 @@ public class QnaController {
         qnaService.delete(dto);
         return "redirect:/qna/qnalist";
     }
-
 
 }
 

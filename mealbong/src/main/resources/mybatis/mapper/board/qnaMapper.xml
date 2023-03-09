@@ -9,7 +9,9 @@
     <select id="qnaList" resultType="com.project.mealbong.board.QnaDTO">
         select *
         from qna
+        <if test="user_id != 'admin'">
         where user_id = #{user_id}
+        </if>
         order by qna_num desc;
     </select>
 
@@ -57,18 +59,24 @@
     <select id="criList" resultType="com.project.mealbong.board.QnaDTO">
         select *
         from qna
-        where
-        user_id=#{keyword}
+        <if test="keyword!='admin'">
+            where
+            user_id=#{keyword}
+        </if>
+        <choose>
+            <when test="keyword=='admin'">
+                where user_id = null
+            </when>
+        </choose>
         order by qna_num desc
+
         limit #{sno}, #{rowsPerPage}
     </select>
 
     <select id="criTotalCount" resultType="int">
-        select count(*)
-        from qna
-        <if test="keyword!='admin'">
-        where user_id = #{keyword}
-        </if>
+            select count(*)
+            from qna
+            where user_id = #{keyword}
     </select>
 
     <select id="searchList" resultType="com.project.mealbong.board.QnaDTO">

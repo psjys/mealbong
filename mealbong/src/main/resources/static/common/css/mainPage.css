@@ -608,9 +608,11 @@ header {
 /* footer ------------ */
 
 footer {
-    /* height: 160px; */
     min-width: 1200px;
     margin-top: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer {
@@ -636,3 +638,9 @@ pre {
     font-size: .8em;
 }
 
+
+body {
+    position: relative;
+    padding-bottom: 210px;
+    min-height: calc(100vh - 210px);
+}

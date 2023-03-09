@@ -47,17 +47,18 @@ inquiry_box.addEventListener("click", function (e) {
 // })
 
 // 글자수 제한
-function check_lth (area) {
-    let text = area.value;
-    let text_length = text.length;
-    // let counter = document.querySelector('#counter');
-    // counter.html(content.length+" / 500 자");
-
-    let max_length = 500;
-    if (text_length > max_length) {
-        alert(max_length+ "자 이상 입력할 수 없습니다.");
-        text = text.substring(0, max_length);
-        area.value = text;
-        area.focus();
-    }
-}
+// function check_lth (area) {
+//     let text = area.value;
+//     let text_length = text.length;
+//     // let counter = document.querySelector('#counter');
+//     // counter.html(content.length+" / 500 자");
+//
+//     let max_length = 500;
+//     if (text_length > max_length) {
+//         alert(max_length+ "자 이상 입력할 수 없습니다.");
+//         text = text.substring(0, max_length);
+//         area.value = text;
+//         area.focus();
+//
+//     }
+// }

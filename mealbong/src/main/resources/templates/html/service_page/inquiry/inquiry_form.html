@@ -36,15 +36,8 @@
                         </div>
                         <div>
                             <div class="content_inquiry_form_3">내용<span></span></div>
-                            <textarea name="qna_content" class="content_inquiry_form_textarea" placeholder=" 내용을 입력해 주세요." required
-                            onkeyup="check_lth(this);"></textarea>
-<!--                            <span id="counter"> 0 / 500 자</span>-->
+                            <textarea maxlength="500" name="qna_content" class="content_inquiry_form_textarea" placeholder=" 500자 까지 입력 가능합니다." required></textarea>
                         </div>
-                        <div>
-                            <div>파일</div>
-                            <input name="qna_file" type="file">
-                        </div>
-
                         <div class="submit_div">
                             <input type="submit" value="등록">
                         </div>

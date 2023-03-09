@@ -27,7 +27,7 @@
                         <li>답변상태</li>
                     </ul>
                 </li>
-                <li th:if="${qnaList.isEmpty() && session['user_id']== 'admin'}" onclick="location.href='/admin/qnaadmin'">
+                <li th:if="${session['user_id']== 'admin'}" onclick="location.href='/admin/qnaadmin'">
                     <h3 style="text-align: center; padding: 100px; border-top: 1px solid silver; cursor:pointer;"
                         onclick="location.href='/admin/qnaadmin?searchType=n'">관리자 페이지로 이동하기</h3>
                 </li>

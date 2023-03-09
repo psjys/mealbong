@@ -19,10 +19,12 @@ public class SearchController {
     private ProductService productService;
 
     @GetMapping("/searchlist")
-    public String searchPage (@RequestParam(value="keyword") String keyword,
-                              Model model) throws Exception {
+    public String searchPage (@RequestParam("keyword") String keyword,
+                              Model model) {
+
         List<ProductDTO> productDTO = productService.searchPage(keyword);
-        model.addAttribute("keyword", keyword);
+        model.addAttribute("productList", productDTO);
+
         return "/html/search/search";
 
     }
