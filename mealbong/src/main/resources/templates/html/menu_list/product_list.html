@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 밀키트 쇼핑몰 :: Meal Bong </title>
 
+    <script src="../../../product/js/jquery-3.2.1.min.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
@@ -14,6 +16,7 @@
     <link rel="stylesheet" href="../../../common/css/mainPage.css">
     <script defer src="../../../common/js/main_topDiv.js"></script>
     <script defer src="../../../product/js/menulist.js"></script>
+
 </head>
 
 <body>
@@ -21,24 +24,21 @@
 
 <div class="outerbox">
     <div class="innerbox1">
-        <a href="../menu_list/Korean_menulist.html"><span>한식</span></a> |
-        <a href="../menu_list/Chinese_menulist.html"><span>중식</span></a> |
-        <a href="../menu_list/Japanese_menulist.html"><span>일식</span></a> |
-        <a href="../menu_list/Western_menulist.html"><span>양식</span></a> |
-        <a href="../menu_list/Bunsik_menulist.html"><span>분식/야식</span></a> |
-        <a href="#"><span>아시안</span></a>
+        <th:block th:each="productList:${code_number}">
+            <a th:href="@{/product/productList(currPage=1,rowsPerPage=8, category_code=${productList.code_number})}" th:text="${productList.code_desc}"></a>&nbsp;|
+        </th:block>
     </div>
     <hr>
 
     <div class="innerbox2">
-        <a href="#" class="selected" data-direction=0><span>인기순</span></a>
-        <a href="#" data-direction=1><span>신상품순</span></a>
-        <a href="#" data-direction=2><span>낮은 가격순</span></a>
-        <a href="#" data-direction=3><span>높은 가격순</span></a>
+        <a href="#" class="selected" data-direction=0><span onclick="productList_order(1)">인기순</span></a>
+        <a href="#" data-direction=1><span onclick="productList_order(2)">신상품순</span></a>
+        <a href="#" data-direction=2><span onclick="productList_order(3)">낮은 가격순</span></a>
+        <a href="#" data-direction=3><span onclick="productList_order(4)">높은 가격순</span></a>
     </div>
 
     <div class="innerbox23">
-        <h2>아시안</h2>
+            <h2>아시안</h2>
     </div>
 
     <div class="innerbox3">
@@ -90,6 +90,36 @@
         </div>
     </div>
 </div>
+<div class="cri_div">
+    <!-- ** Cri_Paging **
+       1) FirstPage, Prev -->
+    <th:block th:if="${pageMaker.prev && pageMaker.spageNo>1}">
+        <!-- OLD_version -->
+        <a th:href="@{/product/productList(currPage=1,rowsPerPage=8, category_code=${)}">FP</a>&nbsp;
+        <a th:href="@{/product/productList(currPage=${pageMaker.spageNo-1}, rowsPerPage=8)}">&lt;</a>
+    </th:block>
+    <th:block th:unless="${pageMaker.prev && pageMaker.spageNo>1}">
+        <font color="Gray">FP&nbsp;&lt;&nbsp;&nbsp;</font>
+    </th:block>
+    <!-- 2) Display PageNo  -->
+    <th:block th:each="i: ${#numbers.sequence(pageMaker.spageNo, pageMaker.epageNo)}">
+        <th:block th:if="${i==pageMaker.cri.currPage}">
+            <font size="5" color="#ffa07a" th:text="${i}"></font>
+        </th:block>
+        <th:block th:unless="${i==pageMaker.cri.currPage}">
+            <a th:href="@{/product/productList(currPage=${i}, rowsPerPage=8)}" th:text="${i}"></a>
+        </th:block>
+    </th:block>
+
+    <!-- 3) Next, LastPage -->
+    <th:block th:if="${pageMaker.next && pageMaker.epageNo > 0}">
+        <a th:href="@{/product/productList(currPage=${pageMaker.epageNo+1}, rowsPerPage=8), category_code= }"> ></a>
+        <a th:href="@{/product/productList(currPage=${pageMaker.lastPageNo}, rowsPerPage=8)}"> LP</a>
+    </th:block>
+    <th:block th:unless="${pageMaker.next && pageMaker.epageNo > 0}">
+        <font color="Gray"> > LP</font>
+    </th:block>
+</div> <!--    paging -->
 
 <!-- =========== 장바구니 모달창 (로그인 하기 전) =========== -->
 
@@ -99,8 +129,8 @@
     <div class="modalBox">
         <p></p>
         <div class="closeBtn_div">
-            <form action="../login/login.html">
-                <button class="closeBtn">확인</button>
+            <form action="/user1/login">
+                    <button class="closeBtn">확인</button>
             </form>
         </div>
     </div>

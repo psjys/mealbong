@@ -1,6 +1,7 @@
 package com.project.mealbong.critest;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 //** Criteria : (판단이나 결정을 위한) 기준
@@ -26,14 +27,16 @@ import lombok.ToString;
 
 @Getter
 @ToString
+@Setter
 public class Criteria {
 	private int rowsPerPage; // 1Page에 출력할 Row 갯수
 	private int currPage; // 현재 출력 Page
 	private int sno; // start Row 순서번호 : 계산필요
+	private String category_code; // 카테고리 코드
 
 	// 1) 필요한 초기값 생성자로 초기화 (Default 생성자)
 	public Criteria() {
-		this.rowsPerPage = 10;
+		this.rowsPerPage = 8;
 		this.currPage = 1;
 	}
 

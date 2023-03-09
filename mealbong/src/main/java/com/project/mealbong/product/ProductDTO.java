@@ -15,4 +15,6 @@ public class ProductDTO {
     private String package_code;
     private LocalDate product_date;
     private String image_file;
+    private String code_number;
+    private String code_desc;
 }

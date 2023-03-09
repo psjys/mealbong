@@ -1,5 +1,7 @@
 package com.project.mealbong.product;
 
+import com.project.mealbong.board.QnaDTO;
+import com.project.mealbong.critest.Criteria;
 import com.project.mealbong.critest.SearchCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,6 +57,23 @@ public class ProductService {
             e.printStackTrace();
         }
         return productAdmin;
+    }
+
+    public List<ProductDTO> categoryList () {
+        List<ProductDTO> categoryList = new ArrayList<ProductDTO>();
+        try{
+            categoryList = mapper.categoryList();
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        return categoryList;
+    }
+
+    public List<ProductDTO> criList(Criteria cri) {
+        return mapper.criList(cri);
+    }
+    public int criTotalCount(Criteria cri) {
+        return mapper.criTotalCount(cri);
     }
     public List<ProductDTO> searchList(SearchCriteria cri) {
         return mapper.searchList(cri);

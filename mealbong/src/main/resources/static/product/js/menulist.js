@@ -92,3 +92,18 @@ bgg.addEventListener('click', closee);
 
 /* =====================장바구니 modal box==================== */
 /* 로그인 하고 나서 */
+
+/* ===================== 상품 리스트 정렬 ==================== */
+function productList_order(categoryNo) {
+    $.ajax({
+        type: 'Get',
+        url: 'product/productList',
+        data : {categoryKey : categoryNo},
+        success: function (resultPage) {
+          $('#resultArea').html(resultPage);
+        },
+        error: function () {
+          $('#resultArea').html('~~ Error 발생 !!! ~~~');
+        }
+      }); //ajax
+}

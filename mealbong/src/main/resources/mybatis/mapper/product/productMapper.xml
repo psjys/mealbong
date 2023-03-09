@@ -19,6 +19,24 @@
         where product_number = #{product_number}
     </select>
 
+    <!-- Criteria PageList -->
+    <select id="criList" resultType="com.project.mealbong.product.ProductDTO">
+        select p.product_number, p.product_name, p.product_price, i.image_file
+        from product p left outer join image i
+        on p.product_number = i.product_number and i.image_main = "Y"
+        where category_code = #{category_code}
+        limit #{sno}, #{rowsPerPage}
+    </select>
+
+    <select id="categoryList" resultType="com.project.mealbong.product.ProductDTO">
+        select * from code
+        where code_number like "C%"
+    </select>
+
+    <select id="criTotalCount" resultType="int">
+        select count(*) from product
+    </select>
+
     <!-- 상품 상세 -->
     <select id="productDetail" resultType="com.project.mealbong.product.ProductDTO">
         select product_name, product_price, product_serving,
@@ -27,6 +45,7 @@
         from product p
         where product_number = #{product_number}
     </select>
+
 
     <!-- 상품 상세 -->
     <insert id="insert">
@@ -64,17 +83,6 @@
         where p.product_number = i.product_number
     </select>
 
-    <!-- Criteria PageList -->
-    <select id="criList" resultType="com.project.mealbong.product.ProductDTO">
-        select *
-        from product
-        order by product_number desc
-            limit #{sno}, #{rowsPerPage}
-    </select>
-
-    <select id="criTotalCount" resultType="int">
-        select count(*) from product
-    </select>
 
     <!-- SearchCriteria PageList -->
     <sql id="search">

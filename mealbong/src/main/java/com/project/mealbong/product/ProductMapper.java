@@ -1,5 +1,6 @@
 package com.project.mealbong.product;
 
+import com.project.mealbong.critest.Criteria;
 import com.project.mealbong.critest.SearchCriteria;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -13,6 +14,8 @@ public interface ProductMapper {
     List<ProductDTO> productList() throws Exception;
     // 상품 이미지 리스트로 불러오기
     List<ImageDTO> imageList(int product_number) throws Exception;
+    // 카테고리 리스트
+    List<ProductDTO> categoryList() throws Exception;
     // 상품 상세
     ProductDTO productDetail(int product_number);
     ProductDTO detail(ProductDTO dto);
@@ -25,6 +28,10 @@ public interface ProductMapper {
 
     // 상품 삭제
     void delete(ProductDTO dto);
+
+    List<ProductDTO> criList(Criteria cri);
+
+    int criTotalCount(Criteria cri);
 
     // admin page
     List<ProductDTO> productAdmin() throws Exception;
