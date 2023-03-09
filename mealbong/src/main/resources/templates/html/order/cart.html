@@ -12,29 +12,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <script src="../common/js/jquery-3.2.1.min.js"></script>
     <script defer src="../order/js/cart.js"></script>
-    <script defer src="../common/js/main_topDiv.js"></script>
+<!--    <script defer src="../common/js/main_topDiv.js"></script>-->
 </head>
 
 <body>
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
-    <main>
-        <div class="cart_container">
-            <span class="mainspan">장바구니</span>
+<main>
+    <div class="cart_container" id ="result_area">
+        <span class="mainspan">장바구니</span>
 
-            <div class="div_a">
-                <div class="All_div">
-                    <button type="button" class="selectAll_box"></button>
-                    <span class="label_style">전체선택(<span th:text="${count}" class="select_value1">4</span>/<span th:text="${count}" class="select_value2">4</span>)</span>
-                </div>
+        <div class="div_a">
+            <div class="All_div">
+                <button type="button" class="selectAll_box"></button>
+                <span class="label_style">전체선택(<span th:text="${count}" class="select_value1">4</span>/<span th:text="${count}" class="select_value2">4</span>)</span>
             </div>
+        </div>
 
-            <div class="cart_divbox">
-                <div class="cart_div1">
-                    <th:block th:each="cart_list : ${cart_list}">
+        <div class="cart_divbox">
+            <div class="cart_div1">
+                <th:block th:each="cart_list : ${cart_list}">
                     <div class="div1_sub">
                         <div class="div1_sub_sub">
-                            <span class="select_box"></span>
+                            <span class="select_box" data-flag="1"></span>
                             <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html" >
                                 <img th:src="${cart_list.image_file}" class="div1_a_img1" alt="상품 이미지">
                             </a>
@@ -43,8 +44,8 @@
                         </div>
 
                         <div class="btn_addBox">
-                            <button type="button" class="btn_minus btn_add" disabled></button>
-                            <span th:text="${cart_list.product_count}" class="btn_addSpan">1</span>
+                            <button type="button" class="btn_minus btn_add"></button>
+                            <button type="button" th:text="${cart_list.product_count}" class="btn_addSpan">1</button>
                             <button type="button" class="btn_plus btn_add"></button>
                         </div>
 
@@ -52,69 +53,63 @@
 
                             <span th:text="${cart_list.price_total}" class="div1_span">10000</span><span class="div1_span2">원</span>
                             <span th:text="${cart_list.product_price}" class="cart_hidden price_value">10000</span>
-                            <span class="close_btn"></span>
+                            <span class="close_btn">
+<!--                           <a th:href="@{|/order/cart_delete/${cart_list.cart_number}|}" class="c_number"></a>-->
+                                <button th:text="${cart_list.cart_number}" class="c_number"></button>
+                            </span>
+
 
                         </div>
 
                     </div>
-<!--                        <span th:text="${cart_list.cart_number}"></span>-->
-<!--                        <span th:text="${cart_list.user_id}"></span>-->
-<!--                        <span th:text="${cart_list.product_number}"></span>-->
-<!--                        <span th:text="${cart_list.product_count}"></span>-->
-<!--                        <span th:text="${cart_list.product_price}"></span>-->
-<!--                        <span th:text="${cart_list.product_name}"></span>-->
-<!--                        <span th:text="${cart_list.price_total}"></span>-->
-<!--                        <img th:src="${cart_list.image_file}" alt="상품 이미지">-->
+
+                </th:block>
+            </div>
+            <div class="cart_div2">
 
 
-                    </th:block>
-                </div>
-                <div class="cart_div2">
+                <div class="cart_subdiv12">
+                    <div class="cart_subdiv1">
+                        <p class="align_p">배송지</p>
+                        <p><span th:text="${user_address1}"></span><span th:text="${user_address2}"></span></p>
+                        <div class="subdiv1_button"><button type="button" class="subdiv1_a subdiv1_button address_btn">배송지 변경</button></div>
+                    </div>
 
 
-                    <div class="cart_subdiv12">
-                        <div class="cart_subdiv1">
-                            <p class="align_p">배송지</p>
-                            <p>경기 성남시 분당구 정자로 푸르지오시티 푸르지오시티 푸르지오시티</p>
-                            <div class="subdiv1_button"><button type="button" class="subdiv1_a subdiv1_button address_btn">배송지 변경</button></div>
+                    <div class="cart_subdiv2">
+
+                        <div class="subdiv2_box">
+                            <span>상품금액</span>
+                            <div>
+                                <span th:text="${total}" class="total_price2">40000</span><span>원</span>
+                            </div>
                         </div>
 
-
-                        <div class="cart_subdiv2">
-
-                            <div class="subdiv2_box">
-                                <span>상품금액</span>
-                                <div>    
-                                    <span th:text="${total}" class="total_price2">40000</span><span>원</span>
-                                </div>
-                            </div>
-
-                            <div class="subdiv2_box2">
-                                <span>배송비</span>
-                                <div>
+                        <div class="subdiv2_box2">
+                            <span>배송비</span>
+                            <div>
                                 <span th:text="${fee}" class="del_fee">3000</span><span>원</span>
-                                </div>
                             </div>
+                        </div>
 
-                            <div class="subdiv2_line"></div>
+                        <div class="subdiv2_line"></div>
 
-                            <div class="subdiv2_box3">
-                                <span>결제예정금액</span>
-                                <div>
-                                    <span th:text="${total2 + fee}" class="total_price">43000</span><span>원</span>
-                                </div>
+                        <div class="subdiv2_box3">
+                            <span>결제예정금액</span>
+                            <div>
+                                <span th:text="${total2 + fee}" class="total_price">43000</span><span>원</span>
                             </div>
-
 
                         </div>
 
-                    </div>
-                    <div class="cart_subdiv3">
-                        <form action="order.html">
-                            <div class="subdiv3_button"><button type="submit" class="subdiv1_a subdiv1_button cart_submitBtn">주문하기</button></div>
-                        </form>
 
                     </div>
+
+                </div>
+                <div class="cart_subdiv3">
+
+                        <div class="subdiv3_button"><button type="submit" id="test_btn" class="subdiv1_a subdiv1_button cart_submitBtn">주문하기</button></div>
+
 
                 </div>
 
@@ -122,20 +117,26 @@
 
         </div>
 
-        <div class="modal_container hidden">
-            <div class="bg"></div>
-            <div class="modalBox">
-                <p></p>
-                <div class="closeBtn_div">
-                    <div class="modal_zz">
-                        <button class="closeBtn">취소</button>
-                        <button class="closeBtn modal_confirm">확인</button>
-                    </div>
+    </div>
+
+    <div class="modal_container hidden">
+        <div class="bg"></div>
+        <div class="modalBox">
+            <p></p>
+            <div class="closeBtn_div">
+                <div class="modal_zz">
+                    <button class="closeBtn">취소</button>
+                    <button class="closeBtn modal_confirm">확인</button>
                 </div>
             </div>
         </div>
+    </div>
 
-    </main>
+</main>
+<!--<button id="test_btn">테스트</button>-->
+<form action="/order/order_test" method="post" id="order_form">
+    <input id="total_value" th:value="${total2 + fee}" name="total" type="hidden">
+</form>
 
 <!-- footer : 법적 필수 항목 -->
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>

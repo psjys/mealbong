@@ -54,6 +54,8 @@
 <!--    <select id="pw_check" resultType="com.project.mealbong.user.User1MapperDTO">-->
 <!--        select user_password from user where user_id = '${user_id}'-->
 <!--    </select>-->
+
+<!--    ======== 추가한거-->
     <!--    admin page -->
     <!-- Criteria PageList -->
     <select id="criList" resultType="com.project.mealbong.user.User1MapperDTO">

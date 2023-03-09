@@ -1,7 +1,10 @@
 'use strict';
 
 const diva3_button = document.getElementsByClassName('diva3_button'),
-      diva3_sub2 = document.querySelector('.diva3_sub_sub2');
+      diva3_sub2 = document.querySelector('.diva3_sub_sub2'),
+      bank = document.getElementById('bank'),
+      card = document.getElementById('card'),
+      pay_phone = document.getElementById('pay_phone');
 
 
 // for (let i = 0; i < div1_span.length; i++) {
@@ -36,13 +39,23 @@ diva3_button[0].style.color = "white";
 
                  if (z.dataset.idx != 0) {
                      diva3_button[z.dataset.idx].parentNode.parentNode.nextSibling.nextSibling.style.display = "none";
+                     card.setAttribute('name','void');
                  } else {
                      diva3_button[z.dataset.idx].parentNode.parentNode.nextSibling.nextSibling.style.display = "flex";
+                     card.setAttribute('name','payment');
                  }
                  if (z.dataset.idx != 1) {
                      diva3_button[z.dataset.idx].parentNode.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.style.display = "none";
+                     bank.setAttribute('name','void');
                  } else {
                      diva3_button[z.dataset.idx].parentNode.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.style.display = "flex";
+                     bank.setAttribute('name','payment');
+                 }
+
+                 if (z.dataset.idx != 2) {
+                     pay_phone.setAttribute('name','void');
+                 } else {
+                     pay_phone.setAttribute('name','payment');
                  }
 
 

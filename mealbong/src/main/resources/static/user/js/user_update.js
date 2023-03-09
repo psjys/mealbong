@@ -4,6 +4,8 @@ const main = document.querySelector('main'),
     upw = document.getElementById('upw'),
     upw2 = document.getElementById('upw2'),
     phone_num = document.getElementById('phone_num'),
+    emailCheck = main.querySelector('.emailCheck'),
+    phoneCheck = main.querySelector('.phoneCheck'),
     checkBtn4 = main.querySelector('.checkBtn4'),
     Btn4_box = main.querySelector('.Btn4_box'),
     button_submit = main.querySelector('.button_submit'),
@@ -16,9 +18,14 @@ const main = document.querySelector('main'),
     update_btn = main.querySelector('.update_btn'),
     user_password3 = document.getElementById('user_password3'),
     delete_submit = document.querySelector('.delete_submit'),
-    update_submit = document.querySelector('.update_submit');
+    update_submit = document.querySelector('.update_submit'),
+    user_email = document.getElementById('user_email'),
+    user_phone = document.getElementById('user_phone');
 
    let userZip = main.querySelector('.userZip');
+   let user_email_val = user_email.value;
+   let user_phone_val = user_phone.value;
+
 
 
 // ======모달참조
@@ -248,7 +255,31 @@ function email_check() {
                 emailCheck.style.cursor = "default";
                 emailCheck.setAttribute('disabled', '');
                 user_email.setAttribute('readonly','');
+                user_email.setAttribute('disabled','');
                 $(emailCheck).attr("value","Y");
+            }
+        }
+    });
+}
+
+function phone_check() {
+    $.ajax({
+        url: "/user1/phone_check",
+        type: "POST",
+        dataType : "JSON",
+        data : {"user_phone" : $(user_phone).val()},
+        success : function (data) {
+            console.log(data);
+            if(data > 0) {
+                modal_f("중복된 휴대폰 번호 입니다.");
+            } else if (data == 0) {
+                modal_f("사용 가능한 휴대폰 번호 입니다.");
+                phoneCheck.classList.add('button_opacity');
+                phoneCheck.style.cursor = "default";
+                phoneCheck.setAttribute('disabled', '');
+                user_phone.setAttribute('readonly','');
+               // user_phone.setAttribute('disabled','');
+                $(phoneCheck).attr("value","Y");
             }
         }
     });
@@ -271,11 +302,19 @@ function pw_check(type) {
                 } else if(type == "update") {
                     console.log("왓")
                     if(upw.value == "" && upw2.value == "") {
+                        if(emailCheck.getAttribute("value") == "Y" && phoneCheck.getAttribute("value") == "Y") {
                         update_submit.click();
+                        } else {
+                            modal_f("중복확인 해주세요");
+                        }
 
                     } else {
                         if(upw.value.length >5 && upw.value == upw2.value) {
-                            update_submit.click();
+                            if(emailCheck.getAttribute("value") == "Y" && phoneCheck.getAttribute("value") == "Y") {
+                                update_submit.click();
+                            } else {
+                                modal_f("중복확인 해주세요");
+                            }
                         } else {
                             if(upw.value != upw2.value) {
                                 modal_f("동일한 비밀번호를 입력해 주세요");
@@ -291,6 +330,65 @@ function pw_check(type) {
         }
     });
 }
+
+function check_func(zz,iff) {
+    if (!iff) {
+
+        zz.style.background = "lightSalmon";
+        zz.style.cursor = "pointer";
+        zz.removeAttribute('disabled');
+        zz.classList.remove('button_opacity');
+        zz.setAttribute("value","N");
+    } else {
+
+        zz.classList.add('button_opacity');
+        zz.style.cursor = "default";
+        zz.setAttribute('disabled', '');
+        zz.setAttribute("value","Y");
+    }
+}
+
+emailCheck.classList.add('button_opacity');
+emailCheck.style.cursor = "default";
+emailCheck.setAttribute('disabled', '');
+
+phoneCheck.classList.add('button_opacity');
+phoneCheck.style.cursor = "default";
+phoneCheck.setAttribute('disabled', '');
+
+user_email.addEventListener('keydown', ()=>{
+   setTimeout(() => {
+       check_func(emailCheck,user_email_val == user_email.value);
+   },50);
+});
+
+user_phone.addEventListener('keydown', ()=>{
+   setTimeout(() => {
+       check_func(phoneCheck,user_phone_val == user_phone.value);
+   },50);
+});
+
+emailCheck.addEventListener('click',() =>{
+    const result = regMail.test(user_email.value);
+    console.log(user_email_val == user_email.value);
+
+    if (result) {
+        email_check();
+    } else if (user_email.value == "") {
+        modal_f("이메일을 입력해 주세요")
+    }
+    else {
+        modal_f("이메일 형식으로 입력해 주세요");
+    }
+});
+
+phoneCheck.addEventListener('click',() =>{
+    if(user_phone.value.length>=11) {
+        phone_check();
+    } else {
+        modal_f("휴대폰 번호를 확인해 주세요");
+    }
+});
 
 delete_btn.addEventListener('click',() =>{
 console.log("들어왓음")

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 위 코드가 mapper 설정을 하는 코드 -->
+
+<!-- Mapper를 사용하는 Repository의 전체 경로를 적어줘야함. -->
+<mapper namespace="com.project.mealbong.order.OrderMapper">
+    <insert id="order_insert">
+        insert into order1(user_id,order_amount,order_status,payment)
+        values(#{user_id},#{order_amount},"D_02",#{payment});
+    </insert>
+    <select id="order_number" resultType="int">
+        SELECT MAX(order_number) from order1;
+    </select>
+    <insert id="orderDetail_insert">
+        insert into order_detail(order_number,product_number,product_price,product_count)
+        values(#{order_number},#{product_number},#{product_price},#{product_count});
+    </insert>
+    <select id="order_submit" resultType="com.project.mealbong.order.OrderDetailMapperDTO">
+        select o.product_count,p.product_name from
+        order_detail o,product p where order_number = #{order_number} AND p.product_number = o.product_number;
+    </select>
+<!--    <select id="order_detail" resultType="com.project.mealbong.order.OrderDetailMapperDTO">-->
+
+<!--    </select>-->
+<!--    <select id="cart_list" resultType="com.project.mealbong.order.CartMapperDTO">-->
+<!--        select c.cart_number,c.user_id,c.product_number,c.product_count,p.product_name,p.product_price,p.product_price * c.product_count as price_total,i.image_file-->
+<!--        from cart c,product p,image i where c.product_number = p.product_number AND c.product_number = i.product_number AND i.image_main = "Y" AND-->
+<!--            user_id = #{user_id}-->
+<!--    </select>-->
+<!--    <select id="cart_count" resultType="int">-->
+<!--        select count(*) from cart where user_id = #{user_id}-->
+<!--    </select>-->
+<!--    <select id="cart_order" resultType="com.project.mealbong.order.CartMapperDTO">-->
+<!--        select c.cart_number,c.user_id,c.product_number,c.product_count,p.product_name,p.product_price,p.product_price * c.product_count as price_total,i.image_file-->
+<!--        from cart c,product p,image i where c.product_number = p.product_number AND c.product_number = i.product_number AND i.image_main = "Y" AND-->
+<!--            cart_number = #{cart_number}-->
+<!--    </select>-->
+<!--    <update id="cart_update">-->
+<!--        update cart set product_count=#{product_count} where cart_number = #{cart_number}-->
+<!--    </update>-->
+
+<!--    <delete id="cart_delete">-->
+<!--        delete from cart where cart_number = #{cart_number}-->
+<!--    </delete>-->
+</mapper>

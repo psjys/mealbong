@@ -19,7 +19,8 @@ const main = document.querySelector('main'),
     account_p2 = main.querySelector('.account_p2'),
     address_input = document.getElementById('address_input'),
     pwCheck = main.querySelector('.pwCheck'),
-    user_password3 = document.getElementById('user_password3');
+    user_password3 = document.getElementById('user_password3'),
+    user_birth = document.getElementById('user_birth');
 
    let userZip = main.querySelector('.userZip');
 
@@ -187,11 +188,21 @@ button_submit.addEventListener('click', () => {
     //     modal_f("양식을 확인해주세요");
     // }
 
-     if(idCheck.getAttribute("value") == "Y" && emailCheck.getAttribute("value") == "Y" && phoneCheck.getAttribute("value") == "Y") {
-         button_submit.setAttribute('type','submit');
-     } else {
-         modal_f("중복확인 해주세요");
-     }
+    if(upw.value != upw2.value) {
+        modal_f("6자이상 동일 비밀번호 입력");
+    }else{
+        if(user_birth.value == "") {
+            modal_f("양식을 확인해주세요");
+        } else {
+
+            if(idCheck.getAttribute("value") == "Y" && emailCheck.getAttribute("value") == "Y" && phoneCheck.getAttribute("value") == "Y") {
+                button_submit.setAttribute('type','submit');
+            } else {
+                modal_f("중복확인 해주세요");
+            }
+
+        }
+    }
 });
 
 // // =======주소검색
@@ -276,19 +287,19 @@ function email_check() {
         }
     });
 }
-
-function pw_check() {
-    $.ajax({
-        url: "/user1/delete",
-        type: "POST",
-        dataType : "JSON",
-        data : {"user_password" : $(user_password3).val()},
-        success : function (data) {
-            console.log(data);
-                modal_f("현재 비밀번호가 틀렸습니다.");
-        }
-    });
-}
+//
+// function pw_check() {
+//     $.ajax({
+//         url: "/user1/delete",
+//         type: "POST",
+//         dataType : "JSON",
+//         data : {"user_password" : $(user_password3).val()},
+//         success : function (data) {
+//             console.log(data);
+//                 modal_f("현재 비밀번호가 틀렸습니다.");
+//         }
+//     });
+// }
 
 function phone_check() {
     $.ajax({
@@ -311,15 +322,16 @@ function phone_check() {
         }
     });
 }
-pwCheck.addEventListener('click',() =>{
+// pwCheck.addEventListener('click',() =>{
+//
+//      if (user_password3.value == "") {
+//          modal_f("비밀번호를 입력해 주세요")
+//      }
+//     else {
+//          pw_check();
+//     }
+// });
 
-     if (user_password3.value == "") {
-         modal_f("비밀번호를 입력해 주세요")
-     }
-    else {
-         pw_check();
-    }
-});
 
 idCheck.addEventListener('click',() =>{
         const result = regex.test(user_id.value);

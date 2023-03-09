@@ -15,7 +15,17 @@ const main = document.querySelector('main'),
     select_value1 = main.querySelector('.select_value1'),
     select_value2 = main.querySelector('.select_value2'),
     All_div = main.querySelector('.All_div'),
-    cart_submitBtn = main.querySelector('.cart_submitBtn');
+    cart_submitBtn = main.querySelector('.cart_submitBtn'),
+    c_number = main.querySelectorAll('.c_number'),
+    test_btn = document.getElementById('test_btn'),
+    test_btn2 = document.getElementById('test_btn2'),
+    order_form = document.getElementById('order_form'),
+    total_value = document.getElementById('total_value');
+
+
+// setTimeout(()=>{
+//      div1_sub = main.querySelectorAll('.div1_sub');
+// },5000);
 
 // ======모달참조
 const modal = main.querySelector('.modal_container'),
@@ -30,9 +40,10 @@ const modal = main.querySelector('.modal_container'),
 const selectAll_box = main.querySelector('.selectAll_box'),
     select_box = main.querySelectorAll('.select_box');
 
-// let select_flag = true;
+ let select_flag = true;
+let cart_number;
 All_div.addEventListener('click', () => {
-    // select_flag = !select_flag;
+     select_flag = !select_flag;
     let sum = 0;
     // let iff = +select_box[0].dataset.flag && +select_box[1].dataset.flag && +select_box[2].dataset.flag && +select_box[3].dataset.flag;
     if (+select_value1.textContent != +select_value2.textContent) {
@@ -49,7 +60,8 @@ All_div.addEventListener('click', () => {
         del_fee.textContent = "3000";
         cart_submitBtn.style.background = "lightSalmon";
         cart_submitBtn.style.cursor = "pointer";
-        cart_submitBtn.setAttribute('type', 'submit');
+       // cart_submitBtn.setAttribute('type', 'submit');
+        cart_submitBtn.removeAttribute('disabled');
     } else {
         selectAll_box.style.backgroundImage = "url(../../image/check2.png)";
         for (let i = 0; i < select_box.length; i++) {
@@ -63,6 +75,7 @@ All_div.addEventListener('click', () => {
         cart_submitBtn.style.backgroundColor = "#9f9d9d";
         cart_submitBtn.style.cursor = "default";
         cart_submitBtn.setAttribute('type', 'button');
+        cart_submitBtn.setAttribute('disabled', '');
     }
 });
 
@@ -147,8 +160,11 @@ cart_div1.addEventListener('click', (e) => {
     }
 
     if (pick.classList.contains('close_btn')) {
+        cart_number = +pick.childNodes[3].textContent;
+        console.log(cart_number);
         modal_f('삭제하시겠습니까?');
         // console.log(select_value2)
+        //console.log(pick.childNodes[0].textContent);
         // cnt++;
         idx = +pick.parentNode.previousSibling.previousSibling.dataset.idx;
         // value = +btn_addSpan[idx].textContent;
@@ -200,21 +216,23 @@ cart_div1.addEventListener('click', (e) => {
             select_box[idx].dataset.flag = 0;
 
             if (select_value1.textContent == 0) {
-                del_fee.textContent = "0원";
+                del_fee.textContent = "0";
                 total_price.textContent = "0";
                 selectAll_box.style.backgroundImage = "url(../../image/check2.png)";
 
                 cart_submitBtn.style.backgroundColor = "#9f9d9d";
-                    cart_submitBtn.style.cursor = "default";
-                    cart_submitBtn.setAttribute('type', 'button');
-                
+                cart_submitBtn.style.cursor = "default";
+                cart_submitBtn.setAttribute('type', 'button');
+                cart_submitBtn.setAttribute('disabled', '');
+
                 // select_flag = false;
 
             } else {
-                cart_submitBtn.setAttribute('type', 'submit');
+                //cart_submitBtn.setAttribute('type', 'submit');
+                cart_submitBtn.removeAttribute('disabled');
             }
 
-            if(select_value1.textContent != select_value2.textContent) {
+            if (select_value1.textContent != select_value2.textContent) {
                 selectAll_box.style.backgroundImage = "url(../../image/check2.png)";
             }
 
@@ -223,13 +241,14 @@ cart_div1.addEventListener('click', (e) => {
             val = +select_value1.textContent;
             select_value1.textContent = val + 1;
             if (select_value1.textContent == 1) {
-                del_fee.textContent = "3000원";
+                del_fee.textContent = "3000";
                 selectAll_box.style.backgroundImage = "url(../../image/check.png)";
                 // select_flag = true;
                 total_price.textContent = "3000";
                 cart_submitBtn.style.background = "lightSalmon";
                 cart_submitBtn.style.cursor = "pointer";
-                cart_submitBtn.setAttribute('type', 'submit');
+                //cart_submitBtn.setAttribute('type', 'submit');
+                cart_submitBtn.removeAttribute('disabled');
             }
             value = +btn_addSpan[idx].textContent;
             tot = +total_price.textContent;
@@ -255,7 +274,6 @@ cart_div1.addEventListener('click', (e) => {
     }
 
 });
-
 // 클로즈버튼 모달창
 
 modal_confirm.addEventListener('click',() =>{
@@ -289,23 +307,41 @@ modal_confirm.addEventListener('click',() =>{
 
 
     if (select_value2.textContent == "0") {
-        del_fee.textContent = "0원";
+        del_fee.textContent = "0";
         total_price.textContent = "0";
         selectAll_box.style.backgroundImage = "url(../../image/check2.png)";
         selectAll_box.setAttribute('disabled', '');
     }
 
     if (select_value1.textContent == "0") {
-        del_fee.textContent = "0원";
+        del_fee.textContent = "0";
         total_price.textContent = "0";
         selectAll_box.style.backgroundImage = "url(../../image/check2.png)";
         cart_submitBtn.style.backgroundColor = "#9f9d9d";
         cart_submitBtn.style.cursor = "default";
         cart_submitBtn.setAttribute('type', 'button');
+        cart_submitBtn.setAttribute('disabled', '');
     }
     div1_sub[idx].classList.add('cart_hidden');
-    close()
+    cart_ajax();
+    //c_number.click();
+    //cart_ax();
+    close();
 });
+//=============ajax
+function cart_ajax() {
+    $.ajax({
+       url: "/order/cart_delete",
+       type : "POST",
+        data : {"cart_number" : cart_number},
+        success: function(data) {
+           console.log(data);
+        }
+    });
+}
+
+
+
 
 // ================배송지변경
 
@@ -350,56 +386,134 @@ function modal_f(str) {
 closeBtn.addEventListener('click', close);
 bg.addEventListener('click', close);
 
+let arr = new Array();
+let arr2 = new Array();
+    let cart_array = new Array();
+test_btn.addEventListener('click',() =>{
+    for(let i = 0; i < div1_sub.length; i++) {
+        if(div1_sub[i].childNodes[1].childNodes[1].getAttribute('data-flag') == "1") {
+            // console.log(c_number[i]);
+            c_number[i].setAttribute("value" , "Y");
+            // console.log("들왓음");
+            // console.log(div1_sub[i]);
+            //arr.push(div1_sub[i]);
+        } else {
+            // console.log("미선택애들");
+            // console.log(div1_sub[i]);
+        }
+    }
+
+
+    for(let i = 0; i < c_number.length;i++) {
+        if(c_number[i].getAttribute("value")=="Y") {
+            arr.push(c_number[i].textContent);
+            arr2.push(btn_addSpan[i].textContent);
+        }
+    }
+
+    for(let i =0; i<arr.length; i++) {
+        cart_array.push('<input type="hidden" name="cart_numberV" value="'+arr[i]+'">');
+        cart_array.push('<input type="hidden" name="product_countV" value="'+arr2[i]+'">');
+    }
+         // order_form.innerHTML = '<input type="hidden" name="o_value" value="'+arr[i]+'">';
+          order_form.innerHTML = cart_array.join('');
+    order_form.appendChild(total_value);
+    // arr = JSON.stringify(arr);
+    // arr2 = JSON.stringify(arr2);
+    //console.log(arr);
+    //console.log(div1_sub[0].childNodes[1].childNodes[1].getAttribute('data-flag') == "1");
+
+
+order_form.submit();
 
 
 
-    //   btn_plus.addEventListener('click', () => {
-    //     let value,tot,tot2;
-    //     setTimeout(() => {
 
-    //         if (+btn_addSpan.textContent > 1) {
-    //             btn_minus.style.opacity = 1;
-    //             btn_minus.removeAttribute('disabled');
-    //             btn_minus.style.cursor = "pointer";
-    //         } else {
-    //             btn_minus.style.opacity = .5;
-    //             btn_minus.setAttribute('disabled', '');
-    //             btn_minus.style.cursor = "default";
-    //         }
-    //     },50);
-    //       btn_addSpan.textContent = +btn_addSpan.textContent + 1;
-    //       value = btn_addSpan.textContent;
-    //       tot = +total_price.textContent;
-    //       tot2 = +total_price2.textContent;
-    //       div1_span[2].textContent = (+price_value.textContent) * value;
-    //       tot = tot + +price_value.textContent;
-    //       tot2 = tot2 + +price_value.textContent;
-    //       total_price.textContent = tot;
-    //       total_price2.textContent = tot2;
-    //   });
+});
 
-    //   btn_minus.addEventListener('click', () => {
-    //     let value,tot,tot2;
-    //     setTimeout(() => {
 
-    //         if (+btn_addSpan.textContent > 1) {
-    //             btn_minus.style.opacity = 1;
-    //             btn_minus.removeAttribute('disabled');
-    //             btn_minus.style.cursor = "pointer";
-    //         } else {
-    //             btn_minus.style.opacity = .5;
-    //             btn_minus.setAttribute('disabled', '');
-    //             btn_minus.style.cursor = "default";
-    //         }
-    //     },50);
-    //       btn_addSpan.textContent = +btn_addSpan.textContent - 1;
-    //       value = btn_addSpan.textContent;
-    //       tot = +total_price.textContent;
-    //       tot2 = +total_price2.textContent;
-    //       div1_span[2].textContent = (+price_value.textContent) * value;
-    //       tot = tot - +price_value.textContent;
-    //       tot2 = tot2 - +price_value.textContent;
+// 장바구니 ajax
+// 좋아요 -> 장바구니로 list 이동
+// function savetoCart() {
+//
+//     let items = [];
+//     const checkboxes = document.querySelectorAll('input[name="agreeCheck"]:checked');
+//     checkboxes.forEach((checkbox) => {
+//         items.push(checkbox.value);
+//     });
+//
+//     $.ajax({
+//         type: "POST",
+//         url: '/user/cart/',
+//         cache: false,
+//         contentType: "application/json",
+//         data: JSON.stringify(items),
+//         success: function(result) {
+//             if (result.success) {
+//                 if(confirm(result.message)) {
+//                     window.location.href = '/user/cart';
+//                 }
+//             } else {
+//                 alert(result.message);
+//             }
+//         },
+//         error: function(xhr) {
+//             alert('저장에 실패하였습니다. 다시 시도해주세요.');
+//         }
+//     });
+// }
 
-    //       total_price.textContent = tot;
-    //       total_price2.textContent = tot2;
-    //   })
+
+      // btn_plus.addEventListener('click', () => {
+      //   let value,tot,tot2;
+      //   setTimeout(() => {
+      //
+      //       if (+btn_addSpan.textContent > 1) {
+      //           btn_minus.style.opacity = 1;
+      //           btn_minus.removeAttribute('disabled');
+      //           btn_minus.style.cursor = "pointer";
+      //       } else {
+      //           btn_minus.style.opacity = .5;
+      //           btn_minus.setAttribute('disabled', '');
+      //           btn_minus.style.cursor = "default";
+      //       }
+      //   },50);
+      //     btn_addSpan.textContent = +btn_addSpan.textContent + 1;
+      //     value = btn_addSpan.textContent;
+      //     tot = +total_price.textContent;
+      //     tot2 = +total_price2.textContent;
+      //     div1_span[2].textContent = (+price_value.textContent) * value;
+      //     tot = tot + +price_value.textContent;
+      //     tot2 = tot2 + +price_value.textContent;
+      //     total_price.textContent = tot;
+      //     total_price2.textContent = tot2;
+      // });
+      //
+      // btn_minus.addEventListener('click', () => {
+      //   let value,tot,tot2;
+      //   setTimeout(() => {
+      //
+      //       if (+btn_addSpan.textContent > 1) {
+      //           btn_minus.style.opacity = 1;
+      //           btn_minus.removeAttribute('disabled');
+      //           btn_minus.style.cursor = "pointer";
+      //       } else {
+      //           btn_minus.style.opacity = .5;
+      //           btn_minus.setAttribute('disabled', '');
+      //           btn_minus.style.cursor = "default";
+      //       }
+      //   },50);
+      //     btn_addSpan.textContent = +btn_addSpan.textContent - 1;
+      //     value = btn_addSpan.textContent;
+      //     tot = +total_price.textContent;
+      //     tot2 = +total_price2.textContent;
+      //     div1_span[2].textContent = (+price_value.textContent) * value;
+      //     tot = tot - +price_value.textContent;
+      //     tot2 = tot2 - +price_value.textContent;
+      //
+      //     total_price.textContent = tot;
+      //     total_price2.textContent = tot2;
+      // })
+
+
+

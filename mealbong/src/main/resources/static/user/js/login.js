@@ -98,6 +98,7 @@ function login_check() {
         data : {"user_password" : $(loginPw).val(),
                 "user_id" : $(loginId).val()},
         success : function (data) {
+            console.log(data);
 
             switch (data) {
                 case 1:

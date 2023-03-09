@@ -23,6 +23,8 @@ public interface User1Service {
 
     //User1MapperDTO pw_check(User1MapperDTO user1MapperDTO);
 
+//    ============추가한거
+
     // admin page
     List<User1MapperDTO> searchList(SearchCriteria cri);
     int searchTotalCount(SearchCriteria cri);

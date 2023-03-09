@@ -238,7 +238,7 @@
     width: 30px;
     height : 30px;
     cursor : pointer;
-    background: url(../image/close.png) no-repeat center/50%;
+    background: url(../../image/close.png) no-repeat center/50%;
     transform : translateX(20%) translateY(-9%);
 }
 
@@ -257,6 +257,8 @@
     font-weight : bold;
     line-height: 28px;
     cursor : default;
+    border : 0;
+    background-color: transparent;
 }
 
 .btn_plus,
@@ -265,12 +267,12 @@
 }
 
 .btn_minus {
-    background : url(../image/minus.png) center/cover;
-    opacity : .5;
-    cursor : default;
+    background : url(../../image/minus.png) center/cover;
+    /*opacity : .5;*/
+    /*cursor : default;*/
 }
 .btn_plus {
-    background : url(../image/plus2.png) center/cover;
+    background : url(../../image/plus2.png) center/cover;
 }
 
 .div1_priceBox{
@@ -288,7 +290,7 @@
     width: 30px;
     height: 30px;
     cursor: pointer;
-    background: url(../image/check.png) no-repeat center/75%;
+    background: url(../../image/check.png) no-repeat center/75%;
     transform: translateX(20%) translateY(-6%);
     border : none;
 }
@@ -297,7 +299,7 @@
     width: 30px;
     height: 30px;
     cursor: pointer;
-    background: url(../image/check.png) no-repeat center/75%;
+    background: url(../../image/check.png) no-repeat center/75%;
     transform: translateX(-10%) translateY(8%);
 }
 
@@ -322,4 +324,11 @@ main .modalBox button:nth-of-type(1) {
 }
 main .modalBox button:nth-of-type(2) {
     border-radius: 0 0 10px 0;
+}
+
+
+/*====================== 추거ㅏ*/
+
+.c_number {
+    display: none;
 }

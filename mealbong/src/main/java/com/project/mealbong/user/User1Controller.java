@@ -122,7 +122,6 @@ public class User1Controller {
     @PostMapping("pw_check")
     public int pw_check(User1MapperDTO user1MapperDTO,HttpSession session) {
         String password = (String)session.getAttribute("user_password");
-        System.out.println(session.getAttribute("user_password"));
         if(!passwordEncoder.matches(user1MapperDTO.getUser_password(), password)) {
             return 1;
         }
@@ -171,7 +170,7 @@ public class User1Controller {
         String password = user1MapperDTO.getUser_password();
         user1MapperDTO = us.find_id(user1MapperDTO.getUser_id());
         if(user1MapperDTO != null) {
-            if(user1MapperDTO.getUser_password().equals(password)) {
+            if(passwordEncoder.matches(password,user1MapperDTO.getUser_password())) {
                 return 1;
             } else {
                 return 2;
@@ -201,8 +200,8 @@ public class User1Controller {
     }
 
     @PostMapping("update")
-    public ModelAndView update(ModelAndView mav,@ModelAttribute User1MapperDTO user1MapperDTO,HttpSession session) {
-
+    public ModelAndView update(ModelAndView mav, User1MapperDTO user1MapperDTO,HttpSession session) {
+        System.out.println(user1MapperDTO);
         if("".equals(user1MapperDTO.getUser_password())) {
             System.out.println("들옴");
             user1MapperDTO.setUser_password((String) session.getAttribute("user_password"));

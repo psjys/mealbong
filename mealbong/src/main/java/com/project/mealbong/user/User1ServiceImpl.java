@@ -59,6 +59,8 @@ public class User1ServiceImpl implements User1Service{
         return user1Mapper.find_id(user_id);
     }
 
+//    ===============추가한거
+
     @Override
     public List<User1MapperDTO> searchList(SearchCriteria cri) {
         return user1Mapper.searchList(cri);
@@ -68,5 +70,4 @@ public class User1ServiceImpl implements User1Service{
     public int searchTotalCount(SearchCriteria cri) {
         return user1Mapper.searchTotalCount(cri);
     }
-
 }
