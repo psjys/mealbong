@@ -34,6 +34,11 @@ public class Criteria {
 	private int sno; // start Row 순서번호 : 계산필요
 	private String category_code; // 카테고리 코드
 
+	public void setCategory_code(String category_code) {
+		this.category_code = category_code;
+	}
+
+
 	// 1) 필요한 초기값 생성자로 초기화 (Default 생성자)
 	public Criteria() {
 		this.rowsPerPage = 8;
@@ -56,7 +61,7 @@ public class Criteria {
 		if (10 < rowsPerPage && rowsPerPage <= 50)
 			this.rowsPerPage = rowsPerPage;
 		else
-			this.rowsPerPage = 10;
+			this.rowsPerPage = 8;
 	}
 	// 4) setSnoEno : sno, eno 계산 
 	// => currPage, rowsPerPage 를 이용해 계산
@@ -69,5 +74,7 @@ public class Criteria {
 		// this.sno=(this.currPage-1)*this.rowsPerPage+1;
 		// this.eno=this.sno+this.rowsPerPage-1; // -1을 해줘야 정확해짐 
 	}
+
+
 	
 } // class

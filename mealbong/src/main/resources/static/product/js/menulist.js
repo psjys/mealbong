@@ -37,6 +37,44 @@ let innerbox1 = outerbox.querySelector('.innerbox1'),
 
 let currentIdx = 0;
 
+const urlParams = new URL(location.href).searchParams;
+let name = urlParams.get('category_code');
+let aTag = document.querySelectorAll('.innerbox1 a');
+
+window.addEventListener('load', function (){
+
+    switch (name) {
+        case 'C_01' :
+            aTag[0].style.color = 'lightsalmon';
+            aTag[0].style.fontWeight = 'bold';
+            break;
+
+        case 'C_02' :
+            aTag[1].style.color = 'lightsalmon';
+            aTag[1].style.fontWeight = 'bold';
+            break;
+
+        case 'C_03' :
+            aTag[2].style.color = 'lightsalmon';
+            aTag[2].style.fontWeight = 'bold';
+            break;
+                case 'C_04' :
+            aTag[3].style.color = 'lightsalmon';
+            aTag[3].style.fontWeight = 'bold';
+            break;
+                case 'C_05' :
+            aTag[4].style.color = 'lightsalmon';
+            aTag[4].style.fontWeight = 'bold';
+            break;
+                case 'C_06' :
+            aTag[5].style.color = 'lightsalmon';
+            aTag[5].style.fontWeight = 'bold';
+            break;
+
+
+    }
+});
+
 innerbox2.addEventListener('click', function (e) {
     let obj = e.target.closest('a');
 

@@ -27,7 +27,7 @@ public class ProductController {
     private ImageService imageService;
 
     @GetMapping("/productList") // 상품 리스트
-    public ModelAndView product_list(@RequestParam("currPage") int currPage, @RequestParam("rowsPerPage") int rowsPerPage, @RequestParam("category_code") String code_number,
+    public ModelAndView product_list(@RequestParam(value = "currPage", required = false) int currPage, @RequestParam("rowsPerPage") int rowsPerPage, @RequestParam("category_code") String code_number,
                                      ModelAndView mv, SearchCriteria cri, PageMaker pageMaker) {
         cri.setSnoEno();
 
@@ -37,6 +37,8 @@ public class ProductController {
 
         mv.addObject("productList", productService.criList(cri));
         mv.addObject("code_number", productService.categoryList());
+
+        System.out.println(cri);
 
         pageMaker.setCriteria(cri);
         pageMaker.setTotalRowsCount(productService.criTotalCount(cri));
@@ -65,7 +67,7 @@ public class ProductController {
 
     @PostMapping("/productForm")    // 상품 등록 처리
     public String product_postForm (ProductDTO dto, RedirectAttributes rttr){
-        String uri = "redirect:/product/productList";
+        String uri = "redirect:/admin/productadmin";
 
         // 상품 등록 실패 시
         if (productService.insert(dto) < 0){
@@ -84,7 +86,7 @@ public class ProductController {
 
     @PostMapping("/productUpdate")  // 상품 수정 처리
     public String product_postUpdate (ProductDTO dto, Model model, RedirectAttributes rttr){
-        String uri = "redirect:/product/productList";
+        String uri = "redirect:/admin/productadmin";
 
         int update = productService.update(dto);
         rttr.addFlashAttribute("product_number", dto.getProduct_number());
@@ -100,9 +102,8 @@ public class ProductController {
 
     @GetMapping("/productDelete")   // 상품 삭제
     public String product_delete(ProductDTO dto) {
-        System.out.println("무야호");
         productService.delete(dto);
-        return "redirect:/product/productList";
+        return "redirect:/admin/productadmin";
     }
 
 }
