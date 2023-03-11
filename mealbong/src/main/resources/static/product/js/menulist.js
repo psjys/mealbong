@@ -1,4 +1,56 @@
 'use strict'
+/* ===================== 상품 리스트 정렬 ==================== */
+const innerbox23 = document.getElementById("innerbox23")
+
+let category_title = innerbox23.childNodes[1].textContent,
+    category_code;
+
+switch (category_title) {
+case "한식" :
+category_code = "C_01";
+break;
+case "중식" :
+category_code = "C_02";
+break;
+case "일식" :
+category_code = "C_03";
+break;
+case "양식" :
+category_code = "C_04";
+break;
+case "분식/야식" :
+category_code = "C_05";
+break;
+case "아시안" :
+category_code = "C_06";
+break;
+}
+
+
+function productList_order(orderList) {
+    console.log(category_code);
+    $.ajax({
+        type: 'Get',
+        url: 'productList2',
+        data : {orderKey : orderList,
+                currPage : 1,
+                rowsPerPage : 8,
+                category_code : category_code
+              },
+        success: function (resultPage) {
+        console.log("성성공");
+          $('#resultArea').html(resultPage);
+        },
+        error: function () {
+        console.log("실실패");
+          $('#resultArea').html('~~ Error 발생 !!! ~~~');
+        }
+      }); //ajax
+}
+
+productList_order(1);
+
+
 
 // ===========================================================
 // menulist에서 이미지 호버했을 때 이미지 확대
@@ -70,8 +122,6 @@ window.addEventListener('load', function (){
             aTag[5].style.color = 'lightsalmon';
             aTag[5].style.fontWeight = 'bold';
             break;
-
-
     }
 });
 
@@ -131,17 +181,3 @@ bgg.addEventListener('click', closee);
 /* =====================장바구니 modal box==================== */
 /* 로그인 하고 나서 */
 
-/* ===================== 상품 리스트 정렬 ==================== */
-function productList_order(categoryNo) {
-    $.ajax({
-        type: 'Get',
-        url: 'product/productList',
-        data : {categoryKey : categoryNo},
-        success: function (resultPage) {
-          $('#resultArea').html(resultPage);
-        },
-        error: function () {
-          $('#resultArea').html('~~ Error 발생 !!! ~~~');
-        }
-      }); //ajax
-}

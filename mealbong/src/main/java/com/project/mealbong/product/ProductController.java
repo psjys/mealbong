@@ -26,19 +26,45 @@ public class ProductController {
     @Autowired
     private ImageService imageService;
 
-    @GetMapping("/productList") // 상품 리스트
-    public ModelAndView product_list(@RequestParam(value = "currPage", required = false) int currPage, @RequestParam("rowsPerPage") int rowsPerPage, @RequestParam("category_code") String code_number,
-                                     ModelAndView mv, SearchCriteria cri, PageMaker pageMaker) {
+    @GetMapping("/productList2") // 상품 리스트
+    public ModelAndView product_list2(@RequestParam(value = "currPage", required = false) int currPage, @RequestParam("rowsPerPage") int rowsPerPage,
+                                      @RequestParam(value = "orderKey", defaultValue = "1") int orderKey, @RequestParam("category_code") String category_code,
+                                     ModelAndView mv, SearchCriteria cri, PageMaker pageMaker, ProductDTO productDTO) {
         cri.setSnoEno();
 
         cri.setRowsPerPage(rowsPerPage);
+        cri.setCategory_code(category_code);
         cri.setCurrPage(currPage);
-        cri.setCode_number(code_number);
+        cri.setOrderKey(orderKey);
+
 
         mv.addObject("productList", productService.criList(cri));
         mv.addObject("code_number", productService.categoryList());
 
-        System.out.println(cri);
+        pageMaker.setCriteria(cri);
+        pageMaker.setTotalRowsCount(productService.criTotalCount(cri));
+        mv.addObject("pageMaker", pageMaker);
+
+        mv.setViewName("html/menu_list/resultArea");
+
+        return mv;
+    }
+
+    @GetMapping("/productList") // 상품 리스트
+    public ModelAndView product_list(@RequestParam(value = "currPage", required = false) int currPage, @RequestParam("rowsPerPage") int rowsPerPage,
+                                     @RequestParam(value = "orderKey", defaultValue = "1") int orderKey,@RequestParam("category_code") String category_code,
+                                     ModelAndView mv, SearchCriteria cri, PageMaker pageMaker, ProductDTO productDTO) {
+        cri.setSnoEno();
+
+        cri.setRowsPerPage(rowsPerPage);
+        cri.setCurrPage(currPage);
+//        cri.setCode_number(cri.getCategory_code());
+        cri.setCode_number(category_code);
+        cri.setOrderKey(orderKey);
+
+
+        mv.addObject("productList", productService.criList(cri));
+        mv.addObject("code_number", productService.categoryList());
 
         pageMaker.setCriteria(cri);
         pageMaker.setTotalRowsCount(productService.criTotalCount(cri));

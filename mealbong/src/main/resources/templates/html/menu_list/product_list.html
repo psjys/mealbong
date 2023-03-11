@@ -38,7 +38,7 @@
         <a href="#" data-direction=3><span onclick="productList_order(4)">높은 가격순</span></a>
     </div>
 
-    <div class="innerbox23">
+    <div class="innerbox23" id="innerbox23">
         <h2 th:if="${pageMaker.cri.code_number == 'C_01'}">한식</h2>
         <h2 th:if="${pageMaker.cri.code_number == 'C_02'}">중식</h2>
         <h2 th:if="${pageMaker.cri.code_number == 'C_03'}">일식</h2>
@@ -46,58 +46,9 @@
         <h2 th:if="${pageMaker.cri.code_number == 'C_05'}">분식/야식</h2>
         <h2 th:if="${pageMaker.cri.code_number == 'C_06'}">아시안</h2>
     </div>
+    <div id="resultArea">
 
-    <div class="innerbox3">
-        <div th:each="imageList:${imageList}">
-            <span th:text="${imageList.image_main}"></span>
-        </div>
-        <div class="food_box" th:each="productList:${productList}">
-            <!--            일반 회원으로 login 했을 때-->
-            <a th:if="${session['user_id'] != 'admin'}">
-                <a th:href="@{|${productList.product_number}|}">
-                    <div class="img_container">
-                        <img th:src="${productList.image_file}" alt="상품 이미지">
-                    </div>
-                </a>
-                <button class="basket"></button>
-                <a th:href="@{|${productList.product_number}|}">
-                    <div class="menu_name" th:text="${productList.product_name}"></div>
-                </a>
-                <div class="post">샛별배송</div>
-                <div class="menu_price" th:text="${productList.product_price}"></div>
-                <div class="food_hint">취향대로 맛있게 완성하는</div>
-                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
-                </div>
-
-            </a>
-            <!--            관리자로 login 했을 때-->
-            <a th:if="${session['user_id'] == 'admin'}">
-                <a th:href="@{|${productList.product_number}|}">
-                    <div class="img_container">
-                        <img th:src="${productList.image_file}" alt="상품 이미지">
-                    </div>
-                </a>
-                <button class="basket"></button>
-                <a th:href="@{|${productList.product_number}|}">
-                    <div class="menu_name" th:text="${productList.product_name}"></div>
-                </a>
-                <div class="post">샛별배송</div>
-                <div class="menu_price" th:text="${productList.product_price}"></div>
-                <div class="food_hint">취향대로 맛있게 완성하는</div>
-                <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
-                    <div th:if="${session['user_id'] == 'admin'}">
-                        <button class="product_update_button" value="수정하기">
-                            <a th:href="@{/product/productUpdate(product_number=${productList.getProduct_number()})}">수정</a>
-                        </button>
-                        <button class="product_delete_button" value="삭제하기">
-                            <a th:href="@{/product/productDelete(product_number=${productList.getProduct_number()})}">삭제</a>
-                        </button>
-                    </div>
-                </div>
-            </a>
-        </div>
     </div>
-</div>
 <div class="cri_div">
     <!-- ** Cri_Paging **
        1) FirstPage, Prev -->
@@ -131,6 +82,7 @@
         <font color="Gray"> > LP</font>
     </th:block>
 </div> <!--    paging -->
+    </div>
 
 <!-- =========== 장바구니 모달창 (로그인 하기 전) =========== -->
 

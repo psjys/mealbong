@@ -25,8 +25,26 @@
         from product p left outer join image i
         on p.product_number = i.product_number and i.image_main = "Y"
         where category_code = #{category_code}
+        <include refid="orderList"></include>
         limit #{sno}, #{rowsPerPage}
     </select>
+
+    <sql id="orderList">
+        <choose>
+            <when test="orderKey == 1">
+                order by product_number
+            </when>
+            <when test="orderKey == 2">
+                order by product_date desc
+            </when>
+            <when test="orderKey == 3">
+                order by product_price asc
+            </when>
+            <when test="orderKey == 4">
+                order by product_price desc
+            </when>
+        </choose>
+    </sql>
 
     <select id="categoryList" resultType="com.project.mealbong.product.ProductDTO">
         select * from code

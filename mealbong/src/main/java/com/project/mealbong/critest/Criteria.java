@@ -34,6 +34,9 @@ public class Criteria {
 	private int sno; // start Row 순서번호 : 계산필요
 	private String category_code; // 카테고리 코드
 
+
+	private int orderKey;
+
 	public void setCategory_code(String category_code) {
 		this.category_code = category_code;
 	}

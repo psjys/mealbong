@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 밀키트 쇼핑몰 :: Meal Bong </title>
+
+  <script src="../../../product/js/jquery-3.2.1.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../product/css/menu_list.css">
+  <link rel="stylesheet" href="../../../common/css/mainPage.css">
+  <script defer src="../../../common/js/main_topDiv.js"></script>
+  <script defer src="../../../product/js/menulist.js"></script>
+
+</head>
+
+<div class="innerbox3">
+  <div th:each="imageList:${imageList}">
+    <span th:text="${imageList.image_main}"></span>
+  </div>
+  <div class="food_box" th:each="productList:${productList}">
+    <!--            일반 회원으로 login 했을 때-->
+    <a th:if="${session['user_id'] != 'admin'}">
+      <a th:href="@{|${productList.product_number}|}">
+        <div class="img_container">
+          <img th:src="${productList.image_file}" alt="상품 이미지">
+        </div>
+      </a>
+      <button class="basket"></button>
+      <a th:href="@{|${productList.product_number}|}">
+        <div class="menu_name" th:text="${productList.product_name}"></div>
+      </a>
+      <div class="post">샛별배송</div>
+      <div class="menu_price" th:text="${productList.product_price}"></div>
+      <div class="food_hint">취향대로 맛있게 완성하는</div>
+      <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
+      </div>
+
+    </a>
+    <!--            관리자로 login 했을 때-->
+    <a th:if="${session['user_id'] == 'admin'}">
+      <a th:href="@{|${productList.product_number}|}">
+        <div class="img_container">
+          <img th:src="${productList.image_file}" alt="상품 이미지">
+        </div>
+      </a>
+      <button class="basket"></button>
+      <a th:href="@{|${productList.product_number}|}">
+        <div class="menu_name" th:text="${productList.product_name}"></div>
+      </a>
+      <div class="post">샛별배송</div>
+      <div class="menu_price" th:text="${productList.product_price}"></div>
+      <div class="food_hint">취향대로 맛있게 완성하는</div>
+      <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
+        <div th:if="${session['user_id'] == 'admin'}">
+          <button class="product_update_button" value="수정하기">
+            <a th:href="@{/product/productUpdate(product_number=${productList.getProduct_number()})}">수정</a>
+          </button>
+          <button class="product_delete_button" value="삭제하기">
+            <a th:href="@{/product/productDelete(product_number=${productList.getProduct_number()})}">삭제</a>
+          </button>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
