@@ -13,37 +13,47 @@
     <select id="order_number" resultType="int">
         SELECT MAX(order_number) from order1;
     </select>
+
     <insert id="orderDetail_insert">
         insert into order_detail(order_number,product_number,product_price,product_count)
         values(#{order_number},#{product_number},#{product_price},#{product_count});
     </insert>
+
     <select id="order_submit" resultType="com.project.mealbong.order.OrderDetailMapperDTO">
         select o.product_count,p.product_name from
-        order_detail o,product p where order_number = #{order_number} AND p.product_number = o.product_number;
+                                                  order_detail o,product p where order_number = #{order_number} AND p.product_number = o.product_number;
     </select>
-<!--    <select id="order_detail" resultType="com.project.mealbong.order.OrderDetailMapperDTO">-->
 
-<!--    </select>-->
-<!--    <select id="cart_list" resultType="com.project.mealbong.order.CartMapperDTO">-->
-<!--        select c.cart_number,c.user_id,c.product_number,c.product_count,p.product_name,p.product_price,p.product_price * c.product_count as price_total,i.image_file-->
-<!--        from cart c,product p,image i where c.product_number = p.product_number AND c.product_number = i.product_number AND i.image_main = "Y" AND-->
-<!--            user_id = #{user_id}-->
-<!--    </select>-->
-<!--    <select id="cart_count" resultType="int">-->
-<!--        select count(*) from cart where user_id = #{user_id}-->
-<!--    </select>-->
-<!--    <select id="cart_order" resultType="com.project.mealbong.order.CartMapperDTO">-->
-<!--        select c.cart_number,c.user_id,c.product_number,c.product_count,p.product_name,p.product_price,p.product_price * c.product_count as price_total,i.image_file-->
-<!--        from cart c,product p,image i where c.product_number = p.product_number AND c.product_number = i.product_number AND i.image_main = "Y" AND-->
-<!--            cart_number = #{cart_number}-->
-<!--    </select>-->
-<!--    <update id="cart_update">-->
-<!--        update cart set product_count=#{product_count} where cart_number = #{cart_number}-->
-<!--    </update>-->
+    <select id="order_detail" resultType="com.project.mealbong.order.OrderDetailMapperDTO">
+        select o.product_count,o.product_count * o.product_price as price_total,
+               i.image_file,p.product_name from order_detail o,image i,product p
+        where o.order_number = #{order_number} AND o.product_number = i.product_number AND
+            i.image_main = "Y" AND p.product_number = o.product_number;
+    </select>
 
-<!--    <delete id="cart_delete">-->
-<!--        delete from cart where cart_number = #{cart_number}-->
-<!--    </delete>-->
+    <select id="order_list" resultType="com.project.mealbong.order.OrderMapperDTO">
+        select oo.order_amount,oo.order_status,oo.order_number,oo.order_date,
+               oo.payment,i.image_file,p.product_name,
+               (select count(*) from order_detail where order_number = #{order_number})
+                   order_count from order_detail o,image i,product p,order1 oo where oo.order_number = #{order_number}
+                                                                                 AND o.order_number = oo.order_number AND o.product_number = i.product_number AND i.image_main = "Y" AND
+            p.product_number = o.product_number limit 1;
+    </select>
+
+    <select id="user_order" resultType="int">
+        select order_number from order1 where user_id = #{user_id} order by order_number desc
+            limit #{sno},#{rowsPerPage}
+    </select>
+
+    <select id="order_info" resultType="com.project.mealbong.order.OrderDetailMapperDTO">
+        SELECT order_date,payment,order_amount from order1 where order_number = #{order_number}
+    </select>
+
+    <select id="criTotalCount" resultType="int">
+        select COUNT(*) from order1 where user_id = #{user_id}
+    </select>
+
+    <!--    ******* 추가한거-->
 
     <!--    admin page -->
     <!-- SearchCriteria PageList -->
@@ -100,8 +110,10 @@
         where order_number = #{order_number}
     </delete>
 
-    <select id="order_detail" resultType="com.project.mealbong.order.OrderDetailMapperDTO">
-        select * from order_detail o, order1 d
-        where o.order_number = #{order_number} and o.order_number = d.order_number;
-    </select>
+    <!--    <select id="order_detail" resultType="com.project.mealbong.order.OrderDetailMapperDTO">-->
+    <!--        select * from order_detail o, order1 d-->
+    <!--        where o.order_number = #{order_number} and o.order_number = d.order_number;-->
+    <!--    </select>-->
+
+
 </mapper>

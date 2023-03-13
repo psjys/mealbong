@@ -65,7 +65,8 @@
                 <td th:text="${userList.user_phone}">핸드폰번호</td>
                 <td th:text="${userList.user_gender}">성별</td>
                 <td th:text="${userList.user_birth}">생년월일</td>
-                <td><a th:href="@{|/user1/delete/${userList.user_id}|}" style="color: black; text-decoration: none;">삭제</a></td>
+<!--                <td><a th:href="@{|/user1/delete/${userList.user_id}|}" style="color: black; text-decoration: none;">삭제</a></td>-->
+                <td><a th:href="@{/user1/admin/delete(user_id=${userList.user_id})}" style="color: black; text-decoration: none;">삭제</a></td>
             </tr>
             </tbody>
         </table>
