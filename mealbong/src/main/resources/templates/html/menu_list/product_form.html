@@ -12,8 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../product/css/menu_list.css">
     <link rel="stylesheet" href="../../../common/css/mainPage.css">
+    <link rel="stylesheet" href="../../../common/css/modal.css">
     <script defer src="../../../common/js/main_topDiv.js"></script>
     <script defer src="../../../product/js/menu_list.js"></script>
+    <script defer src="../../../product/js/product_form.js"></script>
 </head>
 <body>
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
@@ -24,7 +26,7 @@
                 <h2>새 상품 등록</h2>
             </div>
             <div class="product_insert_form">
-                <form action="/product/productForm" method="post">
+                <form action="/product/productForm" method="post" id="product_form">
                     <div>
                         <div class="product_insert_form_2">상품명<span></span></div>
                         <input type="text" name="product_name" class="inputstyle" placeholder=" 상품명을 입력해주세요." required>
@@ -78,5 +80,14 @@
     </div>
 </main>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<div class="mainModal hidden">
+    <div class="bg"></div>
+    <div class="modalBox">
+        <p>상품이 등록되었습니다.</p>
+        <div class="closeBtn_div">
+            <button class="clsBtn">확인</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>

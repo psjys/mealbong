@@ -87,8 +87,9 @@ public class QnaController {
         return uri;
     }
 
-    @GetMapping("/qnadelete")
-    public String inquiry_delete(QnaDTO dto) {
+    @PostMapping("/qnadelete")
+    public String inquiry_delete(@RequestParam("qna_num") int qna_num, QnaDTO dto) {
+        dto.setQna_num(qna_num);
         qnaService.delete(dto);
         return "redirect:/qna/qnalist";
     }

@@ -12,8 +12,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../product/css/menu_list.css">
   <link rel="stylesheet" href="../../../common/css/mainPage.css">
-  <script defer src="../../../common/js/main_topDiv.js"></script>
-  <script defer src="../../../product/js/menu_list.js"></script>
+  <link rel="stylesheet" href="../../../common/css/modal.css">
+<!--  <script defer src="../../../common/js/main_topDiv.js"></script>-->
+<!--  <script defer src="../../../product/js/menu_list.js"></script>-->
+  <script defer src="../../../product/js/product_form.js"></script>
 </head>
 <body>
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
@@ -24,7 +26,7 @@
         <h2>상품 수정</h2>
       </div>
       <div class="product_insert_form">
-        <form action="/product/productUpdate" method="post">
+        <form action="/product/productUpdate" method="post" id="pro_update_form">
           <div>
             <input name="product_number" th:value="${productList.product_number}" style="display: none">
           </div>
@@ -81,5 +83,14 @@
   </div>
 </main>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<div class="mainModal hidden">
+  <div class="bg"></div>
+  <div class="modalBox">
+    <p>상품이 수정되었습니다.</p>
+    <div class="closeBtn_div">
+      <button class="clsBtn">확인</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>

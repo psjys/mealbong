@@ -126,8 +126,9 @@ public class ProductController {
         return uri;
     }
 
-    @GetMapping("/productDelete")   // 상품 삭제
-    public String product_delete(ProductDTO dto) {
+    @PostMapping("/productDelete")   // 상품 삭제
+    public String product_delete(@RequestParam("product_number") int product_number, ProductDTO dto) {
+        dto.setProduct_number(product_number);
         productService.delete(dto);
         return "redirect:/admin/productadmin";
     }

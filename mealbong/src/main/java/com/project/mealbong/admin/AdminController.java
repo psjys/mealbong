@@ -68,7 +68,7 @@ public class AdminController {
         dto.setOrder_number(order_number);
         System.out.println(dto);
 
-        model.addAttribute("orderListDetail", orderService.order_detail(dto));
+        model.addAttribute("orderListDetail", orderService.order_admin_detail(dto));
         return "html/admin/order_admin_detail";
     }
 

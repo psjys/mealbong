@@ -3,13 +3,13 @@
 
 <head th:replace="fragments/head :: headFragment(~{::link})">
     <link rel="stylesheet" href="../../../../board/css/qna.css">
-    <script defer src="../../../../user/js/inquiry.js"></script>
-
+    <link rel="stylesheet" href="../../../../common/css/modal.css">
 </head>
 
 <body>
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
 <script defer src="../../../../board/js/qna.js"></script>
+<script defer src="../../../../board/js/qna_delete.js"></script>
 <main>
     <div class="mypage">
         <th:block th:replace="fragments/inquiry_aside :: inquiryFragement"></th:block>
@@ -51,8 +51,10 @@
                             </div>
                             <div th:if="${qnaList.ans_content == null || session['user_id']=='admin'}"
                                  class="updelete">
+<!--                                th:href="@{/qna/qnadelete(qna_num=${qnaList.getQna_num()})}"-->
+                                <div th:text="${qnaList.getQna_num()}" style="display: none"></div>
                                 <a th:href="@{/qna/qnaupdate(qna_num=${qnaList.getQna_num()})}">수정</a>
-                                <a th:href="@{/qna/qnadelete(qna_num=${qnaList.getQna_num()})}">삭제</a>
+                                <a id="delete_form" th:onclick="'javascript:handleDeleteClick('+${qnaList.qna_num}+')'">삭제</a>
                             </div>
                             <div th:if="${qnaList.ans_content != null}" class="ans_div">
                                 <span>A</span>
@@ -116,6 +118,16 @@
     </div>
 </main>
 <footer th:replace="fragments/footer :: footerFragment"></footer>
+<div class="mainModal hidden">
+    <div class="bg"></div>
+    <div class="modalBox">
+        <p>문의글을 삭제 하시겠습니까?</p>
+        <div class="closeBtn_div">
+            <button class="closeBtn">확인</button>
+            <button class="closeBtn">취소</button>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>

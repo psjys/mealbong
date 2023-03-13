@@ -77,29 +77,3 @@ qnaDiv.addEventListener('submit', update_Modal);
 qnaButton.addEventListener('click', qnaClose);
 qnaBg.addEventListener('click', qnaClose);
 
-// 글 삭제 모달
-function delete_Modal(e) {
-    e.preventDefault();
-    let form = document.getElementById('update_form');
-    let formData = new FormData(form);
-
-    fetch('/qna/qnadelete', {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => {
-            if (response.ok) {
-                qnaOpen();
-                form.reset();
-            } else {
-                console.error('Error submitting form');
-            }
-        })
-        .catch(error => {
-            console.error('Error submitting form', error);
-        });
-}
-
-qnaDiv.addEventListener('submit', delete_Modal);
-qnaButton.addEventListener('click', qnaClose);
-qnaBg.addEventListener('click', qnaClose);

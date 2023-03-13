@@ -23,8 +23,9 @@ function moveSlide(num) {
     currentIdx = num;
 }
 
-nextBtn.addEventListener('click', function () {
+nextBtn.addEventListener('click', function (e) {
     if (time()) {
+        e.preventDefault();
         if (currentIdx < slideCount - 1) {
             moveSlide(currentIdx + 1);
         } else {
@@ -33,8 +34,9 @@ nextBtn.addEventListener('click', function () {
     }
 });
 
-prevBtn.addEventListener('click', function () {
+prevBtn.addEventListener('click', function (e) {
     if (time()) {
+        e.preventDefault();
         if (currentIdx > 0) {
             moveSlide(currentIdx - 1);
         } else {
