@@ -44,4 +44,64 @@
 <!--    <delete id="cart_delete">-->
 <!--        delete from cart where cart_number = #{cart_number}-->
 <!--    </delete>-->
+
+    <!--    admin page -->
+    <!-- SearchCriteria PageList -->
+    <sql id="search">
+        <if test="keyword!=null">
+            <bind name="keyVal" value="'%'+keyword+'%'"/>
+        </if>
+        <choose>
+            <when test="searchType=='n'.toString()">
+                and order_number like #{keyVal}
+                or user_id like #{keyVal}
+                or order_date like #{keyVal}
+                or order_amount like #{keyVal}
+                or order_status like #{keyVal}
+                or payment like #{keyVal} )
+            </when>
+            <when test="searchType=='p'.toString()">
+                and order_number like #{keyVal} )
+            </when>
+            <when test="searchType=='e'.toString()">
+                and user_id like #{keyVal} )
+            </when>
+            <when test="searchType=='o'.toString()">
+                and order_date like #{keyVal} )
+            </when>
+            <when test="searchType=='u'.toString()">
+                and order_amount like #{keyVal} )
+            </when>
+            <when test="searchType=='s'.toString()">
+                and order_status like #{keyVal} )
+            </when>
+            <when test="searchType=='etc'.toString()">
+                and payment like #{keyVal} )
+            </when>
+            <otherwise> )</otherwise>
+        </choose>
+    </sql>
+
+    <select id="searchList" resultType="com.project.mealbong.order.OrderMapperDTO">
+        select *
+        from order1
+        where ( order_number is not null <include refid="search"></include>
+        order by order_number desc
+        limit #{sno}, #{rowsPerPage}
+    </select>
+
+    <select id="searchTotalCount" resultType="int">
+        select count(*) from order1
+        where ( order_number is not null <include refid="search"></include>
+    </select>
+
+    <delete id="delete">
+        delete from order1
+        where order_number = #{order_number}
+    </delete>
+
+    <select id="order_detail" resultType="com.project.mealbong.order.OrderDetailMapperDTO">
+        select * from order_detail o, order1 d
+        where o.order_number = #{order_number} and o.order_number = d.order_number;
+    </select>
 </mapper>

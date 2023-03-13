@@ -22,20 +22,18 @@ public class QnaController {
 
     @GetMapping("/qnalist") // 문의글 리스트
     public ModelAndView inquiry_list(ModelAndView mv, SearchCriteria cri, PageMaker pageMaker, HttpSession session) {
+        if (session.getAttribute("user_id") == null) {
+            mv.setViewName("html/user/login");
+            return mv;
+        }
 
-        // 1) Criteria 처리
-        // => rowsPerPage, currPage 값은 Parameter 를 전달 : 자동으로 set
-        // => 그러므로 currPage 를 이용해서 setSnoEno 만 하면 됨
         cri.setSnoEno();
 
-        // 2) Service 처리
         cri.setKeyword((String) session.getAttribute("user_id"));
-        mv.addObject("qnaList", qnaService.criList(cri)); // ver01
+        mv.addObject("qnaList", qnaService.criList(cri));
 
-        // 3) View 처리 => PageMaker
-        // => cri, totalRowsCount (DB에서 읽어온다)
         pageMaker.setCriteria(cri);
-        pageMaker.setTotalRowsCount(qnaService.criTotalCount(cri)); // ver01 : 전체 Rows 갯수
+        pageMaker.setTotalRowsCount(qnaService.criTotalCount(cri));
         mv.addObject("pageMaker", pageMaker);
 
         mv.setViewName("html/service_page/inquiry/inquiry_list");
@@ -58,6 +56,14 @@ public class QnaController {
             uri = "html/service_page/inquiry/inquiry_form";
         }
         return uri;
+    }
+    @PostMapping("/qnacheck")
+    public String qna_check(QnaDTO dto) {
+        if (dto != null) {
+            return "insert";
+        } else {
+            return "fail";
+        }
     }
 
     @GetMapping("/qnaupdate")
@@ -86,6 +92,8 @@ public class QnaController {
         qnaService.delete(dto);
         return "redirect:/qna/qnalist";
     }
+
+
 
 }
 

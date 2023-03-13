@@ -159,4 +159,29 @@
         where p.product_name like '%' #{keyword} '%';
     </select>
 
+    <!--    main page -->
+
+    <!--    인기상품 -->
+    <select id="popList" resultType="com.project.mealbong.product.ProductDTO">
+        select p.product_number, p.product_name, p.product_price, i.image_file
+        from product p left outer join image i
+                                       on p.product_number = i.product_number and i.image_main = "Y"
+    </select>
+    <!--    오늘의 추천, 이런건 어때요?-->
+    <select id="randomList" resultType="com.project.mealbong.product.ProductDTO">
+        select p.product_number, p.product_name, p.product_price, i.image_file
+        from product p left outer join image i
+                                       on p.product_number = i.product_number and i.image_main = "Y"
+
+        Order by rand()
+            Limit 32
+    </select>
+    <!--    밀봉 신상 -->
+    <select id="newList" resultType="com.project.mealbong.product.ProductDTO">
+        select p.product_number, p.product_name, p.product_price, i.image_file
+        from product p left outer join image i
+                                       on p.product_number = i.product_number and i.image_main = "Y"
+        order by product_number desc
+    </select>
+
 </mapper>

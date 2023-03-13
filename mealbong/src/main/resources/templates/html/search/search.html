@@ -8,16 +8,16 @@
 <body>
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
     <div class="searchResult">
-        <h1><span th:text="${param.keyword}"></span>검색결과</h1>
+        <h1 th:text="${param.keyword + ' 검색결과'}"></h1>
     </div>
 <div class="food_box" th:each="productList:${productList}">
-    <a th:href="@{|${productList.product_number}|}">
+    <a th:href="@{|/product/${productList.product_number}|}">
         <div class="img_container">
             <img th:src="${productList.image_file}" alt="상품 이미지">
         </div>
     </a>
     <button class="basket"></button>
-    <a th:href="@{|${productList.product_number}|}">
+    <a th:href="@{|/product/${productList.product_number}|}">
         <div class="menu_name" th:text="${productList.product_name}"></div></a>
     <div class="post">샛별배송</div>
     <div class="menu_price" th:text="${productList.product_price}"></div>

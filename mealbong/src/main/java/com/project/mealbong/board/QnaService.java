@@ -59,4 +59,12 @@ public class QnaService {
         return mapper.searchTotalCount(cri);
     }
 
+    public void adminDelete (QnaDTO dto) {
+        mapper.adminDelete(dto);
+    }
+
+    public int adminUpdate (QnaDTO dto) {
+        return mapper.adminUpdate(dto);
+    }
+
 }

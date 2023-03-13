@@ -94,6 +94,46 @@ public class ProductService {
 
         return productList;
     }
+
+    // main page
+    // 인기 상품
+    public List<ProductDTO> popList() {
+        List<ProductDTO> productList = new ArrayList<ProductDTO>();
+
+        try {
+            productList = mapper.popList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return productList;
+    }
+
+    // 오늘의 추천, 이런건 어때요?
+    public List<ProductDTO> randomList() {
+        List<ProductDTO> productList = new ArrayList<ProductDTO>();
+
+        try {
+            productList = mapper.randomList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return productList;
+    }
+
+    // 밀봉 신상
+    public List<ProductDTO> newList() {
+        List<ProductDTO> productList = new ArrayList<ProductDTO>();
+
+        try {
+            productList = mapper.newList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return productList;
+    }
 }
 
 

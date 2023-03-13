@@ -30,4 +30,7 @@ public interface QnaMapper {
     List<QnaDTO> searchList(SearchCriteria cri);
     int searchTotalCount(SearchCriteria cri);
 
+    void adminDelete (QnaDTO dto);
+
+    int adminUpdate(QnaDTO dto);
 }

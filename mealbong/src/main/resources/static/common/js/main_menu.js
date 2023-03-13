@@ -49,9 +49,8 @@ function forward() {
 }
 
 menuContainer.addEventListener('click', function (e) {
-    e.preventDefault();
     if (time()) {
-        const btn = e.target.closest('a');
+        const btn = e.target.closest('.menuContainer span');
         if (btn === menuBackBtn) {
             back();
         } else if (btn === menuForwardBtn) {
@@ -83,9 +82,9 @@ function forward2() {
 }
 
 menuContainer2.addEventListener('click', function (e) {
-    e.preventDefault();
+
     if (time()) {
-        const btn = e.target.closest('a');
+        const btn = e.target.closest('.menuContainer2 span');
         if (btn === menuBackBtn2) {
             back2();
         } else if (btn === menuForwardBtn2) {
@@ -124,9 +123,8 @@ function forward3() {
 }
 
 menuContainer3.addEventListener('click', function (e) {
-    e.preventDefault();
     if (time()) {
-        const btn = e.target.closest('a');
+        const btn = e.target.closest('.menuContainer3 span');
         if (btn === menuBackBtn3) {
             back3();
         } else if (btn === menuForwardBtn3) {
@@ -165,9 +163,8 @@ function forward4() {
 }
 
 menuContainer4.addEventListener('click', function (e) {
-    e.preventDefault();
     if (time()) {
-        const btn = e.target.closest('a');
+        const btn = e.target.closest('.menuContainer4 span');
         if (btn === menuBackBtn4) {
             back4();
         } else if (btn === menuForwardBtn4) {

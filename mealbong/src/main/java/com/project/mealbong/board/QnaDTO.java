@@ -15,6 +15,5 @@ public class QnaDTO {
     private String ans_content;
     private LocalDate ans_date;
     private String qna_type;
-
-//    private MultipartFile uploadfilef;
+    private String user_name;
 }

@@ -3,11 +3,11 @@
 
 <head th:replace="fragments/head :: headFragment(~{::link})">
     <link rel="stylesheet" href="../../../../board/css/qna.css">
-    <script defer src="../../../../user/js/inquiry.js"></script>
-    <script defer src="../../../../board/js/qna.js"></script>
+
 </head>
 
 <body>
+<script defer src="../../../../board/js/qna_form.js"></script>
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
     <main>
         <div class="mypage">
@@ -17,17 +17,16 @@
                     <h2>1:1 문의</h2>
                 </div>
                 <div class="content_inquiry_form">
-                    <form action="/qna/qnaform" method="post">
+                    <form action="/qna/qnaform" method="post" id="qna_form">
                         <div>
                             <div class="content_inquiry_form_1">유형<span></span></div>
                             <select name="qna_type" id="type" class="type" required>
-<!--                                <option selected disabled>문의유형을 선택해주세요</option>-->
-                                <option value="상품">상품</option>
-                                <option value="교환/환불">교환/환불</option>
-                                <option value="주문/결제">주문/결제</option>
-                                <option value="회원정보">회원정보</option>
-                                <option value="사이트 이용">사이트 이용</option>
-                                <option value="기타">기타</option>
+                                <option value="F_01">상품</option>
+                                <option value="F_02">교환/환불</option>
+                                <option value="F_03">주문/결제</option>
+                                <option value="F_04">회원정보</option>
+                                <option value="F_05">사이트 이용</option>
+                                <option value="F_06">기타</option>
                             </select>
                         </div>
                         <div>
@@ -41,13 +40,22 @@
                         <div class="submit_div">
                             <input type="submit" value="등록">
                         </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </main>
 <footer th:replace="fragments/footer :: footerFragment"></footer>
-
+<div class="mainModal hidden">
+    <div class="bg"></div>
+    <div class="modalBox">
+        <p>문의글이 등록되었습니다.</p>
+        <div class="closeBtn_div">
+            <button class="closeBtn">확인</button>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
