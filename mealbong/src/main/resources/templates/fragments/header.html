@@ -58,14 +58,13 @@
     <!-- nav / position : sticky -->
     <nav>
         <ul class="menu">
-            <li><a href="../html/menu_list/Korean_menulist.html">카테고리</a>
-                <ul class="submenu">
-                    <li><a href="../html/menu_list/Korean_menulist.html">한식</a></li>
-                    <li><a href="../html/menu_list/Chinese_menulist.html">중식</a></li>
-                    <li><a href="../html/menu_list/Japanese_menulist.html">일식</a></li>
-                    <li><a href="../html/menu_list/Western_menulist.html">양식</a></li>
-                    <li><a href="../html/menu_list/Bunsik_menulist.html">분식/야식</a></li>
-                    <li><a href="../html/menu_list/Asian_menulist.html">아시안</a></li>
+            <li><a th:href="@{/product/productList(currPage=1,rowsPerPage=8, category_code=C_01)}">카테고리</a>
+                <ul  class="submenu">
+                    <th:block th:each="productList:${code_number}">
+                        <li>
+                            <a th:text="${productList.code_desc}" th:href="@{/product/productList(currPage=1,rowsPerPage=8, category_code=${productList.code_number})}"></a>
+                        </li>
+                    </th:block>
                 </ul>
             </li>
             <li><a href="/#pop">인기상품</a></li>
