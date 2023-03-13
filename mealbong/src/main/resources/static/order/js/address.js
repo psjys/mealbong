@@ -12,33 +12,34 @@ const adress_add_button = document.querySelector(".adress_add_button"),
     content_adress_box = content.querySelector(".content_adress_box"),
     content_adress = content.querySelector(".content_adress");
 
-adress_add_button.addEventListener('click', function () {
-    var width = 500;
-    var height = 600;
-
-    new daum.Postcode({
-        width: width,
-        height: height,
-        oncomplete: function (data) {
-            content_adress.innerHTML +=
-                `<div class="content_adress_box">
-                <div><input type="radio" name="adress_select"></div>
-        <div>
-        <span>${data.address}&nbsp;</span>
-        <span></span>
-        </div>
-        <div></div>
-        <div></div>
-        <div>
-        <button></button>
-        </div>
-</div>`
-        }
-    }).open({
-        left: (window.screen.width / 2) - (width / 2),
-        top: (window.screen.height / 2) - (height / 2)
-    });
-})
+// adress_add_button.addEventListener('click', function () {
+//     var width = 500;
+//     var height = 600;
+//
+//     new daum.Postcode({
+//         width: width,
+//         height: height,
+//         oncomplete: function (data) {
+//             $.ajax({
+//                 url: "/address/test",
+//                 type: "POST",
+//                 data: {
+//                     dely_zip: data.zonecode,
+//                     dely_address1: data.address,
+//                 },
+//                 success: function(data) {
+//                     console.log("성공");
+//                 },
+//                 error: function(xhr, status, error) {
+//                     console.error("실패", error);
+//                 }
+//             });
+//         }
+//     }).open({
+//         left: (window.screen.width / 2) - (width / 2),
+//         top: (window.screen.height / 2) - (height / 2)
+//     });
+// })
 
 let fixName;
 let fixCall;
@@ -74,3 +75,5 @@ fix_cancel.addEventListener('click', function () {
     addresOj.parentNode.parentNode.remove();
     address_fix_content.classList.add('hidden');
 })
+
+

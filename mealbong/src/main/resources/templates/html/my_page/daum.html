@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        openDaumPostcode()
+        {
+            const elementWrap = this.$refs.wrap
+// 현재 scroll 위치를 저장해놓는다.
+            const currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop)
+            new window.daum.Postcode({
+                oncomplete: (data) => {
+
+                    let addr = '' // 주소 변수
+
+                    if (data.userSelectedType === 'R') {
+                        addr = data.roadAddress
+                    } else {
+                        addr = data.jibunAddress
+                    }
+
+                    this.address = addr
+
+                    elementWrap.style.display = 'none'
+
+                    document.body.scrollTop = currentScroll
+                },
+                onresize: function (size) {
+                    elementWrap.style.height = size.height + 'px'
+                },
+                width: '100%',
+                height: '100%'
+            }).embed(elementWrap)
+            elementWrap.style.display = 'block'
+        }
+        foldDaumPostcode()
+        {
+            const elementWrap = this.$refs.wrap
+            elementWrap.style.display = 'none'
+        }
+    </script>
+
+</head>
+<body>
+<input type="text" class="addr1" id="address" placeholder="서울특별시 서초구 -" v-model="address" disabled>
+<button class="w-button3" @click="openDaumPostcode">주소 검색</button>
+<div ref="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+    <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap"
+         style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" @click="foldDaumPostcode" alt="접기 버튼">
+</div>
+
+
+</body>
+</html>
