@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: headFragment(~{::link})">
+    <link rel="stylesheet" href="../../../../admin/css/admin.css">
+</head>
+<body>
+<script defer src="../../../../admin/js/admin.js"></script>
+<script th:inline="javascript">
+    $(function () {
+        $('#searchType').change(function () {
+            if ($(this).val() == 'n') $('#keyword').val('');
+        }); //change
+
+        $('#user_search').click(function () {
+            self.location = '/admin/useradmin'
+                + '?currPage=1&rowsPerPage=10'
+                + '&searchType=' + $('#searchType').val()
+                + '&keyword=' + $('#keyword').val();
+        });
+    });
+</script>
+<th:block th:replace="fragments/header :: headerFragement"></th:block>
+<main>
+    <th:block th:replace="fragments/admin_aside :: adminFragment"></th:block>
+    <div class="content">
+        <div class="content_admin">
+            <div>
+                <h2>주문 상세</h2>
+                <hr>
+            </div>
+        </div>
+        <h4 th:text="${'주문번호 : ' + orderListDetail[0].order_number}"></h4>
+        <table class="content_inquiry" style="width: 100%">
+            <thead>
+            <tr>
+                <th>주문상세번호</th>
+                <th>상품번호</th>
+                <th>상품가격</th>
+                <th>수량</th>
+                <th>후기작성여부</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="orderListDetail: ${orderListDetail}">
+                <td th:text="${orderListDetail.order_detail_number}">주문상세번호</td>
+                <td th:text="${orderListDetail.product_number}">상품번호</td>
+                <td th:text="${orderListDetail.product_price}">상품가격</td>
+                <td th:text="${orderListDetail.product_count}">수량</td>
+                <td th:text="${orderListDetail.review_check}">후기작성여부</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<footer th:replace="fragments/footer :: footerFragment"></footer>
+</body>
+</html>

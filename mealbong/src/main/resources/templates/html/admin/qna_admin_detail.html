@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: headFragment(~{::link})">
+    <link rel="stylesheet" href="../../../../admin/css/admin.css">
+</head>
+<body>
+<script defer src="../../../../admin/js/admin.js"></script>
+
+<th:block th:replace="fragments/header :: headerFragement"></th:block>
+<main>
+    <th:block th:replace="fragments/admin_aside :: adminFragment"></th:block>
+    <div class="content">
+        <div class="content_admin">
+            <div>
+                <h2>게시판 관리</h2>
+            </div>
+            <ul class="board_header">
+                <li class="clickable" onclick="location.href='/admin/useradmin'">
+                    공지사항
+                </li>
+                <li class="clickable" onclick="location.href='/admin/useradmin'">
+                    FAQ
+                </li>
+                <li class="clickable" onclick="location.href='/admin/qnaadmin?searchType=n'">
+                    1:1 문의
+                </li>
+            </ul>
+        </div>
+        <div class="content_admin">
+            <div>
+                <h2>1:1 문의</h2>
+                <hr>
+            </div>
+        </div>
+        <ul class="content_inquiry" style="width: 100%">
+            <li th:each="qnaDetail : ${qnaDetail}">
+                <div th:value="${qnaDetail.getQna_num()}" style="display: none"></div>
+                <ul>
+                    <li>작성자(아이디)</li>
+                    <li th:text="${qnaDetail.user_name +'(' + qnaDetail.user_id + ')'}"></li>
+                </ul>
+                <ul>
+                    <li>카테고리</li>
+                    <li th:text="${qnaDetail.qna_type}"></li>
+                </ul>
+                <ul>
+                    <li>제목</li>
+                    <li th:text="${qnaDetail.qna_title}"></li>
+                </ul>
+                <ul>
+                    <li>작성일</li>
+                    <li th:text="${qnaDetail.qna_date}"></li>
+                </ul>
+                <ul>
+                    <li>문의 내용</li>
+                    <li th:text="${qnaDetail.qna_content}"></li>
+                </ul>
+                <ul th:if="${qnaDetail.ans_content != null}">
+                    <li>답변 내용</li>
+                    <li th:text="${qnaDetail.ans_content}"></li>
+                </ul>
+            </li>
+        </ul>
+        <!--        삭제 버튼 -->
+    </div>
+</main>
+
+<footer th:replace="fragments/footer :: footerFragment"></footer>
+</body>
+</html>
