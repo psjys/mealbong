@@ -48,7 +48,7 @@
                   </label>
                 </div>
                 <div class="box2">
-                  <input name="user_id" type="text" th:value="${user_detail.user_id}" readonly id="uid" class="inputstyle" placeholder="영문/숫자 조합 6자 이상" minlength="8"
+                  <input name="user_id" type="text" th:value="${user_detail.user_id}" readonly id="user_id" class="inputstyle" placeholder="영문/숫자 조합 6자 이상" minlength="8"
                   >
                 </div>
               </div>
@@ -181,7 +181,7 @@
                   성별
                 </label>
               </div>
-              <div class="box2 gender">
+              <div class="box2 gender" id="gender_div">
                 <input type="radio" class="genderinput" name="user_gender" id="man" value="male">
                 <label for="man" name="gender" class="genderlabel2">남자</label>
                 <input type="radio" class="genderinput" name="user_gender" id="woman" value="female">
@@ -209,7 +209,7 @@
 
     </fieldset>
     <div class="buttonBox">
-      <button class="update_submit">테스트</button>
+      <button class="update_submit">수정</button>
       <button class="delete_btn" type="button"> 탈퇴하기</button>
       <button type="button" class="button_submit update_btn">
         회원정보수정
@@ -233,6 +233,7 @@
   </div>
 
   </div>
+<!--  <button id="test_btn">테스트</button>-->
 </main>
 
 <!-- footer : 법적 필수 항목 -->

@@ -43,10 +43,10 @@
 
                         </div>
 
-                        <div class="btn_addBox">
-                            <button type="button" class="btn_minus btn_add"></button>
+                        <div class="btn_addBox" id="cNum_div" th:value="${cart_list.cart_number}">
+                            <button type="button" class="btn_minus btn_add" value="cart_minus"></button>
                             <button type="button" th:text="${cart_list.product_count}" class="btn_addSpan">1</button>
-                            <button type="button" class="btn_plus btn_add"></button>
+                            <button type="button" class="btn_plus btn_add" value="cart_plus"></button>
                         </div>
 
                         <div class="div1_priceBox">
@@ -118,6 +118,7 @@
         </div>
 
     </div>
+    <button><a href="/order/order_list?currPage=1&rowsPerPage=8">주문목록</a></button>
 
     <div class="modal_container hidden">
         <div class="bg"></div>
@@ -134,7 +135,7 @@
 
 </main>
 <!--<button id="test_btn">테스트</button>-->
-<form action="/order/order_test" method="post" id="order_form">
+<form action="/order/order_form" method="post" id="order_form">
     <input id="total_value" th:value="${total2 + fee}" name="total" type="hidden">
 </form>
 

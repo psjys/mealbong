@@ -2,6 +2,8 @@ package com.project.mealbong.order;
 
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
 public class OrderDetailMapperDTO {
     private int order_detail_number;
@@ -11,8 +13,9 @@ public class OrderDetailMapperDTO {
     private int product_count;
     private int product_price;
     private int price_total;
-
+    private int order_amount;
     private String review_check;
     private String image_file;
     private String payment;
+    private LocalDate order_date;
 }

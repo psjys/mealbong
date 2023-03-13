@@ -13,4 +13,9 @@ public class OrderMapperDTO {
     private int order_amount;
     private String order_status;
     private String payment;
+    private int order_count;
+    private String product_name;
+    private String image_file;
+    private int sno;
+    private int rowsPerPage;
 }

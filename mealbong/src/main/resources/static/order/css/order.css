@@ -11,7 +11,7 @@
 
 .cart_container {
     width: 1000px;
-    height: 1600px;
+    /*height: 1250px;*/
     margin: 0 auto;
     text-align: center;
     display: flex;
@@ -364,6 +364,7 @@
     align-items : center;
     justify-content : center;
     border-radius: 5px;
+    margin-bottom : 100px;
 
     width : 250px;
     height : 45px;

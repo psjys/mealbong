@@ -3,6 +3,7 @@
 const main = document.querySelector('main'),
     upw = document.getElementById('upw'),
     upw2 = document.getElementById('upw2'),
+    user_id = document.getElementById('user_id'),
     phone_num = document.getElementById('phone_num'),
     emailCheck = main.querySelector('.emailCheck'),
     phoneCheck = main.querySelector('.phoneCheck'),
@@ -20,7 +21,9 @@ const main = document.querySelector('main'),
     delete_submit = document.querySelector('.delete_submit'),
     update_submit = document.querySelector('.update_submit'),
     user_email = document.getElementById('user_email'),
-    user_phone = document.getElementById('user_phone');
+    user_phone = document.getElementById('user_phone'),
+    // test_btn = document.getElementById('test_btn'),
+    gender_div = document.getElementById('gender_div');
 
    let userZip = main.querySelector('.userZip');
    let user_email_val = user_email.value;
@@ -300,10 +303,10 @@ function pw_check(type) {
                 if(type == "delete") {
                 delete_submit.click();
                 } else if(type == "update") {
-                    console.log("왓")
                     if(upw.value == "" && upw2.value == "") {
                         if(emailCheck.getAttribute("value") == "Y" && phoneCheck.getAttribute("value") == "Y") {
-                        update_submit.click();
+                        // update_submit.click();
+                            user_update();
                         } else {
                             modal_f("중복확인 해주세요");
                         }
@@ -311,7 +314,8 @@ function pw_check(type) {
                     } else {
                         if(upw.value.length >5 && upw.value == upw2.value) {
                             if(emailCheck.getAttribute("value") == "Y" && phoneCheck.getAttribute("value") == "Y") {
-                                update_submit.click();
+                                // update_submit.click();
+                                user_update();
                             } else {
                                 modal_f("중복확인 해주세요");
                             }
@@ -330,6 +334,40 @@ function pw_check(type) {
         }
     });
 }
+let user_gender = "unselected";
+gender_div.addEventListener('click',(e)=>{
+    let pick = e.target;
+    // console.log(user_id.value);
+    if(pick.classList.contains("genderinput")) {
+        user_gender = pick.value;
+    }
+});
+
+function user_update() {
+    // type: "POST",
+    //     dataType : "JSON",
+    //     data : {"user_password" : $(user_password3).val()},
+    // success : function (data) {
+    $.ajax({
+        url:"/user1",
+        type : "PUT",
+        data : {
+                "user_id" : $(user_id).val(),
+                "user_password" : $(upw).val(),
+                "user_name" : $(uname).val() ,
+                "user_email" : $(user_email).val(),
+                "user_phone" : $(user_phone).val(),
+                "user_gender" : user_gender
+        },
+        success : function () {
+            self.location.href='/';
+        }
+    });
+}
+
+// test_btn.addEventListener('click',() =>{
+//     user_update();
+// });
 
 function check_func(zz,iff) {
     if (!iff) {

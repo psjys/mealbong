@@ -12,4 +12,5 @@ public class CartMapperDTO {
     private int price_total;
     private String product_name;
     private String image_file;
+    private int dir;
 }

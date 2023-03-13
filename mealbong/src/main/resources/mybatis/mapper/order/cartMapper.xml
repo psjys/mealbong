@@ -20,11 +20,20 @@
             cart_number = #{cart_number}
     </select>
 
+<!--    <update id="cart_update">-->
+<!--        update cart set product_count=#{product_count} where cart_number = #{cart_number}-->
+<!--    </update>-->
     <update id="cart_update">
-        update cart set product_count=#{product_count} where cart_number = #{cart_number}
+        update cart set product_count=product_count <if test="dir == 1"> + 1</if>
+                    <if test="dir == 0"> - 1</if>
+  where cart_number = #{cart_number}
     </update>
 
     <delete id="cart_delete">
         delete from cart where cart_number = #{cart_number}
     </delete>
+
+<!--    <update id="cart_count">-->
+<!--        update cart set product_count = product_count + 1 where cart_number = 7;-->
+<!--    </update>-->
 </mapper>

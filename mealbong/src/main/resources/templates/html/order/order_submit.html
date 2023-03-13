@@ -19,9 +19,11 @@
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
 
     <main>
-        <div class="login_frame">
+        <div class="login_frame2">
             <div class="login_text">결제 완료</div>
             <div class="loginForm">
+                <form action="/order/detail" method="get">
+
                     <div class="order_div">
                         <div class="login-id_order">
                             <span th:text="${user_name}"></span>님의 주문이 완료 되었습니다.
@@ -38,10 +40,11 @@
                            <span><span th:text="${total}">52,000</span>원</span>
                         </div>
                     </div>
-
+                    <input type="hidden" name="order_number" th:value="${order_number}">
                     <button class="login_button">
                           주문 상세보기
                     </button>
+                </form>
 
                 <div class="account_button">
                     <a href="/" class="button_a">쇼핑 계속하기</a>

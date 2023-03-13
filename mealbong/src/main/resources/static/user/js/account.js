@@ -17,12 +17,16 @@ const main = document.querySelector('main'),
     addressbutton = document.querySelector('.addressbutton'),
     account_p = main.querySelector('.account_p'),
     account_p2 = main.querySelector('.account_p2'),
-    address_input = document.getElementById('address_input'),
+    user_zip = document.getElementById('user_zip'),
+    user_address1 = document.getElementById('user_address1'),
+    user_address2 = document.getElementById('user_address2'),
     pwCheck = main.querySelector('.pwCheck'),
     user_password3 = document.getElementById('user_password3'),
-    user_birth = document.getElementById('user_birth');
+    user_birth = document.getElementById('user_birth'),
+    gender_div = document.getElementById('gender_div'),
+    btn_test = document.getElementById('btn_test');
 
-   let userZip = main.querySelector('.userZip');
+   // let userZip = main.querySelector('.userZip');
 
 
 // ======모달참조
@@ -179,7 +183,7 @@ let clr1,clr2,clr3;
 button_submit.addEventListener('click', () => {
    // const clrCheck = clr1 ==true && clr2 == true && clr3 == true;
 
-    userZip = +userZip;
+    //userZip = +userZip;
     //if(clrCheck && upw.value == upw2.value && uname.value != "" && address_input.value != "") {
 
     // if(clrCheck && upw.value == upw2.value && uname.value != "" && address_input.value != "") {
@@ -191,7 +195,7 @@ button_submit.addEventListener('click', () => {
     if(upw.value != upw2.value) {
         modal_f("6자이상 동일 비밀번호 입력");
     }else{
-        if(user_birth.value == "") {
+        if(user_birth.value == "" || uname.value == "") {
             modal_f("양식을 확인해주세요");
         } else {
 
@@ -204,6 +208,56 @@ button_submit.addEventListener('click', () => {
         }
     }
 });
+let user_gender = "unselected";
+gender_div.addEventListener('click',(e)=>{
+    let pick = e.target;
+    // console.log(user_id.value);
+    if(pick.classList.contains("genderinput")) {
+        user_gender = pick.value;
+    }
+});
+
+
+
+// $.ajax({
+//     url: "/user1/id_check",
+//     type: "POST",
+//     dataType : "JSON",
+//     data : {"user_id" : $(user_id).val()},
+//     success : function (data) {
+//         if(data == 1) {
+//             modal_f("중복된 아이디 입니다.");
+//         } else if (data == 0) {
+//             modal_f("사용 가능한 아이디 입니다.");
+//             idCheck.classList.add('button_opacity');
+//             idCheck.style.cursor = "default";
+//             idCheck.setAttribute('disabled', '');
+//             user_id.setAttribute('readonly','');
+//             $(idCheck).attr("value","Y");
+//         }
+//     }
+// });
+
+// user_id = document.getElementById('user_id'),
+//     idCheck = main.querySelector('.idCheck'),
+//     emailCheck = main.querySelector('.emailCheck'),
+//     upw = document.getElementById('upw'),
+//     upw2 = document.getElementById('upw2'),
+//     user_email = document.getElementById('user_email'),
+//     phoneCheck = main.querySelector('.phoneCheck'),
+//     user_phone = document.getElementById('user_phone'),
+//     phone_num = document.getElementById('phone_num'),
+//     checkBtn4 = main.querySelector('.checkBtn4'),
+//     Btn4_box = main.querySelector('.Btn4_box'),
+//     button_submit = main.querySelector('.button_submit'),
+//     uname = document.getElementById('uname'),
+//     addressbutton = document.querySelector('.addressbutton'),
+//     account_p = main.querySelector('.account_p'),
+//     account_p2 = main.querySelector('.account_p2'),
+//     address_input = document.getElementById('address_input'),
+//     pwCheck = main.querySelector('.pwCheck'),
+//     user_password3 = document.getElementById('user_password3'),
+//     user_birth = document.getElementById('user_birth');
 
 // // =======주소검색
 //
@@ -245,6 +299,34 @@ bg.addEventListener('click', close);
 
 
 //=================추가
+function account_create() {
+    $.ajax({
+        url: "/user1",
+        type : "POST",
+        dataType : "JSON",
+        data : {"user_id" : $(user_id).val(),
+                "user_password" : $(upw).val(),
+                "user_name" :$(uname).val(),
+                "user_email" : $(user_email).val(),
+                "user_phone" : $(user_phone).val(),
+                "user_gender" : user_gender,
+                "user_address1" : $(user_address1).val(),
+                "user_address2" : $(user_address2).val(),
+                "user_zip" : $(user_zip).val(),
+                "user_birth" : $(user_birth).val()
+        },
+        success : function (data) {
+            console.log("ㅎㅇ" + data);
+        },
+        error : function () {
+            console.log("에러");
+        }
+    });
+}
+
+btn_test.addEventListener('click',()=>{
+   account_create();
+});
 function id_check() {
     $.ajax({
         url: "/user1/id_check",

@@ -238,6 +238,13 @@ nav ul li:nth-child(4):hover .submenu2 {
     margin-bottom: 40px;
 }
 
+.login_frame2 {
+    min-width: 1050px;
+    height: 800px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
 .loginForm {
     width: 355px;
     height: 350px;
@@ -496,12 +503,12 @@ nav ul li:nth-child(4):hover .submenu2 {
 
 /* ==========================================회원가입 submit================================ */
 
-.loginform_account {
+.loginForm_account {
     width: 355px;
     margin: 0px auto;
 }
 
-.loginframe_account {
+.loginFrame_account {
     min-width: 1050px;
     height: 350px;
     margin-top: 80px;

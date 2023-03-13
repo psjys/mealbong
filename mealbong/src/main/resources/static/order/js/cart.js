@@ -20,7 +20,8 @@ const main = document.querySelector('main'),
     test_btn = document.getElementById('test_btn'),
     test_btn2 = document.getElementById('test_btn2'),
     order_form = document.getElementById('order_form'),
-    total_value = document.getElementById('total_value');
+    total_value = document.getElementById('total_value'),
+    cNum_div = document.getElementById('cNum_div');
 
 
 // setTimeout(()=>{
@@ -99,11 +100,30 @@ btn_addSpan[0].dataset.idx = 1;
 let cnt = 0;
 let value, tot, tot2, idx, val;
 
+function cart_update(dir,cart_number) {
+    $.ajax({
+        url:"/order/cart_update",
+        type: "POST",
+        data: {"dir" : dir,
+                "cart_number" : cart_number},
+        success: function(data) {
+            console.log(data);
+        }
+    });
+
+}
+
 cart_div1.addEventListener('click', (e) => {
     const pick = e.target;
+    let dir = 0,
+        cart_number = 0;
     idx = e.target.parentNode.dataset.idx;
     if (pick.closest('button')) {
+            cart_number = pick.parentNode.getAttribute("value");
+        console.log(cart_number);
         if (pick.classList.contains('btn_plus')) {
+            dir = 1;
+            cart_update(dir,cart_number);
             setTimeout(() => {
 
                 if (+btn_addSpan[idx].textContent > 1) {
@@ -130,7 +150,9 @@ cart_div1.addEventListener('click', (e) => {
 
             // console.log(e.target)
         }
-        else {
+        if (pick.classList.contains('btn_minus')) {
+            dir = 0;
+            cart_update(dir,cart_number);
             setTimeout(() => {
 
                 if (+btn_addSpan[idx].textContent > 1) {

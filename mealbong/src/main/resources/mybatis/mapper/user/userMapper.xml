@@ -35,7 +35,6 @@
 
     <update id="user_update">
         update user set user_password=#{user_password},user_name=#{user_name}, user_email=#{user_email},user_phone=#{user_phone},
-    user_zip=#{user_zip},
     user_gender=#{user_gender} where user_id = #{user_id}
     </update>
 
