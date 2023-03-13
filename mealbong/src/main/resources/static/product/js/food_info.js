@@ -1,3 +1,5 @@
+'use strict';
+
 /* =====================좋아요 및 장바구니 modal box==================== */
 /* 로그인 하기 전 */
 
@@ -111,8 +113,10 @@ SNS.addEventListener('click', function (e) {
 // 상품 수량에 따라 가격 바뀌게
 
 const amount = innerbox2.querySelector('input'),
-    total_amount = innerbox2.querySelector('#total_amount');
+      total_amount = innerbox2.querySelector('#total_amount'),
+      product_price = innerbox2.querySelector('.product_price');
 
 amount.addEventListener('click', function (e) {
-    total_amount.children[1].textContent = `${e.target.value * 1}0,000`;
+console.log(total_amount.children[1].textContent);
+    total_amount.children[1].textContent = `${e.target.value * product_price.childNodes[1].textContent / 1000},000`;
 })

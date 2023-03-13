@@ -17,4 +17,5 @@ public class ProductDTO {
     private String image_file;
     private String code_number;
     private String code_desc;
+    private int product_count;
 }

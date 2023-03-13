@@ -9,11 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../../../common/css/mainPage.css">
     <link rel="stylesheet" href="../../../product/css/food_info.css">
-    <script defer src="../common/js/main_topbutton.js"/>
     <script defer src="../../../product/js/food_info.js"></script>
-    <script defer src="../../../common/js/main_topDiv.js"></script>
+    <script defer src="../common/js/main_topbutton.js"/>
+<!--    <script defer src="../../../common/js/main_topDiv.js"></script>-->
     <script src="https://kit.fontawesome.com/219136e9eb.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -28,7 +29,7 @@
         <div>샛별배송</div>
         <div>
             <h2 th:text="${productDetail.product_name}  "></h2>
-            <button id="share"><i class="fa fa-share-alt fa-2x"></i></button>
+            <button id="share"></button>
         </div>
         <div>취향대로 맛있게 완성하는</div>
         <div>
@@ -66,7 +67,7 @@
                     <div>
                         <div><input type="number" name="quantity" min="0" max="100" value="0"
                                     class="div1_inputNumber"></div>
-                        <div>
+                        <div class="product_price">
                             <h3 th:text="${productDetail.product_price}"></h3>
                         </div>
                     </div>
@@ -104,8 +105,8 @@
     <div id="food_info" th:each="imageList:${imageList}">
         <th:block th:if="${imageList.image_main} == 'N'">
             <img th:src="${imageList.image_file}" alt="food_detail1">
-        </th:block>
     </div>
+        </th:block>
     <div id="food_delivery">
         <img src="https://www.mychef.kr/data/editor/policy/220609/about_mychef_01_120136.jpg" name="food_delivery"
              alt="food_detail2">

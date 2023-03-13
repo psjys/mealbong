@@ -90,6 +90,10 @@
     height: 40px;
     background-color: white;
     cursor: pointer;
+    background-image:url(../../../image/share1.png);
+    background-position: center;
+    background-size: 65%;
+    background-repeat: no-repeat;
 }
 
 .innerbox2 dl {
@@ -197,13 +201,13 @@
 /* ==========================total_amount========================= */
 
 #total_amount span:nth-child(2) {
-    font-size: 32px;
+    font-size: 27px;
     color: black;
     font-weight: bold;
 }
 
 #total_amount span:nth-child(3) {
-    font-size: 20px;
+    font-size: 18px;
     color: black;
     font-weight: bold;
 }
@@ -231,7 +235,7 @@
 
 #btn_box .basket {
     cursor: pointer;
-    width: 280px;
+    width: 150px;
     background-color: lightsalmon;
     color: white;
     border: none;
