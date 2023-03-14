@@ -27,6 +27,7 @@ public class ProductService {
     return productList;
     }
 
+    // 상품 상세
     public ProductDTO productDetail(int product_number){
      //   List<ProductDTO> productDetail = new ArrayList<ProductDTO>();
 

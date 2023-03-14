@@ -1,5 +1,6 @@
 package com.project.mealbong.order;
 
+import com.project.mealbong.product.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,4 +35,10 @@ public class CartServiceImpl implements CartService {
     public CartMapperDTO cart_order(int cart_number) {
         return cartMapper.cart_order(cart_number);
     }
+
+    @Override
+    public void wish_insert(ProductDTO productDTO){ cartMapper.wish_insert(productDTO);}
+
+    @Override
+    public void cart_insert(ProductDTO productDTO){ cartMapper.cart_insert(productDTO);}
 }

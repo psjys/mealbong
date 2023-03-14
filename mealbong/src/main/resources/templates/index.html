@@ -397,7 +397,7 @@
     </div>
 
 
-    <!-- =========== 장바구니 모달창 (로그인 하기 전) =========== -->
+    <!-- =========== 장바구니 모달창 (로그인 전) =========== -->
 
     <th:block th:if="${session['user_id'] == null}">
         <div class="modal_container hidden">
@@ -412,9 +412,9 @@
             </div>
         </div>
     </th:block>
-    <!-- =========== 장바구니 모달창 (로그인 하기 전) =========== -->
+    <!-- =========== 장바구니 모달창 (로그인 후) =========== -->
 
-    <th:block th:if="${session['user_id'] == null}">
+    <th:block th:if="${session['user_id'] != null}">
         <div class="modal_container hidden">
             <div class="bg"></div>
             <div class="modalBox">

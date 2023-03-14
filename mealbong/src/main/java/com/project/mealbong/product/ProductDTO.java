@@ -18,4 +18,5 @@ public class ProductDTO {
     private String code_number;
     private String code_desc;
     private int product_count;
+    private String user_id;
 }

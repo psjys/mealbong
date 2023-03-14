@@ -57,7 +57,7 @@
 
     <!-- 상품 상세 -->
     <select id="productDetail" resultType="com.project.mealbong.product.ProductDTO">
-        select product_name, product_price, product_serving,
+        select product_number, product_name, product_price, product_serving,
         (select code_desc from code c where p.package_code = c.code_number)package_code,
         (select code_desc from code c where p.level_code = c.code_number)level_code
         from product p
@@ -72,6 +72,7 @@
         values (#{category_code}, #{product_name}, #{product_price}, #{level_code}
         , #{product_serving}, #{package_code})
     </insert>
+
     <!-- 상품 수정 위한 detail -->
     <select id="detail" resultType="com.project.mealbong.product.ProductDTO">
         select *

@@ -65,8 +65,13 @@
                 <div>
                     <div th:text="${productDetail.product_name}"></div>
                     <div>
-                        <div><input type="number" name="quantity" min="0" max="100" value="0"
+                            <form th:action="@{/order/cartInsert}">
+                        <div>
+                            <input type="number" id="product_count" name="product_count" min="0" max="100" value="0"
                                     class="div1_inputNumber"></div>
+                             <input type="hidden" id="product_number" name="product_number" th:value="${productDetail.product_number}">
+                                <button>장바구니 담기</button>
+                            </form>
                         <div class="product_price">
                             <h3 th:text="${productDetail.product_price}"></h3>
                         </div>
@@ -81,7 +86,10 @@
                 <span>원</span>
             </div>
             <div id=btn_box>
-                <button class="wish"></button>
+                <form th:action="@{/order/wishInsert}">
+                    <input type="hidden" name="product_number" th:value="${productDetail.product_number}">
+                    <button class="wish"></button>
+                </form>
                 <button class="basket">장바구니 담기</button>
             </div>
         </div>
@@ -149,19 +157,35 @@
     <a href="#"><img src="../../../image/topbutton.png" title="위로 가기"></a>
 </div>
 
-<!-- ===========장바구니 및 좋아요 모달창 (로그인 하기 전)=========== -->
-
+<!-- ===========장바구니 및 좋아요 모달창 (로그인 전)=========== -->
+<th:block th:if="${session['user_id'] == null}">\
 <div class="modal_container hidden">
     <div class="bg"></div>
-    <div class="modalBox">
-        <p></p>
-        <div class="closeBtn_div">
-            <form action="../../login/login.html">
-                <button class="closeBtn">확인</button>
-            </form>
+        <div class="modalBox">
+            <p></p>
+            <div class="closeBtn_div">
+                <form action="/user1/login">
+                    <button class="closeBtn">확인</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+</th:block>
+
+<!-- =========== 장바구니 모달창 (로그인 후) =========== -->
+<!--<th:block th:if="${session['user_id'] != null}">\-->
+<!--    <div class="modal_container hidden">-->
+<!--        <div class="bg"></div>-->
+<!--        <div class="modalBox">-->
+<!--            <p></p>-->
+<!--            <div class="closeBtn_div">-->
+<!--                <form action="/user1/login">-->
+<!--                    <button class="closeBtn">Test</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</th:block>-->
 
 <!-- =========== SNS Share =========== -->
 

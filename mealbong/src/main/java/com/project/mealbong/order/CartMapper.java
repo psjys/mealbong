@@ -1,5 +1,6 @@
 package com.project.mealbong.order;
 
+import com.project.mealbong.product.ProductDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface CartMapper {
 
     CartMapperDTO cart_order(int cart_number);
 
+    void wish_insert(ProductDTO productDTO);
+    void cart_insert(ProductDTO productDTO);
 }

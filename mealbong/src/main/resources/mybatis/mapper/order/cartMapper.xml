@@ -36,4 +36,14 @@
 <!--    <update id="cart_count">-->
 <!--        update cart set product_count = product_count + 1 where cart_number = 7;-->
 <!--    </update>-->
+
+    <insert id="wish_insert">
+        insert into wish(user_id,product_number) values
+        (#{user_id},#{product_number});
+    </insert>
+
+    <insert id="cart_insert">
+        insert into cart(user_id,product_number,product_count) values
+        (#{user_id},#{product_number},#{product_count});
+    </insert>
 </mapper>

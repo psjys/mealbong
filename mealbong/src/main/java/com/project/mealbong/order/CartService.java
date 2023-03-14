@@ -1,5 +1,7 @@
 package com.project.mealbong.order;
 
+import com.project.mealbong.product.ProductDTO;
+
 import java.util.List;
 
 
@@ -12,4 +14,7 @@ public interface CartService {
     int cart_delete(int cart_number);
 
     CartMapperDTO cart_order(int cart_number);
+
+    void wish_insert(ProductDTO productDTO);
+    void cart_insert(ProductDTO productDTO);
 }
