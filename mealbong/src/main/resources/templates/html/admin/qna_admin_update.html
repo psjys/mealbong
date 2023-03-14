@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<head th:replace="fragments/head :: headFragment(~{::link})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common/css/mainPage.css">
     <link rel="stylesheet" href="../../../../board/css/qna.css">
-    <script defer src="../../../../user/js/inquiry.js"></script>
+
+    <script src="../common/js/jquery-3.2.1.min.js"></script>
+
     <script defer src="../../../../board/js/qna.js"></script>
+    <title> 밀키트 쇼핑몰 :: Meal Bong </title>
 </head>
 
 <body>
@@ -16,13 +22,29 @@
                 <h2>관리자 페이지</h2>
             </div>
             <ul class="aTag">
-                <li><a th:href="@{/admin/useradmin(searchType='user')}" class="clickable">회원관리</a></li>
-                <li><a href="/" class="clickable">주문관리</a></li>
-                <li><a th:href="@{/admin/productadmin(searchType='product')}" class="clickable">상품관리</a></li>
-                <li><a th:href="@{/admin/qnaadmin(searchType='n')}" class="clickable">게시판관리</a></li>
+                <li><a href="/admin/useradmin">회원관리</a></li>
+                <li><a href="/admin/orderadmin">주문관리</a></li>
+                <li><a href="/admin/productadmin">상품관리</a></li>
+                <li class="click"><a th:href="@{/admin/qnaadmin(searchType='n')}">게시판관리</a></li>
             </ul>
         </div>
         <div class="content">
+            <div class="content_admin">
+                <div>
+                    <h2>게시판 관리</h2>
+                </div>
+                <ul class="board_header">
+                    <li onclick="location.href='/admin/useradmin'">
+                        공지사항
+                    </li>
+                    <li onclick="location.href='/admin/useradmin'">
+                        FAQ
+                    </li>
+                    <li class="click" onclick="location.href='/admin/qnaadmin?searchType=n'">
+                        1:1 문의
+                    </li>
+                </ul>
+            </div>
             <div class="content_1">
                 <div>
                     <h2>1:1 문의</h2>
@@ -41,7 +63,8 @@
                             <option th:selected="${qnaList.qna_type}=='F_03'" value="F_03">주문/결제</option>
                             <option th:selected="${qnaList.qna_type}=='F_04'" value="F_04">회원정보</option>
                             <option th:selected="${qnaList.qna_type}=='F_05'" value="F_05">사이트 이용</option>
-                            <option th:selected="${qnaList.qna_type}=='F_06'" value="F_06">기타</option>
+                            <option th:selected="${qnaList.qna_type}=='F_06'" value="F_06">이벤트</option>
+                            <option th:selected="${qnaList.qna_type}=='F_07'" value="F_07">기타</option>
                         </select>
                     </div>
                     <div>

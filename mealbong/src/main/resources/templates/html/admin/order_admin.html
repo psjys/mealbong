@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: headFragment(~{::link})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common/css/mainPage.css">
     <link rel="stylesheet" href="../../../../admin/css/admin.css">
+    <link rel="stylesheet" href="../../../../common/css/modal.css">
+    <link rel="stylesheet" href="../../../order/css/cart.css">
+
+    <script src="../common/js/jquery-3.2.1.min.js"></script>
+    <script defer src="../../../../admin/js/order_delete.js"></script>
+    <title> 밀키트 쇼핑몰 :: Meal Bong </title>
 </head>
+
 <body>
-<script defer src="../../../../admin/js/admin.js"></script>
+
 <script th:inline="javascript">
     $(function(){
         $('#searchType').change(function(){
@@ -21,7 +32,17 @@
 </script>
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
 <main>
-    <th:block th:replace="fragments/admin_aside :: adminFragment"></th:block>
+    <div class="admin_aside">
+        <div class="admin_name">
+            <h2>관리자 페이지</h2>
+        </div>
+        <ul class="aTag">
+            <li><a href="/admin/useradmin">회원관리</a></li>
+            <li class="click"><a href="/admin/orderadmin">주문관리</a></li>
+            <li><a href="/admin/productadmin">상품관리</a></li>
+            <li><a th:href="@{/admin/qnaadmin(searchType='n')}">게시판관리</a></li>
+        </ul>
+    </div>
     <div class="content">
         <div class="content_admin">
             <div>
@@ -56,18 +77,17 @@
             </thead>
             <tbody>
             <tr th:each="orderList: ${orderList}">
-                <td>
+                <td class="width_20">
                  <a th:href="@{/admin/orderdetail(order_number=${orderList.order_number})}" th:text="${orderList.order_number}"></a>
                 </td>
-                <td th:text="${orderList.user_id}">아이디</td>
-                <td th:text="${orderList.order_date}">주문일자</td>
-                <td th:text="${orderList.order_amount + '원'}">주문금액</td>
-                <td th:text="${orderList.order_status}">주문상태</td>
-                <td th:text="${orderList.payment}">
+                <td th:text="${orderList.user_id}" class="width_20">아이디</td>
+                <td th:text="${orderList.order_date}" class="width_15">주문일자</td>
+                <td th:text="${orderList.order_amount + '원'}" class="width_15">주문금액</td>
+                <td th:text="${orderList.order_status}" class="width_10">주문상태</td>
+                <td th:text="${orderList.payment}" class="width_10">
                     결제수단</td>
-                <td>
-                    <a th:href="@{/admin/orderdelete(order_number=${orderList.order_number})}" style="color: black; text-decoration: none;">
-                        취소</a>
+                <td th:onclick="user_deleteClick([[${orderList.order_number}]])"
+                    style="cursor: pointer;" class="width_10">삭제
                 </td>
             </tr>
             </tbody>
@@ -104,5 +124,19 @@
 </main>
 
 <footer th:replace="fragments/footer :: footerFragment"></footer>
+<div class="mainModal hidden">
+    <div class="bg"></div>
+    <div class="modalBox">
+        <p>주문을 삭제 하시겠습니까?</p>
+        <div class="closeBtn_div">
+            <div class="modal_zz">
+                <button class="closeBtn">취소</button>
+                <button class="closeBtn">확인</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>

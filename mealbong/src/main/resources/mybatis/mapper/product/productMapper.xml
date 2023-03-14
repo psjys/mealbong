@@ -95,10 +95,11 @@
 
 <!--    admin page -->
     <select id="productAdmin" resultType="com.project.mealbong.product.ProductDTO">
-        select p.product_number, p.product_name, p.product_price, p.category_code,p.package_code,
-               p.product_serving, p.level_code, i.image_file
-        from product p, image i
-        where p.product_number = i.product_number
+        select *,
+               (select code_desc from code c where p.package_code = c.code_number)package_code,
+               (select code_desc from code c where p.level_code = c.code_number) level_code
+        from product p
+        where product_number = #{product_number}
     </select>
 
 
@@ -139,10 +140,14 @@
     </sql>
 
     <select id="searchList" resultType="com.project.mealbong.product.ProductDTO">
-        select *
-        from product
-        where ( product_number>0 <include refid="search"></include>
-        order by product_number desc
+        select p.product_number, p.product_name, p.product_price , p.product_serving,
+        (select code_desc from code c where p.package_code = c.code_number)package_code,
+        (select code_desc from code c where p.level_code = c.code_number)level_code,
+        (select code_desc from code c where p.category_code = c.code_number)category_code
+        from product p
+        where ( p.product_number>0
+        <include refid="search"></include>
+        order by p.product_number desc
         limit #{sno}, #{rowsPerPage}
     </select>
 
@@ -155,7 +160,7 @@
     <select id="searchPage" resultType="com.project.mealbong.product.ProductDTO">
         select p.product_number, p.product_name, p.product_price, i.image_file
         from product p left outer join image i
-                                       on p.product_number = i.product_number
+        on p.product_number = i.product_number and i.image_main = "Y"
         where p.product_name like '%' #{keyword} '%';
     </select>
 
@@ -165,13 +170,13 @@
     <select id="popList" resultType="com.project.mealbong.product.ProductDTO">
         select p.product_number, p.product_name, p.product_price, i.image_file
         from product p left outer join image i
-                                       on p.product_number = i.product_number and i.image_main = "Y"
+        on p.product_number = i.product_number and i.image_main = "Y"
     </select>
     <!--    오늘의 추천, 이런건 어때요?-->
     <select id="randomList" resultType="com.project.mealbong.product.ProductDTO">
         select p.product_number, p.product_name, p.product_price, i.image_file
         from product p left outer join image i
-                                       on p.product_number = i.product_number and i.image_main = "Y"
+        on p.product_number = i.product_number and i.image_main = "Y"
 
         Order by rand()
             Limit 32
@@ -180,7 +185,7 @@
     <select id="newList" resultType="com.project.mealbong.product.ProductDTO">
         select p.product_number, p.product_name, p.product_price, i.image_file
         from product p left outer join image i
-                                       on p.product_number = i.product_number and i.image_main = "Y"
+        on p.product_number = i.product_number and i.image_main = "Y"
         order by product_number desc
     </select>
 

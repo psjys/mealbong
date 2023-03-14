@@ -2,16 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <th:block th:fragment="headerFragement">
     <header>
-        <div class="space">
+<!--        <div class="space">-->
 
-            <a href="/user1/terms">
-                지금 가입하고 적립금 <b>10,000원</b> 받아가세요!
-            </a>
-            <a class="space-close">
-                <img src="../../image/closeBtn.png">
-            </a>
+<!--            <a href="/user1/terms">-->
+<!--                지금 가입하고 적립금 <b>10,000원</b> 받아가세요!-->
+<!--            </a>-->
+<!--            <a class="space-close">-->
+<!--                <img src="../../image/closeBtn.png">-->
+<!--            </a>-->
 
-        </div>
+<!--        </div>-->
         <ul class="login">
             <th:block th:if="${session['user_id'] == null}">
                 <li><a href="/user1/terms">회원가입</a></li>
@@ -69,11 +69,10 @@
             </li>
             <li><a href="/#pop">인기상품</a></li>
             <li><a href="/#recommend">오늘의 추천</a></li>
-            <li><a href="../html/service_page/notice.html">고객센터</a>
+            <li><a href="/notice/list">고객센터</a>
                 <ul class="submenu2">
-                    <li><a href="../html/service_page/notice.html">공지사항</a></li>
-                    <li><a href="../html/service_page/faq.html">자주하는 질문</a></li>
-<!--                    <li><a th:href="@{qna/qnalist(currPage=1, rowsPerPage=10)}">1:1 문의</a></li>-->
+                    <li><a href="/notice/list">공지사항</a></li>
+                    <li><a th:href="@{/faq/list(faq_code=ALL)}">자주하는 질문</a></li>
                     <li><a href="/qna/qnalist">1:1 문의</a></li>
                 </ul>
             </li>

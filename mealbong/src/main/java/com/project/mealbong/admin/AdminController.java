@@ -108,6 +108,7 @@ public class AdminController {
 
         return mv;
     }
+
     @GetMapping("/qnadetail")
     public String qna_detail (@RequestParam("qna_num") int qna_num, Model model, QnaDTO dto) {
         dto.setQna_num(qna_num);
@@ -141,8 +142,9 @@ public class AdminController {
         return uri;
     }
 
-    @GetMapping("/ansdelete")
-    public String ans_delete(QnaDTO dto) {
+    @PostMapping("/ansdelete")
+    public String ans_delete(@RequestParam("qna_num") int qna_num, QnaDTO dto) {
+        dto.setQna_num(qna_num);
         qnaService.adelete(dto);
         return "redirect:/admin/qnaadmin";
     }

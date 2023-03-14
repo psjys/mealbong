@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/head :: headFragment(~{::link})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common/css/mainPage.css">
     <link rel="stylesheet" href="../../../../board/css/qna.css">
-    <script defer src="../../../../user/js/inquiry.js"></script>
-    <script defer src="../../../../board/js/qna.js"></script>
     <link rel="stylesheet" href="../../../../common/css/modal.css">
+
+    <script src="../common/js/jquery-3.2.1.min.js"></script>
+
+    <script defer src="../../../../board/js/qna_form.js"></script>
+    <title> 밀키트 쇼핑몰 :: Meal Bong </title>
 </head>
 
+
 <body>
-<script defer src="../../../../board/js/qna_form.js"></script>
+
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
 <main>
     <div class="mypage">
@@ -33,7 +41,8 @@
                             <option th:selected="${qnaList.qna_type}=='F_03'" value="F_03">주문/결제</option>
                             <option th:selected="${qnaList.qna_type}=='F_04'" value="F_04">회원정보</option>
                             <option th:selected="${qnaList.qna_type}=='F_05'" value="F_05">사이트 이용</option>
-                            <option th:selected="${qnaList.qna_type}=='F_06'" value="F_06">기타</option>
+                            <option th:selected="${qnaList.qna_type}=='F_06'" value="F_06">이벤트</option>
+                            <option th:selected="${qnaList.qna_type}=='F_07'" value="F_07">기타</option>
                         </select>
                     </div>
                     <div>

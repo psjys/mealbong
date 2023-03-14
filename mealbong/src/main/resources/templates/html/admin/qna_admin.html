@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: headFragment(~{::link})">
-    <link rel="stylesheet" href="../../../../admin/css/qna_admin.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common/css/mainPage.css">
     <link rel="stylesheet" href="../../../../admin/css/admin.css">
-</head>
-<body>
-<script defer src="../../../../board/js/qna.js"></script>
-<script defer src="../../../../admin/js/admin.js"></script>
-<!--<script th:inline="javascript">-->
-<!--    $(function () {-->
-<!--        $('#searchType').change(function () {-->
-<!--            if ($(this).val() == 'n') $('#keyword').val('');-->
-<!--        }); //change-->
 
-<!--        $('#qna_search').click(function () {-->
-<!--            self.location = '/admin/qnaadmin'-->
-<!--                + '?currPage=1&rowsPerPage=8 '-->
-<!--                + '&searchType=' + $('#searchType').val()-->
-<!--                + '&keyword=' + $('#keyword').val();-->
-<!--        }); //click-->
-<!--    }); // ready-->
-<!--</script>-->
+    <script src="../common/js/jquery-3.2.1.min.js"></script>
+
+    <title> 밀키트 쇼핑몰 :: Meal Bong </title>
+</head>
+
+<body>
+
 <script th:inline="javascript">
     $(function () {
         $('#searchType').change(function () {
@@ -37,13 +30,37 @@
 
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
 <main>
-    <th:block th:replace="fragments/admin_aside :: adminFragment"></th:block>
+    <div class="admin_aside">
+        <div class="admin_name">
+            <h2>관리자 페이지</h2>
+        </div>
+        <ul class="aTag">
+            <li><a href="/admin/useradmin">회원관리</a></li>
+            <li><a href="/admin/orderadmin">주문관리</a></li>
+            <li><a href="/admin/productadmin">상품관리</a></li>
+            <li class="click"><a th:href="@{/admin/qnaadmin(searchType='n')}">게시판관리</a></li>
+        </ul>
+    </div>
     <div class="content">
-        <th:block th:replace="fragments/board_header :: boardFragment"></th:block>
+        <div class="content_admin">
+            <div>
+                <h2>게시판 관리</h2>
+            </div>
+            <ul class="board_header">
+                <li onclick="location.href='/admin/useradmin'">
+                    공지사항
+                </li>
+                <li onclick="location.href='/admin/useradmin'">
+                    FAQ
+                </li>
+                <li class="click" onclick="location.href='/admin/qnaadmin?searchType=n'">
+                    1:1 문의
+                </li>
+            </ul>
+        </div>
         <div>
             <div>
                 <h2>1:1 문의</h2>
-                <hr>
             </div>
         </div>
         <div id="searchBar">
@@ -54,7 +71,8 @@
                 <option value="F_03" th:selected="${pageMaker.cri.searchType == 'F_03'}">주문/결제</option>
                 <option value="F_04" th:selected="${pageMaker.cri.searchType == 'F_04'}">회원정보</option>
                 <option value="F_05" th:selected="${pageMaker.cri.searchType == 'F_05'}">사이트 이용</option>
-                <option value="F_06" th:selected="${pageMaker.cri.searchType == 'F_06'}">기타</option>
+                <option value="F_06" th:selected="${pageMaker.cri.searchType == 'F_06'}">이벤트</option>
+                <option value="F_07" th:selected="${pageMaker.cri.searchType == 'F_07'}">기타</option>
             </select>
             <input type="text" name="keyword" id="keyword" th:value="${pageMaker.cri.getKeyword()}">
             <button id="qna_search">Search</button>
@@ -62,7 +80,10 @@
         <br>
         <table class="content_inquiry" style="width: 100%">
             <thead>
-            <tr>
+            <tr th:if="${qnaList.isEmpty()}">
+                <h3 style="text-align: center; padding: 100px; border-top: 1px solid silver">게시글이 없습니다.</h3>
+            </tr>
+            <tr th:unless="${qnaList.isEmpty()}">
                 <th>작성자(아이디)</th>
                 <th>카테고리</th>
                 <th>제목</th>
@@ -72,80 +93,23 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:if="${qnaList.isEmpty()}">
-                <h3 style="text-align: center; padding: 100px; border-top: 1px solid silver">게시글이 없습니다.</h3>
-            </tr>
             <tr th:each="qnaList:${qnaList}">
-                <td th:text="${qnaList.getUser_name +'(' + qnaList.getUser_id() + ')'}" class="qna_li_20"></td>
-                <td th:text="${qnaList.getQna_type()}" class="qna_li_10"></td>
-                <td class="qna_li_40">
+                <td th:text="${qnaList.getUser_name +'(' + qnaList.getUser_id() + ')'}" class="width_20"></td>
+                <td th:text="${qnaList.getQna_type()}" class="width_15"></td>
+                <td class="width_30">
                     <a th:href="@{/admin/qnadetail(qna_num=${qnaList.qna_num})}" th:text="${qnaList.qna_title}"></a>
                 </td>
-                <td th:text="${#temporals.format(qnaList.getQna_date(), 'yyyy.MM.dd')}" class="qna_li_20"></td>
-                <td th:if="${qnaList.ans_content != null}" class="qna_li_10">답변완료</td>
-                <td th:if="${qnaList.ans_content == null}" style="color: lightsalmon" class="qna_li_10">답변대기</td>
+                <td th:text="${#temporals.format(qnaList.getQna_date(), 'yyyy.MM.dd')}" class="width_15"></td>
+                <td th:if="${qnaList.ans_content != null}" class="width_10">답변완료</td>
+                <td th:if="${qnaList.ans_content == null}" style="color: lightsalmon" class="width_10">답변대기</td>
                 <td>
-                    <a th:href="@{/admin/qdelete(qna_num=${qnaList.qna_num})}"
-                       style="color: lightsalmon; text-decoration: none;">
+                    <a th:href="@{/admin/qdelete(qna_num=${qnaList.qna_num})}" class="width_10">
                         삭제</a>
                 </td>
             </tr>
             </tbody>
         </table>
-        <!--        <ul class="content_inquiry">-->
-        <!--            <li>-->
-        <!--                <ul class="qna_admin_content_ul">-->
-        <!--                    <li class="qna_li_20">작성자(아이디)</li>-->
-        <!--                    <li class="qna_li_10">카테고리</li>-->
-        <!--                    <li class="qna_li_40">제목</li>-->
-        <!--                    <li class="qna_li_20">작성일</li>-->
-        <!--                    <li class="qna_li_10">답변상태</li>-->
-        <!--                </ul>-->
-        <!--            </li>-->
-        <!--            <li th:if="${qnaList.isEmpty()}">-->
-        <!--                <h3 style="text-align: center; padding: 100px; border-top: 1px solid silver">게시글이 없습니다.</h3>-->
-        <!--            </li>-->
-        <!--            <li th:unless="${qnaList.isEmpty()}">-->
-        <!--                <ul th:each="qnaList:${qnaList}" class="qna_list">-->
-        <!--                    <div class="inq_div">-->
-        <!--                        <li th:text="${qnaList.getUser_name +'(' + qnaList.getUser_id() + ')'}" class="qna_li_20"></li>-->
-        <!--                        <li th:text="${qnaList.getQna_type()}" class="qna_li_10"></li>-->
-        <!--                        <li th:text="${qnaList.getQna_title()}" class="qna_li_40"></li>-->
-        <!--                        <li th:text="${#temporals.format(qnaList.getQna_date(), 'yyyy.MM.dd')}" class="qna_li_20"></li>-->
-        <!--                        <li th:if="${qnaList.ans_content != null}" class="qna_li_10">답변완료</li>-->
-        <!--                        <li th:if="${qnaList.ans_content == null}" style="color: lightsalmon" class="qna_li_10">답변대기</li>-->
-        <!--                    </div>-->
-        <!--                    <li class="ans hidden" style="width: 100%">-->
-        <!--                        <div th:text="${qnaList.getQna_type()}" style="font-size: 0.9em; color:dimgray"></div>-->
-        <!--                        <div class="ans_div">-->
-        <!--                            <span>Q</span>-->
-        <!--                            <span th:text="${qnaList.getQna_content()}"-->
-        <!--                                  style="text-align:left; line-height: 25px;"></span>-->
-        <!--                        </div>-->
-        <!--                        <div class="updelete">-->
-        <!--                            <a th:href="@{/admin/qupdate(qna_num=${qnaList.getQna_num()})}">수정</a>-->
-        <!--                            <a th:href="@{/admin/qdelete(qna_num=${qnaList.getQna_num()})}">삭제</a>-->
-        <!--                        </div>-->
-        <!--                        <div th:if="${qnaList.ans_content != null}" class="ans_div">-->
-        <!--                            <span>A</span>-->
-        <!--                            <span th:text="${qnaList.getAns_content()}"-->
-        <!--                                  style="text-align: left; line-height: 25px;"></span>-->
-        <!--                        </div>-->
-        <!--                        <div th:if="${qnaList.ans_content != null}" class="updelete">-->
-        <!--                            <a th:href="@{/admin/ansform(qna_num=${qnaList.getQna_num()})}">답변수정</a>-->
-        <!--                            <a th:href="@{/admin/ansdelete(qna_num=${qnaList.getQna_num()})}">답변삭제</a>-->
-        <!--                        </div>-->
-        <!--                        <div th:if="${qnaList.ans_content == null}"-->
-        <!--                             class="ans_btn">-->
-        <!--                            <button class="inquiry_form_button" value="답변 등록">-->
-        <!--                                <a th:href="@{/admin/ansform(qna_num=${qnaList.getQna_num()})}"-->
-        <!--                                   style="font-size: 1em; color:white;">답변 등록</a>-->
-        <!--                            </button>-->
-        <!--                        </div>-->
-        <!--                    </li>-->
-        <!--                </ul>-->
-        <!--            </li>-->
-        <!--        </ul>-->
+
 
         <div class="cri_div">
             <!-- ** Cri_Paging **
@@ -181,5 +145,6 @@
     </div>
 </main>
 <footer th:replace="fragments/footer :: footerFragment"></footer>
+
 </body>
 </html>

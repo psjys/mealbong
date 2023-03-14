@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: headFragment(~{::link})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common/css/mainPage.css">
     <link rel="stylesheet" href="../../../../admin/css/admin.css">
+
+    <script src="../common/js/jquery-3.2.1.min.js"></script>
+
+    <script defer src="../../../../admin/js/admin.js"></script>
+    <title> 밀키트 쇼핑몰 :: Meal Bong </title>
 </head>
+
 <body>
-<script defer src="../../../../admin/js/admin.js"></script>
 <script th:inline="javascript">
     $(function () {
         $('#searchType').change(function () {
@@ -21,7 +30,17 @@
 </script>
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
 <main>
-    <th:block th:replace="fragments/admin_aside :: adminFragment"></th:block>
+    <div class="admin_aside">
+        <div class="admin_name">
+            <h2>관리자 페이지</h2>
+        </div>
+        <ul class="aTag">
+            <li><a href="/admin/useradmin">회원관리</a></li>
+            <li class="click"><a href="/admin/orderadmin">주문관리</a></li>
+            <li><a href="/admin/productadmin">상품관리</a></li>
+            <li><a th:href="@{/admin/qnaadmin(searchType='n')}">게시판관리</a></li>
+        </ul>
+    </div>
     <div class="content">
         <div class="content_admin">
             <div>
@@ -54,5 +73,6 @@
 </main>
 
 <footer th:replace="fragments/footer :: footerFragment"></footer>
+
 </body>
 </html>

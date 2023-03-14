@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: headFragment(~{::link})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common/css/mainPage.css">
+    <link rel="stylesheet" href="../../../order/css/cart.css">
     <link rel="stylesheet" href="../../../../admin/css/admin.css">
+    <link rel="stylesheet" href="../../../common/css/modal.css">
+
+    <script src="../common/js/jquery-3.2.1.min.js"></script>
+
+    <script defer src="../../../../admin/js/admin.js"></script>
+    <script defer src="../../../../admin/js/user_delete.js"></script>
+    <title> 밀키트 쇼핑몰 :: Meal Bong </title>
 </head>
+
 <body>
-<script defer src="../../../../admin/js/admin.js"></script>
+
 <script th:inline="javascript">
     $(function(){
         $('#searchType').change(function(){
@@ -22,7 +35,17 @@
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
 <!--<script defer src="../admin/js/admin.js"></script>-->
 <main>
-    <th:block th:replace="fragments/admin_aside :: adminFragment"></th:block>
+    <div class="admin_aside">
+        <div class="admin_name">
+            <h2>관리자 페이지</h2>
+        </div>
+        <ul class="aTag">
+            <li class="click"><a href="/admin/useradmin">회원관리</a></li>
+            <li><a href="/admin/orderadmin">주문관리</a></li>
+            <li><a href="/admin/productadmin">상품관리</a></li>
+            <li><a th:href="@{/admin/qnaadmin(searchType='n')}">게시판관리</a></li>
+        </ul>
+    </div>
     <div class="content">
         <div class="content_admin">
             <div>
@@ -57,16 +80,17 @@
             </thead>
             <tbody>
             <tr th:each="userList: ${userList}">
-                <td>
+                <td class="width_15">
                     <a th:href="@{|/user1/${userList.user_id}|}" th:text="${userList.user_id}"></a>
                 </td>
-                <td th:text="${userList.user_name}">이름</td>
-                <td th:text="${userList.user_email}">이메일</td>
-                <td th:text="${userList.user_phone}">핸드폰번호</td>
-                <td th:text="${userList.user_gender}">성별</td>
-                <td th:text="${userList.user_birth}">생년월일</td>
+                <td th:text="${userList.user_name}" class="width_10">이름</td>
+                <td th:text="${userList.user_email}" class="width_30">이메일</td>
+                <td th:text="${userList.user_phone}" class="width_15">핸드폰번호</td>
+                <td th:text="${userList.user_gender}" class="width_10">성별</td>
+                <td th:text="${userList.user_birth}" class="width_15">생년월일</td>
 <!--                <td><a th:href="@{|/user1/delete/${userList.user_id}|}" style="color: black; text-decoration: none;">삭제</a></td>-->
-                <td><a th:href="@{/user1/admin/delete(user_id=${userList.user_id})}" style="color: black; text-decoration: none;">삭제</a></td>
+                <td th:onclick="user_deleteClick([[${userList.user_id}]])" style="cursor: pointer;">삭제</td>
+
             </tr>
             </tbody>
         </table>
@@ -102,5 +126,17 @@
 </main>
 
 <footer th:replace="fragments/footer :: footerFragment"></footer>
+<div class="mainModal hidden">
+    <div class="bg"></div>
+    <div class="modalBox">
+        <p>아이디를 삭제 하시겠습니까?</p>
+        <div class="closeBtn_div">
+            <div class="modal_zz">
+                <button class="closeBtn">취소</button>
+                <button class="closeBtn">확인</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

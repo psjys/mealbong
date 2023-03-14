@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
-<head th:replace="fragments/head :: headFragment(~{::link})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common/css/mainPage.css">
     <link rel="stylesheet" href="../../../../board/css/qna.css">
     <link rel="stylesheet" href="../../../../common/css/modal.css">
+
+    <script src="../common/js/jquery-3.2.1.min.js"></script>
+
+    <script defer src="../../../../board/js/qna.js"></script>
+    <script defer src="../../../../board/js/qna_delete.js"></script>
+    <title> 밀키트 쇼핑몰 :: Meal Bong </title>
 </head>
 
 <body>
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
-<script defer src="../../../../board/js/qna.js"></script>
-<script defer src="../../../../board/js/qna_delete.js"></script>
 <main>
     <div class="mypage">
-        <th:block th:replace="fragments/inquiry_aside :: inquiryFragement"></th:block>
+        <div class="aside">
+            <div class="name">
+                <h2>고객센터</h2>
+            </div>
+            <ul>
+                <li>
+                    <a href="/notice/list" class="notice">공지사항
+                        <span></span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/faq/list(faq_code=ALL)}" class="faq">자주하는 질문
+                        <span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/qna/qnalist" class="inquiry">1:1 문의
+                        <span></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
         <div class="content">
             <div class="content_1">
                 <div>
@@ -39,7 +67,7 @@
                         <div class="inq_div">
                             <li th:text="${qnaList.getQna_title()}"></li>
                             <li th:text="${#temporals.format(qnaList.getQna_date(), 'yyyy.MM.dd')}"></li>
-                            <li th:if="${qnaList.ans_content != null}">답변완료</li>
+                            <li th:if="${qnaList.ans_content != null}" style="color: lightsalmon">답변완료</li>
                             <li th:if="${qnaList.ans_content == null}">답변대기</li>
                         </div>
                         <li class="ans hidden" style="width: 100%">
@@ -49,11 +77,9 @@
                                 <span th:text="${qnaList.getQna_content()}"
                                       style="text-align:left; line-height: 25px;"></span>
                             </div>
-                            <div th:if="${qnaList.ans_content == null || session['user_id']=='admin'}"
-                                 class="updelete">
-<!--                                th:href="@{/qna/qnadelete(qna_num=${qnaList.getQna_num()})}"-->
+                            <div class="updelete">
                                 <div th:text="${qnaList.getQna_num()}" style="display: none"></div>
-                                <a th:href="@{/qna/qnaupdate(qna_num=${qnaList.getQna_num()})}">수정</a>
+                                <a th:href="@{/qna/qnaupdate(qna_num=${qnaList.getQna_num()})}" th:if="${qnaList.ans_content == null}">수정</a>
                                 <a id="delete_form" th:onclick="'javascript:handleDeleteClick('+${qnaList.qna_num}+')'">삭제</a>
                             </div>
                             <div th:if="${qnaList.ans_content != null}" class="ans_div">
@@ -61,17 +87,17 @@
                                 <span th:text="${qnaList.getAns_content()}"
                                       style="text-align: left; line-height: 25px;"></span>
                             </div>
-                            <div th:if="${session['user_id'] == 'admin' && qnaList.ans_content != null}" class="updelete">
-                                <a th:href="@{/admin/ansform(qna_num=${qnaList.getQna_num()})}">답변수정</a>
-                                <a th:href="@{/admin/ansdelete(qna_num=${qnaList.getQna_num()})}">답변삭제</a>
-                            </div>
-                            <div th:if="${session['user_id'] == 'admin' && qnaList.ans_content == null}"
-                                 class="ans_btn">
-                                <button class="inquiry_form_button" value="답변 등록">
-                                    <a th:href="@{/admin/ansform(qna_num=${qnaList.getQna_num()})}"
-                                       style="font-size: 1em; color:white;">답변 등록</a>
-                                </button>
-                            </div>
+<!--                            <div th:if="${session['user_id'] == 'admin' && qnaList.ans_content != null}" class="updelete">-->
+<!--                                <a th:href="@{/admin/ansform(qna_num=${qnaList.getQna_num()})}">답변수정</a>-->
+<!--                                <a th:href="@{/admin/ansdelete(qna_num=${qnaList.getQna_num()})}">답변삭제</a>-->
+<!--                            </div>-->
+<!--                            <div th:if="${session['user_id'] == 'admin' && qnaList.ans_content == null}"-->
+<!--                                 class="ans_btn">-->
+<!--                                <button class="inquiry_form_button" value="답변 등록">-->
+<!--                                    <a th:href="@{/admin/ansform(qna_num=${qnaList.getQna_num()})}"-->
+<!--                                       style="font-size: 1em; color:white;">답변 등록</a>-->
+<!--                                </button>-->
+<!--                            </div>-->
                         </li>
 
                     </ul>
@@ -113,11 +139,10 @@
             </div>
         </div>
     </div>
-    <div class="topButton">
-        <a href="#"><img src="../../image/topbutton.png" title="위로 가기"></a>
-    </div>
+
 </main>
 <footer th:replace="fragments/footer :: footerFragment"></footer>
+
 <div class="mainModal hidden">
     <div class="bg"></div>
     <div class="modalBox">
