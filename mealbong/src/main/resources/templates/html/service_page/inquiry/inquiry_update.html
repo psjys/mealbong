@@ -21,8 +21,30 @@
 <th:block th:replace="fragments/header :: headerFragement"></th:block>
 <main>
     <div class="mypage">
-        <th:block th:replace="fragments/inquiry_aside :: inquiryFragement"></th:block>
+        <div class="aside">
+            <div class="name">
+                <h2>고객센터</h2>
+            </div>
+            <ul>
+                <li>
+                    <a href="/notice/list" class="notice">공지사항
+                        <span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/faq/list?faq_code=ALL" class="faq">자주하는 질문
+                        <span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/qna/qnalist" class="inquiry">1:1 문의
+                        <span></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
         <div class="content">
+
             <div class="content_1">
                 <div>
                     <h2>1:1 문의</h2>

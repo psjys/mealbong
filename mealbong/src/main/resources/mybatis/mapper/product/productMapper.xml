@@ -11,7 +11,7 @@
     <select id="productList" resultType="com.project.mealbong.product.ProductDTO">
         select p.product_number, p.product_name, p.product_price, i.image_file
         from product p left outer join image i
-        on p.product_number = i.product_number and i.image_main = "Y"
+                                       on p.product_number = i.product_number and i.image_main = "Y"
     </select>
 
     <select id="imageList" resultType="com.project.mealbong.product.ImageDTO">
@@ -59,8 +59,8 @@
     <!-- 상품 상세 -->
     <select id="productDetail" resultType="com.project.mealbong.product.ProductDTO">
         select product_number, product_name, product_price, product_serving,
-        (select code_desc from code c where p.package_code = c.code_number)package_code,
-        (select code_desc from code c where p.level_code = c.code_number)level_code
+               (select code_desc from code c where p.package_code = c.code_number)package_code,
+               (select code_desc from code c where p.level_code = c.code_number)level_code
         from product p
         where product_number = #{product_number}
     </select>
@@ -69,9 +69,9 @@
     <!-- 상품 상세 -->
     <insert id="insert">
         insert into product (category_code, product_name, product_price, level_code
-        , product_serving, package_code )
+                            , product_serving, package_code )
         values (#{category_code}, #{product_name}, #{product_price}, #{level_code}
-        , #{product_serving}, #{package_code})
+               , #{product_serving}, #{package_code})
     </insert>
 
     <!-- 상품 수정 위한 detail -->
@@ -84,8 +84,8 @@
     <!-- 상품 수정 -->
     <update id="update">
         update product set product_name=#{product_name}, product_price=#{product_price},
-        category_code=#{category_code}, package_code=#{package_code}, product_serving=#{product_serving},
-        level_code=#{level_code}
+                           category_code=#{category_code}, package_code=#{package_code}, product_serving=#{product_serving},
+                           level_code=#{level_code}
         where product_number = #{product_number}
     </update>
 
@@ -95,7 +95,7 @@
         where product_number = #{product_number}
     </delete>
 
-<!--    admin page -->
+    <!--    admin page -->
     <select id="productAdmin" resultType="com.project.mealbong.product.ProductDTO">
         select *,
                (select code_desc from code c where p.package_code = c.code_number)package_code,
@@ -162,10 +162,10 @@
     <select id="searchPage" resultType="com.project.mealbong.product.ProductDTO">
         select p.product_number, p.product_name, p.product_price, i.image_file
         from product p left outer join image i
-        on p.product_number = i.product_number and i.image_main = "Y"
+                                       on p.product_number = i.product_number and i.image_main = "Y"
         where p.product_name like '%' #{keyword} '%'
         order by p.product_number desc
-        limit #{sno}, #{rowsPerPage}
+            limit #{sno}, #{rowsPerPage}
     </select>
 
     <select id="searchPageTotalCount" resultType="int">
@@ -179,14 +179,14 @@
     <select id="popList" resultType="com.project.mealbong.product.ProductDTO">
         select p.product_number, p.product_name, p.product_price, i.image_file
         from product p left outer join image i
-        on p.product_number = i.product_number and i.image_main = "Y"
+                                       on p.product_number = i.product_number and i.image_main = "Y"
         order by product_sale desc
     </select>
     <!--    오늘의 추천, 이런건 어때요?-->
     <select id="randomList" resultType="com.project.mealbong.product.ProductDTO">
         select p.product_number, p.product_name, p.product_price, i.image_file
         from product p left outer join image i
-        on p.product_number = i.product_number and i.image_main = "Y"
+                                       on p.product_number = i.product_number and i.image_main = "Y"
 
         Order by rand()
             Limit 32
@@ -195,7 +195,7 @@
     <select id="newList" resultType="com.project.mealbong.product.ProductDTO">
         select p.product_number, p.product_name, p.product_price, i.image_file
         from product p left outer join image i
-        on p.product_number = i.product_number and i.image_main = "Y"
+                                       on p.product_number = i.product_number and i.image_main = "Y"
         order by product_number desc
     </select>
 

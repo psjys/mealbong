@@ -66,4 +66,6 @@ public class FaqService {
         return mapper.searchTotalCount(cri);
     }
 
+
+
 }

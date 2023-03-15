@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="../../../user/css/mypage.css">
     <link rel="stylesheet" href="../../../common/css/mainPage.css">
     <script defer src="../../../board/js/notice.js"></script>
-    <script defer src="../../js/main_topDiv.js"></script>
-
 </head>
 
 <body>
@@ -33,13 +31,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="faq.html" class="faq">자주하는 질문
+                    <a th:href="@{/faq/list(faq_code=ALL)}" class="faq">자주하는 질문
                         <span></span>
                     </a>
                 </li>
                 <li>
-                    <a href="../../../../../../../../project_1/mealbong/src/main/resources/templates/html/service_page/inquiry/inquiry_list.html"
-                       class="inquiry">1:1 문의
+                    <a href="/qna/qnalist" class="inquiry">1:1 문의
                         <span></span>
                     </a>
                 </li>
@@ -73,36 +70,58 @@
 
                 <div class="cri_div">
                     <!-- ** Cri_Paging **
-                      1) FirstPage, Prev -->
-                    <th:block th:if="${pageMaker.prev && pageMaker.spageNo > 1}">
+                    1) FirstPage, Prev -->
+                    <th:block th:if="${pageMaker.prev && pageMaker.spageNo>1}">
                         <!-- OLD_version -->
-                        <a th:href="@{/notice/list(currPage=1, rowsPerPage=${pageMaker.cri.rowsPerPage})}">FP</a>&nbsp;
-                        <a th:href="@{/notice/list(currPage=${pageMaker.spageNo-1}, rowsPerPage=${pageMaker.cri.rowsPerPage})}">&lt;</a>
-                    </th:block>
-                    <th:block th:unless="${pageMaker.prev && pageMaker.spageNo > 1}">
-                        <font color="Gray">FP&nbsp;&lt;&nbsp;&nbsp;</font>
+                        <a th:href="@{/notice/list(currPage=1,rowsPerPage=8)}"><<</a>&nbsp;&nbsp;
+                        <a th:href="@{/notice/list(currPage=${pageMaker.spageNo-1}, rowsPerPage=8)}">&lt;</a>
                     </th:block>
                     <!-- 2) Display PageNo  -->
-                    <th:block th:each="i: ${#numbers.sequence(pageMaker.spageNo, pageMaker.epageNo)}">
-                        <th:block th:if="${i == pageMaker.cri.currPage}">
-                            <font size="5" color="#ffa07a" th:text="${i}"></font>
-                        </th:block>
-                        <th:block th:unless="${i == pageMaker.cri.currPage}">
-                            <a th:href="@{/notice/list(currPage=${i}, rowsPerPage=${pageMaker.cri.rowsPerPage})}"
-                               th:attr="href=@{/notice/list(currPage=${i}, rowsPerPage=${pageMaker.cri.rowsPerPage})}"
-                               th:text="${i}"></a>
-                        </th:block>
-                    </th:block>
+                    <div th:each="i: ${#numbers.sequence(pageMaker.spageNo, pageMaker.epageNo)}">
+                        <div th:if="${i==pageMaker.cri.currPage}" th:text="${i}" class="cri_div_font"></div>
+                        <a th:unless="${i==pageMaker.cri.currPage}"
+                           th:href="@{/notice/list(currPage=${i}, rowsPerPage=8)}" th:text="${i}">
+                        </a>
+                    </div>
+
                     <!-- 3) Next, LastPage -->
                     <th:block th:if="${pageMaker.next && pageMaker.epageNo > 0}">
-                        <a th:href="@{/notice/list(currPage=${pageMaker.epageNo+1}, rowsPerPage=${pageMaker.cri.rowsPerPage})}">
-                            ></a>
-                        <a th:href="@{/notice/list(currPage=${pageMaker.lastPageNo}, rowsPerPage=${pageMaker.cri.rowsPerPage})}">
-                            LP</a>
+                        <a th:href="@{/notice/list(currPage=${pageMaker.epageNo+1}, rowsPerPage=8)}"> ></a>&nbsp;&nbsp;
+                        <a th:href="@{/notice/list(currPage=${pageMaker.lastPageNo}, rowsPerPage=8)}"> >></a>
                     </th:block>
-                    <th:block th:unless="${pageMaker.next && pageMaker.epageNo > 0}">
-                        <font color="Gray"> > LP</font>
-                    </th:block>
+
+
+<!--                    &lt;!&ndash; ** Cri_Paging **-->
+<!--                      1) FirstPage, Prev &ndash;&gt;-->
+<!--                    <th:block th:if="${pageMaker.prev && pageMaker.spageNo > 1}">-->
+<!--                        &lt;!&ndash; OLD_version &ndash;&gt;-->
+<!--                        <a th:href="@{/notice/list(currPage=1, rowsPerPage=${pageMaker.cri.rowsPerPage})}">FP</a>&nbsp;-->
+<!--                        <a th:href="@{/notice/list(currPage=${pageMaker.spageNo-1}, rowsPerPage=${pageMaker.cri.rowsPerPage})}">&lt;</a>-->
+<!--                    </th:block>-->
+<!--                    <th:block th:unless="${pageMaker.prev && pageMaker.spageNo > 1}">-->
+<!--                        <font color="Gray">FP&nbsp;&lt;&nbsp;&nbsp;</font>-->
+<!--                    </th:block>-->
+<!--                    &lt;!&ndash; 2) Display PageNo  &ndash;&gt;-->
+<!--                    <th:block th:each="i: ${#numbers.sequence(pageMaker.spageNo, pageMaker.epageNo)}">-->
+<!--                        <th:block th:if="${i == pageMaker.cri.currPage}">-->
+<!--                            <font size="5" color="#ffa07a" th:text="${i}"></font>-->
+<!--                        </th:block>-->
+<!--                        <th:block th:unless="${i == pageMaker.cri.currPage}">-->
+<!--                            <a th:href="@{/notice/list(currPage=${i}, rowsPerPage=${pageMaker.cri.rowsPerPage})}"-->
+<!--                               th:attr="href=@{/notice/list(currPage=${i}, rowsPerPage=${pageMaker.cri.rowsPerPage})}"-->
+<!--                               th:text="${i}"></a>-->
+<!--                        </th:block>-->
+<!--                    </th:block>-->
+<!--                    &lt;!&ndash; 3) Next, LastPage &ndash;&gt;-->
+<!--                    <th:block th:if="${pageMaker.next && pageMaker.epageNo > 0}">-->
+<!--                        <a th:href="@{/notice/list(currPage=${pageMaker.epageNo+1}, rowsPerPage=${pageMaker.cri.rowsPerPage})}">-->
+<!--                            ></a>-->
+<!--                        <a th:href="@{/notice/list(currPage=${pageMaker.lastPageNo}, rowsPerPage=${pageMaker.cri.rowsPerPage})}">-->
+<!--                            LP</a>-->
+<!--                    </th:block>-->
+<!--                    <th:block th:unless="${pageMaker.next && pageMaker.epageNo > 0}">-->
+<!--                        <font color="Gray"> > LP</font>-->
+<!--                    </th:block>-->
                 </div>
                 <a href="noticeInsert">글 추가</a>
             </div>

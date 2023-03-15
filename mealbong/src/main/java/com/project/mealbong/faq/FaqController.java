@@ -41,7 +41,7 @@ public class FaqController {
     @PostMapping("/faqInsert")
     public String faqInsert(FaqDTO dto) {
         service.faqInsert(dto);
-        return "redirect:/admin/faqadmin";
+        return "redirect:/admin/faqadmin?searchType=n";
     }
 
 
@@ -49,7 +49,7 @@ public class FaqController {
     public String faqDelete(@RequestParam("faq_number") int faq_number,FaqDTO dto) {
         dto.setFaq_number(faq_number);
         service.faqDelete(dto);
-        return "redirect:/admin/faqadmin";
+        return "redirect:/admin/faqadmin?searchType=n";
     }
 
 
@@ -65,6 +65,6 @@ public class FaqController {
     @PostMapping("/faqUpdate")
     public String faqUpdate(FaqDTO dto) {
         service.faqUpdate(dto);
-        return "redirect:/admin/faqadmin";
+        return "redirect:/admin/faqadmin?searchType=n";
     }
 }

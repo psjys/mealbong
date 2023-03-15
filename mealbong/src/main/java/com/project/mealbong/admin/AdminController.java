@@ -4,6 +4,7 @@ import com.project.mealbong.board.QnaDTO;
 import com.project.mealbong.board.QnaService;
 import com.project.mealbong.critest.PageMaker;
 import com.project.mealbong.critest.SearchCriteria;
+import com.project.mealbong.faq.FaqDTO;
 import com.project.mealbong.faq.FaqService;
 import com.project.mealbong.notice.NoticeDTO;
 import com.project.mealbong.notice.NoticeService;
@@ -243,6 +244,16 @@ public class AdminController {
 
         mv.setViewName("/html/admin/faq_admin");
         return mv;
+    }
+
+    // faq 상세
+
+    @GetMapping("/faqdetail")
+    public String qna_detail (@RequestParam("faq_number") int faq_number, Model model, FaqDTO dto) {
+        dto.setFaq_number(faq_number);
+        model.addAttribute("faqDetail", faqService.faqDetail(dto));
+        return "html/admin/faq_admin_detail";
+
     }
 
 }

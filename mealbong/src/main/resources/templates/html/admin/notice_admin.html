@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../../common/css/modal.css">
 
     <script src="../common/js/jquery-3.2.1.min.js"></script>
-    <script defer src="../../../admin/js/qna_admin_delete.js"></script>
+    <script defer src="../../../admin/js/notice_delete.js"></script>
 
     <title> 밀키트 쇼핑몰 :: Meal Bong </title>
 </head>
@@ -97,7 +97,7 @@
                 <td class="width_15" th:text="${#temporals.format(noticeList.notice_date, 'yyyy.MM.dd')}"></td>
                 <td class="width_10" th:text="${noticeList.notice_cnt}"></td>
                 <td class="width_10">
-                    <a th:onclick="'javascript:adminQ('+${noticeList.notice_number}+')'">
+                    <a th:onclick="'javascript:noticeDelete('+${noticeList.notice_number}+')'">
                         삭제</a>
                 </td>
             </tr>
@@ -137,7 +137,7 @@
 <div class="mainModal hidden">
     <div class="bg"></div>
     <div class="modalBox">
-        <p>문의글을 삭제 하시겠습니까?</p>
+        <p>글을 삭제 하시겠습니까?</p>
         <div class="closeBtn_div">
             <button class="closeBtn">확인</button>
             <button class="closeBtn">취소</button>

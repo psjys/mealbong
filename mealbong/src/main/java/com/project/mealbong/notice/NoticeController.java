@@ -27,7 +27,6 @@ public class NoticeController {
     NoticeService service;
     ProductService productService;
 
-
     @GetMapping("/noticeDetail")
     public ModelAndView noticeDetail(@RequestParam("notice_number") int noticeNumber, ModelAndView mv, NoticeDTO dto) {
         dto.setNotice_number(noticeNumber);
@@ -72,7 +71,7 @@ public class NoticeController {
 
     @PostMapping("/noticeUpdate")
     public String noticeUpdate(NoticeDTO dto) {
-        String uri = "redirect:/notice/list";
+        String uri = "redirect:/admin/noticeadmin";
         service.noticeUpdate(dto);
         return uri;
     }
@@ -106,11 +105,11 @@ public class NoticeController {
         return "redirect:/admin/noticeadmin";
     }
 
-    @GetMapping("/noticeDelete")
+    @PostMapping("/noticeDelete")
     public String noticeInsert(@RequestParam("notice_number") int noticeNumber, NoticeDTO dto) {
         dto.setNotice_number(noticeNumber);
         service.noticeDelete(dto);
-        return "redirect:/notice/list";
+        return "redirect:/admin/noticeadmin";
     }
 
 //    @GetMapping("/{id}")

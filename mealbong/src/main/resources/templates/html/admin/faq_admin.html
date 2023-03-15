@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: headFragment(~{::link})">
-    <link rel="stylesheet" href="../../../../admin/css/qna_admin.css">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../common/css/mainPage.css">
     <link rel="stylesheet" href="../../../../admin/css/admin.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../../../common/css/modal.css">
+
+    <script src="../common/js/jquery-3.2.1.min.js"></script>
+    <script defer src="../../../admin/js/faq_delete.js"></script>
+
+    <title> 밀키트 쇼핑몰 :: Meal Bong </title>
 </head>
+
 <body>
-<script defer src="../../../../board/js/qna.js"></script>
-<script defer src="../../../../admin/js/admin.js"></script>
 <script th:inline="javascript">
     $(function () {
         $('#searchType').change(function () {
@@ -68,7 +77,7 @@
                 <option value="F_04" th:selected="${pageMaker.cri.searchType == 'F_04'}">회원정보</option>
                 <option value="F_05" th:selected="${pageMaker.cri.searchType == 'F_05'}">사이트 이용</option>
                 <option value="F_06" th:selected="${pageMaker.cri.searchType == 'F_06'}">이벤트</option>
-                <option value="F_07" th:selected="${pageMaker.cri.searchType == 'F_06'}">기타</option>
+                <option value="F_07" th:selected="${pageMaker.cri.searchType == 'F_07'}">기타</option>
             </select>
             <input type="text" name="keyword" id="keyword" th:value="${pageMaker.cri.getKeyword()}">
             <button id="faq_search">Search</button>
@@ -80,7 +89,6 @@
                 <th>번호</th>
                 <th>카테고리</th>
                 <th>제목</th>
-                <th>수정</th>
                 <th>삭제</th>
             </tr>
             </thead>
@@ -91,19 +99,20 @@
             <tr th:each="faqList:${faqList}">
                 <td th:text="${faqList.faq_number}" class="qna_li_10"></td>
                 <td th:text="${faqList.faq_code}" class="qna_li_10"></td>
-                <td th:text="${faqList.faq_question}" style="width: 50%"></td>
-                <td class="qna_li_10">
-                    <a th:href="@{/faq/faqUpdate(faq_number=${faqList.faq_number})}">수정</a>
+                <td style="width: 50%">
+                    <a th:href="@{/admin/faqdetail(faq_number=${faqList.faq_number})}" th:text="${faqList.faq_question}"></a>
                 </td>
                 <td class="qna_li_10">
-                    <a th:onclick="'javascript:faqDelete(' + ${faqList.faq_number} + ')'"
-                       style="color: lightsalmon; text-decoration: none;">
+                    <a th:onclick="'javascript:faqDelete(' + ${faqList.faq_number} + ')'">
                         삭제
                     </a>
                 </td>
             </tr>
             </tbody>
         </table>
+        <div class="notice_insert_button">
+            <a href="/faq/faqInsert">글쓰기</a>
+        </div>
         <div class="cri_div">
             <!-- ** Cri_Paging **
                1) FirstPage, Prev -->
@@ -131,26 +140,15 @@
     </div>
 </main>
 <footer th:replace="fragments/footer :: footerFragment"></footer>
-
-<script>
-    function faqDelete(faq_number) {
-        if (confirm("삭제하시겠습니까?")) {
-            $.ajax({
-                url: "/faq/faqDelete?faq_number=" + faq_number,
-                type: "POST",
-                success: function (data) {
-                    console.log("성공");
-                    location.reload();
-                },
-                error: function (xhr, status, error) {
-                    console.error("실패", error);
-                }
-            });
-            alert("삭제되었습니다.");
-        } else {
-            return false;
-        }
-    }
-</script>
+<div class="mainModal hidden">
+    <div class="bg"></div>
+    <div class="modalBox">
+        <p>글을 삭제 하시겠습니까?</p>
+        <div class="closeBtn_div">
+            <button class="closeBtn">확인</button>
+            <button class="closeBtn">취소</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
