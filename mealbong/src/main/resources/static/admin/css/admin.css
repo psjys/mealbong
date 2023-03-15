@@ -365,3 +365,14 @@ table a:hover {
     text-align: center;
     font-size: 13px;
 }
+
+.notice_detail_main_button button {
+    background-color: lightsalmon;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    width: 120px;
+    color: white;
+    margin: 10px;
+    cursor: pointer;
+}
