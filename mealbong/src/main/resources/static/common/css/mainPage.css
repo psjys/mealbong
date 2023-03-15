@@ -283,6 +283,7 @@ nav {
 
 .menu>li:hover>a {
     color: lightsalmon;
+    text-decoration: underline;
 }
 
 nav ul li:nth-child(1):hover .submenu,
@@ -493,7 +494,7 @@ nav ul li:nth-child(4):hover .submenu2 {
     color: black;
 }
 .pop h2 {
-    margin-top : 80px;
+    margin-top : 30px;
     text-align: center;
 }
 
@@ -910,3 +911,27 @@ header {
     display : none;
 }
 
+/* paging */
+
+.cri_div {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.cri_div div {
+    width: 25px;
+    height: 25px;
+}
+
+.cri_div_font {
+    background-color: lightsalmon;
+    color: white;
+    border-radius: 50%;
+}
+
+.cri_div a {
+    color: gray;
+    text-decoration: none;
+}

@@ -55,7 +55,7 @@ function autoSlide() {
             } else {
                 moveSlide(0);
             }
-        }, 3000);
+        }, 4000);
     }
 }
 autoSlide();

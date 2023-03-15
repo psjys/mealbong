@@ -1,6 +1,6 @@
 'use strict';
 
-// 버튼 클릭 시 검색 페이지 넘어가기 / alert 팝업 뜨기 
+// 버튼 클릭 시 검색 페이지 넘어가기 / 모달 팝업 뜨기
 
 let searchDiv = document.querySelector('.search'),
     mainModal = document.querySelector('.mainModal'),

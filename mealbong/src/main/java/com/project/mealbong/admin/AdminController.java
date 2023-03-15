@@ -149,8 +149,9 @@ public class AdminController {
         return "redirect:/admin/qnaadmin";
     }
 
-    @GetMapping("/qdelete")
-    public String admin_delete(QnaDTO dto) {
+    @PostMapping("/qdelete")
+    public String admin_delete(@RequestParam("qna_num") int qna_num, QnaDTO dto) {
+        dto.setQna_num(qna_num);
         qnaService.adminDelete(dto);
         return "redirect:/admin/qnaadmin?searchType=n";
     }

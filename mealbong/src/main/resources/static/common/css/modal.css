@@ -71,3 +71,10 @@
     display: none;
     /* Chrome, Safari, Opera*/
 }
+
+.closeBtn_div {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+}
+
