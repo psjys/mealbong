@@ -26,8 +26,13 @@
     </delete>
 
     <insert id="deliveryInsert">
-        insert into dely(user_id, dely_zip, dely_address1, dely_address2, dely_name, dely_phone)
-        values (#{user_id}, #{dely_zip}, #{dely_address1}, #{dely_address2}, #{dely_name}, #{dely_phone})
+        insert into dely(user_id, dely_zip, dely_address1, dely_address2, dely_name, dely_phone, dely_check)
+        values (#{user_id}, #{dely_zip}, #{dely_address1}, #{dely_address2}, #{dely_name}, #{dely_phone}, "N")
+    </insert>
+
+    <insert id="newdeliveryInsert">
+        insert into dely(user_id, dely_zip, dely_address1, dely_address2, dely_name, dely_phone, dely_check)
+        values (#{user_id}, #{dely_zip}, #{dely_address1}, #{dely_address2}, #{dely_name}, #{dely_phone}, "Y")
     </insert>
 
     <update id="deliveryUpdate">

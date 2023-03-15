@@ -57,4 +57,12 @@ public class DeliveryService {
             throw new RuntimeException(e);
         }
     }
+
+    public void newdeliveryInsert(DeliveryDTO dto) {
+        try {
+            mapper.deliveryInsert(dto);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

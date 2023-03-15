@@ -16,4 +16,6 @@ public interface DeliveryMapper {
     void deliveryUpdate(DeliveryDTO dto) throws Exception;
 
     void deliveryDefault(DeliveryDTO dto) throws Exception;
+
+    void newdeliveryInsert(DeliveryDTO dto) throws Exception;
 }

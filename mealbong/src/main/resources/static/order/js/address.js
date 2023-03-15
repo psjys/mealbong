@@ -47,7 +47,6 @@ add_cancel.addEventListener('click', function () {
 })
 
 document.querySelector(".new_address_button").addEventListener('click', function () {
-    console.log("씨발 제발")
     var width = 500;
     var height = 600;
 

@@ -1,5 +1,7 @@
 package com.project.mealbong.user;
 
+import com.project.mealbong.delivery.DeliveryDTO;
+import com.project.mealbong.delivery.DeliveryService;
 import com.project.mealbong.order.CartMapperDTO;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.AllArgsConstructor;
@@ -26,7 +28,7 @@ public class User1Controller {
 
     @Resource
     private User1Service us;
-
+    private DeliveryService ds;
 
 
 
@@ -51,10 +53,21 @@ public class User1Controller {
     }
 
     @PostMapping("/save")
-    public ModelAndView save(@ModelAttribute User1MapperDTO user1MapperDTO) {
+    public ModelAndView save(@ModelAttribute User1MapperDTO user1MapperDTO, DeliveryDTO deliveryDTO) throws Exception{
         ModelAndView mav = new ModelAndView();
         user1MapperDTO.setUser_password(passwordEncoder.encode(user1MapperDTO.getUser_password()));
-        us.user_save(user1MapperDTO);
+        if(us.user_save(user1MapperDTO) > 0){
+
+            deliveryDTO.setUser_id(user1MapperDTO.getUser_id());
+            deliveryDTO.setDely_zip(user1MapperDTO.getUser_zip());
+            deliveryDTO.setDely_address2(user1MapperDTO.getUser_address2());
+            deliveryDTO.setDely_address1(user1MapperDTO.getUser_address1());
+            deliveryDTO.setDely_name(user1MapperDTO.getUser_name());
+            deliveryDTO.setDely_phone(user1MapperDTO.getUser_phone());
+            ds.newdeliveryInsert(deliveryDTO);
+
+        }
+
         mav.addObject("user_name",user1MapperDTO);
         mav.setViewName("html/user/account_submit");
         return mav;
