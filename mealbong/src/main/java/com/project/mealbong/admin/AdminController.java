@@ -10,6 +10,7 @@ import com.project.mealbong.order.OrderDetailMapperDTO;
 import com.project.mealbong.order.OrderMapperDTO;
 import com.project.mealbong.order.OrderService;
 import com.project.mealbong.product.ProductService;
+import com.project.mealbong.user.User1MapperDTO;
 import com.project.mealbong.user.User1Service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -47,6 +48,14 @@ public class AdminController {
         mv.setViewName("html/admin/user_admin");
 
         return mv;
+    }
+
+    @GetMapping("/{user_id}")
+    public ModelAndView user_detail(ModelAndView mav, User1MapperDTO user1MapperDTO) {
+        user1MapperDTO = userService.find_id(user1MapperDTO.getUser_id());
+        mav.addObject("user_detail",user1MapperDTO);
+        mav.setViewName("html/admin/user_admin_detail");
+        return mav;
     }
 
     // 주문관리
