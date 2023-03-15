@@ -142,13 +142,13 @@
     </sql>
 
     <select id="searchList" resultType="com.project.mealbong.product.ProductDTO">
-        select p.product_number, p.product_name, p.product_price , p.product_serving,
+        select p.product_number, p.product_name, p.product_price , p.product_serving, i.image_file,
         (select code_desc from code c where p.package_code = c.code_number)package_code,
         (select code_desc from code c where p.level_code = c.code_number)level_code,
         (select code_desc from code c where p.category_code = c.code_number)category_code
-        from product p
+        from product p, image i
         where ( p.product_number>0
-        <include refid="search"></include>
+        <include refid="search"></include> and i.product_number = p.product_number and i.image_main = "Y"
         order by p.product_number desc
         limit #{sno}, #{rowsPerPage}
     </select>

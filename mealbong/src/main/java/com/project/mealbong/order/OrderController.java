@@ -201,8 +201,6 @@ public class OrderController {
     @PostMapping("cartInsert") // 장바구니 등록
     public int cart_insert(ProductDTO productDTO) {
 
-        System.out.println(productDTO);
-
         return cs.cart_insert(productDTO);
 
     } // cart_insert
@@ -233,14 +231,9 @@ public class OrderController {
 
     @ResponseBody
     @GetMapping("wishInsert") // Wish 등록
-    public String wish_insert(ProductDTO productDTO, HttpSession session){
+    public int wish_insert(ProductDTO productDTO){
 
-        String userID = (String)session.getAttribute("user_id");
-        productDTO.setUser_id(userID);
-
-        cs.wish_insert(productDTO);
-
-        return"html/order/wish";
+        return cs.wish_insert(productDTO);
     }
 
 

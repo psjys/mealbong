@@ -65,14 +65,13 @@
                 <div>
                     <div th:text="${productDetail.product_name}"></div>
                     <div>
-                            <form th:action="@{/order/cartInsert}" id="cartInsert">
-                        <div>
-                             <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
-                             <input type="hidden" id="product_number" name="product_number" th:value="${productDetail.product_number}">
-                            <input type="number" id="product_count" name="product_count" min="0" max="100" value="0"
+                        <form th:action="@{/order/cartInsert}" id="cartInsert">
+                        <div id="inputs">
+                            <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                            <input type="hidden" id="product_number" name="product_number" th:value="${productDetail.product_number}">
+                            <input type="number" id="product_count" name="product_count" min="1" max="100"  value="0"
                                     class="div1_inputNumber"></div>
-                                <button type="button" onclick="login_check()">바구니 담기</button>
-                            </form>
+                        </form>
                         <div class="product_price">
                             <h3 th:text="${productDetail.product_price}"></h3>
                         </div>
@@ -87,11 +86,11 @@
                 <span>원</span>
             </div>
             <div id=btn_box>
+                <button class="basket" type="button" onclick="login_check()">장바구니 담기</button>
                 <form th:action="@{/order/wishInsert}">
                     <input type="hidden" name="product_number" th:value="${productDetail.product_number}">
                     <button class="wish" type="button" onclick="login_check2()"></button>
                 </form>
-                <button class="basket">장바구니 담기</button>
             </div>
         </div>
     </div>

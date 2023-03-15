@@ -37,7 +37,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void wish_insert(ProductDTO productDTO){ cartMapper.wish_insert(productDTO);}
+    public int wish_insert(ProductDTO productDTO){ return cartMapper.wish_insert(productDTO);}
 
     @Override
     public int cart_insert(ProductDTO productDTO){ return cartMapper.cart_insert(productDTO);}

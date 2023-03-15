@@ -83,7 +83,7 @@ $.ajax({
             if(data == 0){
                 songTest();;
             } else if (data > 0) {
-                modal_f("이미 담긴 상품입니다. 장바구니로 이동 후 수량을 변경하시면 됩니다.");
+                modal_f("이미 담긴 상품입니다.");
             } // else if
          }, // success
          error: function(){
@@ -135,7 +135,7 @@ function login_check2(){
             })
 
         } else if (data == 1) {
-            product_check();
+            product_check2();
             } // else if
         }, // success
         error : function (){
@@ -144,7 +144,7 @@ function login_check2(){
     }); // ajax
 } // 로그인 체크
 
-function product_check(){
+function product_check2(){
 $.ajax({
     url: "/user1/product_check",
         type: "POST",
@@ -153,7 +153,7 @@ $.ajax({
         "product_number" : $(product_number).val()},
         success: function (data) {
             if(data == 0){
-                songTest();;
+                songTest2();;
             } else if (data > 0) {
                 modal_f("이미 찜한 상품입니다.");
             } // else if
@@ -164,7 +164,7 @@ $.ajax({
     }); // ajax
 } // product_check
 
-function songTest(){
+function songTest2(){
     // 장바구니에 담기
     $.ajax({
         url: "/order/cartInsert",
@@ -227,11 +227,13 @@ SNS.addEventListener('click', function (e) {
 
 // 상품 수량에 따라 가격 바뀌게
 
-const amount = innerbox2.querySelector('input'),
+const amount = document.getElementById('inputs'),
       total_amount = innerbox2.querySelector('#total_amount'),
-      product_price = innerbox2.querySelector('.product_price');
+      product_price = innerbox2.querySelector('.product_price'),
+      count = document.getElementById("product_count");
 
 amount.addEventListener('click', function (e) {
-console.log(total_amount.children[1].textContent);
     total_amount.children[1].textContent = `${e.target.value * product_price.childNodes[1].textContent / 1000},000`;
+    console.log(count.value);
+    console.log(e.target.value);
 })
