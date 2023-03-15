@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="../../../../common/css/modal.css">
 <!--    <link rel="stylesheet" href="../../../product/css/menu_list.css">-->
 
-    <script src="../common/js/jquery-3.2.1.min.js"></script>
-    <script src="../common/js/main_topDiv.js"></script>
+    <script src="../../common/js/search.js"></script>
     <title> 밀키트 쇼핑몰 :: Meal Bong </title>
 </head>
 
@@ -33,7 +32,7 @@
                     <div class="menu_name" th:text="${productList.product_name}"></div>
                 </a>
                 <div class="post">샛별배송</div>
-                <div class="menu_price" th:text="${productList.product_price + '원'}"></div>
+                <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
                 <div class="food_hint">취향대로 맛있게 완성하는</div>
                 <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
                 </div>
@@ -76,7 +75,7 @@
 <div class="mainModal hidden">
     <div class="bg"></div>
     <div class="modalBox">
-        <p>검색어를 입력해주세요.</p>
+        <p></p>
         <div class="closeBtn_div">
             <button class="closeBtn">확인</button>
         </div>

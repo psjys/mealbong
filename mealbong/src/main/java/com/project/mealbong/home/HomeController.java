@@ -28,5 +28,9 @@ public class HomeController {
 
         return "index";
     }
+    @GetMapping("personal")
+    public String personal () {
+        return "html/footer/personal";
+    }
 
 }
