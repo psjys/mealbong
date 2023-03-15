@@ -71,7 +71,7 @@ function productList_order2(currPage) {
 
 productList_order(1);
 
-
+let currentIdx = 0;
 
 // ===========================================================
 // innerbox1, innerbox2 a 태그들 클릭시 색깔
