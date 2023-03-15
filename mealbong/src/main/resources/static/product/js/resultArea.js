@@ -56,18 +56,21 @@ var modall = document.querySelector('.modal_container'),
     headerr = document.querySelector('header'),
     modal_p = modall.querySelector('p'),
     closeBtnn = document.querySelector('.closeBtn'),
-    basket = innerbox33.querySelectorAll('.basket');
+    basket = innerbox33.querySelectorAll('.basket'),
+    nav = document.querySelector('nav');
 
 var openn = () => {
     modall.classList.remove('hidden');
     bodyy.classList.add('scroll_none');
-    headerr.style.position = 'static';
+    nav.style.zIndex ='0';
+//    headerr.style.position = 'static';
 }
 
 var closee = () => {
     modall.classList.add('hidden');
     bodyy.classList.remove('scroll_none');
-    headerr.style.position = 'sticky';
+        nav.style.zIndex ='2';
+//    headerr.style.position = 'sticky';
 }
 
 for (let i = 0; i < basket.length; i++) {
@@ -87,6 +90,74 @@ function modal_f(str) {
 closeBtnn.addEventListener('click', closee);
 bgg.addEventListener('click', closee);
 
-/* =====================장바구니 modal box==================== */
-/* 로그인 하고 나서 */
+/* ===================== 좋아요 modal box ==================== */
+/* 로그인 했는지 체크 후 이미 담긴 상품인지 확인 */
+
+function login_check2(){
+    $.ajax({
+        url: "/user1/id_check",
+        type: "POST",
+        dataType:"JSON",
+        data: {"user_id" : $(user_id).val()},
+        success: function (data){
+        if(data == 0){
+            modal_f("로그인 하셔야 본 서비스를 이용하실 수 있습니다.");
+
+            closeBtnn.addEventListener('click', ()=> {
+            window.location.href="/user1/login";
+            })
+
+        } else if (data == 1) {
+            product_check2();
+            } // else if
+        }, // success
+        error : function (){
+            alert("로그인 체크 오류");
+        }
+    }); // ajax
+} // 로그인 체크
+
+function product_check2(){
+$.ajax({
+    url: "/user1/product_check",
+        type: "POST",
+        dataType : "JSON",
+        data: {"user_id" : $(user_id).val(),
+        "product_number" : $(product_number).val()},
+        success: function (data) {
+            if(data == 0){
+                songTest2();;
+            } else if (data > 0) {
+                modal_f("이미 찜한 상품입니다.");
+            } // else if
+         }, // success
+         error: function(){
+            alert("상품  체크 실패");
+         } // error
+    }); // ajax
+} // product_check
+
+function songTest2(){
+    // 장바구니에 담기
+    $.ajax({
+        url: "/order/cartInsert",
+            type: "POST",
+            dataType : "JSON",
+            data: {
+            "user_id" : $(user_id).val(),
+            "product_number" : $(product_number).val()
+            }, // data
+            success: function (data) {
+//              modal_f("장바구니에 상품을 담았습니다.");
+               if(data == 1){
+                modal_f("찜한 상품에 상품을 담았습니다.");
+               } else {
+                modal_f("찜한 상품에 상품을 담지 못했습니다.");
+               }
+             }, // success
+             error: function(){
+                alert("찜한 상품에 담기 오류");
+             } // error
+        }); // ajax
+} // songTest
 

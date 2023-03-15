@@ -73,7 +73,7 @@
                                     class="div1_inputNumber"></div>
                         </form>
                         <div class="product_price">
-                            <h3 th:text="${productDetail.product_price}"></h3>
+                            <h3 th:text="|${#numbers.formatInteger(productDetail.product_price,3,'COMMA')}원|"></h3>
                         </div>
                     </div>
                 </div>
@@ -157,9 +157,6 @@
     </div>
 </div>
 
-<div class="topButton">
-    <a href="#"><img src="../../../image/topbutton.png" title="위로 가기"></a>
-</div>
 
 <!-- ===========장바구니 및 좋아요 모달창 (로그인 전)=========== -->
 <div class="modal_container hidden">
@@ -188,5 +185,8 @@
     </div>
 </div>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<div class="topButton">
+    <a href="#"><img src="../../../image/topbutton.png" title="위로 가기"></a>
+</div>
 </body>
 </html>

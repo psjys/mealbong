@@ -24,6 +24,7 @@ public class HomeController {
         model.addAttribute("productList", popList);
         model.addAttribute("randomList", randomList);
         model.addAttribute("newList", newList);
+        model.addAttribute("code_number", productService.categoryList());
 
         return "index";
     }

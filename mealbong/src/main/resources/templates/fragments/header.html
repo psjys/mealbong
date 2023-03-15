@@ -59,12 +59,10 @@
     <nav>
         <ul class="menu">
             <li><a th:href="@{/product/productList(currPage=1,rowsPerPage=8, category_code=C_01)}">카테고리</a>
-                <ul  class="submenu">
-                    <th:block th:each="productList:${code_number}">
-                        <li>
+                <ul class="submenu">
+                        <li th:each="productList:${code_number}">
                             <a th:text="${productList.code_desc}" th:href="@{/product/productList(currPage=1,rowsPerPage=8, category_code=${productList.code_number})}"></a>
                         </li>
-                    </th:block>
                 </ul>
             </li>
             <li><a href="/#pop">인기상품</a></li>

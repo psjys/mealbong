@@ -26,8 +26,10 @@ category_code = "C_06";
 break;
 }
 
+let orderNo = 0;
 
 function productList_order(orderList) {
+orderNo = orderList;
     $.ajax({
         type: 'Get',
         url: 'productList2',
@@ -38,15 +40,54 @@ function productList_order(orderList) {
               },
         success: function (resultPage) {
           $('#resultArea').html(resultPage);
+            pageNo_color();
         },
         error: function () {
           $('#resultArea').html('~~ Error 발생 !!! ~~~');
+                      alert("실패");
+        }
+      }); //ajax
+}
+
+
+function productList_order2(currPage) {
+    $.ajax({
+        type: 'Get',
+        url: 'productList2',
+        data : {orderKey : orderNo,
+                currPage : currPage,
+                rowsPerPage : 8,
+                category_code : category_code
+              },
+        success: function (resultPage) {
+          $('#resultArea').html(resultPage);
+        },
+        error: function () {
+          $('#resultArea').html('~~ Error 발생 !!! ~~~');
+                      alert("실패");
         }
       }); //ajax
 }
 
 productList_order(1);
-console.log("DDDDD");
+
+let currentIdx = 0,
+    beforeIdx;
+
+let pageNo = document.querySelectorAll(".cri_div_font");
+
+function pageNo_color (){
+            pageNo[currentIdx].style.backgroundColor ="white";
+            pageNo[currentIdx].style.color ="lightsalmon";
+            pageNo[currentIdx].style.borderRadius ="50%";
+
+            beforeIdx = currentIdx;
+
+            pageNo[beforeIdx].style.backgroundColor = "lightsalmon";
+            pageNo[beforeIdx].style.color = "white";
+            pageNo[beforeIdx].style.borderRadius = "50%";
+    }
+
 
 // ===========================================================
 // innerbox1, innerbox2 a 태그들 클릭시 색깔
@@ -59,7 +100,6 @@ let outerbox = document.querySelector('.outerbox'),
     category = innerbox1.querySelectorAll('a'),
     theme = innerbox2.querySelectorAll('a');
 
-let currentIdx = 0;
 
 const urlParams = new URL(location.href).searchParams;
 let name = urlParams.get('category_code');

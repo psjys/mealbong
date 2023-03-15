@@ -10,5 +10,6 @@ public class SearchCriteria extends Criteria {
 	private String[] check;
 	private String code_number;
 	private String code_desc;
+	private String category_code;
 
 } // class

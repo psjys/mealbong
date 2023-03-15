@@ -19,20 +19,10 @@
         where product_number = #{product_number}
     </select>
 
-    <!-- Criteria PageList -->
-    <select id="criList" resultType="com.project.mealbong.product.ProductDTO">
-        select p.product_number, p.product_name, p.product_price, i.image_file
-        from product p left outer join image i
-        on p.product_number = i.product_number and i.image_main = "Y"
-        where category_code = #{category_code}
-        <include refid="orderList"></include>
-        limit #{sno}, #{rowsPerPage}
-    </select>
-
     <sql id="orderList">
         <choose>
             <when test="orderKey == 1">
-                order by product_number
+                order by product_sale desc
             </when>
             <when test="orderKey == 2">
                 order by product_date desc
@@ -45,6 +35,16 @@
             </when>
         </choose>
     </sql>
+
+    <!-- Criteria PageList -->
+    <select id="criList" resultType="com.project.mealbong.product.ProductDTO">
+        select p.product_number, p.product_name, p.product_price, i.image_file
+        from product p left outer join image i
+        on p.product_number = i.product_number and i.image_main = "Y"
+        where category_code = #{category_code}
+        <include refid="orderList"></include>
+        limit #{sno}, #{rowsPerPage}
+    </select>
 
     <select id="categoryList" resultType="com.project.mealbong.product.ProductDTO">
         select * from code
@@ -180,6 +180,7 @@
         select p.product_number, p.product_name, p.product_price, i.image_file
         from product p left outer join image i
         on p.product_number = i.product_number and i.image_main = "Y"
+        order by product_sale desc
     </select>
     <!--    오늘의 추천, 이런건 어때요?-->
     <select id="randomList" resultType="com.project.mealbong.product.ProductDTO">

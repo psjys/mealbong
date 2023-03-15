@@ -183,7 +183,7 @@ header {
 /* 장바구니 */
 
 .innerbox3 .food_box .basket {
-    background-image: url(../../image/basket.png);
+    background-image: url(../../image/heart_coral.png);
     background-position: center;
     background-size: 65%;
     background-repeat: no-repeat;
@@ -196,7 +196,7 @@ header {
     right: 15px;
     bottom: 275px;
 
-    background-color: lightsalmon;
+    background-color: white;
     opacity: 0.8;
     border-radius: 50%;
     border: none;
@@ -352,9 +352,28 @@ main {
     position: absolute;
 }
 
+/* paging */
+
 .cri_div {
     text-align: center;
-    line-height: 60px;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
 }
 
+.cri_div div {
+    width: 25px;
+    height: 25px;
+}
+
+.cri_div_font {
+    background-color: lightsalmon;
+    color: white;
+    border-radius: 50%;
+}
+
+.cri_div a {
+    color: gray;
+    text-decoration: none;
+}
 
