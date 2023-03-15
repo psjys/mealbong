@@ -120,4 +120,9 @@
         select count(*) from user
         where ( user_id is not null <include refid="search"></include>
     </select>
+
+    <select id="dely_info" resultType="com.project.mealbong.delivery.DeliveryDTO">
+        select dely_address1,dely_address2 from dely where user_id =
+            #{user_id} AND dely_check = "Y";
+    </select>
 </mapper>

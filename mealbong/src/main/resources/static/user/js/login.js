@@ -51,7 +51,6 @@ let test;
 const open = () => {
     modal.classList.remove('hidden');
     body.classList.add('scroll_none');
-    header.style.position = 'static';
     nav.style.zIndex = '0';
 }
     if (+failed_flag.value.length > 0) {
@@ -63,7 +62,6 @@ const open = () => {
 const close = () => {
     modal.classList.add('hidden');
     body.classList.remove('scroll_none');
-    header.style.position = 'sticky';
     nav.style.zIndex = '2';
     //failed_flag.value = "";
     // console.log(+failed_flag.value.length > 0);

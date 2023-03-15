@@ -1,6 +1,7 @@
 package com.project.mealbong.user;
 
 import com.project.mealbong.critest.SearchCriteria;
+import com.project.mealbong.delivery.DeliveryDTO;
 import com.project.mealbong.order.CartMapperDTO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -45,6 +46,8 @@ public interface User1Mapper {
     int product_check(CartMapperDTO cartMapperDTO);
 
     User1MapperDTO pw_check(User1MapperDTO user1MapperDTO);
+
+    DeliveryDTO dely_info(String user_id);
 
     //    ========================추가한거
 // admin page

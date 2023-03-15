@@ -34,9 +34,9 @@
     <select id="order_list" resultType="com.project.mealbong.order.OrderMapperDTO">
         select o.order_number,i.image_file,p.product_name,oo.order_date,oo.order_amount,(code_desc)order_status,
                oo.payment,(select count(*) from order_detail where order_number = #{order_number})
-                                                                                                   order_count,o.product_number from order_detail o,image i,product p,order1 oo INNER JOIN code
-                                                                                                                                                                                           ON oo.order_status = code_number where o.order_number = #{order_number} AND o.product_number = i.product_number AND i.image_main = "Y"
-                                                                                                                                                                                                                              AND p.product_number = o.product_number AND o.order_number = oo.order_number order by order_detail_number asc limit 1;
+            order_count,o.product_number from order_detail o,image i,product p,order1 oo INNER JOIN code
+         ON oo.order_status = code_number where o.order_number = #{order_number} AND o.product_number = i.product_number AND i.image_main = "Y"
+        AND p.product_number = o.product_number AND o.order_number = oo.order_number order by order_detail_number asc limit 1;
     </select>
 
     <select id="user_order" resultType="int">

@@ -3,6 +3,7 @@ package com.project.mealbong.order;
 import com.project.mealbong.critest.Criteria;
 import com.project.mealbong.critest.PageMaker;
 import com.project.mealbong.critest.SearchCriteria;
+import com.project.mealbong.delivery.DeliveryDTO;
 import com.project.mealbong.product.ImageService;
 import com.project.mealbong.product.ProductDTO;
 import com.project.mealbong.product.ProductService;
@@ -83,6 +84,7 @@ public class OrderController {
         int total = 0;
         String user_id = (String) session.getAttribute("user_id");
         User1MapperDTO user_info = us.find_id(user_id);
+        DeliveryDTO dely = us.dely_info(user_id);
         Map<Integer,CartMapperDTO> result = new HashMap<>();
 
         for(int i=0; i<cart_numberV.length; i++) {
@@ -101,6 +103,7 @@ public class OrderController {
         mav.addObject("product", result);
         mav.addObject("total",total);
         mav.addObject("user_info",user_info);
+        mav.addObject("dely",dely);
         mav.setViewName("html/order/order");
 //        mav.addObject("arr",arr);
         return mav;
@@ -145,6 +148,7 @@ public class OrderController {
 
         String user_id = info.getUser_id();
         User1MapperDTO user_info = us.find_id(user_id);
+        DeliveryDTO dely = us.dely_info(user_id);
         List<OrderDetailMapperDTO> lists = os.order_detail(order_number);
 //        for(OrderDetailMapperDTO test : lists) {
 //            System.out.println("order_detail ++"+test);
@@ -152,6 +156,7 @@ public class OrderController {
         info.setOrder_number(order_number);
 //        System.out.println("info ++"+info);
         mav.addObject("info",info);
+        mav.addObject("dely",dely);
         mav.addObject("detail_list",lists);
         mav.addObject("user_info",user_info);
         mav.setViewName("/html/order/order_details");
@@ -170,7 +175,7 @@ public class OrderController {
 
         String user_id = (String) session.getAttribute("user_id");
         int total = 0;
-        User1MapperDTO user_dedail = us.find_id(user_id);
+        DeliveryDTO dely = us.dely_info(user_id);
         List<CartMapperDTO> cart_list = cs.cart_list(user_id);
         int result = cs.cart_count(user_id);
         for (CartMapperDTO t:cart_list
@@ -185,8 +190,7 @@ public class OrderController {
             mav.addObject("fee",0);
         }
 
-        mav.addObject("user_address1",user_dedail.getUser_address1());
-        mav.addObject("user_address2",user_dedail.getUser_address2());
+        mav.addObject("dely",dely);
         mav.addObject("cart_list",cart_list);
         mav.addObject("total",total);
         mav.addObject("count",result);
