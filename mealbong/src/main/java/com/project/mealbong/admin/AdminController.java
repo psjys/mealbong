@@ -212,5 +212,6 @@ public class AdminController {
         mv.setViewName("/html/admin/notice_admin_detail");
         return mv;
     }
+
 }
 

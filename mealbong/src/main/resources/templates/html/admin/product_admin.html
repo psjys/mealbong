@@ -24,7 +24,7 @@
 
         $('#product_search').click(function () {
             self.location = '/admin/productadmin'
-                + '?currPage=1&rowsPerPage=10'
+                + '?currPage=1&rowsPerPage=8'
                 + '&searchType=' + $('#searchType').val()
                 + '&keyword=' + $('#keyword').val();
         });
@@ -40,7 +40,7 @@
             <li><a href="/admin/useradmin">회원관리</a></li>
             <li><a href="/admin/orderadmin">주문관리</a></li>
             <li class="click"><a href="/admin/productadmin">상품관리</a></li>
-            <li><a th:href="@{/admin/qnaadmin(searchType='n')}">게시판관리</a></li>
+            <li><a href="/admin/noticeadmin">게시판관리</a></li>
         </ul>
     </div>
     <div class="content">
@@ -106,9 +106,6 @@
                 <a th:href="@{/admin/productadmin(currPage=1,rowsPerPage=8, searchType=${pageMaker.cri.searchType}, keyword=${pageMaker.cri.keyword})}"><<</a>&nbsp;&nbsp;
                 <a th:href="@{/admin/productadmin(currPage=${pageMaker.spageNo-1}, rowsPerPage=8, searchType=${pageMaker.cri.searchType}, keyword=${pageMaker.cri.keyword})}">&lt;</a>
             </th:block>
-<!--            <th:block th:unless="${pageMaker.prev && pageMaker.spageNo>1}">-->
-<!--                <span><<&nbsp;&nbsp;<</span>-->
-<!--            </th:block>-->
             <!-- 2) Display PageNo  -->
             <div th:each="i: ${#numbers.sequence(pageMaker.spageNo, pageMaker.epageNo)}">
                 <div th:if="${i==pageMaker.cri.currPage}" th:text="${i}" class="cri_div_font"></div>
@@ -121,9 +118,6 @@
                 <a th:href="@{/admin/productadmin(currPage=${pageMaker.epageNo+1}, rowsPerPage=8, searchType=${pageMaker.cri.searchType}, keyword=${pageMaker.cri.keyword})}"> ></a>&nbsp;&nbsp;
                 <a th:href="@{/admin/productadmin(currPage=${pageMaker.lastPageNo}, rowsPerPage=8, searchType=${pageMaker.cri.searchType}, keyword=${pageMaker.cri.keyword})}"> >></a>
             </th:block>
-<!--            <th:block th:unless="${pageMaker.next && pageMaker.epageNo > 0}">-->
-<!--                <span> >&nbsp;&nbsp;>></span>-->
-<!--            </th:block>-->
         </div>
     </div>
 </main>

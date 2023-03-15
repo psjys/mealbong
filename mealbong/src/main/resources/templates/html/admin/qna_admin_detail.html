@@ -26,7 +26,7 @@
             <li><a href="/admin/useradmin">회원관리</a></li>
             <li><a href="/admin/orderadmin">주문관리</a></li>
             <li><a href="/admin/productadmin">상품관리</a></li>
-            <li class="click"><a th:href="@{/admin/qnaadmin(searchType='n')}">게시판관리</a></li>
+            <li class="click"><a href="/admin/noticeadmin">게시판관리</a></li>
         </ul>
     </div>
     <div class="content">
@@ -35,7 +35,7 @@
                 <h2>게시판 관리</h2>
             </div>
             <ul class="board_header">
-                <li onclick="location.href='/admin/useradmin'">
+                <li onclick="location.href='/admin/noticeadmin'">
                     공지사항
                 </li>
                 <li onclick="location.href='/admin/useradmin'">
@@ -49,7 +49,6 @@
         <div class="content_admin">
             <div>
                 <h2>1:1 문의</h2>
-
             </div>
         </div>
         <ul style="width: 100%">
@@ -93,6 +92,11 @@
                            style="font-size: 1em; color:white;">답변 등록</a>
                     </button>
 
+                </ul>
+                <ul class="qna_detail_forward_button">
+                    <button onclick="javascript:history.go(-1)">
+                        목록으로
+                    </button>
                 </ul>
             </li>
         </ul>

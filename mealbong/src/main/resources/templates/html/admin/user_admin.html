@@ -80,7 +80,7 @@
             </thead>
             <tbody>
             <tr th:each="userList: ${userList}">
-                <td>
+                <td class="width_15">
                     <a th:href="@{|/admin/${userList.user_id}|}" th:text="${userList.user_id}"></a>
                 </td>
                 <td th:text="${userList.user_name}" class="width_10">이름</td>
