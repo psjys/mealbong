@@ -4,6 +4,8 @@ import com.project.mealbong.board.QnaDTO;
 import com.project.mealbong.board.QnaService;
 import com.project.mealbong.critest.PageMaker;
 import com.project.mealbong.critest.SearchCriteria;
+import com.project.mealbong.notice.NoticeDTO;
+import com.project.mealbong.notice.NoticeService;
 import com.project.mealbong.order.OrderDetailMapperDTO;
 import com.project.mealbong.order.OrderMapperDTO;
 import com.project.mealbong.order.OrderService;
@@ -28,6 +30,7 @@ public class AdminController {
     private ProductService productService;
     private User1Service userService;
     private OrderService orderService;
+    private NoticeService noticeService;
 
 
     // 회원관리 (관리자 페이지 메인)
@@ -177,4 +180,37 @@ public class AdminController {
 
         return uri;
     }
+
+    // 게시판 관리 - 공지사항
+    @GetMapping("/noticeadmin")
+    public ModelAndView admin_noticeList(ModelAndView mv, SearchCriteria cri, PageMaker pageMaker) {
+        cri.setSnoEno();
+
+        mv.addObject("noticeList", noticeService.searchList(cri));
+
+        pageMaker.setCriteria(cri);
+
+        pageMaker.setTotalRowsCount(noticeService.searchTotalCount(cri));
+
+        mv.addObject("pageMaker", pageMaker);
+
+        mv.setViewName("/html/admin/notice_admin");
+        return mv;
+    }
+
+    // 공지사항 상세 페이지
+    @GetMapping("/noticedetail")
+    public ModelAndView noticeDetail(@RequestParam("notice_number") int noticeNumber, ModelAndView mv, NoticeDTO dto) {
+        dto.setNotice_number(noticeNumber);
+        dto = noticeService.noticeDetail(dto);
+
+        if (dto != null) {
+            // ** 조회수 증가
+            if (noticeService.noticeCountUp(dto) > 0) dto.setNotice_cnt(dto.getNotice_cnt() + 1);
+        } //if_증가조건
+        mv.addObject("noticeDetail", dto);
+        mv.setViewName("/html/admin/notice_admin_detail");
+        return mv;
+    }
 }
+
