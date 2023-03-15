@@ -123,6 +123,7 @@ public class OrderController {
             orderDetailMapperDTO.setProduct_number(cartMapperDTO.getProduct_number());
             orderDetailMapperDTO.setProduct_price(cartMapperDTO.getProduct_price());
             orderDetailMapperDTO.setProduct_count(cartMapperDTO.getProduct_count());
+            os.product_sale(orderDetailMapperDTO);
             os.orderDetail_insert(orderDetailMapperDTO);
             cs.cart_delete(Integer.parseInt(cart_number[i]));
         }

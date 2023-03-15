@@ -110,4 +110,8 @@
         where order_number = #{order_number}
     </delete>
 
+    <update id="product_sale">
+        update product set product_sale = product_sale + #{product_count} where product_number = #{product_number}
+    </update>
+
 </mapper>

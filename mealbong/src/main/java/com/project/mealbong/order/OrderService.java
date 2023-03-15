@@ -18,6 +18,8 @@ public interface OrderService {
     List<Integer> user_order(OrderMapperDTO orderMapperDTO);
     int criTotalCount(String user_id);
 
+    void product_sale(OrderDetailMapperDTO orderDetailMapperDTO);
+
     //    ************ 추가한거
 // admin page
     List<OrderMapperDTO> searchList(SearchCriteria cri);

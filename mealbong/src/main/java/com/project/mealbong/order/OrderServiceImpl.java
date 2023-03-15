@@ -57,7 +57,12 @@ public class OrderServiceImpl implements OrderService{
         return orderMapper.criTotalCount(user_id);
     }
 
-//    *************** 추가한거
+    @Override
+    public void product_sale(OrderDetailMapperDTO orderDetailMapperDTO) {
+        orderMapper.product_sale(orderDetailMapperDTO);
+    }
+
+    //    *************** 추가한거
 
 
     // admin page
