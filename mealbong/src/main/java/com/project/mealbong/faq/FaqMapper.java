@@ -1,6 +1,8 @@
 package com.project.mealbong.faq;
 import com.project.mealbong.board.QnaDTO;
 import com.project.mealbong.critest.Criteria;
+import com.project.mealbong.critest.SearchCriteria;
+import com.project.mealbong.notice.NoticeDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -15,4 +17,9 @@ public interface FaqMapper {
     void faqUpdate(FaqDTO dto) throws Exception;
     List<FaqDTO> criList(Criteria cri);
     int criTotalCount(Criteria cri);
+
+
+    // admin page
+    List<FaqDTO> searchList(SearchCriteria cri);
+    int searchTotalCount(SearchCriteria cri);
 }

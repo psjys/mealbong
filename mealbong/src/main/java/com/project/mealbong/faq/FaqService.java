@@ -1,6 +1,8 @@
 package com.project.mealbong.faq;
 
 import com.project.mealbong.critest.Criteria;
+import com.project.mealbong.critest.SearchCriteria;
+import com.project.mealbong.notice.NoticeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,6 +56,14 @@ public class FaqService {
     }
     public int criTotalCount(Criteria cri) {
         return mapper.criTotalCount(cri);
+    }
+
+    // admin page
+    public List<FaqDTO> searchList(SearchCriteria cri) {
+        return mapper.searchList(cri);
+    }
+    public int searchTotalCount(SearchCriteria cri) {
+        return mapper.searchTotalCount(cri);
     }
 
 }

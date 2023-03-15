@@ -4,6 +4,7 @@ import com.project.mealbong.board.QnaDTO;
 import com.project.mealbong.board.QnaService;
 import com.project.mealbong.critest.PageMaker;
 import com.project.mealbong.critest.SearchCriteria;
+import com.project.mealbong.faq.FaqService;
 import com.project.mealbong.notice.NoticeDTO;
 import com.project.mealbong.notice.NoticeService;
 import com.project.mealbong.order.OrderDetailMapperDTO;
@@ -32,6 +33,7 @@ public class AdminController {
     private User1Service userService;
     private OrderService orderService;
     private NoticeService noticeService;
+    private FaqService faqService;
 
 
     // 회원관리 (관리자 페이지 메인)
@@ -220,6 +222,22 @@ public class AdminController {
         } //if_증가조건
         mv.addObject("noticeDetail", dto);
         mv.setViewName("/html/admin/notice_admin_detail");
+        return mv;
+    }
+
+    // 게시판 관리 - faq
+    @GetMapping("/faqadmin")
+    public ModelAndView admin_faqList(ModelAndView mv, SearchCriteria cri, PageMaker pageMaker) {
+        cri.setSnoEno();
+
+        mv.addObject("faqList", faqService.searchList(cri));
+
+        pageMaker.setCriteria(cri);
+        pageMaker.setTotalRowsCount(faqService.searchTotalCount(cri));
+
+        mv.addObject("pageMaker", pageMaker);
+
+        mv.setViewName("/html/admin/faq_admin");
         return mv;
     }
 

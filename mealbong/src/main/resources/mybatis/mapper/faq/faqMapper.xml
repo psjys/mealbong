@@ -53,4 +53,52 @@
             where faq_code = #{code_number}
         </if>
     </select>
+
+<!--    admin page -->
+    <select id="searchList" resultType="com.project.mealbong.faq.FaqDTO">
+        select faq_number, (code_desc) faq_code, faq_question, faq_answer
+        from faq
+        INNER JOIN code ON faq_code = code_number
+
+        <if test="searchType != 'n'.toString()">
+            where faq_code = #{searchType}
+            <if test="keyword!=null">
+                <bind name="keyVal" value="'%'+keyword+'%'"/>
+                and (
+                faq_question like #{keyVal} )
+            </if>
+        </if>
+        <choose>
+            <when test="searchType == 'n'.toString()">
+                <if test="keyword!=null">
+                    <bind name="keyVal" value="'%'+keyword+'%'"/>
+                    where (
+                    faq_question like #{keyVal} )
+                </if>
+            </when>
+        </choose>
+        order by faq_number desc
+        limit #{sno}, #{rowsPerPage}
+    </select>
+
+    <select id="searchTotalCount" resultType="int">
+        select count(*) from faq
+        <if test="searchType != 'n'.toString()">
+            where faq_code = #{searchType}
+            <if test="keyword!=null">
+                <bind name="keyVal" value="'%'+keyword+'%'"/>
+                and (
+                faq_question like #{keyVal} )
+            </if>
+        </if>
+        <choose>
+            <when test="searchType == 'n'.toString()">
+                <if test="keyword!=null">
+                    <bind name="keyVal" value="'%'+keyword+'%'"/>
+                    where (
+                    faq_question like #{keyVal} )
+                </if>
+            </when>
+        </choose>
+    </select>
 </mapper>
