@@ -49,7 +49,7 @@
             </div>
             <ul class="content_inquiry">
                 <li>
-                    <ul>
+                    <ul style="padding: 20px 0;">
                         <li>제목</li>
                         <li>작성일</li>
                         <li>답변상태</li>
@@ -87,17 +87,6 @@
                                 <span th:text="${qnaList.getAns_content()}"
                                       style="text-align: left; line-height: 25px;"></span>
                             </div>
-<!--                            <div th:if="${session['user_id'] == 'admin' && qnaList.ans_content != null}" class="updelete">-->
-<!--                                <a th:href="@{/admin/ansform(qna_num=${qnaList.getQna_num()})}">답변수정</a>-->
-<!--                                <a th:href="@{/admin/ansdelete(qna_num=${qnaList.getQna_num()})}">답변삭제</a>-->
-<!--                            </div>-->
-<!--                            <div th:if="${session['user_id'] == 'admin' && qnaList.ans_content == null}"-->
-<!--                                 class="ans_btn">-->
-<!--                                <button class="inquiry_form_button" value="답변 등록">-->
-<!--                                    <a th:href="@{/admin/ansform(qna_num=${qnaList.getQna_num()})}"-->
-<!--                                       style="font-size: 1em; color:white;">답변 등록</a>-->
-<!--                                </button>-->
-<!--                            </div>-->
                         </li>
 
                     </ul>

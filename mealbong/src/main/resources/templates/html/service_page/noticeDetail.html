@@ -12,8 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../user/css/mypage.css">
     <link rel="stylesheet" href="../../../common/css/mainPage.css">
+    <link rel="stylesheet" href="../../../common/css/modal.css">
     <script defer src="../../../board/js/notice.js"></script>
-    <script defer src="../../js/main_topDiv.js"></script>
+    <script defer src="../../../admin/js/notice_delete.js"></script>
 
 </head>
 
@@ -48,17 +49,28 @@
                 <p><span th:text="${noticeDetail.notice_content}"></span></p>
             </div>
             <div class="notice_detail_main_button">
+                <a th:href="@{/notice/noticeUpdate(notice_number=${noticeDetail.notice_number})}"
+                th:if="${session['user_id']=='admin'}">글 수정</a>
+                <a th:onclick="'javascript:noticeDelete('+${noticeDetail.notice_number}+')'"
+                   th:if="${session['user_id']=='admin'}">글 삭제</a>
                 <button onclick="javascript:history.go(-1)">
-                   목록으로
+                    목록으로
                 </button>
             </div>
         </div>
     </div>
-    <a th:href="@{/notice/noticeUpdate(notice_number=${noticeDetail.notice_number})}">글 수정</a>
-    <a th:href="@{/notice/noticeDelete(notice_number=${noticeDetail.notice_number})}">글삭제</a>
 </main>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
-
+<div class="mainModal hidden">
+    <div class="bg"></div>
+    <div class="modalBox">
+        <p>글을 삭제 하시겠습니까?</p>
+        <div class="closeBtn_div">
+            <button class="closeBtn">확인</button>
+            <button class="closeBtn">취소</button>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>

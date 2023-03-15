@@ -248,6 +248,20 @@ main {
     justify-content: flex-end;
 }
 
+.notice_detail_main_button a {
+    background-color: lightsalmon;
+    border: none;
+    border-radius: 5px;
+    line-height: 40px;
+    width: 120px;
+    color: white;
+    margin: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    font-size: 13px;
+}
+
 .notice_detail_main_button button {
     background-color: lightsalmon;
     border: none;
@@ -318,8 +332,42 @@ main {
 
 .content_faq_answer {
     display: flex;
-    padding: 20px 0;
-    border-bottom: 1px solid gainsboro;
+    margin: 10px;
+    flex-direction: column;
+    background: #F6F6F6;
+    text-align: center;
+    padding: 10px;
+}
+
+.content_faq_answer p {
+    line-height: 100px;
+    text-align: center;
+}
+
+.faq_ans_a {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.8em;
+}
+
+.faq_ans_a a {
+    margin-left: 10px;
+}
+
+.faqInsertDiv {
+    display: flex;
+    padding: 20px 0px;
+    justify-content: flex-end;
+}
+
+.faqInsertDiv a {
+    text-decoration: none;
+    background-color: lightsalmon;
+    text-align: center;
+    width: 80px;
+    line-height: 30px;
+    color: white;
+    border-radius: 5px;
 }
 
 .faq_Box div,
@@ -1263,7 +1311,7 @@ main {
     font-weight: bold;
 }
 
-.order_list div>span:nth-of-type(1) {
+.order_list div > span:nth-of-type(1) {
     display: inline-block;
     width: 100px;
 }
@@ -1501,7 +1549,7 @@ main {
 
 /* 배송지 관리 모달창 */
 
-.address_fix_content,.address_add_content {
+.address_fix_content, .address_add_content {
     display: flex;
     position: fixed;
     top: 0;
@@ -1512,7 +1560,7 @@ main {
     align-items: center;
 }
 
-.address_fix_box,.address_add_box {
+.address_fix_box, .address_add_box {
     position: absolute;
     background-color: #fff;
     height: auto;
@@ -1526,13 +1574,12 @@ main {
 }
 
 .address_fix_box h2,
-.address_add_box h2{
+.address_add_box h2 {
     padding: 20px;
 }
 
 .address_fix_box > div,
-.address_add_box > div
-{
+.address_add_box > div {
     padding: 0 20px 20px 20px;
 }
 
@@ -1543,13 +1590,13 @@ main {
 
 
 .address_fix_box input,
-.address_add_box input{
+.address_add_box input {
     width: 100%;
     height: 30px;
 }
 
 .address_fix_button,
-.address_add_button{
+.address_add_button {
     display: flex;
 }
 
@@ -1577,6 +1624,6 @@ main {
 }
 
 .fix_cancel,
-.add_cancel{
+.add_cancel {
     border-radius: 0 0 10px 0;
 }
