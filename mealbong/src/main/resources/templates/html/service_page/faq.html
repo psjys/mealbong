@@ -12,7 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../user/css/mypage.css">
     <link rel="stylesheet" href="../../../common/css/mainPage.css">
+    <link rel="stylesheet" href="../../../../common/css/modal.css">
     <script defer src="../../../board/js/faq.js"></script>
+    <script defer src="../../../admin/js/faq_delete.js"></script>
 
 </head>
 
@@ -73,7 +75,9 @@
                             </div>
                             <div th:if="${session['user_id']=='admin'}" class="faq_ans_a">
                                 <a th:href="@{/faq/faqUpdate(faq_number=${faq.faq_number})}">글 수정</a>
-                                <a th:href="@{/faq/faqDelete(faq_number=${faq.faq_number})}">글 삭제</a>
+                                <a th:onclick="'javascript:faqDelete(' + ${faq.faq_number} + ')'">
+                                    글 삭제
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -108,6 +112,16 @@
     </div>
 </main>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<div class="mainModal hidden">
+    <div class="bg"></div>
+    <div class="modalBox">
+        <p>글을 삭제 하시겠습니까?</p>
+        <div class="closeBtn_div">
+            <button class="closeBtn">확인</button>
+            <button class="closeBtn">취소</button>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
