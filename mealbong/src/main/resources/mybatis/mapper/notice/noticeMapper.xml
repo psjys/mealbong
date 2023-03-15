@@ -54,4 +54,48 @@
         where notice_number
     </select>
 
+
+<!--    admin page -->
+    <!-- SearchCriteria PageList -->
+    <sql id="search">
+        <if test="keyword!=null">
+            <bind name="keyVal" value="'%'+keyword+'%'"/>
+        </if>
+        <choose>
+            <when test="searchType=='n'.toString()">
+                and notice_number like #{keyVal}
+                or notice_title like #{keyVal}
+                or notice_content like #{keyVal}
+                or notice_date like #{keyVal} )
+            </when>
+            <when test="searchType=='p'.toString()">
+                and notice_number like #{keyVal} )
+            </when>
+            <when test="searchType=='e'.toString()">
+                and notice_title like #{keyVal} )
+            </when>
+            <when test="searchType=='o'.toString()">
+                and notice_content like #{keyVal} )
+            </when>
+            <when test="searchType=='u'.toString()">
+                and notice_date like #{keyVal} )
+            </when>
+            <otherwise> )</otherwise>
+        </choose>
+    </sql>
+
+    <select id="searchList" resultType="com.project.mealbong.notice.NoticeDTO">
+        select *
+        from notice
+        where ( notice_number>0
+        <include refid="search"></include>
+        order by notice_number desc
+        limit #{sno}, #{rowsPerPage}
+    </select>
+
+    <select id="searchTotalCount" resultType="int">
+        select count(*) from notice
+        where ( notice_number>0 <include refid="search"></include>
+    </select>
+
 </mapper>

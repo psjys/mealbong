@@ -74,15 +74,16 @@
                 <p><span th:text="${noticeDetail.notice_content}"></span></p>
             </div>
             <div class="notice_detail_main_button">
+                <a th:href="@{/notice/noticeUpdate(notice_number=${noticeDetail.notice_number})}">글 수정</a>
+                <a th:href="@{/notice/noticeDelete(notice_number=${noticeDetail.notice_number})}">글 삭제</a>
                 <button onclick="javascript:history.go(-1)">
                     목록으로
                 </button>
             </div>
         </div>
+
     </div>
-    <a th:href="@{/notice/noticeUpdate(notice_number=${noticeDetail.notice_number})}">글 수정</a>
-    <a th:href="@{/notice/noticeDelete(notice_number=${noticeDetail.notice_number})}">글삭제</a>
-    </div>
+
 </main>
 
 <footer th:replace="fragments/footer :: footerFragment"></footer>

@@ -1,5 +1,7 @@
 package com.project.mealbong.notice;
+import com.project.mealbong.board.QnaDTO;
 import com.project.mealbong.critest.Criteria;
+import com.project.mealbong.critest.SearchCriteria;
 import com.project.mealbong.faq.FaqDTO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -21,5 +23,9 @@ public interface NoticeMapper {
 
     List<NoticeDTO> criList(Criteria cri);
     int criTotalCount(Criteria cri);
+
+    // admin page
+    List<NoticeDTO> searchList(SearchCriteria cri);
+    int searchTotalCount(SearchCriteria cri);
 
 }

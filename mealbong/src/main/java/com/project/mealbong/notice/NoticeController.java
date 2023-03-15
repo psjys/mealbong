@@ -93,12 +93,12 @@ public class NoticeController {
                 service.noticeInsert(dto);
 
 
-                return "redirect:/notice/list";
+                return "redirect:/admin/noticeadmin";
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        return "redirect:/notice/list";
+        return "redirect:/admin/noticeadmin";
     }
 
     @GetMapping("/noticeDelete")

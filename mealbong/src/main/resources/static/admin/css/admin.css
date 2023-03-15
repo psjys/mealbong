@@ -175,7 +175,7 @@ main {
     height: 40px;
     margin-top: 10px;
     box-sizing: border-box;
-    background-color: silver;
+    background-color: lightsalmon;
     border: none;
     border-radius: 5px;
     position: absolute;
@@ -257,6 +257,16 @@ main {
     justify-content: flex-end;
 }
 
+.qna_detail_forward_button button {
+    background-color: lightsalmon;
+    border: none;
+    border-radius: 5px;
+    width: 80px;
+    height: 30px;
+    color: white;
+    cursor: pointer;
+}
+
 
 /* admin common */
 
@@ -322,4 +332,36 @@ table a:hover {
 
 .click a {
     color: lightsalmon;
+}
+
+/* notice admin */
+.notice_insert_button {
+    display: flex;
+    padding: 20px 0px;
+    justify-content: flex-end;
+}
+
+.notice_insert_button a {
+    text-decoration: none;
+    background-color: lightsalmon;
+    text-align: center;
+    width: 80px;
+    line-height: 30px;
+    color: white;
+    border-radius: 5px;
+}
+
+
+.notice_detail_main_button a {
+    background-color: lightsalmon;
+    border: none;
+    border-radius: 5px;
+    line-height: 40px;
+    width: 120px;
+    color: white;
+    margin: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    font-size: 13px;
 }
