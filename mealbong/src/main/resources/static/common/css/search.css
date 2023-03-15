@@ -29,7 +29,7 @@
 }
 
 .food_box .basket {
-    background-image: url(../../image/basket.png);
+    background-image: url(../../image/heart_coral.png);
     background-position: center;
     background-size: 65%;
     background-repeat: no-repeat;
@@ -43,7 +43,7 @@
     right: 15px;
     top: 60%;
 
-    background-color: lightsalmon;
+    background-color: white;
     opacity: 0.8;
     border-radius: 50%;
     border: none;
