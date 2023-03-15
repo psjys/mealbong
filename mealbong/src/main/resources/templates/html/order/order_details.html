@@ -167,14 +167,6 @@
         </div>
     </div>
 
-<th:block th:if="${session['user_id']=='admin'}">
-    <a th:href="@{/admin/useradmin}">
-        <span th:text="${session['user_name']}"></span>&nbsp;님
-    </a>
-</th:block>
-<th:block th:unless="${session['user_id']=='admin'}">
-
-</th:block>
 
     <div class="linkContainer">
         <th:block th:if="${session['user_id']=='admin'}">
