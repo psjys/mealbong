@@ -59,16 +59,16 @@
             </ul>
         </div>
         <div class="content">
-            <div class="content_adress_1">
+            <div class="content_address_1">
                 <h2>배송지 관리</h2>
-                <div class="adress_add">
-                    <button class="adress_add_button">
+                <div class="new_address">
+                    <button class="new_address_button">
                         <span>새 배송지 추가</span>
                     </button>
                 </div>
             </div>
-            <div class="content_adress">
-                <div class="content_adress_2">
+            <div class="content_address">
+                <div class="content_address_2">
                     <div>선택</div>
                     <div>주소</div>
                     <div>받으실분</div>
@@ -76,7 +76,7 @@
                     <div>수정</div>
                 </div>
                 <form id="dely_default" method="POST" action="dely_default">
-                    <div class="content_adress_box" th:each="deliveryList:${deliveryList}">
+                    <div class="content_address_box" th:each="deliveryList:${deliveryList}">
                         <div>
                             <input type="radio" name="dely_number" th:value="${deliveryList.dely_number}"
                                    th:checked="${deliveryList.dely_check == 'Y'}">
@@ -88,49 +88,91 @@
                         <div name="dely_name" th:text="${deliveryList.dely_name}"></div>
                         <div name="dely_phone" th:text="${deliveryList.dely_phone}"></div>
                         <div>
-                            <a th:href="@{/address/delyUpdate(dely_number=${deliveryList.dely_number})}">수정</a>
-
+                            <button th:data-number="${deliveryList.dely_number}"
+                                    th:data-add1="${deliveryList.dely_address1}"
+                                    th:data-add2="${deliveryList.dely_address2}"
+                                    th:data-name="${deliveryList.dely_name}"
+                                    th:data-phone="${deliveryList.dely_phone}">
+                            </button>
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="content_adress_3">
-                <button onclick="submitForm()" class="adress_button">
+            <div class="content_address_3">
+                <button onclick="submitForm()" class="address_button">
                     기본 배송지 설정
                 </button>
             </div>
         </div>
     </div>
-    <div class="address_fix_content hidden">
-        <div class="address_fix_box">
+
+    <!-- 새 배송지 추가 모달창 -->
+    <div class="address_add_content hidden">
+        <div class="address_add_box">
             <form action="delyInsert" method="post">
                 <h2>새 배송지 추가</h2>
                 <input name="user_id" th:value="${deliveryList[0].user_id}" type="hidden">
-                <input name="dely_zip" class="fix_zonecode" type="hidden">
+                <input name="dely_zip" class="add_zonecode" type="hidden">
                 <div>
-                    <input name="dely_address1" class="fix_address1" type="text" readonly>
+                    <input name="dely_address1" class="add_address1" type="text" readonly>
                 </div>
                 <div>
-                    <div class="fix_address2">나머지 주소</div>
+                    <div class="add_address2">나머지 주소</div>
                     <input name="dely_address2" type="text" placeholder="나머지 주소를입력해 주세요.">
                 </div>
                 <div>
-                    <div class="fix_name">받으실 분</div>
+                    <div class="add_name">받으실 분</div>
                     <input name="dely_name" type="text" placeholder="이름을 입력해 주세요.">
                 </div>
                 <div>
-                    <div class="fix_call">연락처</div>
+                    <div class="add_call">연락처</div>
                     <input name="dely_phone" type="text" placeholder="번호를 입력해 주세요.">
                 </div>
                 <div>
-                    <div class="address_fix_button">
-                        <button type="submit" class="fix_check">확인</button>
-                        <button type="reset" class="fix_cancel">취소</button>
+                    <div class="address_add_button">
+                        <button type="submit" class="add_check">확인</button>
+                        <button type="reset" class="add_cancel">취소</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+    <!-- 배송지 수정 모달창 -->
+    <div class="address_fix_content hidden">
+        <div class="address_fix_box">
+
+            <form id="delyDelete" action="delyDelete" method="post">
+                <input name="dely_number" class="fix_number" type="hidden">
+            </form>
+
+            <form id="delyUpdate" action="delyUpdate" method="post">
+                <h2>배송지 수정</h2>
+                <input name="dely_number" class="fix_number" type="hidden">
+                <div>
+                    <input name="dely_address1" class="fix_address1" readonly>
+                </div>
+                <div>
+                    <div>나머지 주소</div>
+                    <input name="dely_address2" class="fix_address2" placeholder>
+                </div>
+                <div>
+                    <div>받으실 분</div>
+                    <input name="dely_name" class="fix_name" placeholder>
+                </div>
+                <div>
+                    <div>연락처</div>
+                    <input name="dely_phone" class="fix_phone" placeholder>
+                </div>
+            </form>
+            <div>
+                <div class="address_fix_button">
+                    <button onclick="submitUpdate()" class="fix_check">수정</button>
+                    <button onclick="submitDelete()" class="fix_cancel">삭제</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </main>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

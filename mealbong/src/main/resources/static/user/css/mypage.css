@@ -552,7 +552,7 @@ main {
 
 /* 마이페이지 - 배송지관리 */
 
-.content_adress_1 {
+.content_address_1 {
     height: 80px;
     border-bottom: 1px solid;
     box-sizing: border-box;
@@ -561,35 +561,35 @@ main {
     justify-content: space-between;
 }
 
-.content_adress_1 div h2 {
+.content_address_1 div h2 {
     display: inline-block;
 }
 
-.adress_add {
+.new_address {
     align-self: flex-end;
     padding-bottom: 10px;
     box-sizing: border-box;
 
 }
 
-.adress_add button {
+.new_address button {
     background-color: white;
     border: 0;
     cursor: pointer;
 
 }
 
-.adress_add button span {
+.new_address button span {
     font-size: 16px;
     font-weight: bold;
 }
 
-.adress_add span::before {
+.new_address span::before {
     content: "➕ ";
 }
 
 
-.content_adress_2 {
+.content_address_2 {
     display: flex;
     padding: 20px 0;
     font-weight: bold;
@@ -597,52 +597,52 @@ main {
     box-sizing: border-box;
 }
 
-.content_adress_2 div:nth-child(1),
-.content_adress_box div:nth-child(1) {
+.content_address_2 div:nth-child(1),
+.content_address_box div:nth-child(1) {
     flex: 1;
 }
 
-.content_adress_2 div:nth-child(2),
-.content_adress_box div:nth-child(2) {
+.content_address_2 div:nth-child(2),
+.content_address_box div:nth-child(2) {
     flex: 5;
 }
 
-.content_adress_2 div:nth-child(3),
-.content_adress_box div:nth-child(3) {
+.content_address_2 div:nth-child(3),
+.content_address_box div:nth-child(3) {
     flex: 1;
 }
 
-.content_adress_2 div:nth-child(4),
-.content_adress_box div:nth-child(4) {
+.content_address_2 div:nth-child(4),
+.content_address_box div:nth-child(4) {
     flex: 2;
 }
 
-.content_adress_2 div:nth-child(5),
-.content_adress_box div:nth-child(5) {
+.content_address_2 div:nth-child(5),
+.content_address_box div:nth-child(5) {
     flex: 1;
 }
 
-.content_adress_2 div {
+.content_address_2 div {
     display: flex;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
 }
 
-.content_adress_box div {
+.content_address_box div {
     display: flex;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
 }
 
-.content_adress_box {
+.content_address_box {
     display: flex;
     padding: 10px 0;
     border-bottom: 1px solid gainsboro;
 }
 
-.content_adress_box div button {
+.content_address_box div button {
     background: url(../image/fix.png) no-repeat center/100%;
     width: 24px;
     height: 24px;
@@ -650,12 +650,12 @@ main {
     border: none;
 }
 
-.content_adress_3 {
+.content_address_3 {
     display: flex;
     justify-content: flex-end;
 }
 
-.adress_button {
+.address_button {
     width: 130px;
     height: 40px;
     margin-top: 20px;
@@ -1263,7 +1263,7 @@ main {
     font-weight: bold;
 }
 
-.order_list div>span:nth-of-type(1) {
+.order_list div span:nth-of-type(1) {
     display: inline-block;
     width: 100px;
 }
@@ -1501,7 +1501,7 @@ main {
 
 /* 배송지 관리 모달창 */
 
-.address_fix_content {
+.address_fix_content,.address_add_content {
     display: flex;
     position: fixed;
     top: 0;
@@ -1512,7 +1512,7 @@ main {
     align-items: center;
 }
 
-.address_fix_box {
+.address_fix_box,.address_add_box {
     position: absolute;
     background-color: #fff;
     height: auto;
@@ -1525,29 +1525,36 @@ main {
     box-shadow: 0px 0px 1px 3px;
 }
 
-.address_fix_box h2 {
+.address_fix_box h2,
+.address_add_box h2{
     padding: 20px;
 }
 
-.address_fix_box > div {
+.address_fix_box > div,
+.address_add_box > div
+{
     padding: 0 20px 20px 20px;
 }
 
-.address_fix_box div:last-child {
+.address_fix_box div:last-child,
+.address_add_box div:last-child {
     padding: 0;
 }
 
 
-.address_fix_box input {
+.address_fix_box input,
+.address_add_box input{
     width: 100%;
     height: 30px;
 }
 
-.address_fix_button {
+.address_fix_button,
+.address_add_button{
     display: flex;
 }
 
-.address_fix_button button {
+.address_fix_button button,
+.address_add_button button {
     box-sizing: border-box;
     color: lightsalmon;
     font-weight: bold;
@@ -1563,11 +1570,13 @@ main {
     border-top: 1px solid gainsboro;
 }
 
-.address_fix_button .fix_check {
+.address_fix_button .fix_check,
+.address_add_button .add_check {
     border-right: 1px solid gainsboro;
     border-radius: 0 0 0 10px;
 }
 
-.fix_cancel {
+.fix_cancel,
+.add_cancel{
     border-radius: 0 0 10px 0;
 }

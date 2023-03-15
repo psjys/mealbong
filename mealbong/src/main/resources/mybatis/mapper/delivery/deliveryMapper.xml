@@ -19,11 +19,11 @@
         where dely_number = #{dely_number};
     </select>
 
-<!--    <delete id="deliveryDelete">-->
-<!--        delete-->
-<!--        from dely-->
-<!--        where faq_number = #{faq_number};-->
-<!--    </delete>-->
+    <delete id="deliveryDelete">
+        delete
+        from dely
+        where dely_number = #{dely_number};
+    </delete>
 
     <insert id="deliveryInsert">
         insert into dely(user_id, dely_zip, dely_address1, dely_address2, dely_name, dely_phone)
@@ -35,7 +35,7 @@
         set dely_address2=#{dely_address2},
             dely_name=#{dely_name},
             dely_phone=#{dely_phone}
-        where faq_number = #{faq_number};
+        where dely_number = #{dely_number};
     </update>
 
     <update id="deliveryDefault">

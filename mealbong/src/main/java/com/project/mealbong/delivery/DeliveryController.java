@@ -49,10 +49,22 @@ public class DeliveryController {
     @GetMapping("/delyUpdate")
     public ModelAndView delyUpdate(@RequestParam("dely_number") int dely_number, ModelAndView mv, DeliveryDTO dto) {
         dto.setDely_number(dely_number);
-        DeliveryDTO aa = service.deliveryDetail(dto);
-        System.out.println(aa);
-        mv.addObject("deliveryDetail",service.deliveryDetail(dto));
+
+        mv.addObject("deliveryDetail", service.deliveryDetail(dto));
         mv.setViewName("/html/my_page/addressUpdateForm");
         return mv;
+    }
+
+    @PostMapping("/delyUpdate")
+    public String delyUpdate(DeliveryDTO dto) {
+        service.deliveryUpdate(dto);
+        return "redirect:/address/list";
+    }
+
+    @PostMapping("/delyDelete")
+    public String delyDelete(@RequestParam("dely_number") int dely_number,DeliveryDTO dto ) {
+        dto.setDely_number(dely_number);
+        service.deliveryDelete(dto);
+        return "redirect:/address/list";
     }
 }
