@@ -24,9 +24,9 @@
                                                   order_detail o,product p where order_number = #{order_number} AND p.product_number = o.product_number;
     </select>
 
-    <select id="order_admin_detail" resultType="com.project.mealbong.order.OrderDetailMapperDTO">
+    <select id="order_detail" resultType="com.project.mealbong.order.OrderDetailMapperDTO">
         select o.product_count,o.product_count * o.product_price as price_total,
-               i.image_file,p.product_name from order_detail o,image i,product p
+               i.image_file,p.product_name,o.product_number from order_detail o,image i,product p
         where o.order_number = #{order_number} AND o.product_number = i.product_number AND
             i.image_main = "Y" AND p.product_number = o.product_number;
     </select>
@@ -46,7 +46,8 @@
     </select>
 
     <select id="order_info" resultType="com.project.mealbong.order.OrderDetailMapperDTO">
-        SELECT order_date,payment,order_amount from order1 where order_number = #{order_number}
+        SELECT user_id,(code_desc)order_status,order_date,payment,order_amount,order_number FROM order1 inner join code ON
+            order_status = code_number where order_number = #{order_number}
     </select>
 
     <select id="criTotalCount" resultType="int">
