@@ -78,7 +78,7 @@
             <tbody>
             <tr th:each="orderList: ${orderList}">
                 <td class="width_20">
-                 <a th:href="@{/admin/orderdetail(order_number=${orderList.order_number})}" th:text="${orderList.order_number}"></a>
+                    <a th:href="@{/order/detail(order_number=${orderList.order_number})}" th:text="${orderList.order_number}"></a>
                 </td>
                 <td th:text="${orderList.user_id}" class="width_20">아이디</td>
                 <td th:text="${orderList.order_date}" class="width_15">주문일자</td>
@@ -129,10 +129,8 @@
     <div class="modalBox">
         <p>주문을 삭제 하시겠습니까?</p>
         <div class="closeBtn_div">
-            <div class="modal_zz">
-                <button class="closeBtn">취소</button>
-                <button class="closeBtn">확인</button>
-            </div>
+            <button class="closeBtn">확인</button>
+            <button class="closeBtn">취소</button>
         </div>
     </div>
 </div>

@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface User1Mapper {
 
-//    @Insert("insert into user(user_id,user_password,user_name," +
+    //    @Insert("insert into user(user_id,user_password,user_name," +
 //            "user_email,user_phone,user_zip," +
 //            "user_address1,user_address2,user_gender,user_birth,etc1)" +
 //            " values(#{user_id},#{user_password},#{user_name}," +
@@ -18,37 +18,37 @@ public interface User1Mapper {
     int user_save(User1MapperDTO user1MapperDTO);
 
 
-   // @Select("select * from user")
+    // @Select("select * from user")
     List<User1MapperDTO> user_list();
 
 
-   // @Delete("delete from user where user_id = #{user_id}")
+    // @Delete("delete from user where user_id = #{user_id}")
     int user_delete(String user_id);
 
 
     //@Select("select * from user where user_id = #{user_id}")
     User1MapperDTO find_id(String user_id);
 
-//    @Update("update user set user_password=#{user_password},user_name=#{user_name}, user_email=#{user_email},user_phone=#{user_phone}," +
+    //    @Update("update user set user_password=#{user_password},user_name=#{user_name}, user_email=#{user_email},user_phone=#{user_phone}," +
 //            "user_zip=#{user_zip}," +
 //            "user_gender=#{user_gender} where user_id = #{user_id}")
     int user_update(User1MapperDTO user1MapperDTO);
 
 
-   // @Select("select COUNT(*) from user where user_id = '${user_id}' ")
-    int product_check(CartMapperDTO cartMapperDTO);
-    // @Select("select COUNT(*) from cart where user_id = "#{user_id}" and #{product_number};")
+    // @Select("select COUNT(*) from user where user_id = '${user_id}' ")
     int id_check(String user_id);
-   // @Select("select COUNT(*) from user where user_email = '${user_email}' ")
+    // @Select("select COUNT(*) from user where user_email = '${user_email}' ")
     int email_check(String user_email);
-   // @Select("select COUNT(*) from user where user_phone = '${user_phone}' ")
+    // @Select("select COUNT(*) from user where user_phone = '${user_phone}' ")
     int phone_check(String user_phone);
+
+    int product_check(CartMapperDTO cartMapperDTO);
 
     User1MapperDTO pw_check(User1MapperDTO user1MapperDTO);
 
-//    ========================추가한거
+    //    ========================추가한거
 // admin page
-List<User1MapperDTO> searchList(SearchCriteria cri);
+    List<User1MapperDTO> searchList(SearchCriteria cri);
     int searchTotalCount(SearchCriteria cri);
 
 }
