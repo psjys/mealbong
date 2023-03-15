@@ -10,12 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="../../../common/css/mainPage.css">
     <link rel="stylesheet" href="../../../user/css/mypage.css">
-    <script defer src="../../../common/order/js/address.js"></script>
-    <script defer src="../../../common/js/main_topDiv.js"></script>
-<!--    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>-->
+    <link rel="stylesheet" href="../../../common/css/mainPage.css">
+    <script defer src="../../../order/js/address.js"></script>
+    <script defer src="../../js/main_topDiv.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
@@ -30,17 +28,20 @@
             </div>
             <ul>
                 <li>
-                    <a href="../../../../../../../../project_1/mealbong/src/main/resources/templates/html/my_page/mypage.html" class="order">주문 내역
+                    <a href="../../../../../../../../project_1/mealbong/src/main/resources/templates/html/my_page/mypage.html"
+                       class="order">주문 내역
                         <span></span>
                     </a>
                 </li>
                 <li>
-                    <a href="../../../../../../../../project_1/mealbong/src/main/resources/templates/html/my_page/review.html" class="review">상품 후기
+                    <a href="../../../../../../../../project_1/mealbong/src/main/resources/templates/html/my_page/review.html"
+                       class="review">상품 후기
                         <span></span>
                     </a>
                 </li>
                 <li>
-                    <a href="../../../../../../../../project_1/mealbong/src/main/resources/templates/html/my_page/wish.html" class="wish">찜한 상품
+                    <a href="../../../../../../../../project_1/mealbong/src/main/resources/templates/html/my_page/wish.html"
+                       class="wish">찜한 상품
                         <span></span>
                     </a>
                 </li>
@@ -50,7 +51,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../../../../../../../../project_1/mealbong/src/main/resources/templates/html/my_page/info.html" class="info">개인정보 수정
+                    <a href="../../../../../../../../project_1/mealbong/src/main/resources/templates/html/my_page/info.html"
+                       class="info">개인정보 수정
                         <span></span>
                     </a>
                 </li>
@@ -73,95 +75,64 @@
                     <div>연락처</div>
                     <div>수정</div>
                 </div>
-                <div class="content_adress_box" th:each="deliveryList:${deliveryList}">
-                    <div><input type="radio" name="adress_select"></div>
-                    <div>
-                        <span th:text="${deliveryList.dely_address1}"></span>
-                        <span th:text="${deliveryList.dely_address2}"></span>
+                <form id="dely_default" method="POST" action="dely_default">
+                    <div class="content_adress_box" th:each="deliveryList:${deliveryList}">
+                        <div>
+                            <input type="radio" name="dely_number" th:value="${deliveryList.dely_number}"
+                                   th:checked="${deliveryList.dely_check == 'Y'}">
+                        </div>
+                        <div>
+                            <span name="dely_address1" th:text="${deliveryList.dely_address1}"></span>
+                            <span name="dely_address2" th:text="${deliveryList.dely_address2}"></span>
+                        </div>
+                        <div name="dely_name" th:text="${deliveryList.dely_name}"></div>
+                        <div name="dely_phone" th:text="${deliveryList.dely_phone}"></div>
+                        <div>
+                            <a th:href="@{/address/delyUpdate(dely_number=${deliveryList.dely_number})}">수정</a>
+
+                        </div>
                     </div>
-                    <div th:text="${deliveryList.dely_name}"></div>
-                    <div th:text="${deliveryList.dely_phone}"></div>
-                    <div>
-                        <button></button>
-                    </div>
-                </div>
+                </form>
             </div>
             <div class="content_adress_3">
-                <button class="adress_button">
-                    <span>기본 배송지 설정</span>
+                <button onclick="submitForm()" class="adress_button">
+                    기본 배송지 설정
                 </button>
             </div>
         </div>
     </div>
     <div class="address_fix_content hidden">
         <div class="address_fix_box">
-            <h2>배송지 수정</h2>
-            <div>
-                <div class="fix_address"></div>
-                <input type="text" placeholder="나머지 주소를입력해 주세요.">
-            </div>
-            <div>
-                <div class="fix_name">받으실 분</div>
-                <input type="text" placeholder="이름을 입력해 주세요.">
-            </div>
-            <div>
-                <div class="fix_call">연락처</div>
-                <input type="text" placeholder="번호를 입력해 주세요.">
-            </div>
-            <div>
-                <div class="address_fix_button">
-                    <button class="fix_check">확인</button>
-                    <button class="fix_cancel">삭제</button>
+            <form action="delyInsert" method="post">
+                <h2>새 배송지 추가</h2>
+                <input name="user_id" th:value="${deliveryList[0].user_id}" type="hidden">
+                <input name="dely_zip" class="fix_zonecode" type="hidden">
+                <div>
+                    <input name="dely_address1" class="fix_address1" type="text" readonly>
                 </div>
-            </div>
+                <div>
+                    <div class="fix_address2">나머지 주소</div>
+                    <input name="dely_address2" type="text" placeholder="나머지 주소를입력해 주세요.">
+                </div>
+                <div>
+                    <div class="fix_name">받으실 분</div>
+                    <input name="dely_name" type="text" placeholder="이름을 입력해 주세요.">
+                </div>
+                <div>
+                    <div class="fix_call">연락처</div>
+                    <input name="dely_phone" type="text" placeholder="번호를 입력해 주세요.">
+                </div>
+                <div>
+                    <div class="address_fix_button">
+                        <button type="submit" class="fix_check">확인</button>
+                        <button type="reset" class="fix_cancel">취소</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </main>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
-<a href="daum">다음</a>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-    document.querySelector(".adress_add_button").addEventListener('click', function () {
-        var width = 500;
-        var height = 600;
-
-        new daum.Postcode({
-            width: width,
-            height: height,
-            oncomplete: function (data) {
-                $.ajax({
-                    url: "/address/test",
-                    type: "POST",
-                    data: JSON.stringify({ dely_zip: data.zonecode, dely_address1: data.address }),
-                    contentType: "application/json; charset=utf-8",
-                    success: function(data) {
-                        console.log("성공");
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("실패", error);
-                    }
-                });
-            },
-            onclose: function(state) {
-                //state는 우편번호 찾기 화면이 어떻게 닫혔는지에 대한 상태 변수 이며, 상세 설명은 아래 목록에서 확인하실 수 있습니다.
-                if(state === 'FORCE_CLOSE'){
-                    //사용자가 브라우저 닫기 버튼을 통해 팝업창을 닫았을 경우, 실행될 코드를 작성하는 부분입니다.
-                    close();
-                } else if(state === 'COMPLETE_CLOSE'){
-                    //사용자가 검색결과를 선택하여 팝업창이 닫혔을 경우, 실행될 코드를 작성하는 부분입니다.
-                    //oncomplete 콜백 함수가 실행 완료된 후에 실행됩니다.
-                    window.open('/address/daum', '_blank', 'width=800, height=600');
-                }
-            }
-
-        }).open({
-            left: (window.screen.width / 2) - (width / 2),
-            top: (window.screen.height / 2) - (height / 2)
-        });
-    })
-
-</script>
-
 </body>
-
 </html>

@@ -1,6 +1,5 @@
 package com.project.mealbong.delivery;
 
-import com.project.mealbong.faq.FaqDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,17 +10,17 @@ public class DeliveryService {
     @Autowired
     private DeliveryMapper mapper;
 
-    public List<DeliveryDTO> deliveryList() {
+    public List<DeliveryDTO> deliveryList(DeliveryDTO dto) {
         try {
-            return mapper.deliveryList();
+            return mapper.deliveryList(dto);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    public FaqDTO deliveryDetail(DeliveryDTO dto) {
+    public DeliveryDTO deliveryDetail(DeliveryDTO dto) {
         try {
-            return mapper.deliveryDetail(dto);
+          return mapper.deliveryDetail(dto);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -46,6 +45,14 @@ public class DeliveryService {
     public void deliveryUpdate(DeliveryDTO dto) {
         try {
             mapper.deliveryUpdate(dto);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void deliveryDefault(DeliveryDTO dto) {
+        try {
+            mapper.deliveryDefault(dto);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

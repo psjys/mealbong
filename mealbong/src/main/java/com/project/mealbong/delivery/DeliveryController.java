@@ -3,11 +3,14 @@ package com.project.mealbong.delivery;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.project.mealbong.faq.FaqDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,27 +24,35 @@ public class DeliveryController {
     DeliveryService service;
 
     @GetMapping("/list")
-    public ModelAndView list(ModelAndView mv) {
-        List<DeliveryDTO> deliveryList = service.deliveryList();
+    public ModelAndView list(DeliveryDTO dto, ModelAndView mv, HttpSession session) {
+        dto.setUser_id((String) session.getAttribute("user_id"));
+        List<DeliveryDTO> deliveryList = service.deliveryList(dto);
         mv.addObject("deliveryList", deliveryList);
         mv.setViewName("/html/my_page/address");
         return mv;
     }
 
-    @PostMapping("/test")
-    public ModelAndView test(@RequestBody DeliveryDTO dto, ModelAndView mv) throws Exception {
-        System.out.println(dto);
-
-        System.out.println(dto.getDely_zip());
-
-        mv.setViewName("/html/my_page/delyTest");
-
-        return mv;
-    }
-    @GetMapping("/daum")
-    public ModelAndView daum(ModelAndView mv) {
-        mv.setViewName("/html/my_page/daum");
-        return mv;
+    @PostMapping("/delyInsert")
+    public String delyInsert(DeliveryDTO dto) {
+        service.deliveryInsert(dto);
+        return "redirect:/address/list";
     }
 
+    @PostMapping("/dely_default")
+    public String dely_default(HttpSession session, @RequestParam("dely_number") int dely_number, DeliveryDTO dto) {
+        dto.setDely_number(dely_number);
+        dto.setUser_id((String) session.getAttribute("user_id"));
+        service.deliveryDefault(dto);
+        return "redirect:/address/list";
+    }
+
+    @GetMapping("/delyUpdate")
+    public ModelAndView delyUpdate(@RequestParam("dely_number") int dely_number, ModelAndView mv, DeliveryDTO dto) {
+        dto.setDely_number(dely_number);
+        DeliveryDTO aa = service.deliveryDetail(dto);
+        System.out.println(aa);
+        mv.addObject("deliveryDetail",service.deliveryDetail(dto));
+        mv.setViewName("/html/my_page/addressUpdateForm");
+        return mv;
+    }
 }
