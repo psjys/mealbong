@@ -60,7 +60,7 @@ public class DeliveryService {
 
     public void newdeliveryInsert(DeliveryDTO dto) {
         try {
-            mapper.deliveryInsert(dto);
+            mapper.newdeliveryInsert(dto);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

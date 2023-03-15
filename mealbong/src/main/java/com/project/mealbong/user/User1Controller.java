@@ -31,7 +31,6 @@ public class User1Controller {
     private DeliveryService ds;
 
 
-
 //    **------- 이용약관
 
     @GetMapping("/terms")
@@ -40,7 +39,6 @@ public class User1Controller {
         mav.setViewName("html/user/Terms");
         return mav;
     }
-
 
 
 //    **-------- 회원가입
@@ -53,42 +51,37 @@ public class User1Controller {
     }
 
     @PostMapping("/save")
-    public ModelAndView save(@ModelAttribute User1MapperDTO user1MapperDTO, DeliveryDTO deliveryDTO) throws Exception{
+    public ModelAndView save(@ModelAttribute User1MapperDTO user1MapperDTO, DeliveryDTO deliveryDTO) throws Exception {
         ModelAndView mav = new ModelAndView();
         user1MapperDTO.setUser_password(passwordEncoder.encode(user1MapperDTO.getUser_password()));
-        if(us.user_save(user1MapperDTO) > 0){
+        us.user_save(user1MapperDTO);
+        deliveryDTO.setUser_id(user1MapperDTO.getUser_id());
+        deliveryDTO.setDely_zip(user1MapperDTO.getUser_zip());
+        deliveryDTO.setDely_address2(user1MapperDTO.getUser_address2());
+        deliveryDTO.setDely_address1(user1MapperDTO.getUser_address1());
+        deliveryDTO.setDely_name(user1MapperDTO.getUser_name());
+        deliveryDTO.setDely_phone(user1MapperDTO.getUser_phone());
+        ds.newdeliveryInsert(deliveryDTO);
 
-            deliveryDTO.setUser_id(user1MapperDTO.getUser_id());
-            deliveryDTO.setDely_zip(user1MapperDTO.getUser_zip());
-            deliveryDTO.setDely_address2(user1MapperDTO.getUser_address2());
-            deliveryDTO.setDely_address1(user1MapperDTO.getUser_address1());
-            deliveryDTO.setDely_name(user1MapperDTO.getUser_name());
-            deliveryDTO.setDely_phone(user1MapperDTO.getUser_phone());
-            ds.newdeliveryInsert(deliveryDTO);
-
-        }
-
-        mav.addObject("user_name",user1MapperDTO);
+        mav.addObject("user_name", user1MapperDTO);
         mav.setViewName("html/user/account_submit");
         return mav;
     }
 
 
-
     //    **-------- 회원삭제
     @PostMapping("/delete")
-    public ModelAndView delete(ModelAndView mav,HttpSession session) {
+    public ModelAndView delete(ModelAndView mav, HttpSession session) {
 
         //user1MapperDTO.setUser_password(user_password);
         //user1MapperDTO.setUser_id((String) session.getAttribute("user_id"));
 
 
-        if(session.getAttribute("user_id") == null) {
+        if (session.getAttribute("user_id") == null) {
 
             mav.setViewName("html/user/login");
             return mav;
         } // session 확인
-
 
 
         us.user_delete((String) session.getAttribute("user_id"));
@@ -101,24 +94,22 @@ public class User1Controller {
     }
 
 
-
-
 //    **-------- 회원정보 수정
 
     @GetMapping("/{user_id}")
-    public ModelAndView user_updateForm(User1MapperDTO user1MapperDTO,HttpSession session,ModelAndView mav) {
+    public ModelAndView user_updateForm(User1MapperDTO user1MapperDTO, HttpSession session, ModelAndView mav) {
 //        String uri = "html/user/user_detail";
         String uri = "html/user/user_update";
 
-        if(session.getAttribute("user_id") == null) {
+        if (session.getAttribute("user_id") == null) {
 
-            mav.addObject("message","로그인 후 이용하세요");
+            mav.addObject("message", "로그인 후 이용하세요");
             mav.setViewName("html/user/login");
             return mav;
         } // session 확인
 
         user1MapperDTO = us.find_id(user1MapperDTO.getUser_id());
-        mav.addObject("user_detail",user1MapperDTO);
+        mav.addObject("user_detail", user1MapperDTO);
 
 
 //        if("U".equals(request.getParameter("jCode"))) {
@@ -131,19 +122,18 @@ public class User1Controller {
     }
 
     @PostMapping("/update")
-    public ModelAndView update(ModelAndView mav, User1MapperDTO user1MapperDTO,HttpSession session) {
-        if("".equals(user1MapperDTO.getUser_password())) {
+    public ModelAndView update(ModelAndView mav, User1MapperDTO user1MapperDTO, HttpSession session) {
+        if ("".equals(user1MapperDTO.getUser_password())) {
             user1MapperDTO.setUser_password((String) session.getAttribute("user_password"));
         } else {
             user1MapperDTO.setUser_password(passwordEncoder.encode(user1MapperDTO.getUser_password()));
         }
         us.user_update(user1MapperDTO);
-        session.setAttribute("user_name",user1MapperDTO.getUser_name());
-        session.setAttribute("user_password",user1MapperDTO.getUser_password());
+        session.setAttribute("user_name", user1MapperDTO.getUser_name());
+        session.setAttribute("user_password", user1MapperDTO.getUser_password());
         mav.setViewName("redirect:/");
         return mav;
     }
-
 
 
 //    **-------- 로그인,로그아웃
@@ -156,16 +146,16 @@ public class User1Controller {
     }
 
     @PostMapping("/login")
-    public ModelAndView login(HttpSession session, ModelAndView mav, @ModelAttribute User1MapperDTO user1MapperDTO,RedirectAttributes rttr) {
+    public ModelAndView login(HttpSession session, ModelAndView mav, @ModelAttribute User1MapperDTO user1MapperDTO, RedirectAttributes rttr) {
         String uri;
         String user_id = user1MapperDTO.getUser_id();
 
         user1MapperDTO = us.find_id(user_id);
 
-        session.setAttribute("user_id",user1MapperDTO.getUser_id());
-        session.setAttribute("user_name",user1MapperDTO.getUser_name());
-        session.setAttribute("user_password",user1MapperDTO.getUser_password());
-        uri="redirect:/";
+        session.setAttribute("user_id", user1MapperDTO.getUser_id());
+        session.setAttribute("user_name", user1MapperDTO.getUser_name());
+        session.setAttribute("user_password", user1MapperDTO.getUser_password());
+        uri = "redirect:/";
 
         mav.setViewName(uri);
 
@@ -173,9 +163,8 @@ public class User1Controller {
     }
 
 
-
     @GetMapping("/logout")
-    public ModelAndView logout(ModelAndView mav,HttpSession session) {
+    public ModelAndView logout(ModelAndView mav, HttpSession session) {
 //        session.removeAttribute("user_id");
 //        session.removeAttribute("user_name");
         session.invalidate();
@@ -184,23 +173,22 @@ public class User1Controller {
     }
 
 
-
-
 //    **-------- 어드민 관련
 
     @GetMapping("/admin/{user_id}")
-    public ModelAndView admin_userInfo(@PathVariable String user_id,ModelAndView mav) {
+    public ModelAndView admin_userInfo(@PathVariable String user_id, ModelAndView mav) {
         String uri = "html/user/user_detail";
 
         User1MapperDTO find_id = us.find_id(user_id);
-        mav.addObject("user_detail",find_id);
+        mav.addObject("user_detail", find_id);
         mav.setViewName(uri);
 
 
         return mav;
     }
+
     @PostMapping("/admin/delete")
-    public ModelAndView admin_userDelete(User1MapperDTO user1MapperDTO,ModelAndView mav) {
+    public ModelAndView admin_userDelete(User1MapperDTO user1MapperDTO, ModelAndView mav) {
         String user_id = user1MapperDTO.getUser_id();
         us.user_delete(user_id);
         mav.setViewName("redirect:/admin/useradmin");
@@ -212,14 +200,13 @@ public class User1Controller {
 
     @PostMapping("/pw_check")
     @ResponseBody
-    public int pw_check(User1MapperDTO user1MapperDTO,HttpSession session) {
-        String password = (String)session.getAttribute("user_password");
-        if(!passwordEncoder.matches(user1MapperDTO.getUser_password(), password)) {
+    public int pw_check(User1MapperDTO user1MapperDTO, HttpSession session) {
+        String password = (String) session.getAttribute("user_password");
+        if (!passwordEncoder.matches(user1MapperDTO.getUser_password(), password)) {
             return 1;
         }
         return 0;
     }
-
 
 
     @PostMapping("/login_check")
@@ -227,8 +214,8 @@ public class User1Controller {
     public int login_check(User1MapperDTO user1MapperDTO) {
         String password = user1MapperDTO.getUser_password();
         user1MapperDTO = us.find_id(user1MapperDTO.getUser_id());
-        if(user1MapperDTO != null) {
-            if(passwordEncoder.matches(password,user1MapperDTO.getUser_password())) {
+        if (user1MapperDTO != null) {
+            if (passwordEncoder.matches(password, user1MapperDTO.getUser_password())) {
                 return 1;
             } else {
                 return 2;
@@ -237,7 +224,6 @@ public class User1Controller {
             return 3;
         }
     }
-
 
 
     @PostMapping("/id_check")
@@ -287,14 +273,15 @@ public class User1Controller {
 //        return mav;
 //    }
     @PostMapping
-    public ModelAndView user_create(User1MapperDTO user1MapperDTO,ModelAndView mav) {
+    public ModelAndView user_create(User1MapperDTO user1MapperDTO, ModelAndView mav) {
         log.info("testetsetsetset" + user1MapperDTO);
         user1MapperDTO.setUser_password(passwordEncoder.encode(user1MapperDTO.getUser_password()));
         us.user_save(user1MapperDTO);
-        mav.addObject("user_name",user1MapperDTO);
+        mav.addObject("user_name", user1MapperDTO);
         mav.setViewName("html/user/account_submit");
         return mav;
     }
+
     //    @PostMapping("/update")
 //    public ModelAndView update(ModelAndView mav, User1MapperDTO user1MapperDTO,HttpSession session) {
 //        if("".equals(user1MapperDTO.getUser_password())) {
@@ -309,17 +296,17 @@ public class User1Controller {
 //        return mav;
 //    }
     @PutMapping
-    public ModelAndView user_update2(User1MapperDTO user1MapperDTO, ModelAndView mav,HttpSession session) {
+    public ModelAndView user_update2(User1MapperDTO user1MapperDTO, ModelAndView mav, HttpSession session) {
         log.info("테스트ㅡ" + user1MapperDTO);
 
-        if("".equals(user1MapperDTO.getUser_password())) {
+        if ("".equals(user1MapperDTO.getUser_password())) {
             user1MapperDTO.setUser_password((String) session.getAttribute("user_password"));
         } else {
             user1MapperDTO.setUser_password(passwordEncoder.encode(user1MapperDTO.getUser_password()));
         }
         us.user_update(user1MapperDTO);
-        session.setAttribute("user_name",user1MapperDTO.getUser_name());
-        session.setAttribute("user_password",user1MapperDTO.getUser_password());
+        session.setAttribute("user_name", user1MapperDTO.getUser_name());
+        session.setAttribute("user_password", user1MapperDTO.getUser_password());
 
         mav.setViewName("html/user/findid");
         return mav;
