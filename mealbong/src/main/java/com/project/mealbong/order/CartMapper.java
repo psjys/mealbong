@@ -17,5 +17,5 @@ public interface CartMapper {
     CartMapperDTO cart_order(int cart_number);
 
     void wish_insert(ProductDTO productDTO);
-    void cart_insert(ProductDTO productDTO);
+    int cart_insert(ProductDTO productDTO);
 }

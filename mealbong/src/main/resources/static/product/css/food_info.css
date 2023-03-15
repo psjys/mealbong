@@ -332,7 +332,7 @@
     width: 1200px;
     margin: auto;
     position: sticky;
-    top: 5%;
+    top: 3%;
 }
 
 .tab_middlebox {
@@ -405,13 +405,26 @@
 
 .review2 {
     display: flex;
-    justify-content: center;
+    text-align : left;
     align-items: center;
 }
 
 .product_inquiry,
 .product_review {
     cursor: pointer;
+}
+
+.product_inquiry a {
+        text-decoration:none;
+        width: 100px;
+        height: 40px;
+        box-sizing: border-box;
+        text-align: center;
+        background-color: lightsalmon;
+        border: solid 1px lightsalmon;
+        border-radius: 5px;
+        transition-duration: 0.3s;
+        color: white;
 }
 
 /* top button ------------ */

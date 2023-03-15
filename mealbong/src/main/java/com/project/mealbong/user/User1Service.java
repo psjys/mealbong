@@ -1,6 +1,7 @@
 package com.project.mealbong.user;
 
 import com.project.mealbong.critest.SearchCriteria;
+import com.project.mealbong.order.CartMapperDTO;
 
 import java.util.List;
 
@@ -16,6 +17,8 @@ public interface User1Service {
     int user_update(User1MapperDTO user1MapperDTO);
 
     int id_check(String user_id);
+
+    int product_check(CartMapperDTO cartMapperDTO);
 
     int email_check(String user_email);
 

@@ -1,5 +1,7 @@
 package com.project.mealbong.user;
 
+import com.project.mealbong.order.CartMapperDTO;
+import com.project.mealbong.product.ProductDTO;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -65,29 +67,29 @@ public class User1Controller {
         return mav;
     }
 
-    @GetMapping("/{user_id}")
-    public ModelAndView find_id(HttpServletRequest request,User1MapperDTO user1MapperDTO,HttpSession session,ModelAndView mav) {
-        String uri = "html/user/user_detail";
-
-            if(session.getAttribute("user_id") == null) {
-
-                mav.addObject("message","로그인 후 이용하세요");
-                mav.setViewName("html/user/login");
-                return mav;
-            } // session 확인
-
-        user1MapperDTO = us.find_id(user1MapperDTO.getUser_id());
-        mav.addObject("user_detail",user1MapperDTO);
-
-
-        if("U".equals(request.getParameter("jCode"))) {
-            uri = "html/user/user_update";
-        }
-
-        mav.setViewName(uri);
-
-        return mav;
-    }
+//    @GetMapping("/{user_id}")
+//    public ModelAndView find_id(HttpServletRequest request,User1MapperDTO user1MapperDTO,HttpSession session,ModelAndView mav) {
+//        String uri = "html/user/user_detail";
+//
+//            if(session.getAttribute("user_id") == null) {
+//
+//                mav.addObject("message","로그인 후 이용하세요");
+//                mav.setViewName("html/user/login");
+//                return mav;
+//            } // session 확인
+//
+//        user1MapperDTO = us.find_id(user1MapperDTO.getUser_id());
+//        mav.addObject("user_detail",user1MapperDTO);
+//
+//
+//        if("U".equals(request.getParameter("jCode"))) {
+//            uri = "html/user/user_update";
+//        }
+//
+//        mav.setViewName(uri);
+//
+//        return mav;
+//    }
 
     @PostMapping("/delete")
     public ModelAndView delete(ModelAndView mav,HttpSession session, User1MapperDTO user1MapperDTO) {
@@ -221,6 +223,14 @@ public class User1Controller {
     public int id_check(String user_id) {
 
         int result = us.id_check(user_id);
+        return result;
+    }
+
+    @PostMapping("/product_check")
+    @ResponseBody
+    public int product_check(CartMapperDTO cartMapperDTO) {
+
+        int result = us.product_check(cartMapperDTO);
         return result;
     }
 

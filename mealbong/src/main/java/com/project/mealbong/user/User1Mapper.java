@@ -1,6 +1,7 @@
 package com.project.mealbong.user;
 
 import com.project.mealbong.critest.SearchCriteria;
+import com.project.mealbong.order.CartMapperDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -35,6 +36,8 @@ public interface User1Mapper {
 
 
    // @Select("select COUNT(*) from user where user_id = '${user_id}' ")
+    int product_check(CartMapperDTO cartMapperDTO);
+    // @Select("select COUNT(*) from cart where user_id = "#{user_id}" and #{product_number};")
     int id_check(String user_id);
    // @Select("select COUNT(*) from user where user_email = '${user_email}' ")
     int email_check(String user_email);

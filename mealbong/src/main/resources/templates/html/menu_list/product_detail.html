@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-
+    <script src="../../../product/js/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="../../../common/css/mainPage.css">
     <link rel="stylesheet" href="../../../product/css/food_info.css">
     <script defer src="../../../product/js/food_info.js"></script>
@@ -65,12 +65,13 @@
                 <div>
                     <div th:text="${productDetail.product_name}"></div>
                     <div>
-                            <form th:action="@{/order/cartInsert}">
+                            <form th:action="@{/order/cartInsert}" id="cartInsert">
                         <div>
+                             <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                             <input type="hidden" id="product_number" name="product_number" th:value="${productDetail.product_number}">
                             <input type="number" id="product_count" name="product_count" min="0" max="100" value="0"
                                     class="div1_inputNumber"></div>
-                             <input type="hidden" id="product_number" name="product_number" th:value="${productDetail.product_number}">
-                                <button>장바구니 담기</button>
+                                <button type="button" onclick="login_check()">바구니 담기</button>
                             </form>
                         <div class="product_price">
                             <h3 th:text="${productDetail.product_price}"></h3>
@@ -88,7 +89,7 @@
             <div id=btn_box>
                 <form th:action="@{/order/wishInsert}">
                     <input type="hidden" name="product_number" th:value="${productDetail.product_number}">
-                    <button class="wish"></button>
+                    <button class="wish" type="button" onclick="login_check2()"></button>
                 </form>
                 <button class="basket">장바구니 담기</button>
             </div>
@@ -143,12 +144,16 @@
                 <h2>상품문의</h2>
             </div>
             <div>
-                <button class="product_inquiry">상품문의 글쓰기</button>
+                <button class="product_inquiry">
+                    <a th:href="@{/qna/qnalist}">상품문의 글쓰기</a>
+                </button>
             </div>
         </div>
         <hr>
         <div class="last review2">
-            등록된 상품문의가 없습니다.
+            상품에 대한 문의를 남기는 공간입니다.<br>
+            해당 상품 관련 문의 및 배송관련, 주문(취소/교환/환불)관련
+            문의 및 요청사항은 마이페이지 내 1:1 문의에 남겨주세요.
         </div>
     </div>
 </div>
@@ -158,34 +163,15 @@
 </div>
 
 <!-- ===========장바구니 및 좋아요 모달창 (로그인 전)=========== -->
-<th:block th:if="${session['user_id'] == null}">\
 <div class="modal_container hidden">
     <div class="bg"></div>
         <div class="modalBox">
             <p></p>
             <div class="closeBtn_div">
-                <form action="/user1/login">
-                    <button class="closeBtn">확인</button>
-                </form>
+                <button class="closeBtn">확인</button>
             </div>
         </div>
     </div>
-</th:block>
-
-<!-- =========== 장바구니 모달창 (로그인 후) =========== -->
-<!--<th:block th:if="${session['user_id'] != null}">\-->
-<!--    <div class="modal_container hidden">-->
-<!--        <div class="bg"></div>-->
-<!--        <div class="modalBox">-->
-<!--            <p></p>-->
-<!--            <div class="closeBtn_div">-->
-<!--                <form action="/user1/login">-->
-<!--                    <button class="closeBtn">Test</button>-->
-<!--                </form>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</th:block>-->
 
 <!-- =========== SNS Share =========== -->
 

@@ -84,17 +84,24 @@ public class ProductService {
     }
 
     // search page
-    public List<ProductDTO> searchPage(String keyword) {
+// search page
+    public List<ProductDTO> searchPage(SearchCriteria cri) {
         List<ProductDTO> productList = new ArrayList<ProductDTO>();
 
         try {
-            productList = mapper.searchPage(keyword);
+            productList = mapper.searchPage(cri);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return productList;
     }
+
+
+    public int searchPageTotalCount(SearchCriteria cri) {
+        return mapper.searchPageTotalCount(cri);
+    }
+
 
     // main page
     // 인기 상품

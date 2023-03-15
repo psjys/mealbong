@@ -58,7 +58,6 @@ public class ProductController {
 
         cri.setRowsPerPage(rowsPerPage);
         cri.setCurrPage(currPage);
-//        cri.setCode_number(cri.getCategory_code());
         cri.setCode_number(category_code);
         cri.setOrderKey(orderKey);
 

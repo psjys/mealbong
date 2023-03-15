@@ -37,7 +37,9 @@ public interface ProductMapper {
     List<ProductDTO> productAdmin() throws Exception;
     List<ProductDTO> searchList(SearchCriteria cri);
     int searchTotalCount(SearchCriteria cri);
-    List<ProductDTO> searchPage(String keyword) throws Exception;
+    // search page
+    List<ProductDTO> searchPage(SearchCriteria cri) throws Exception;
+    int searchPageTotalCount(SearchCriteria cri);
 
     // main page
     List<ProductDTO> popList() throws Exception; // 인기상품

@@ -3,11 +3,15 @@ package com.project.mealbong.order;
 import com.project.mealbong.critest.Criteria;
 import com.project.mealbong.critest.PageMaker;
 import com.project.mealbong.critest.SearchCriteria;
+import com.project.mealbong.product.ImageDTO;
+import com.project.mealbong.product.ImageService;
 import com.project.mealbong.product.ProductDTO;
+import com.project.mealbong.product.ProductService;
 import com.project.mealbong.user.User1MapperDTO;
 import com.project.mealbong.user.User1Service;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +47,6 @@ public class OrderController {
     //    @GetMapping("cart_delete/{cart_number}")
     @GetMapping("cart")
     public ModelAndView cart_ax(ModelAndView mav, HttpSession session) {
-
         if (session.getAttribute("user_id") == null) {
             mav.setViewName("html/user/login");
             return mav;
@@ -217,15 +220,18 @@ public class OrderController {
         return"html/order/wish";
     }
 
+    @Autowired
+    private ProductService productService;
+    @Autowired
+    private ImageService imageService;
+
     @ResponseBody
-    @GetMapping("cartInsert") // 장바구니 등록
-    public String cart_insert(ProductDTO productDTO, HttpSession session) {
+    @PostMapping("cartInsert") // 장바구니 등록
+    public int cart_insert(ProductDTO productDTO) {
 
-        String userID = (String)session.getAttribute("user_id");
-        productDTO.setUser_id(userID);
+        System.out.println(productDTO);
 
-        cs.cart_insert(productDTO);
+        return cs.cart_insert(productDTO);
 
-        return "html/order/cart";
-    }
-}
+    } // cart_insert
+} // class

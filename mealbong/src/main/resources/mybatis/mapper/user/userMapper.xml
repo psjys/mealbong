@@ -50,6 +50,10 @@
         select COUNT(*) from user where user_phone = '${user_phone}'
     </select>
 
+    <select id="product_check" resultType="int">
+        select COUNT(*) from cart where user_id = #{user_id} and product_number = #{product_number};
+    </select>
+
 <!--    <select id="pw_check" resultType="com.project.mealbong.user.User1MapperDTO">-->
 <!--        select user_password from user where user_id = '${user_id}'-->
 <!--    </select>-->

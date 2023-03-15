@@ -1,6 +1,7 @@
 package com.project.mealbong.user;
 
 import com.project.mealbong.critest.SearchCriteria;
+import com.project.mealbong.order.CartMapperDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +38,11 @@ public class User1ServiceImpl implements User1Service{
     @Override
     public int id_check(String user_id) {
         return user1Mapper.id_check(user_id);
+    }
+
+    @Override
+    public int product_check(CartMapperDTO cartMapperDTO) {
+        return user1Mapper.product_check(cartMapperDTO);
     }
 
     @Override
