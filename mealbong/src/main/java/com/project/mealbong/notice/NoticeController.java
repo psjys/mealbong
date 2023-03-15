@@ -3,6 +3,7 @@ package com.project.mealbong.notice;
 
 import com.project.mealbong.critest.PageMaker;
 import com.project.mealbong.critest.SearchCriteria;
+import com.project.mealbong.product.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ import java.util.List;
 public class NoticeController {
 
     NoticeService service;
+    ProductService productService;
 
 
     @GetMapping("/noticeDetail")
@@ -37,6 +39,7 @@ public class NoticeController {
         } //if_증가조건
         mv.addObject("noticeDetail", dto);
         mv.setViewName("/html/service_page/noticeDetail");
+        mv.addObject("code_number", productService.categoryList());
         return mv;
     }
 
@@ -51,6 +54,7 @@ public class NoticeController {
         pageMaker.setTotalRowsCount(service.criTotalCount(cri));
 
         mv.addObject("pageMaker", pageMaker);
+        mv.addObject("code_number", productService.categoryList());
 
         mv.setViewName("/html/service_page/notice");
         return mv;
@@ -62,6 +66,7 @@ public class NoticeController {
         dto = service.noticeDetail(dto);
         mv.addObject("noticeDetail", dto);
         mv.setViewName("/html/service_page/noticeUpdateForm");
+        mv.addObject("code_number", productService.categoryList());
         return mv;
     }
 

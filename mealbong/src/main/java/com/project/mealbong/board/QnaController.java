@@ -2,6 +2,7 @@ package com.project.mealbong.board;
 
 import com.project.mealbong.critest.PageMaker;
 import com.project.mealbong.critest.SearchCriteria;
+import com.project.mealbong.product.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 public class QnaController {
     private QnaService qnaService;
+    private ProductService productService;
 
     @GetMapping("/qnalist") // 문의글 리스트
     public ModelAndView inquiry_list(ModelAndView mv, SearchCriteria cri, PageMaker pageMaker, HttpSession session) {
@@ -37,6 +39,7 @@ public class QnaController {
         mv.addObject("pageMaker", pageMaker);
 
         mv.setViewName("html/service_page/inquiry/inquiry_list");
+        mv.addObject("code_number", productService.categoryList());
 
         return mv;
     }

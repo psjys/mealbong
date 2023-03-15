@@ -49,7 +49,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -67,7 +73,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -85,7 +97,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -103,7 +121,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -137,7 +161,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -155,7 +185,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -173,7 +209,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -191,7 +233,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -226,7 +274,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -244,7 +298,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -262,7 +322,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -280,7 +346,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -315,7 +387,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -333,7 +411,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -351,7 +435,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -369,7 +459,13 @@
                                     <img th:src="${productList.image_file}" alt="상품 이미지">
                                 </div>
                             </a>
-                            <button class="basket"></button>
+                            <th:block th:each="productList:${productList}">
+                                <form action="@{/order/wishInsert}">
+                                    <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+                                    <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
+                                    <button class="basket" type="button" onclick="login_check2()"></button>
+                                </form>
+                            </th:block>
                             <a th:href="@{|/product/${productList.product_number}|}" th:text="${productList.product_name}" class="menu_name"></a>
                             <div class="post">샛별배송</div>
                             <div class="menu_price" th:text="${#numbers.formatInteger(productList.product_price, 3, 'COMMA') + '원'}"></div>
@@ -401,36 +497,16 @@
     </div>
 
 
-    <!-- =========== 장바구니 모달창 (로그인 전) =========== -->
-
-    <th:block th:if="${session['user_id'] == null}">
+    <!-- =========== 찜하기 모달창 (로그인 전 후) =========== -->
         <div class="modal_container hidden">
             <div class="bg"></div>
             <div class="modalBox">
                 <p></p>
                 <div class="closeBtn_div">
-                    <form action="/user1/login">
                         <button class="closeBtn">확인</button>
-                    </form>
                 </div>
             </div>
         </div>
-    </th:block>
-    <!-- =========== 장바구니 모달창 (로그인 후) =========== -->
-
-    <th:block th:if="${session['user_id'] != null}">
-        <div class="modal_container hidden">
-            <div class="bg"></div>
-            <div class="modalBox">
-                <p></p>
-                <div class="closeBtn_div">
-                    <form action="/user1/login">
-                        <button class="closeBtn">확인</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </th:block>
 </body>
 
 </html>

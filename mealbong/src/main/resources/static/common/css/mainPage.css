@@ -826,7 +826,7 @@ header {
 
 
 .product .basket {
-    background-image: url(../../image/basket.png);
+    background-image: url(../../image/heart_coral.png);
     background-position: center;
     background-size: 65%;
     background-repeat: no-repeat;
@@ -840,7 +840,7 @@ header {
     right: 15px;
     bottom: 15px;
 
-    background-color: lightsalmon;
+    background-color: white;
     opacity: 0.8;
     border-radius: 50%;
     border: none;

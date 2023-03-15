@@ -3,6 +3,7 @@ package com.project.mealbong.user;
 import com.project.mealbong.delivery.DeliveryDTO;
 import com.project.mealbong.delivery.DeliveryService;
 import com.project.mealbong.order.CartMapperDTO;
+import com.project.mealbong.product.ProductService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -29,6 +30,7 @@ public class User1Controller {
     @Resource
     private User1Service us;
     private DeliveryService ds;
+    private ProductService productService;
 
 
 //    **------- 이용약관
@@ -142,6 +144,7 @@ public class User1Controller {
     @GetMapping("/login")
     public ModelAndView loginForm(ModelAndView mav) {
         mav.setViewName("html/user/login");
+        mav.addObject("code_number", productService.categoryList());
         return mav;
     }
 

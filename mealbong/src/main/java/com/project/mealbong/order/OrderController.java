@@ -137,6 +137,7 @@ public class OrderController {
         mav.addObject("user_name",user_name);
         mav.addObject("order_number",order_number);
         mav.setViewName("/html/order/order_submit");
+        mav.addObject("code_number", productService.categoryList());
         return mav;
     }
 
@@ -194,6 +195,7 @@ public class OrderController {
         mav.addObject("cart_list",cart_list);
         mav.addObject("total",total);
         mav.addObject("count",result);
+        mav.addObject("code_number", productService.categoryList());
 
 
         mav.setViewName("html/order/cart");

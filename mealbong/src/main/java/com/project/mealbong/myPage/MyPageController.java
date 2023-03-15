@@ -4,6 +4,7 @@ import com.project.mealbong.critest.PageMaker;
 import com.project.mealbong.critest.SearchCriteria;
 import com.project.mealbong.order.OrderMapperDTO;
 import com.project.mealbong.order.OrderService;
+import com.project.mealbong.product.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,7 @@ import java.util.List;
 public class MyPageController {
     @Resource
     OrderService os;
+    private ProductService productService;
 
     @GetMapping
     public ModelAndView myPage(@RequestParam("currPage") int currPage, @RequestParam("rowsPerPage") int rowsPerPage, ModelAndView mav, HttpSession session, SearchCriteria cri, PageMaker pageMaker
@@ -48,6 +50,7 @@ public class MyPageController {
 
         mav.addObject("pageMaker",pageMaker);
         mav.addObject("order_list",lists);
+        mav.addObject("code_number", productService.categoryList());
 
         mav.setViewName("html/my_page/mypage");
         return mav;
@@ -55,6 +58,7 @@ public class MyPageController {
     @GetMapping("/user_update")
     public ModelAndView user_update(ModelAndView mav) {
         mav.setViewName("html/my_page/info");
+        mav.addObject("code_number", productService.categoryList());
         return mav;
     }
 }
