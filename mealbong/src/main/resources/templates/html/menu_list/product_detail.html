@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="../../../product/css/food_info.css">
     <script defer src="../../../product/js/food_info.js"></script>
     <script defer src="../common/js/main_topbutton.js"/>
-<!--    <script defer src="../../../common/js/main_topDiv.js"></script>-->
     <script src="https://kit.fontawesome.com/219136e9eb.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -73,6 +72,7 @@
                                     class="div1_inputNumber"></div>
                         </form>
                         <div class="product_price">
+                            <h3 th:text="${productDetail.product_price}" style="visibility:hidden"></h3>
                             <h3 th:text="|${#numbers.formatInteger(productDetail.product_price,3,'COMMA')}원|"></h3>
                         </div>
                     </div>
@@ -158,7 +158,7 @@
 </div>
 
 
-<!-- ===========장바구니 및 좋아요 모달창 (로그인 전)=========== -->
+<!-- ===========장바구니 및 좋아요 모달창 (로그인 전 후)=========== -->
 <div class="modal_container hidden">
     <div class="bg"></div>
         <div class="modalBox">

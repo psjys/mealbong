@@ -71,22 +71,6 @@ function productList_order2(currPage) {
 
 productList_order(1);
 
-let currentIdx = 0,
-    beforeIdx;
-
-let pageNo = document.querySelectorAll(".cri_div_font");
-
-function pageNo_color (){
-            pageNo[currentIdx].style.backgroundColor ="white";
-            pageNo[currentIdx].style.color ="lightsalmon";
-            pageNo[currentIdx].style.borderRadius ="50%";
-
-            beforeIdx = currentIdx;
-
-            pageNo[beforeIdx].style.backgroundColor = "lightsalmon";
-            pageNo[beforeIdx].style.color = "white";
-            pageNo[beforeIdx].style.borderRadius = "50%";
-    }
 
 
 // ===========================================================

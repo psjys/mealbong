@@ -53,35 +53,7 @@
 
     </div>
 
-<!-- =========== 장바구니 모달창 (로그인 전) =========== -->
-<th:block th:if="${session['user_id'] == null}">
-    <div class="modal_container hidden">
-        <div class="bg"></div>
-        <div class="modalBox">
-            <p></p>
-            <div class="closeBtn_div">
-                <form action="/user1/login">
-                    <button class="closeBtn">확인</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</th:block>
 
-<!-- =========== 장바구니 모달창 (로그인 후) =========== -->
-<th:block th:if="${session['user_id'] != null}">\
-    <div class="modal_container hidden">
-        <div class="bg"></div>
-        <div class="modalBox">
-            <p></p>
-            <div class="closeBtn_div">
-                <form action="/order/cartInsert">
-                    <button class="closeBtn">Test</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</th:block>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </body>
 

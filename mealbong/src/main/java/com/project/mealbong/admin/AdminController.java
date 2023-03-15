@@ -46,6 +46,7 @@ public class AdminController {
         pageMaker.setCriteria(cri);
         pageMaker.setTotalRowsCount(userService.searchTotalCount(cri));
         mv.addObject("pageMaker", pageMaker);
+        mv.addObject("code_number", productService.categoryList());
 
         mv.setViewName("html/admin/user_admin");
 
@@ -70,6 +71,7 @@ public class AdminController {
         pageMaker.setCriteria(cri);
         pageMaker.setTotalRowsCount(orderService.searchTotalCount(cri));
         mv.addObject("pageMaker", pageMaker);
+        mv.addObject("code_number", productService.categoryList());
 
         mv.setViewName("html/admin/order_admin");
 
@@ -103,6 +105,7 @@ public class AdminController {
         pageMaker.setCriteria(cri);
         pageMaker.setTotalRowsCount(productService.searchTotalCount(cri));
         mv.addObject("pageMaker", pageMaker);
+        mv.addObject("code_number", productService.categoryList());
 
         mv.setViewName("html/admin/product_admin");
 
@@ -205,6 +208,7 @@ public class AdminController {
         pageMaker.setTotalRowsCount(noticeService.searchTotalCount(cri));
 
         mv.addObject("pageMaker", pageMaker);
+        mv.addObject("code_number", productService.categoryList());
 
         mv.setViewName("/html/admin/notice_admin");
         return mv;

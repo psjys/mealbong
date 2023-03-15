@@ -82,7 +82,7 @@ public class ProductController {
     public String product_detail(Model model, ProductDTO productDTO, ImageDTO imageDTO){
         ProductDTO productDetail = productService.productDetail(productDTO.getProduct_number());
         model.addAttribute("productDetail", productDetail);
-
+        model.addAttribute("code_number", productService.categoryList());
         List<ImageDTO> imageList = imageService.imageList(productDTO.getProduct_number());
         model.addAttribute("imageList", imageList);
 

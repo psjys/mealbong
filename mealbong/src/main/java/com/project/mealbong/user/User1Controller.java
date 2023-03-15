@@ -231,6 +231,7 @@ public class User1Controller {
     public int id_check(String user_id) {
 
         int result = us.id_check(user_id);
+        System.out.println("asdfasdf" + user_id);
         return result;
     }
 

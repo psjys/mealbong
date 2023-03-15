@@ -77,30 +77,21 @@ var modall = document.querySelector('.modal_container'),
     modal_p = modall.querySelector('p'),
     closeBtnn = document.querySelector('.closeBtn'),
     basket = innerbox33.querySelectorAll('.basket'),
-    nav = document.querySelector('nav');
+    nav = document.querySelector('nav'),
+    user_id=document.getElementById("user_id"),
+    product_number = document.getElementById("product_number");
 
 var openn = () => {
     modall.classList.remove('hidden');
     bodyy.classList.add('scroll_none');
     nav.style.zIndex ='0';
-//    headerr.style.position = 'static';
 }
 
 var closee = () => {
     modall.classList.add('hidden');
     bodyy.classList.remove('scroll_none');
         nav.style.zIndex ='2';
-//    headerr.style.position = 'sticky';
 }
-
-for (let i = 0; i < basket.length; i++) {
-
-    basket[i].addEventListener('click', () => {
-
-        modal_f("로그인 하셔야 본 서비스를 이용하실 수 있습니다.");
-    });
-}
-
 
 function modal_f(str) {
     openn();
@@ -158,7 +149,7 @@ $.ajax({
 } // product_check
 
 function songTest2(){
-    // 장바구니에 담기
+    // 찜한 상품에 담기
     $.ajax({
         url: "/order/cartInsert",
             type: "POST",

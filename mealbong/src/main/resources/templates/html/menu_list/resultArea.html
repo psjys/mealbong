@@ -23,8 +23,6 @@
     <span th:text="${imageList.image_main}"></span>
   </div>
   <div class="food_box" th:each="productList:${productList}">
-    <!--            일반 회원으로 login 했을 때-->
-    <a th:if="${session['user_id'] != 'admin'}">
       <a th:href="@{|${productList.product_number}|}">
         <div class="img_container">
           <img th:src="${productList.image_file}" alt="상품 이미지">
@@ -32,7 +30,8 @@
       </a>
       <th:block th:each="productList:${productList}">
       <form action="@{/order/wishInsert}">
-        <input type="hidden" name="product_number" th:value="${productList.product_number}">
+        <input type="hidden" id="user_id" name="user_id" th:value="${session['user_id']}">
+        <input type="hidden" id="product_number" name="product_number" th:value="${productList.product_number}">
         <button class="basket" type="button" onclick="login_check2()"></button>
       </form>
       </th:block>
@@ -44,25 +43,6 @@
       <div class="food_hint">취향대로 맛있게 완성하는</div>
       <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
       </div>
-
-    </a>
-    <!--            관리자로 login 했을 때-->
-    <a th:if="${session['user_id'] == 'admin'}">
-      <a th:href="@{|${productList.product_number}|}">
-        <div class="img_container">
-          <img th:src="${productList.image_file}" alt="상품 이미지">
-        </div>
-      </a>
-      <button class="basket"></button>
-      <a th:href="@{|${productList.product_number}|}">
-        <div class="menu_name" th:text="${productList.product_name}"></div>
-      </a>
-      <div class="post">샛별배송</div>
-      <div class="menu_price" th:text="|${#numbers.formatInteger(productList.product_price,3,'COMMA')}원|"></div>
-      <div class="food_hint">취향대로 맛있게 완성하는</div>
-      <div class="hint_under"><span class="only">Mealbong Only</span><span class="limited">한정수량</span>
-      </div>
-    </a>
   </div>
 </div>
 
@@ -73,10 +53,6 @@
     <a th:onclick="productList_order2(1)"><<</a>&nbsp;
     <a th:attr="onclick=|productList_order2('${pageMaker.spageNo-1}')|">&nbsp;&nbsp;<&nbsp;</a>
   </th:block>
-  <!--        <th:block th:unless="${pageMaker.prev && pageMaker.spageNo>1}">-->
-  <!--            <font color="Gray">&nbsp;&lt&lt;&nbsp;&nbsp;</font>-->
-  <!--        </th:block>-->
-  <!-- 2) Display PageNo  -->
   <div th:each="i: ${#numbers.sequence(pageMaker.spageNo, pageMaker.epageNo)}">
     <div th:if="${i==pageMaker.cri.currPage}" class="cri_div_font" th:text="${i}"></div>
     <a th:unless="${i==pageMaker.cri.currPage}"
@@ -92,3 +68,14 @@
       >></a>
   </th:block>
 </div> <!--    paging -->
+
+<!-- =========== 장바구니 모달창 (로그인 전 후) =========== -->
+<div class="modal_container hidden">
+  <div class="bg"></div>
+  <div class="modalBox">
+    <p></p>
+    <div class="closeBtn_div">
+      <button class="closeBtn">확인</button>
+    </div>
+  </div>
+</div>
