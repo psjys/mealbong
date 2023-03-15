@@ -18,11 +18,11 @@ public interface User1Service {
 
     int id_check(String user_id);
 
-    int product_check(CartMapperDTO cartMapperDTO);
-
     int email_check(String user_email);
 
     int phone_check(String user_phone);
+
+    int product_check(CartMapperDTO cartMapperDTO);
 
     //User1MapperDTO pw_check(User1MapperDTO user1MapperDTO);
 

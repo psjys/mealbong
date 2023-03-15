@@ -20,7 +20,7 @@ public class User1ServiceImpl implements User1Service{
 
     @Override
     public int user_save(User1MapperDTO user1MapperDTO) {
-       return user1Mapper.user_save(user1MapperDTO);
+        return user1Mapper.user_save(user1MapperDTO);
 
     }
 
@@ -31,18 +31,13 @@ public class User1ServiceImpl implements User1Service{
 
     @Override
     public int user_delete(String user_id) {
-       return user1Mapper.user_delete(user_id);
+        return user1Mapper.user_delete(user_id);
 
     }
 
     @Override
     public int id_check(String user_id) {
         return user1Mapper.id_check(user_id);
-    }
-
-    @Override
-    public int product_check(CartMapperDTO cartMapperDTO) {
-        return user1Mapper.product_check(cartMapperDTO);
     }
 
     @Override
@@ -53,6 +48,11 @@ public class User1ServiceImpl implements User1Service{
     @Override
     public int phone_check(String user_phone) {
         return user1Mapper.phone_check(user_phone);
+    }
+
+    @Override
+    public int product_check(CartMapperDTO cartMapperDTO) {
+        return user1Mapper.product_check(cartMapperDTO);
     }
 
 //    @Override
