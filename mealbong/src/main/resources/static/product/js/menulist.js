@@ -40,7 +40,6 @@ orderNo = orderList;
               },
         success: function (resultPage) {
           $('#resultArea').html(resultPage);
-            pageNo_color();
         },
         error: function () {
           $('#resultArea').html('~~ Error 발생 !!! ~~~');
@@ -51,6 +50,7 @@ orderNo = orderList;
 
 
 function productList_order2(currPage) {
+    console.log(currPage);
     $.ajax({
         type: 'Get',
         url: 'productList2',

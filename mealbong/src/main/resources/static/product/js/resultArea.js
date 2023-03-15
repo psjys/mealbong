@@ -21,6 +21,26 @@ function productList_order(orderList) {
 
 //productList_order(1);
 
+function productList_order2(currPage) {
+    console.log(currPage);
+    $.ajax({
+        type: 'Get',
+        url: 'productList2',
+        data : {orderKey : orderNo,
+                currPage : currPage,
+                rowsPerPage : 8,
+                category_code : category_code
+              },
+        success: function (resultPage) {
+          $('#resultArea').html(resultPage);
+        },
+        error: function () {
+          $('#resultArea').html('~~ Error 발생 !!! ~~~');
+                      alert("실패");
+        }
+      }); //ajax
+}
+
 
 
 // ===========================================================
