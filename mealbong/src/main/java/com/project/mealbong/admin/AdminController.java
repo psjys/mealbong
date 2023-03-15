@@ -85,8 +85,9 @@ public class AdminController {
     }
 
     // 주문 취소
-    @GetMapping("/orderdelete")
+    @PostMapping("/orderdelete")
     public String order_delete (OrderMapperDTO dto) {
+        System.out.println(dto);
         orderService.delete(dto);
         return "redirect:/admin/orderadmin";
     }
