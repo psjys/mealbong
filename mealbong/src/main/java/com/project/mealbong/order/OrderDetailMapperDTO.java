@@ -6,6 +6,8 @@ import java.time.LocalDate;
 
 @Data
 public class OrderDetailMapperDTO {
+    private String user_id;
+    private String order_status;
     private int order_detail_number;
     private int order_number;
     private int product_number;

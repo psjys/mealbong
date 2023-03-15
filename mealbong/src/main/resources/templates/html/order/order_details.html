@@ -28,8 +28,8 @@
 
         <div class="div1_sub">
             <div class="div1_sub_sub">
-                <a href="/"><img th:src="${detail_list.image_file}" class="div1_a_img1"></a>
-                <a href="/" class="div1_a2" th:text="${detail_list.product_name}">(아시안) 불고기 분짜</a>
+                <a th:href="@{/product/{product_number}(product_number=${detail_list.product_number})}"><img th:src="${detail_list.image_file}" class="div1_a_img1"></a>
+                <a th:href="@{/product/{product_number}(product_number=${detail_list.product_number})}" class="div1_a2" th:text="${detail_list.product_name}">(아시안) 불고기 분짜</a>
 
             </div>
 
@@ -94,13 +94,21 @@
 
             </div>
 
-            
-
             <div>
                 <span class="font-size"><span th:text="${user_info.user_address1}"></span>
                 <span th:text="${user_info.user_address2}"></span></span>
             </div>
+        </div>
 
+        <div class="divBox2">
+            <div class="divBox_sub">
+                <span class="font-size">주문상태</span>
+
+            </div>
+
+            <div>
+                <span class="font-size"><span th:text="${info.order_status}"></span>
+            </div>
         </div>
 
         <div class="orderdiv_Container">
@@ -157,12 +165,25 @@
     
             </div>
         </div>
-
-
     </div>
 
+<th:block th:if="${session['user_id']=='admin'}">
+    <a th:href="@{/admin/useradmin}">
+        <span th:text="${session['user_name']}"></span>&nbsp;님
+    </a>
+</th:block>
+<th:block th:unless="${session['user_id']=='admin'}">
+
+</th:block>
+
     <div class="linkContainer">
+        <th:block th:if="${session['user_id']=='admin'}">
+        <a href="/admin/orderadmin" class="linkButton_details order_delete">돌아가기</a>
+        </th:block>
+        <th:block th:unless="${session['user_id']=='admin'}">
         <a href="/" class="linkButton_details">돌아가기</a>
+        </th:block>
+
     </div>
 
 <!-- footer : 법적 필수 항목 -->

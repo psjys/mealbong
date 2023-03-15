@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -10,67 +10,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/mypage.css">
-    <link rel="stylesheet" href="../../css/mainPage.css">
-    <script defer src="../../js/main_topDiv.js"></script>
+    <link rel="stylesheet" href="../../../order/css/cart.css">
+    <link rel="stylesheet" href="../common/css/modal.css">
+    <link rel="stylesheet" href="../user/css/mypage.css">
+    <link rel="stylesheet" href="../common/css/mainPage.css">
+    <script src="../common/js/jquery-3.2.1.min.js"></script>
+<!--    <script defer src="../common/js/main_topDiv.js"></script>-->
+    <script defer src="../myPage/js/info.js"></script>
 
 
 </head>
 
 <body>
-    <header>
-        <div class="space">
-            <a href="../../html/login/account.html">
-                지금 가입하고 적립금 <b>10,000원</b> 받아가세요!
-            </a>
-            <a class="space-close">
-                <img src="../../image/closeBtn.png">
-            </a>
-
-        </div>
-        <ul class="login">
-            <li><a href="../../html/login/Terms.html">회원가입</a></li>
-            <li><a href="../../html/login/login.html">로그인</a></li>
-        </ul>
-        <div class="flex-box">
-            <a href="#"><img src="../../image/logo4.png" alt="logo" class="logo"></a>
-            <form>
-                <div class="search">
-                    <input type="text" placeholder="검색어를 입력 하세요" required>
-                    <button class="button"><img class="button-set" src="../../image/search.png"></button>
-                </div>
-            </form>
-            <div class="cart_heart">
-                <a href="../../html/my_page/mypage.html" class="mpage" alt="마이페이지"></a>
-                <a href="../../html/login/cart.html" class="cart" alt="장바구니"></a>
-                <a href="../../html/my_page/wish.html" class="heart" alt="찜한 상품"></a>
-            </div>
-        </div>
-        <!-- nav / position : sticky -->
-    </header>
-    <nav>
-        <ul class="menu">
-            <li><a href="../../html/menu_list/Korean_menulist.html">카테고리</a>
-                <ul class="submenu">
-                    <li><a href="../../html/menu_list/Korean_menulist.html">한식</a></li>
-                    <li><a href="../../html/menu_list/Chinese_menulist.html">중식</a></li>
-                    <li><a href="../../html/menu_list/Japanese_menulist.html">일식</a></li>
-                    <li><a href="../../html/menu_list/Western_menulist.html">양식</a></li>
-                    <li><a href="../../html/menu_list/Bunsik_menulist.html">분식/야식</a></li>
-                    <li><a href="../../html/menu_list/Asian_menulist.html">아시안</a></li>
-                </ul>
-            </li>
-            <li><a href="#pop">인기상품</a></li>
-            <li><a href="#recommend">오늘의 추천</a></li>
-            <li><a href="../../html/service_page/notice.html">고객센터</a>
-                <ul class="submenu2">
-                    <li><a href="../../html/service_page/notice.html">공지사항</a></li>
-                    <li><a href="../../html/service_page/faq.html">자주하는 질문</a></li>
-                    <li><a href="../service_page/inquiry/inquiry_list.html">1:1 문의</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+<th:block th:replace="fragments/header :: headerFragement"></th:block>
     <main>
         <div class="mypage">
             <div class="aside">
@@ -79,7 +31,7 @@
                 </div>
                 <ul>
                     <li>
-                        <a href="./mypage.html" class="order">주문 내역
+                        <a href="/myPage?currPage=1&rowsPerPage=8" class="order">주문 내역
                             <span></span>
                         </a>
                     </li>
@@ -99,7 +51,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="info">개인정보 수정
+                        <a href="/myPage/user_update" class="info">개인정보 수정
                             <span></span>
                         </a>
                     </li>
@@ -113,12 +65,13 @@
                     <h4>비밀번호 재확인</h4>
                     <div>회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인해주세요.</div>
                 </div>
-                <form action="./info_correction.html">
+<!--                <a th:href="@{|/user1/${user_detail.user_id}?jCode=U|}">개인정보수정</a>-->
+                <form th:action="@{|/user1/${session['user_id']}|}" id="form_update">
                     <div class="content_info_3">
                         <div class="content_info_3_id">
                             <div>아이디</div>
                             <div>
-                                <input type="text" value="GUEST" readonly>
+                                <input type="text" th:value="${session['user_id']}" readonly>
                             </div>
                         </div>
                         <div class="content_info_3_pw">
@@ -126,37 +79,29 @@
                                 <span></span>
                             </div>
                             <div>
-                                <input type="password" required minlength="8">
+                                <input id="user_password" type="password" required minlength="1">
                             </div>
                         </div>
                     </div>
                     <div class="content_info_4">
-                        <button class="info_button">확인
+                        <button type="button" class="info_button">확인
                         </button>
                     </div>
                 </form>
             </div>
         </div>
     </main>
-    <footer>
-        <hr>
-        <div class="footer">
-            <div><a href="../footer/personal.html"><strong>개인정보처리방침</strong></a></div>
-            <div><a href="../footer/using.html">이용약관</a></div>
-            <div><a href="../service_page/notice.html">공지사항</a></div>
-            <div><a href="/html/service_page/inquriy/inquiry_list.html">1:1 문의</a></div>
+<!-- footer : 법적 필수 항목 -->
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<div class="modal_container hidden">
+    <div class="bg"></div>
+    <div class="modalBox">
+        <p class="modal_p"></p>
+        <div class="closeBtn_div">
+            <button class="closeBtn">확인</button>
         </div>
-
-        <pre>
-    회사명 : MealBong
-    사업자 번호 : 123-45-678910
-    대표자 : 박규민
-    주소 : 경기도 성남시 분당구 돌마로 46
-    연락처 : 031 - 789 - 1234
-    E-mail : abcedfg@gmail.com
-    Copyright © 2022 MealBong. All rights reserved.
-        </pre>
-    </footer>
+    </div>
+</div>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -10,167 +10,141 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/mypage.css">
-    <link rel="stylesheet" href="../../css/mainPage.css">
+    <link rel="stylesheet" href="../user/css/mypage.css">
+    <link rel="stylesheet" href="../common/css/mainPage.css">
     <script defer src="../../js/main_topDiv.js"></script>
 
 </head>
 
 <body>
-    <header>
-        <div class="space">
-            <a href="../../html/login/account.html">
-                지금 가입하고 적립금 <b>10,000원</b> 받아가세요!
-            </a>
-            <a class="space-close">
-                <img src="../../image/closeBtn.png">
-            </a>
+<th:block th:replace="fragments/header :: headerFragement"></th:block>
+<main>
+    <div class="mypage">
+        <div class="aside">
+            <div class="name">
+                <h2>마이페이지</h2>
+            </div>
+            <ul>
+                <li>
+                    <a href="/myPage?currPage=1&rowsPerPage=8" class="order">주문 내역
+                        <span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./review.html" class="review">상품 후기
+                        <span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./wish.html" class="wish">찜한 상품
+                        <span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./address.html" class="address">배송지 관리
+                        <span></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/myPage/user_update" class="info">개인정보 수정
+                        <span></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="content_1">
+                <div>
+                    <h2>주문 내역</h2>
+                    <span>주문 내역을 확인할 수 있습니다.</span>
+                </div>
+            </div>
+            <div class="content_order">
 
-        </div>
-        <ul class="login">
-            <li><a href="../../html/login/Terms.html">회원가입</a></li>
-            <li><a href="../../html/login/login.html">로그인</a></li>
-        </ul>
-        <div class="flex-box">
-            <a href="#"><img src="../../image/logo4.png" alt="logo" class="logo"></a>
-            <form>
-                <div class="search">
-                    <input type="text" placeholder="검색어를 입력 하세요" required>
-                    <button class="button"><img class="button-set" src="../../image/search.png"></button>
-                </div>
-            </form>
-            <div class="cart_heart">
-                <a href="../../html/my_page/mypage.html" class="mpage" alt="마이페이지"></a>
-                <a href="../../html/login/cart.html" class="cart" alt="장바구니"></a>
-                <a href="../../html/my_page/wish.html" class="heart" alt="찜한 상품"></a>
-            </div>
-        </div>
-        <!-- nav / position : sticky -->
-    </header>
-    <nav>
-        <ul class="menu">
-            <li><a href="../../html/menu_list/Korean_menulist.html">카테고리</a>
-                <ul class="submenu">
-                    <li><a href="../../html/menu_list/Korean_menulist.html">한식</a></li>
-                    <li><a href="../../html/menu_list/Chinese_menulist.html">중식</a></li>
-                    <li><a href="../../html/menu_list/Japanese_menulist.html">일식</a></li>
-                    <li><a href="../../html/menu_list/Western_menulist.html">양식</a></li>
-                    <li><a href="../../html/menu_list/Bunsik_menulist.html">분식/야식</a></li>
-                    <li><a href="../../html/menu_list/Asian_menulist.html">아시안</a></li>
-                </ul>
-            </li>
-            <li><a href="#pop">인기상품</a></li>
-            <li><a href="#recommend">오늘의 추천</a></li>
-            <li><a href="../../html/service_page/notice.html">고객센터</a>
-                <ul class="submenu2">
-                    <li><a href="../../html/service_page/notice.html">공지사항</a></li>
-                    <li><a href="../../html/service_page/faq.html">자주하는 질문</a></li>
-                    <li><a href="../service_page/inquiry/inquiry_list.html">1:1 문의</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-    <main>
-        <div class="mypage">
-            <div class="aside">
-                <div class="name">
-                    <h2>마이페이지</h2>
-                </div>
-                <ul>
-                    <li>
-                        <a href="#" class="order">주문 내역
-                            <span></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./review.html" class="review">상품 후기
-                            <span></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./wish.html" class="wish">찜한 상품
-                            <span></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./address.html" class="address">배송지 관리
-                            <span></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./info.html" class="info">개인정보 수정
-                            <span></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="content">
-                <div class="content_1">
-                    <div>
-                        <h2>주문 내역</h2>
-                        <span>주문 내역을 확인할 수 있습니다.</span>
-                    </div>
-                </div>
-                <div class="content_order">
+
+                <th:block th:each="order_list:${order_list}">
+
+
                     <div class="content_order_box">
                         <div class="content_order_box_1">
-                            <span>2022.09.10</span>
-                            <a href="../login/order_details.html">주문내역 상세보기&#62;</a>
+                            <span th:text="${order_list.order_date}">2022.09.10</span>
+                            <a th:href="@{/order/detail(order_number=${order_list.order_number})}">주문내역 상세보기&#62;</a>
                         </div>
                         <div class="content_order_box_2">
                             <div class="image">
-                                <a href="#">
-                                    <img src="../../image/Asian/불고기 분짜(3~4인).jpg" alt="불고기 분짜">
+                                <a th:href="@{/product/{product_number}(product_number=${order_list.product_number})}">
+                                    <img th:src="${order_list.image_file}" alt="불고기 분짜">
                                 </a>
                             </div>
                             <div class="order_list">
                                 <div>
                                     <span>상품명</span>
-                                    <span>(아시안) 불고기 분짜 외 3건</span>
+                                    <span><span th:text="${order_list.product_name}">(아시안) 불고기 분짜</span>
+                                        <th:block th:if="${order_list.order_count > 1}">
+                                            외&nbsp;<span th:text="${order_list.order_count} -1"></span>건
+                                        </th:block>
+                                    </span>
                                 </div>
                                 <div>
                                     <span>주문번호</span>
-                                    <span>202209100001</span>
+                                    <span th:text="${order_list.order_number}">202209100001</span>
                                 </div>
                                 <div>
                                     <span>결제방법</span>
-                                    <span>신용카드</span>
+                                    <span th:text="${order_list.payment}">신용카드</span>
                                 </div>
                                 <div>
                                     <span>결제금액</span>
-                                    <span>52,000원</span>
+                                    <span> <span th:text="${order_list.order_amount}">52,000</span>원</span>
                                 </div>
                             </div>
                             <div class="order_inquiry">
+                                <span th:text="${order_list.order_status}" style="margin-top:16px; margin-right: 30px; font-weight:bold;">배송완료</span>
                                 <button class="order_inquiry_button">
-                                    <a href="../service_page/inquiry/inquiry_form.html">1:1 문의</a>
+                                    <a href="/qna/qnalist">1:1 문의</a>
                                 </button>
                             </div>
                         </div>
 
                     </div>
-                </div>
+                </th:block>
+                <div class="cri_div">
+                    <!-- ** Cri_Paging **
+                       1) FirstPage, Prev -->
+                    <th:block th:if="${pageMaker.prev && pageMaker.spageNo>1}">
+                        <!-- OLD_version -->
+                        <a th:href="@{/order/order_list(currPage=1,rowsPerPage=8)}">FP</a>&nbsp;
+                        <a th:href="@{/order/order_list(currPage=${pageMaker.spageNo-1}, rowsPerPage=8)}">&lt;</a>
+                    </th:block>
+                    <th:block th:unless="${pageMaker.prev && pageMaker.spageNo>1}">
+                        <font color="Gray">FP&nbsp;&lt;&nbsp;&nbsp;</font>
+                    </th:block>
+                    <!-- 2) Display PageNo  -->
+                    <th:block th:each="i: ${#numbers.sequence(pageMaker.spageNo, pageMaker.epageNo)}">
+                        <th:block th:if="${i==pageMaker.cri.currPage}">
+                            <font size="5" color="#ffa07a" th:text="${i}"></font>
+                        </th:block>
+                        <th:block th:unless="${i==pageMaker.cri.currPage}">
+                            <a th:href="@{/order/order_list(currPage=${i}, rowsPerPage=8)}" th:text="${i}"></a>
+                        </th:block>
+                    </th:block>
+
+                    <!-- 3) Next, LastPage -->
+                    <th:block th:if="${pageMaker.next && pageMaker.epageNo > 0}">
+                        <a th:href="@{/order/order_list(currPage=${pageMaker.epageNo+1}, rowsPerPage=8) }"> ></a>
+                        <a th:href="@{/order/order_list(currPage=${pageMaker.lastPageNo}, rowsPerPage=8)}"> LP</a>
+                    </th:block>
+                    <th:block th:unless="${pageMaker.next && pageMaker.epageNo > 0}">
+                        <font color="Gray"> > LP</font>
+                    </th:block>
+                </div> <!--    paging -->
             </div>
         </div>
-    </main>
-    <footer>
-        <hr>
-        <div class="footer">
-            <div><a href="../footer/personal.html"><strong>개인정보처리방침</strong></a></div>
-            <div><a href="../footer/using.html">이용약관</a></div>
-            <div><a href="../service_page/notice.html">공지사항</a></div>
-            <div><a href="/html/service_page/inquriy/inquiry_list.html">1:1 문의</a></div>
-        </div>
-        <pre>
-    회사명 : MealBong
-    사업자 번호 : 123-45-678910
-    대표자 : 박규민
-    주소 : 경기도 성남시 분당구 돌마로 46
-    연락처 : 031 - 789 - 1234
-    E-mail : abcedfg@gmail.com
-    Copyright © 2022 MealBong. All rights reserved.
-        </pre>
-    </footer>
+    </div>
+</main>
+
+<!-- footer : 법적 필수 항목 -->
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </body>
 
 </html>

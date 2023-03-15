@@ -29,20 +29,20 @@ const main = document.querySelector('main'),
 // },5000);
 
 // ======모달참조
-const modal = main.querySelector('.modal_container'),
-    bg = main.querySelector('.bg'),
+const modal = document.querySelector('.modal_container'),
+    bg = document.querySelector('.bg'),
     body = document.querySelector('body'),
     header = document.querySelector('header'),
     modal_p = modal.querySelector('p'),
-    closeBtn = main.querySelector('.closeBtn'),
-    modal_confirm = main.querySelector('.modal_confirm');
+    closeBtn = document.querySelector('.closeBtn'),
+    modal_confirm = document.querySelector('.modal_confirm');
 
 // ====선택체크박스
 const selectAll_box = main.querySelector('.selectAll_box'),
     select_box = main.querySelectorAll('.select_box');
 
  let select_flag = true;
-let cart_number;
+let cart_number = 0;
 All_div.addEventListener('click', () => {
      select_flag = !select_flag;
     let sum = 0;
@@ -90,11 +90,6 @@ for (let i = 0; i < select_box.length; i++) {
 }
 
 
-
-
-// 모달창 넣는거 하셈 ㄱㄱ 컬리 참고
-
-
 //   ======장바구니목록 이벤위임
 btn_addSpan[0].dataset.idx = 1;
 let cnt = 0;
@@ -115,8 +110,7 @@ function cart_update(dir,cart_number) {
 
 cart_div1.addEventListener('click', (e) => {
     const pick = e.target;
-    let dir = 0,
-        cart_number = 0;
+    let dir = 0;
     idx = e.target.parentNode.dataset.idx;
     if (pick.closest('button')) {
             cart_number = pick.parentNode.getAttribute("value");
@@ -185,39 +179,7 @@ cart_div1.addEventListener('click', (e) => {
         cart_number = +pick.childNodes[3].textContent;
         console.log(cart_number);
         modal_f('삭제하시겠습니까?');
-        // console.log(select_value2)
-        //console.log(pick.childNodes[0].textContent);
-        // cnt++;
         idx = +pick.parentNode.previousSibling.previousSibling.dataset.idx;
-        // value = +btn_addSpan[idx].textContent;
-        // tot = +total_price.textContent;
-        // tot2 = +total_price2.textContent;
-        // div1_span[idx].textContent = (+price_value[idx].textContent) * value;
-        // if (+select_box[idx].dataset.flag){
-
-        //     tot = tot - +div1_span[idx].textContent;
-        //     tot2 = tot2 - +div1_span[idx].textContent;
-        //     total_price.textContent = tot;
-        //     total_price2.textContent = tot2;
-        //     val = +select_value1.textContent;
-        //     select_value1.textContent = val - 1;
-        // }
-        // val = +select_value2.textContent;
-        // select_value2.textContent = val - 1;
-        // div1_span[idx].textContent = "0";
-
-        // if(select_value1.textContent == select_value2.textContent) {
-        //     selectAll_box.style.backgroundImage = "url(../../image/check.png)";
-        // }
-
-
-        // if (select_value2.textContent == "0") {
-        //     del_fee.textContent = "0원";
-        //     total_price.textContent = "0";
-        //     selectAll_box.style.backgroundImage = "url(../../image/check2.png)";
-        //     selectAll_box.setAttribute('disabled', '');
-        // }
-        // div1_sub[idx].classList.add('cart_hidden');
     }
 
     if (pick.classList.contains('select_box')) {
@@ -352,6 +314,7 @@ modal_confirm.addEventListener('click',() =>{
 });
 //=============ajax
 function cart_ajax() {
+    console.log(cart_number);
     $.ajax({
        url: "/order/cart_delete",
        type : "POST",
@@ -389,14 +352,12 @@ const nav = document.querySelector('nav');
 const open = () => {
     modal.classList.remove('hidden');
     body.classList.add('scroll_none');
-    header.style.position = 'static';
     nav.style.zIndex = '0';
 }
 
 const close = () => {
     modal.classList.add('hidden');
     body.classList.remove('scroll_none');
-    header.style.position = 'sticky';
     nav.style.zIndex = '2';
 }
 
@@ -414,14 +375,7 @@ let arr2 = new Array();
 test_btn.addEventListener('click',() =>{
     for(let i = 0; i < div1_sub.length; i++) {
         if(div1_sub[i].childNodes[1].childNodes[1].getAttribute('data-flag') == "1") {
-            // console.log(c_number[i]);
             c_number[i].setAttribute("value" , "Y");
-            // console.log("들왓음");
-            // console.log(div1_sub[i]);
-            //arr.push(div1_sub[i]);
-        } else {
-            // console.log("미선택애들");
-            // console.log(div1_sub[i]);
         }
     }
 
@@ -440,16 +394,7 @@ test_btn.addEventListener('click',() =>{
          // order_form.innerHTML = '<input type="hidden" name="o_value" value="'+arr[i]+'">';
           order_form.innerHTML = cart_array.join('');
     order_form.appendChild(total_value);
-    // arr = JSON.stringify(arr);
-    // arr2 = JSON.stringify(arr2);
-    //console.log(arr);
-    //console.log(div1_sub[0].childNodes[1].childNodes[1].getAttribute('data-flag') == "1");
-
-
 order_form.submit();
-
-
-
 
 });
 

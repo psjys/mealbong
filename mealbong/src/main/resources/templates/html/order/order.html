@@ -31,10 +31,10 @@
         <div class="div1_sub">
             <div class="div1_sub_sub">
 
-                <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html" >
+                <a th:href="@{/product/{product_number}(product_number=${product.product_number})}" >
                     <img th:src="${product.image_file}" class="div1_a_img4" alt="상품 이미지">
                 </a>
-                <a th:text="${product.product_name}" href="../food_info/Asian_FoodInfo/Asian_Bunzza.html" class="div1_a2"></a>
+                <a th:text="${product.product_name}" th:href="@{/product/{product_number}(product_number=${product.product_number})}" class="div1_a2"></a>
 
             </div>
 

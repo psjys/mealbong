@@ -14,12 +14,12 @@ nav = document.querySelector('nav'),
     login_form = document.getElementById('login_form');
 
 // ======모달참조
-const modal = main.querySelector('.modal_container'),
-bg = main.querySelector('.bg'),
+const modal = document.querySelector('.modal_container'),
+bg = document.querySelector('.bg'),
 body = document.querySelector('body'),
 header = document.querySelector('header'),
 modal_p = modal.querySelector('p'),
-closeBtn = main.querySelector('.closeBtn');
+closeBtn = document.querySelector('.closeBtn');
 
 let value1;
 let test;

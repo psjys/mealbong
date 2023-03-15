@@ -525,3 +525,15 @@ nav ul li:nth-child(4):hover .submenu2 {
     display: none;
 }
 
+body .modalBox {
+    position: absolute;
+    background-color: #fff;
+    top: 35%;
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}

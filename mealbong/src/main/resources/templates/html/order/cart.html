@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 밀키트 쇼핑몰 :: Meal Bong </title>
+    <link rel="stylesheet" href="../order/css/cart.css">
     <link rel="stylesheet" href="../common/css/modal.css">
     <link rel="stylesheet" href="../common/css/mainPage.css">
-    <link rel="stylesheet" href="../order/css/cart.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
@@ -36,10 +36,11 @@
                     <div class="div1_sub">
                         <div class="div1_sub_sub">
                             <span class="select_box" data-flag="1"></span>
-                            <a href="../food_info/Asian_FoodInfo/Asian_Bunzza.html" >
+
+                            <a th:href="@{/product/{product_number}(product_number=${cart_list.product_number})}" >
                                 <img th:src="${cart_list.image_file}" class="div1_a_img1" alt="상품 이미지">
                             </a>
-                            <a th:text="${cart_list.product_name}" href="../food_info/Asian_FoodInfo/Asian_Bunzza.html" class="div1_a2"></a>
+                            <a th:text="${cart_list.product_name}" th:href="@{/product/{product_number}(product_number=${cart_list.product_number})}" class="div1_a2"></a>
 
                         </div>
 
@@ -97,7 +98,7 @@
                         <div class="subdiv2_box3">
                             <span>결제예정금액</span>
                             <div>
-                                <span th:text="${total2 + fee}" class="total_price">43000</span><span>원</span>
+                                <span th:text="${total + fee}" class="total_price">43000</span><span>원</span>
                             </div>
 
                         </div>
@@ -118,29 +119,26 @@
         </div>
 
     </div>
-    <button><a href="/order/order_list?currPage=1&rowsPerPage=8">주문목록</a></button>
+
+</main>
+<!--<button id="test_btn">테스트</button>-->
+<form action="/order/order_form" method="get" id="order_form">
+    <input id="total_value" th:value="${total + fee}" name="total" type="hidden">
+</form>
+
+<!-- footer : 법적 필수 항목 -->
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
 
     <div class="modal_container hidden">
         <div class="bg"></div>
         <div class="modalBox">
             <p></p>
             <div class="closeBtn_div">
-                <div class="modal_zz">
+                    <button class="modal_confirm">확인</button>
                     <button class="closeBtn">취소</button>
-                    <button class="closeBtn modal_confirm">확인</button>
-                </div>
             </div>
         </div>
     </div>
-
-</main>
-<!--<button id="test_btn">테스트</button>-->
-<form action="/order/order_form" method="post" id="order_form">
-    <input id="total_value" th:value="${total2 + fee}" name="total" type="hidden">
-</form>
-
-<!-- footer : 법적 필수 항목 -->
-<th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </body>
 
 

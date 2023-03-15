@@ -18,4 +18,5 @@ public class OrderMapperDTO {
     private String image_file;
     private int sno;
     private int rowsPerPage;
+    private int product_number;
 }

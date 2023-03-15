@@ -28,15 +28,6 @@
     <main>
 
             <input type="text" class="failed_flag hidden" th:value="${failed}">
-            <div class="modal_container hidden">
-                <div class="bg"></div>
-                <div class="modalBox">
-                    <p>아이디를 입력해주세요.</p>
-                    <div class="closeBtn_div">
-                        <button class="closeBtn">확인</button>
-                    </div>
-                </div>
-            </div>
 
         <div class="login_frame">
             <div class="login_text">로그인</div>
@@ -88,6 +79,15 @@
 
 <!-- footer : 법적 필수 항목 -->
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+            <div class="modal_container hidden">
+                <div class="bg"></div>
+                <div class="modalBox">
+                    <p>아이디를 입력해주세요.</p>
+                    <div class="closeBtn_div">
+                        <button class="closeBtn">확인</button>
+                    </div>
+                </div>
+            </div>
 
 </body>
 

@@ -23,9 +23,7 @@ const main = document.querySelector('main'),
     pwCheck = main.querySelector('.pwCheck'),
     user_password3 = document.getElementById('user_password3'),
     user_birth = document.getElementById('user_birth'),
-    gender_div = document.getElementById('gender_div'),
-    btn_test = document.getElementById('btn_test');
-
+    gender_div = document.getElementById('gender_div');
    // let userZip = main.querySelector('.userZip');
 
 
@@ -45,152 +43,7 @@ const modal = main.querySelector('.modal_container'),
  const regPass = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*+=-])(?=.*[0-9]).{5,20}$/;
  const regMail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 //
-// // ===================================================
-//
-//
-let clr1,clr2,clr3;
-// checkBtn1.addEventListener('click', () => {
-//     const result = regex.test(uid.value);
-//
-//     if (result) {
-//         modal_f("사용할 수 있는 아이디 입니다");
-//         clr1 = true;
-//     }
-//     else {
-//         modal_f("6자 이상 16자 이하의 영문 혹은 영문과 숫자를 조합");
-//     }
-//
-// });
-//
-// uid.addEventListener('keydown', () => {
-//     setTimeout(() => {
-//         if (clr1) {
-//             clr1 = false;
-//         }
-//     }, 50)
-// });
-//
-// umail.addEventListener('keydown',() => {
-//
-//     setTimeout(() => {
-//         if (clr2) {
-//             clr2 = false;
-//         }
-//     }, 50)
-// });
-//
-// phone.addEventListener('keydown', ()=> {
-//     setTimeout(()=>{
-//         if(clr3) {
-//             clr3 = false;
-//         }
-//     },50)
-// })
-//
-// upw.addEventListener('keydown', () => {
-//     setTimeout(()=>{
-//         const result = regPass.test(upw.value);
-//         upw_input(account_p,result);
-//
-//
-//     },50)
-// });
-//
-// upw2.addEventListener('keydown', () => {
-//     setTimeout(()=>{
-//         const check = upw.value == upw2.value
-//         upw_input(account_p2,check);
-//
-//
-//     },50)
-// });
-//
-// function upw_input(zz,iff) {
-//     if (iff) {
-//         zz.classList.add('account_hidden');
-//     } else {
-//         zz.classList.remove('account_hidden');
-//     }
-// }
-//
-// checkBtn2.addEventListener('click', () => {
-//     const result = regMail.test(umail.value);
-//
-//     if (result) {
-//         modal_f("사용할 수 있는 이메일 입니다");
-//         clr2 = true;
-//     } else if (umail.value == "") {
-//         modal_f("이메일을 입력해 주세요")
-//     }
-//     else {
-//         modal_f("이메일 형식으로 입력해 주세요");
-//     }
-//
-// });
-//
-// phone.addEventListener('keydown',() => {
-//     setTimeout(() => {
-//         nmph_input(checkBtn3,phone.value.length >= 11);
-//     }, 50);
-// } );
-//
-// function nmph_input(zz,iff) {
-//     if (iff) {
-//
-//         zz.style.background = "lightSalmon";
-//         zz.style.cursor = "pointer";
-//         zz.removeAttribute('disabled');
-//         zz.classList.remove('button_opacity');
-//     } else {
-//
-//         zz.classList.add('button_opacity');
-//         zz.style.cursor = "default";
-//         zz.setAttribute('disabled', '');
-//     }
-// }
-//
-// checkBtn3.addEventListener('click', () => {
-//     modal_f("인증번호가 발송되었습니다. 인증번호를 입력해 주세요.");
-//     Btn4_box.style.display = "flex";
-// });
-//
-// // ======폰번인증
-//
-// checkBtn4.addEventListener('click', () => {
-//     if (phone_num.value == "1234567") {
-//         modal_f("인증완료");
-//         phone_num.value = "";
-//         checkBtn4.classList.add('button_opacity');
-//         checkBtn4.style.cursor = "default";
-//         checkBtn4.setAttribute('disabled', '');
-//         Btn4_box.style.display = "none";
-//
-//         clr3 = true;
-//     } else {
-//         modal_f("잘못된 인증코드입니다.");
-//     }
-// });
-//
-// phone_num.addEventListener('keydown', () => {
-//     setTimeout(() => {
-//         nmph_input(checkBtn4,phone_num.value.length >= 7);
-//     }, 50);
-// });
-//
-//
-// // =====전송버튼
-//
 button_submit.addEventListener('click', () => {
-   // const clrCheck = clr1 ==true && clr2 == true && clr3 == true;
-
-    //userZip = +userZip;
-    //if(clrCheck && upw.value == upw2.value && uname.value != "" && address_input.value != "") {
-
-    // if(clrCheck && upw.value == upw2.value && uname.value != "" && address_input.value != "") {
-    //    button_submit.setAttribute('type','submit');
-    // } else {
-    //     modal_f("양식을 확인해주세요");
-    // }
 
     if(upw.value != upw2.value) {
         modal_f("6자이상 동일 비밀번호 입력");
@@ -217,47 +70,6 @@ gender_div.addEventListener('click',(e)=>{
     }
 });
 
-
-
-// $.ajax({
-//     url: "/user1/id_check",
-//     type: "POST",
-//     dataType : "JSON",
-//     data : {"user_id" : $(user_id).val()},
-//     success : function (data) {
-//         if(data == 1) {
-//             modal_f("중복된 아이디 입니다.");
-//         } else if (data == 0) {
-//             modal_f("사용 가능한 아이디 입니다.");
-//             idCheck.classList.add('button_opacity');
-//             idCheck.style.cursor = "default";
-//             idCheck.setAttribute('disabled', '');
-//             user_id.setAttribute('readonly','');
-//             $(idCheck).attr("value","Y");
-//         }
-//     }
-// });
-
-// user_id = document.getElementById('user_id'),
-//     idCheck = main.querySelector('.idCheck'),
-//     emailCheck = main.querySelector('.emailCheck'),
-//     upw = document.getElementById('upw'),
-//     upw2 = document.getElementById('upw2'),
-//     user_email = document.getElementById('user_email'),
-//     phoneCheck = main.querySelector('.phoneCheck'),
-//     user_phone = document.getElementById('user_phone'),
-//     phone_num = document.getElementById('phone_num'),
-//     checkBtn4 = main.querySelector('.checkBtn4'),
-//     Btn4_box = main.querySelector('.Btn4_box'),
-//     button_submit = main.querySelector('.button_submit'),
-//     uname = document.getElementById('uname'),
-//     addressbutton = document.querySelector('.addressbutton'),
-//     account_p = main.querySelector('.account_p'),
-//     account_p2 = main.querySelector('.account_p2'),
-//     address_input = document.getElementById('address_input'),
-//     pwCheck = main.querySelector('.pwCheck'),
-//     user_password3 = document.getElementById('user_password3'),
-//     user_birth = document.getElementById('user_birth');
 
 // // =======주소검색
 //
@@ -324,9 +136,7 @@ function account_create() {
     });
 }
 
-btn_test.addEventListener('click',()=>{
-   account_create();
-});
+
 function id_check() {
     $.ajax({
         url: "/user1/id_check",
@@ -370,18 +180,6 @@ function email_check() {
     });
 }
 //
-// function pw_check() {
-//     $.ajax({
-//         url: "/user1/delete",
-//         type: "POST",
-//         dataType : "JSON",
-//         data : {"user_password" : $(user_password3).val()},
-//         success : function (data) {
-//             console.log(data);
-//                 modal_f("현재 비밀번호가 틀렸습니다.");
-//         }
-//     });
-// }
 
 function phone_check() {
     $.ajax({
@@ -404,16 +202,6 @@ function phone_check() {
         }
     });
 }
-// pwCheck.addEventListener('click',() =>{
-//
-//      if (user_password3.value == "") {
-//          modal_f("비밀번호를 입력해 주세요")
-//      }
-//     else {
-//          pw_check();
-//     }
-// });
-
 
 idCheck.addEventListener('click',() =>{
         const result = regex.test(user_id.value);
