@@ -37,9 +37,6 @@ public class ProductController {
         cri.setCurrPage(currPage);
         cri.setOrderKey(orderKey);
 
-        System.out.println("엄상호 화이팅!!!" + cri);
-        System.out.println("송강현 와이팅!!" +  productService.criList(cri));
-
         mv.addObject("productList", productService.criList(cri));
         mv.addObject("code_number", productService.categoryList());
 
