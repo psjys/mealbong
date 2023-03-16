@@ -393,3 +393,8 @@ main {
 .submit_div {
     position: relative;
 }
+
+#qna_form,
+.content_inquiry_form {
+    margin-bottom: 10px;
+}
