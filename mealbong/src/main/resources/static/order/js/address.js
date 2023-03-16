@@ -16,9 +16,11 @@ content_address.addEventListener('click', function (e) {
 
     // console.log(e.target.closest("input").value);
     if (e.target.closest('button')) {
-        event.preventDefault(e.target);
+        e.preventDefault();
         address_fix_content.classList.remove('hidden');
-        document.querySelector('.fix_number').value = e.target.getAttribute("data-number");
+        document.querySelector('.fix_number1').value = e.target.getAttribute("data-number");
+        document.querySelector('.fix_number2').value = e.target.getAttribute("data-number");
+
         document.querySelector('.fix_address1').value = e.target.getAttribute("data-add1");
         document.querySelector('.fix_address2').value = e.target.getAttribute("data-add2");
         document.querySelector('.fix_name').value = e.target.getAttribute("data-name");
