@@ -375,5 +375,6 @@ main {
 .cri_div a {
     color: gray;
     text-decoration: none;
+    cursor:pointer;
 }
 

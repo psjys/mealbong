@@ -25,9 +25,9 @@ const modal1 = document.querySelector('.modal_container'),
     body1 = document.querySelector('body'),
     header1 = document.querySelector('nav'),
     modal_p1 = modal1.querySelector('p'),
-    closeBtn1 = document.querySelector('.closeBtn'),
+    closeBtn1 = document.querySelectorAll('.closeBtn'),
     basket1 = document.querySelectorAll('.basket'),
-    nav = document.querySelector('nav'),
+//    closeBtnn = document.querySelector('.closeBtn'),
     user_id=document.getElementById("user_id"),
     product_number = document.getElementById("product_number");
 
@@ -49,8 +49,10 @@ function modal_f(str) {
     open1();
     modal_p1.textContent = str;
 }
+for(let i =0; i<closeBtn1.length; i++){
+    closeBtn1[i].addEventListener('click', close1);
+}
 
-closeBtn1.addEventListener('click', close1);
 bg1.addEventListener('click', close1);
 
 /* ===================== 좋아요 modal box ==================== */
@@ -66,9 +68,11 @@ function login_check2(){
         if(data == 0){
             modal_f("로그인 하셔야 본 서비스를 이용하실 수 있습니다.");
 
-            closeBtnn.addEventListener('click', ()=> {
-            window.location.href="/user1/login";
-            })
+            for(let i =0; i<closeBtn1.length; i++){
+                closeBtn1[i].addEventListener('click', ()=> {
+                window.location.href="/user1/login";
+                })
+            }
 
         } else if (data == 1) {
             product_check2();
