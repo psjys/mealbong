@@ -691,7 +691,7 @@ main {
 }
 
 .content_address_box div button {
-    background: url(../image/fix.png) no-repeat center/100%;
+    background: url(../../image/fix.png) no-repeat center/100%;
     width: 24px;
     height: 24px;
     cursor: pointer;
@@ -1039,6 +1039,15 @@ main {
 .content_wish_box .name_price div {
     padding: 5px;
     box-sizing: border-box;
+}
+
+.wish_button {
+    border: none;
+    background: none;
+    width: 1px;
+    height: 1px;
+
+    cursor: pointer;
 }
 
 /* 마이페이지 - 상품 후기*/
@@ -1464,7 +1473,7 @@ main {
 }
 
 .minus_goods {
-    background: url(../image/minus.png) no-repeat center/100%;
+    background: url(../../image/minus.png) no-repeat center/100%;
     border: none;
     height: 30px;
     width: 16px;
@@ -1472,7 +1481,7 @@ main {
 }
 
 .plus_goods {
-    background: url(../image/plus.png) no-repeat center/100%;
+    background: url(../../image/plus.png) no-repeat center/100%;
     border: none;
     height: 20px;
     width: 20px;

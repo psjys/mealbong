@@ -320,7 +320,7 @@ function cart_ajax() {
        type : "POST",
         data : {"cart_number" : cart_number},
         success: function(data) {
-           console.log(data);
+            self.location.href='/order/cart';
         }
     });
 }

@@ -218,7 +218,6 @@ public class OrderController {
     public int cart_delete(CartMapperDTO cartMapperDTO) {
 
         log.info("테스트테스트" + cartMapperDTO.getCart_number());
-//        log.info("테스트테스트2" + cart_number);
         cs.cart_delete(cartMapperDTO.getCart_number());
         return 1;
     }
@@ -237,7 +236,7 @@ public class OrderController {
 
 
     @ResponseBody
-    @GetMapping("wishInsert") // Wish 등록
+    @PostMapping("wishInsert") // Wish 등록
     public int wish_insert(ProductDTO productDTO){
 
         return cs.wish_insert(productDTO);
