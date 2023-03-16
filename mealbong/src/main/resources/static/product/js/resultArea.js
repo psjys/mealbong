@@ -151,7 +151,7 @@ $.ajax({
 function songTest2(){
     // 찜한 상품에 담기
     $.ajax({
-        url: "/order/cartInsert",
+        url: "/order/wishInsert",
             type: "POST",
             dataType : "JSON",
             data: {
@@ -159,7 +159,6 @@ function songTest2(){
             "product_number" : $(product_number).val()
             }, // data
             success: function (data) {
-//              modal_f("장바구니에 상품을 담았습니다.");
                if(data == 1){
                 modal_f("찜한 상품에 상품을 담았습니다.");
                } else {

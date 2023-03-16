@@ -32,7 +32,7 @@
 
 
     <insert id="wish_insert">
-        insert into wish(user_id,product_number) values
+        insert into wishlist(user_id, product_number) values
             (#{user_id},#{product_number});
     </insert>
 
