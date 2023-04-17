@@ -7,10 +7,10 @@ const main = document.querySelector('main'),
     content_wish_box = content_wish.querySelectorAll('.content_wish_box'),
     wish_delete = main.querySelectorAll('.wish_delete'),
     wish_put = main.querySelectorAll('.wish_put'),
-    delet_modal_content = main.querySelector('.delet_modal_content'),
+    delete_modal_content = main.querySelector('.delet_modal_content'),
     put_modal_content = main.querySelector('.put_modal_content'),
-    modal_p = delet_modal_content.querySelector('p'),
-    delet_Btn = delet_modal_content.querySelectorAll('.delet_Btn'),
+    modal_p = delete_modal_content.querySelector('p'),
+    delete_Btn = delete_modal_content.querySelectorAll('.delet_Btn'),
     goods_name = put_modal_content.querySelector('.goods_name'),
     goods_prize = put_modal_content.querySelector('.goods_prize'),
     goods_button = put_modal_content.querySelector('.goods_button'),
@@ -23,7 +23,7 @@ const main = document.querySelector('main'),
 // =========================  wish ==========================//
 // 취소 모달창
 
-let delet_target;
+let delete_target;
 const nav = document.querySelector('nav');
 
 const open = () => {
@@ -33,19 +33,19 @@ const open = () => {
 }
 
 const close = () => {
-    delet_modal_content.classList.add('hidden');
+    delete_modal_content.classList.add('hidden');
     put_modal_content.classList.add('hidden');
     body.classList.remove('scroll_none');
     header.style.position = 'sticky';
     nav.style.zIndex = '2';
 }
 
-delet_Btn[0].addEventListener('click', function () {
+delete_Btn[0].addEventListener('click', function () {
     close();
-    delet_target.classList.add('hidden');
+    delete_target.classList.add('hidden');
 })
 
-delet_Btn[1].addEventListener('click', close);
+delete_Btn[1].addEventListener('click', close);
 
 // 담기 모달창 // 담기 수정 해야함! 
 
@@ -80,7 +80,7 @@ function putGoods() {
 content_wish.addEventListener('click', function (e) {
     const eventOj = e.target.closest('button');
     if (this.contains(eventOj)) {
-        delet_target = e.target.parentNode.parentNode;
+        delete_target = e.target.parentNode.parentNode;
         if (eventOj.textContent == "담기") {
             gCount = 1;
             open();
@@ -93,7 +93,7 @@ content_wish.addEventListener('click', function (e) {
             tot_goods_prize.innerHTML = `<span>${(gPrize * gCount).toLocaleString()}원</span>`
         } else {
             open();
-            delet_modal_content.classList.remove('hidden');
+            delete_modal_content.classList.remove('hidden');
             modal_p.textContent = "삭제하시겠습니까?";
         }
     }
