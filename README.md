@@ -1,7 +1,8 @@
-# mealbong
-
 ## 📍 프로젝트명
-### 밀키트 쇼핑몰 < MealBong >
+
+#### 밀키트 쇼핑몰 < MealBong >
+
+<img src="https://user-images.githubusercontent.com/110727837/234338732-8eb48541-e742-41f2-94ef-29fc24e6f899.png">
 
 <br>
 
